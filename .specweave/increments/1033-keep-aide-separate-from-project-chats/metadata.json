@@ -1,0 +1,17 @@
+{
+  "id": "1033-keep-aide-separate-from-project-chats",
+  "uuid": "5ad4dd91-da1d-469d-b537-368268e70a57",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-23T17:36:07.382Z",
+  "updated": "2026-10-24T00:13:44.773Z",
+  "lastActivity": "2026-10-24T00:13:44.773Z",
+  "title": "Keep Aide separate from project chats",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T00:13:44.772Z",
+  "approvedAt": "2026-10-24T00:13:44.773Z"
+}

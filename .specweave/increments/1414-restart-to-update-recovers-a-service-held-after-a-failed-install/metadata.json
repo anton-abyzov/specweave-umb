@@ -1,0 +1,18 @@
+{
+  "id": "1414-restart-to-update-recovers-a-service-held-after-a-failed-install",
+  "uuid": "c7128634-2fe9-4dd7-92e5-497479726054",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-18T15:43:25.488Z",
+  "updated": "2026-11-19T18:13:09.728Z",
+  "lastActivity": "2026-11-19T18:13:09.728Z",
+  "title": "Restart to update recovers a service held after a failed install",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-19T18:13:09.726Z",
+  "approvedAt": "2026-11-19T18:13:09.728Z"
+}

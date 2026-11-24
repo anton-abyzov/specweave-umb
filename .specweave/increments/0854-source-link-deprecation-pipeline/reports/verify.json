@@ -1,0 +1,371 @@
+{
+  "ok": false,
+  "ranAt": "2026-10-27T21:14:19.180Z",
+  "increment": "0854-source-link-deprecation-pipeline",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform/0854-isolated-runtime && PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never node_modules/.bin/vitest run check-source SourceLinkAndBanner.test.tsx src/lib/cron/__tests__/source-probe.test.ts src/lib/cron/__tests__/stale-source-sweep.test.ts --maxWorkers=4",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 12,
+    "done": 0,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-US1-01",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-004",
+            "status": "done"
+          },
+          {
+            "id": "T-017",
+            "status": "done"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          },
+          {
+            "id": "T-020",
+            "status": "done"
+          },
+          {
+            "id": "T-022",
+            "status": "done"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US1-02",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-004",
+            "status": "done"
+          },
+          {
+            "id": "T-005",
+            "status": "done"
+          },
+          {
+            "id": "T-006",
+            "status": "done"
+          },
+          {
+            "id": "T-015",
+            "status": "done"
+          },
+          {
+            "id": "T-016",
+            "status": "done"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          },
+          {
+            "id": "T-022",
+            "status": "done"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US1-03",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-003",
+            "status": "done"
+          },
+          {
+            "id": "T-004",
+            "status": "done"
+          },
+          {
+            "id": "T-005",
+            "status": "done"
+          },
+          {
+            "id": "T-015",
+            "status": "done"
+          },
+          {
+            "id": "T-017",
+            "status": "done"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          },
+          {
+            "id": "T-022",
+            "status": "done"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-01",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-002",
+            "status": "done"
+          },
+          {
+            "id": "T-017",
+            "status": "done"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          },
+          {
+            "id": "T-020",
+            "status": "done"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-02",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-001",
+            "status": "done"
+          },
+          {
+            "id": "T-002",
+            "status": "done"
+          },
+          {
+            "id": "T-016",
+            "status": "done"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-01",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-011",
+            "status": "done"
+          },
+          {
+            "id": "T-013",
+            "status": "skipped"
+          },
+          {
+            "id": "T-018",
+            "status": "open"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-02",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-011",
+            "status": "done"
+          },
+          {
+            "id": "T-014",
+            "status": "skipped"
+          },
+          {
+            "id": "T-018",
+            "status": "open"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-03",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-011",
+            "status": "done"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-01",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-007",
+            "status": "done"
+          },
+          {
+            "id": "T-008",
+            "status": "done"
+          },
+          {
+            "id": "T-018",
+            "status": "open"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          },
+          {
+            "id": "T-021",
+            "status": "done"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-02",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-007",
+            "status": "done"
+          },
+          {
+            "id": "T-008",
+            "status": "done"
+          },
+          {
+            "id": "T-015",
+            "status": "done"
+          },
+          {
+            "id": "T-016",
+            "status": "done"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          },
+          {
+            "id": "T-021",
+            "status": "done"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-03",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-009",
+            "status": "done"
+          },
+          {
+            "id": "T-010",
+            "status": "done"
+          },
+          {
+            "id": "T-018",
+            "status": "open"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-04",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-007",
+            "status": "done"
+          },
+          {
+            "id": "T-018",
+            "status": "open"
+          },
+          {
+            "id": "T-019",
+            "status": "open"
+          },
+          {
+            "id": "T-021",
+            "status": "done"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 22,
+    "done": 18,
+    "skipped": 2,
+    "open": 2
+  },
+  "skipped": [
+    {
+      "id": "T-013",
+      "by": "claude@antons-macbook-m4max",
+      "reason": "Moot: the dry-run's check that kie-ai appears in the deprecate list can no longer pass, because kie-ai is already isDeprecated=true in prod (live API, updatedAt 2026-05-27T18:34:39Z) and the script selects only isDeprecated:false skills (scripts/backfill-stale-source.ts:139). The script's flags are verified in T-011. A prod dry-run to size any remaining backlog needs Anton's go-ahead: npx tsx scripts/backfill-stale-source.ts --dry-run."
+    },
+    {
+      "id": "T-014",
+      "by": "claude@antons-macbook-m4max",
+      "reason": "Goal already met in production. curl https://verified-skill.com/api/v1/skills/stephengpope/thepopebot/kie-ai on 2026-10-20 returns skill.isDeprecated=true, updatedAt 2026-05-27T18:34:39Z. That was during 0854 development, before the 72c610d3 commit (20:32Z), so neither the stale-source-sweep cron nor this backfill did it. The ongoing backlog is drained by the hourly sweep (build-worker-entry.ts LIGHT cohort, minute 0) in the live build d52c2d5f, which removes skills from the shards. Running scripts/backfill-stale-source.ts against prod for any remaining backlog still needs Anton's go-ahead."
+    }
+  ],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

@@ -1,0 +1,11 @@
+▶ node /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/verify-stable-install.mjs
+▶ cd /tmp/specweave-0881-root && node scripts/e2e/project-hub-e2e.mjs --browser && node scripts/e2e/brand-parity.mjs
+▶ node /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/native-install-smoke.mjs && node /tmp/specweave-0881-root/scripts/e2e/bounded-scans.mjs
+▶ cd /tmp/specweave-0881-root && npm run validate:versions && npm run lint:skills && npm run lint:docs-refs
+ok   node /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/verify-stable-install.mjs (exit 0)
+ok   cd /tmp/specweave-0881-root && node scripts/e2e/project-hub-e2e.mjs --browser && node scripts/e2e/brand-parity.mjs (exit 0)
+ok   node /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/native-install-smoke.mjs && node /tmp/specweave-0881-root/scripts/e2e/bounded-scans.mjs (exit 0)
+ok   cd /tmp/specweave-0881-root && npm run validate:versions && npm run lint:skills && npm run lint:docs-refs (exit 0)
+ACs 9/9 · tasks 7/7 done (0 skipped)
+PASS → /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0881-portable-project-hub/reports/verify.md
+Next: specweave complete 0881-portable-project-hub

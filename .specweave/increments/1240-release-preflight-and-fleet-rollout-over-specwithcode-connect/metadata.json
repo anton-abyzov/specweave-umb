@@ -1,0 +1,15 @@
+{
+  "id": "1240-release-preflight-and-fleet-rollout-over-specwithcode-connect",
+  "uuid": "2481e171-2126-4632-a1a4-96dab5c8fd2c",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-04T19:56:07.575Z",
+  "updated": "2026-11-04T21:39:02.834Z",
+  "lastActivity": "2026-11-04T21:39:02.834Z",
+  "title": "Release preflight and fleet rollout over SpecWithCode Connect",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T21:39:02.833Z",
+  "approvedAt": "2026-11-04T21:39:02.834Z"
+}

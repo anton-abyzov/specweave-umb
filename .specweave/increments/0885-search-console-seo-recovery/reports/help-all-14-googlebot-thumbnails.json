@@ -1,0 +1,100 @@
+[
+  {
+    "url": "https://easychamp.com/media/help/create-league-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 122542,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/create-league-ipad-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 107453,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/teams-players-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 134286,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/import-csv-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 81030,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/schedule-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 87725,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/results-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 105029,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/results-ipad-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 86884,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/registration-fees-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 109785,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/stripe-payouts-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 126727,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/club-programs-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 163434,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/customize-pages-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 134786,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/menu-theme-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 188625,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/go-live-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 139817,
+    "jpegMagic": true
+  },
+  {
+    "url": "https://easychamp.com/media/help/publish-facility-desktop-poster.jpg",
+    "status": 200,
+    "contentType": "image/jpeg",
+    "bytes": 133758,
+    "jpegMagic": true
+  }
+]

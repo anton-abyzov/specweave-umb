@@ -1,0 +1,24 @@
+{
+  "id": "0923-shared-connections-discovery-and-tool-matrix",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-14T21:03:02.661Z",
+  "updated": "2026-10-14T21:35:14.883Z",
+  "lastActivity": "2026-10-14T21:35:14.883Z",
+  "title": "Shared connections discovery and tool matrix",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2483",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2483",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-14T21:35:22.889Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-14T21:35:14.882Z",
+  "approvedAt": "2026-10-14T21:35:14.883Z"
+}

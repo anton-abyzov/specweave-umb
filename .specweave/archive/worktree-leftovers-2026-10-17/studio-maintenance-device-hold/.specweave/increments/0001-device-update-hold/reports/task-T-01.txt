@@ -1,0 +1,18 @@
+$ node node_modules/vite-plus/bin/vp test run apps/server/src/device/LocalDeviceHost.test.ts apps/server/src/device/DeviceService.test.ts apps/server/src/serviceUpdate/ServiceUpdateHold.test.ts
+# exit 0 — 2026-10-16T20:46:08.095Z
+
+
+ RUN  v5.0.1 /Users/antonabyzov/Projects/github/studio-maintenance-device-hold-20261016
+
+(node:96388) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  3 passed (3)
+      Tests  65 passed (65)
+   Start at  16:46:02
+   Duration  5.74s (transform 53%, tests 26%, import 21%)
+
+  Transform  transforming modules took 4.24s · 53% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

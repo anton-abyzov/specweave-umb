@@ -1,0 +1,11 @@
+# Final documentation gates — T31
+
+A complete docs-site unit run at59fd2c4d5 reported15failures/185passes. An independent same-dependency replay on publishedv2.0.3 reproduced12of those failures exactly. The three added failures expected the former Learn/Enterprise navbar and Discussions support destination; the redesigned site intentionally exposes Product, Integrations, Docs and Verified Skills, and links support to the active GitHub Issues page.
+
+The three current contracts now assert the actual destinations, not just labels. No test was removed or skipped. Two existing config tests also exposed that publishedv2.0.3 already used onBrokenLinks:'warn'. The gate is restored to'throw'. Documentation links now use canonical destinations instead of old redirect aliases, while public redirects remain for incoming external links. Independent review also caught semantically misleading replacements: the unavailable implementation/Reflect guides are now plain historical references, a category overview is labeled as such, and the installation link no longer promises MCP Tool Search documentation. The source page template is marked draft so placeholder links do not ship as a real page.
+
+Final strict production build passes with no broken-link report: docs-strict-build.log. Fourteen config/sidebar/footer tests pass: docs-current-contracts.log. Complete docs suite is retained in docs-final-suite.log, with the remaining unchanged-baseline component failures explicitly reported. The baseline details are in docs-baseline-audit.md/json.
+
+No runtime/package implementation changed. This documentation-only change strengthens build validation rather than weakening tests to conceal problems. External link availability remains covered separately by the recursive link checker.
+
+The pre-commit whole-file scanner flagged the security tutorial’s existing example connection URI/assignment. A byte comparison against committedHEAD verified that the entire file differs only in one documentation URL; no example or credential text changed. All other staged files passed the scan. Used a one-command hooksPath override for this confirmed unchanged-example false positive; no repository hook configuration was modified.

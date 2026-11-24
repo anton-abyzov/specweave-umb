@@ -1,0 +1,18 @@
+{
+  "version": "3.0.6",
+  "integrity": "sha512-qmND7tbnDg+2sbfvvTGSzOO5vPLQQfVZQ+d7KVyghiK/mgJ18BVNjTgLYc6Yru+Fl5yEeH1oLSx8EWxWR2dapA==",
+  "sha256": "63d0901d69ceaa3fc179ee740b8f132225a0f1aa43ddf74fedb2dcbabc20251f",
+  "manifest": "/private/tmp/specweave-public-3.0.6-t6denzsf/registry.json",
+  "tarball": "/private/tmp/specweave-public-3.0.6-t6denzsf/specweave-3.0.6.tgz",
+  "prefix": "/Users/antonabyzov/.local/share/specweave/releases/3.0.6-63d0901d69ce",
+  "node": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node",
+  "cli": "/Users/antonabyzov/.local/share/specweave/releases/3.0.6-63d0901d69ce/node_modules/specweave/bin/specweave.js",
+  "launcher": "/Users/antonabyzov/.local/share/specweave/releases/3.0.6-63d0901d69ce/bin/specweave",
+  "active": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/specweave",
+  "activeLinkText": "/Users/antonabyzov/.local/share/specweave/releases/3.0.6-63d0901d69ce/bin/specweave",
+  "activeLinkInode": 1034165850,
+  "backup": "/Users/antonabyzov/.local/share/specweave/activation-receipts/20261008T061930Z-3.0.3-to-3.0.6-615d0486",
+  "oldPackagePreserved": true,
+  "sharedHooksChanged": false,
+  "mode": "activated"
+}

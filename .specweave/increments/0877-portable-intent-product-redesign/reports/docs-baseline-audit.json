@@ -1,0 +1,122 @@
+{
+  "baselineRef": "v2.0.3",
+  "baselineCommit": "bb154f48964ad80150d09330af1cb05a7b59c220",
+  "comparisonCommit": "59fd2c4d5",
+  "baselineWorktree": "/tmp/specweave-0877-docs-baseline",
+  "sourceEdits": false,
+  "browserLaunched": false,
+  "runtime": {
+    "node": "22.20.0",
+    "vitest": "4.0.18",
+    "jsdom": "28.1.0",
+    "react": "19.2.0"
+  },
+  "sameDependencyTargets": {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/node_modules",
+    "docs": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/docs-site/node_modules"
+  },
+  "baseline": {
+    "testFiles": 39,
+    "passedFiles": 32,
+    "failedFiles": 7,
+    "tests": 200,
+    "passed": 188,
+    "failed": 12,
+    "skipped": 0,
+    "exitCode": 1
+  },
+  "releaseHead": {
+    "testFiles": 39,
+    "passedFiles": 30,
+    "failedFiles": 9,
+    "tests": 200,
+    "passed": 185,
+    "failed": 15,
+    "skipped": 0,
+    "exitCode": 1
+  },
+  "preExistingFailures": [
+    {
+      "file": "src/__tests__/docusaurus-config.test.ts",
+      "name": "docusaurus.config.ts (AC-US7-03) sets onBrokenLinks to throw",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/__tests__/docusaurus-config.test.ts",
+      "name": "docusaurus.config.ts (AC-US7-03) does not use warn for onBrokenLinks",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/__tests__/remotion-theme.test.ts",
+      "name": "Remotion theme each color has a comment referencing --sw-* token",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/components/sections/__tests__/HeroSection.test.tsx",
+      "name": "HeroSection renders headline text",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/components/sections/__tests__/HeroSection.test.tsx",
+      "name": "HeroSection renders pill badges",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/components/sections/__tests__/HowItWorksSection.test.tsx",
+      "name": "HowItWorksSection renders section title",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/components/sections/__tests__/HowItWorksSection.test.tsx",
+      "name": "HowItWorksSection renders three steps",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/components/sections/__tests__/IntegrationsSection.test.tsx",
+      "name": "IntegrationsSection renders section title",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/components/sections/__tests__/IntegrationsSection.test.tsx",
+      "name": "IntegrationsSection renders all integrations",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/components/sections/__tests__/TrustedBySection.test.tsx",
+      "name": "TrustedBySection renders label text",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/components/sections/__tests__/TrustedBySection.test.tsx",
+      "name": "TrustedBySection renders brand logos",
+      "category": "pre-existing"
+    },
+    {
+      "file": "src/components/ui/Icon/__tests__/Icon.test.tsx",
+      "name": "Icon renders brand icon as img",
+      "category": "pre-existing"
+    }
+  ],
+  "introducedContractFailures": [
+    {
+      "file": "src/__tests__/sidebars.test.ts",
+      "name": "Docusaurus navbar items (T-017) includes Docs and Learn nav items"
+    },
+    {
+      "file": "src/__tests__/sidebars.test.ts",
+      "name": "Docusaurus navbar items (T-017) includes Enterprise and Blog nav items"
+    },
+    {
+      "file": "src/theme/Footer/__tests__/Footer.test.tsx",
+      "name": "Footer renders social icon links"
+    }
+  ],
+  "onBrokenLinksAtBaseline": "warn",
+  "onBrokenLinksAtComparison": "warn",
+  "unchangedRelevantSourceAndTests": true,
+  "evidence": [
+    "docs-v2.0.3-baseline-tests.log",
+    "docs-v2.0.3-baseline-tests.json",
+    "docs-release-head-tests.log"
+  ]
+}

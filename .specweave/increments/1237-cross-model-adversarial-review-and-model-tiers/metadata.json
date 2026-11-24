@@ -1,0 +1,17 @@
+{
+  "id": "1237-cross-model-adversarial-review-and-model-tiers",
+  "uuid": "bb1bc99b-486e-484b-9bd7-13ca7b5f2d7d",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-04T07:32:11.760Z",
+  "updated": "2026-11-04T11:58:04.375Z",
+  "lastActivity": "2026-11-04T11:58:04.375Z",
+  "title": "Cross-model adversarial review and model tiers",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-04T11:58:04.373Z",
+  "approvedAt": "2026-11-04T11:58:04.375Z"
+}

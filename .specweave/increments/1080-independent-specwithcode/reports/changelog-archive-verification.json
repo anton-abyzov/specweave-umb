@@ -1,0 +1,21 @@
+{
+  "base": "3b517233a09c3f5b02264c2b76306b1d8b3aa47c",
+  "exactHistoricalReconstructionAfterLinkRebasing": true,
+  "relativeLinksPreserved": 7,
+  "rootLines": 1307,
+  "archives": [
+    {
+      "name": "archive-01.md",
+      "lines": 1297
+    },
+    {
+      "name": "archive-02.md",
+      "lines": 1284
+    },
+    {
+      "name": "archive-03.md",
+      "lines": 1090
+    }
+  ],
+  "readmeAnchorPreserved": true
+}

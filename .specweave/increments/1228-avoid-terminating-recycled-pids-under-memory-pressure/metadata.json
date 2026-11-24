@@ -1,0 +1,17 @@
+{
+  "id": "1228-avoid-terminating-recycled-pids-under-memory-pressure",
+  "uuid": "ab13c2b5-2916-4941-b1cb-396c5282fd99",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T23:43:47.307Z",
+  "updated": "2026-11-04T00:26:22.081Z",
+  "lastActivity": "2026-11-04T00:26:22.081Z",
+  "title": "Avoid terminating recycled PIDs under memory pressure",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T00:26:22.079Z",
+  "approvedAt": "2026-11-04T00:26:22.081Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

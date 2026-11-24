@@ -1,0 +1,24 @@
+{
+  "observedAt": "2026-10-25T03:19:30.616835+00:00",
+  "serverVersion": "1.0.76",
+  "serverSourceCommit": "4446ca4295caa9283029623e3a36f69ab8c82003",
+  "manifestVersion": "1.0.76",
+  "manifestSourceCommit": "4446ca4295caa9283029623e3a36f69ab8c82003",
+  "listenerPid": 63308,
+  "desktopVersion": "1.0.76",
+  "repairMerge": "ab96f4d1c25284282553a4099b503b307a0b26a5",
+  "repairAncestry": {
+    "ahead_by": 161,
+    "status": "ahead"
+  },
+  "complexRouting": "NOT RUN",
+  "routineRouting": "NOT RUN",
+  "exhaustedProviderSkip": "NOT RUN",
+  "gate": "Headless browser is unpaired; retained no-new-credentials instruction prevents issuing a pairing token",
+  "settingsMutated": false,
+  "paidProvidersDispatched": false,
+  "notarization": {
+    "exitCode": 0,
+    "output": "/Applications/SpecWithCode.app: accepted\nsource=Notarized Developer ID\norigin=Developer ID Application: EasyChamp, Inc. (NMCB2JZ7QG)"
+  }
+}

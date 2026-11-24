@@ -1,0 +1,15 @@
+$ cd /tmp/specweave-0881-root && npx vitest run tests/unit/adapters/codex-adapter.test.ts tests/unit/cli/commands/project.test.ts tests/unit/refresh-plugins-adapter.test.ts
+# exit 0 — 2026-09-22T03:22:32.023Z
+
+
+ RUN  v4.1.11 /private/tmp/specweave-0881-root
+
+ ✓ tests/unit/adapters/codex-adapter.test.ts (2 tests) 2ms
+ ✓ tests/unit/refresh-plugins-adapter.test.ts (8 tests) 4ms
+ ✓ tests/unit/cli/commands/project.test.ts (8 tests) 36ms
+
+ Test Files  3 passed (3)
+      Tests  18 passed (18)
+   Start at  23:22:31
+   Duration  306ms (transform 378ms, setup 88ms, import 442ms, tests 41ms, environment 0ms)
+

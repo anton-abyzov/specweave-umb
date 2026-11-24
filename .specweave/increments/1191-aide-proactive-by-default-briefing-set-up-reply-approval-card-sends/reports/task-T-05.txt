@@ -1,0 +1,12 @@
+$ specweave verify 1191 --cmd "gh run view 41596644774 -R anton-abyzov/specwithcode-dev --json conclusion --jq .conclusion | grep -qx success && gh pr view 1272 -R anton-abyzov/specwithcode-dev --json state --jq .state | grep -qx MERGED"
+# exit 1 — 2026-11-04T09:35:46.716Z
+
+▶ gh run view 41596644774 -R anton-abyzov/specwithcode-dev --json conclusion --jq .conclusion | grep -qx success && gh pr view 1272 -R anton-abyzov/specwithcode-dev --json state --jq .state | grep -qx MERGED
+ok   gh run view 41596644774 -R anton-abyzov/specwithcode-dev --json conclusion --jq .conclusion | grep -qx success && gh pr view 1272 -R anton-abyzov/specwithcode-dev --json state --jq .state | grep -qx MERGED (exit 0)
+ACs 0/4 · tasks 4/5 done (0 skipped)
+  4 of 4 acceptance criteria not met (tick them in spec.md, or finish the tasks that cover them) — tick them in spec.md (`- [x] AC-01 …`) or close with `specweave complete 1191-aide-proactive-by-default-briefing-set-up-reply-approval-card-sends --reason "<why>"`
+    [ ] AC-01 When Aide is on and the Google account grants Gmail or Calendar to this machine's personal assistant, one enabled "Proactive briefing" routine (daily 08:00, own thread, `/proactive-briefing`) exists for it, created once per account; an existing briefing is kept, and one the person deleted is not recreated for the same account.
+    [ ] AC-02 `studio_google_gmail_propose_send` reads each draft from Gmail and shows one card in the calling thread with a question per draft (recipient, subject, the reply text) and the options Send / Don't send; the thread waits on the person, which alerts them like any question.
+    [ ] AC-03 `studio_google_gmail_send_draft` sends a draft only when that card in the same thread was answered Send for that draft; an unanswered card, Don't send, a typed answer, another thread's card or another draft are refused, and nothing is sent.
+    [ ] AC-04 The briefing prompt and Aide's instructions use the card: drafts are proposed for sending at the end of the briefing, sent only after Send, and the briefing still never sends, archives or answers invitations on its own.
+FAIL → .specweave/increments/1191-aide-proactive-by-default-briefing-set-up-reply-approval-card-sends/reports/verify.md

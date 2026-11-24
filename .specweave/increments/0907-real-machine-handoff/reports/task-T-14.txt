@@ -1,0 +1,65 @@
+$ /usr/bin/python3 -B /Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/verify-easychamp-portable-dependencies.py
+# exit 0 — 2026-10-13T23:31:56.432Z
+
+{
+  "status": "passed",
+  "head": "cdffa98fafda8884491bf78849b5a3cb61fb274f",
+  "base": "50c79e3a40e00a7244e25c3d20663c99d494daea",
+  "branch": "codex/portable-easychamp-dependencies",
+  "removedPaths": [
+    ".specweave/increments/0651-goals-assists-leaderboards/scripts/console/node_modules",
+    ".specweave/increments/0651-goals-assists-leaderboards/scripts/web/node_modules",
+    ".specweave/increments/_archive/0554-ai-power-real-host-youtube-launch/artifacts/edit/node_modules"
+  ],
+  "remainingTrackedLinks": [],
+  "allOtherTreeEntriesUnchanged": true,
+  "canonicalHeadIndexStatusUnchanged": true,
+  "canonicalLinksAndTargetsUnchanged": true,
+  "publicationVerified": true,
+  "pullRequest": {
+    "baseRefName": "develop",
+    "commits": [
+      {
+        "authoredDate": "2026-10-13T23:20:59Z",
+        "authors": [
+          {
+            "email": "anton.abyzov@easychamp.com",
+            "id": "",
+            "login": "",
+            "name": "Anton Abyzov"
+          }
+        ],
+        "committedDate": "2026-10-13T23:20:59Z",
+        "messageBody": "",
+        "messageHeadline": "0907: remove machine-local dependency links from EasyChamp",
+        "oid": "cdffa98fafda8884491bf78849b5a3cb61fb274f"
+      }
+    ],
+    "files": [
+      {
+        "path": ".specweave/increments/0651-goals-assists-leaderboards/scripts/console/node_modules",
+        "additions": 0,
+        "deletions": 1,
+        "changeType": "DELETED"
+      },
+      {
+        "path": ".specweave/increments/0651-goals-assists-leaderboards/scripts/web/node_modules",
+        "additions": 0,
+        "deletions": 1,
+        "changeType": "DELETED"
+      },
+      {
+        "path": ".specweave/increments/_archive/0554-ai-power-real-host-youtube-launch/artifacts/edit/node_modules",
+        "additions": 0,
+        "deletions": 1,
+        "changeType": "DELETED"
+      }
+    ],
+    "headRefName": "codex/portable-easychamp-dependencies",
+    "headRefOid": "cdffa98fafda8884491bf78849b5a3cb61fb274f",
+    "number": 239,
+    "state": "MERGED",
+    "url": "https://github.com/anton-abyzov/sw-easychamp/pull/239"
+  },
+  "rawPullRequestSha256": "1042ad5df42458fb059a8f963c8636b33ec69165aae902d45fbdde68915932fa"
+}

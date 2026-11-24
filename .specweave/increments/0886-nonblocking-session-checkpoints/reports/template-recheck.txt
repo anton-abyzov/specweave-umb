@@ -1,0 +1,10 @@
+
+ RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+
+ ✓ src/core/session/handoff-doc-format.test.ts (19 tests) 6ms
+ ✓ tests/unit/cli/helpers/init/instruction-templates.test.ts (21 tests) 13ms
+
+ Test Files  2 passed (2)
+      Tests  40 passed (40)
+   Start at  20:10:08
+   Duration  388ms (transform 254ms, setup 123ms, import 194ms, tests 19ms, environment 0ms)

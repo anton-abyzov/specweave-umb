@@ -1,0 +1,12 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/worktrees/snapshot-context-1016 && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node node_modules/vite-plus/bin/vp test run apps/server/src/composerDrafts/draftFiles.test.ts apps/web/src/lib/durableComposerDrafts.test.ts apps/web/src/components/desktop/SnapShotCoordinator.test.ts
+# exit 0 — 2026-10-27T01:29:18.947Z
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/snapshot-context-1016
+
+
+ Test Files  3 passed (3)
+      Tests  40 passed (40)
+   Start at  21:29:16
+   Duration  1.94s (transform 53%, import 29%, tests 18%, setup 1%)
+

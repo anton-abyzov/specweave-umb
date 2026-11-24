@@ -1,0 +1,5 @@
+# Output of probe.mjs against http://127.0.0.1:8319, October 25, 2026 17:32 UTC (read-only token; counts only, no titles or prompts)
+session 200
+ticket 200
+keys [ 'tasks' ]
+count 111 {"1332065e-795b-4f98-91c4-f114917e53f6":{"n":90,"types":["interval","once","fixed_time"],"enabled":10},"5848bdc2-3ac2-4ecb-b66e-c10840260324":{"n":19,"types":["interval","fixed_time"],"enabled":2},"mcp:bcc8f8bc-7fe3-455b-a5d0-8ebdd16a4e50":{"n":1,"types":["fixed_time"],"enabled":0},"5428ab1e-79c4-4f5f-b245-5f231b4f2cdf":{"n":1,"types":["fixed_time"],"enabled":0}}

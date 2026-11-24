@@ -1,0 +1,128 @@
+{
+  "startedAt": "2026-10-07T18:38:46.846Z",
+  "workerVersion": "230dca40-7d6b-462a-9ed2-48cda828f345",
+  "key": "authors:list:public-v3:totalGithubStars:20:0",
+  "eventualConsistencyCaveat": "Control-plane absence and subsequent populated payload parity are observed. HIT/MISS source branches have no telemetry and are not directly observed.",
+  "events": [
+    {
+      "kind": "authenticatedControlPlaneValue",
+      "method": "GET",
+      "recordedAt": "2026-10-07T18:38:47.251Z",
+      "status": 404,
+      "elapsedMs": 403,
+      "errorCodes": [
+        10009
+      ]
+    },
+    {
+      "kind": "authenticatedControlPlaneValue",
+      "method": "GET",
+      "recordedAt": "2026-10-07T18:38:47.318Z",
+      "status": 404,
+      "elapsedMs": 66,
+      "errorCodes": [
+        10009
+      ]
+    },
+    {
+      "kind": "authenticatedExactKeyList",
+      "recordedAt": "2026-10-07T18:38:47.502Z",
+      "status": 200,
+      "exactKeys": [],
+      "unrelatedKeysMutated": false
+    },
+    {
+      "kind": "defaultFirstAfterAuthenticatedAbsence",
+      "path": "/publishers",
+      "recordedAt": "2026-10-07T18:38:53.237Z",
+      "status": 200,
+      "elapsedSeconds": 5.735,
+      "cfCacheStatus": null,
+      "cards": 20,
+      "total": 101704
+    },
+    {
+      "kind": "authenticatedControlPlaneValue",
+      "method": "GET",
+      "recordedAt": "2026-10-07T18:38:53.410Z",
+      "status": 200,
+      "elapsedMs": 172,
+      "cards": 20,
+      "total": 101704,
+      "payloadSha256": "017c3767cdc4253168168e0312c2578f90c62cec2472881480172063c695898d"
+    },
+    {
+      "kind": "authenticatedExactKeyList",
+      "recordedAt": "2026-10-07T18:38:53.617Z",
+      "status": 200,
+      "exactKeys": [
+        {
+          "name": "authors:list:public-v3:totalGithubStars:20:0",
+          "expiration": 1791398633
+        }
+      ],
+      "unrelatedKeysMutated": false
+    },
+    {
+      "kind": "repeatedDefaultResponse",
+      "path": "/publishers",
+      "recordedAt": "2026-10-07T18:38:54.784Z",
+      "status": 200,
+      "elapsedSeconds": 0.066,
+      "cfCacheStatus": null,
+      "cards": 20,
+      "total": 101704
+    },
+    {
+      "kind": "repeatedDefaultResponse",
+      "path": "/publishers",
+      "recordedAt": "2026-10-07T18:38:56.035Z",
+      "status": 200,
+      "elapsedSeconds": 0.148,
+      "cfCacheStatus": null,
+      "cards": 20,
+      "total": 101704
+    },
+    {
+      "kind": "repeatedDefaultResponse",
+      "path": "/publishers",
+      "recordedAt": "2026-10-07T18:38:57.200Z",
+      "status": 200,
+      "elapsedSeconds": 0.065,
+      "cfCacheStatus": null,
+      "cards": 20,
+      "total": 101704
+    },
+    {
+      "kind": "defaultApiPayloadParity",
+      "path": "/api/v1/authors?seoProbe=1791398337201",
+      "recordedAt": "2026-10-07T18:38:57.266Z",
+      "status": 200,
+      "elapsedSeconds": 0.064,
+      "cfCacheStatus": null,
+      "cards": 20,
+      "total": 101704
+    },
+    {
+      "kind": "authenticatedExactKeyList",
+      "recordedAt": "2026-10-07T18:38:57.461Z",
+      "status": 200,
+      "exactKeys": [
+        {
+          "name": "authors:list:public-v3:totalGithubStars:20:0",
+          "expiration": 1791398633
+        }
+      ],
+      "unrelatedKeysMutated": false
+    }
+  ],
+  "exactBoundedKeyDeletion": false,
+  "controlPlaneAbsenceImmediatelyBefore": true,
+  "observedWriteThrough": true,
+  "ssrCachePayloadParity": true,
+  "expirationUnchangedDuringRepeatedResponses": true,
+  "repeatedResponsePayloadParity": true,
+  "directHitMissTelemetryAvailable": false,
+  "status": "PASS_OBSERVED_CONTROL_PLANE_ABSENCE_WRITE_THROUGH_PARITY",
+  "finishedAt": "2026-10-07T18:38:57.461Z"
+}

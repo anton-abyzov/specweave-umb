@@ -1,0 +1,4 @@
+prisma/migrations/20261007160000_public_publisher_covering_index/migration.sql
+scripts/__tests__/public-publisher-index.test.ts
+scripts/db/public-publisher-index.cjs
+scripts/db/public-publisher-index.md

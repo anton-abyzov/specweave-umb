@@ -1,0 +1,17 @@
+{
+  "id": "0994-clarify-unavailable-usage-in-the-model-picker",
+  "uuid": "8f99d613-3352-4381-840a-72a907a330e4",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-22T17:56:52.629Z",
+  "updated": "2026-10-22T18:33:18.760Z",
+  "lastActivity": "2026-10-22T18:33:18.760Z",
+  "title": "Clarify unavailable usage in the model picker",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-22T18:33:18.759Z",
+  "approvedAt": "2026-10-22T18:33:18.760Z"
+}

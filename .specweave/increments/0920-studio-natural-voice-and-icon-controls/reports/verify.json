@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-15T15:18:05.083Z",
+  "increment": "0920-studio-natural-voice-and-icon-controls",
+  "commands": [],
+  "acs": {
+    "total": 3,
+    "done": 3
+  },
+  "tasks": {
+    "total": 5,
+    "done": 5,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

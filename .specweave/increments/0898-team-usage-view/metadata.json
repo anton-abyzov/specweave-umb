@@ -1,0 +1,15 @@
+{
+  "id": "0898-team-usage-view",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-10-12T22:39:23.000Z",
+  "updated": "2026-10-12T22:39:23.000Z",
+  "lastActivity": "2026-10-12T22:39:23.000Z",
+  "title": "Team usage view",
+  "project": "specweave-umb",
+  "parent": "0897-free-first-pricing-and-launch",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

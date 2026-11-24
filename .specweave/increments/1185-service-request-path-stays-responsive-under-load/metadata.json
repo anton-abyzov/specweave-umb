@@ -1,0 +1,20 @@
+{
+  "id": "1185-service-request-path-stays-responsive-under-load",
+  "uuid": "a2732f50-be94-45d9-aaff-7faab1ddaad0",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T23:02:21.218Z",
+  "updated": "2026-11-19T12:58:43.118Z",
+  "lastActivity": "2026-11-19T12:58:43.118Z",
+  "title": "Service request path stays responsive under load",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "readyForReviewAt": "2026-11-19T12:58:43.116Z",
+  "approvedAt": "2026-11-19T12:58:43.118Z"
+}

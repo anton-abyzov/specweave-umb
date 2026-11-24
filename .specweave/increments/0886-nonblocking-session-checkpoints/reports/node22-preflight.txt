@@ -1,0 +1,6 @@
+
+> specweave@3.0.4 release:preflight
+> node scripts/release/preflight-publish.mjs
+
+[install-check] packed bin preserved; clean installed specweave --version = 3.0.4
+[preflight] ok — tarball carries 2228 entries including bin/specweave.js, the dist/ modules bin imports, dist/dashboard/** and both plugin manifests

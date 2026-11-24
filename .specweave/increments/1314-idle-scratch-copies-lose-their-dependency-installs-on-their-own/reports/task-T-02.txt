@@ -1,0 +1,4 @@
+$ grep -q "scratch copy" AGENTS.md && grep -q "Dependency installs of copies that stay" ~/.specwithcode/m4/scratch/2026-11-12-scratch-deps-prune/app/docs/operations/merged-clones.md && echo docs ok
+# exit 0 — 2026-11-12T22:00:56.076Z
+
+docs ok

@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:49:26.338Z","note":"session 01a1674d-b1b0-7312-bd53-5eac1d8382ce"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:49:26.345Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:54:18.534Z","evidence":"Installed SDK 0.3.276 and CLI 2.1.302 static contracts; REA partial coverage documented; reports/findings.md and reports/identity.json\nHEAD 4dc864daf"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:54:18.598Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:54:18.950Z","evidence":"python3 /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1019-investigate-claude-native-artifacts/reports/validate.py → exit 0\nlog: .specweave/increments/1019-investigate-claude-native-artifacts/reports/task-T-02.txt\nPASS: installed SDK offline replay, native HTML-render boundary, report and evidence receipts\nHEAD 4dc864daf"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:54:19.014Z"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T05:55:39.300Z","evidence":"Research report delivered; fresh-context reviewer SHIP, corrected binary evidence offset; offline proof PASS\nHEAD 4dc864daf"}

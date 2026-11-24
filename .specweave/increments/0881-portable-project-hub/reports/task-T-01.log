@@ -1,0 +1,13 @@
+$ cd /tmp/specweave-0881-root && npx vitest run tests/unit/project-hub
+# exit 0 — 2026-09-22T03:13:53.477Z
+
+
+ RUN  v4.1.11 /private/tmp/specweave-0881-root
+
+ ✓ tests/unit/project-hub/store.test.ts (29 tests) 39ms
+
+ Test Files  1 passed (1)
+      Tests  29 passed (29)
+   Start at  23:13:53
+   Duration  176ms (transform 44ms, setup 26ms, import 47ms, tests 39ms, environment 0ms)
+

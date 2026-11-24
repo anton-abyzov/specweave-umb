@@ -1,0 +1,70 @@
+{
+  "recordedAt": "2026-10-07T18:37:46.038214+00:00",
+  "source": "4e4690cad68bc3b19e4fdf17ba774f4cd46f52ce",
+  "sourceCleanAfterBuild": true,
+  "worker": "verified-skill-com",
+  "previousVersion": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+  "currentVersion": "230dca40-7d6b-462a-9ed2-48cda828f345",
+  "deployment": {
+    "id": "e92d344b-3892-49f8-83f2-03a02e6b1f5d",
+    "created_on": "2026-10-07T18:35:42.318639Z",
+    "source": "wrangler",
+    "strategy": "percentage",
+    "versions": [
+      {
+        "version_id": "230dca40-7d6b-462a-9ed2-48cda828f345",
+        "percentage": 100
+      }
+    ]
+  },
+  "bindingsCount": 66,
+  "consumerCount": 6,
+  "producerCount": 5,
+  "cronCount": 7,
+  "versionBindingsExactEquality": true,
+  "queueHealthBuild": "PASS",
+  "queueHealthDeploy": "PASS",
+  "canonicalDeployInitialExit": 1,
+  "canonicalDeployInitialFailure": "Post-deploy guard lacked isolated-checkout INTERNAL_BROADCAST_KEY; Worker deploy succeeded. Existing key loaded only into child process and exact guard reran exit0.",
+  "dbMigrationsRun": false,
+  "indexReapplied": false,
+  "files": [
+    "vskill-auth-final-postdeploy-inventory-first.json",
+    "vskill-auth-final-postdeploy-inventory.json",
+    "vskill-auth-final-queue-guard.log",
+    "vskill-auth-final-deploy.log",
+    "vskill-auth-final-final-inventory.json",
+    "vskill-auth-final-config-readback.json"
+  ],
+  "immutableOldNewVersionBindingsExactEquality": true,
+  "retainedLivePostDeploymentSnapshotsParity": {
+    "bindings": true,
+    "cronSchedules": true,
+    "queueInventory": true,
+    "consumerCount": true,
+    "producerCount": true
+  },
+  "initialPreDeploymentToolOutput": {
+    "bindingsCount": 66,
+    "consumerCount": 6,
+    "producerCount": 5,
+    "consumerNames": [
+      "discovery-resolve",
+      "eval-processing",
+      "scan-high",
+      "scan-normal",
+      "submission-dlq",
+      "submission-processing"
+    ],
+    "fullSnapshotRetained": false,
+    "note": "Initial API read ran before npm run deploy. Its JSON was overwritten by a later cron-shape normalization read; retained inventory-first is accurately labeled post-deployment."
+  },
+  "retainedLiveSnapshotTimes": {
+    "vskill-auth-final-postdeploy-inventory-first.json": "2026-10-07T18:36:37.000Z",
+    "vskill-auth-final-postdeploy-inventory.json": "2026-10-07T18:37:06.330Z",
+    "vskill-auth-final-final-inventory.json": "2026-10-07T18:46:14.474Z"
+  },
+  "currentActualConsumerProducerCronConfigMatchesByteIdenticalPreviousRuntimeConfig": true,
+  "actualConfigReadbackFile": "vskill-auth-final-config-readback.json",
+  "preDeploymentLiveConsumerSettingsSnapshotRetained": false
+}

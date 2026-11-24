@@ -1,0 +1,17 @@
+{
+  "id": "1021-audit-working-section-behavior",
+  "uuid": "b5ed3c06-e265-4c92-b565-916d587609c1",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T06:03:34.642Z",
+  "updated": "2026-10-23T06:19:16.515Z",
+  "lastActivity": "2026-10-23T06:19:16.515Z",
+  "title": "Audit Working section behavior",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T06:19:16.508Z",
+  "approvedAt": "2026-10-23T06:19:16.515Z"
+}

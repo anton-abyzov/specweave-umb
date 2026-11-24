@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T06:58:47.726Z","note":"session b7cfe01b-fc49-48f8-b1b1-bcc9392d70a8","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T06:58:47.727Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T06:58:47.728Z","evidence":"9ab7303ad; vp test run platformFeed and DesktopUpdates: 54 passed; tsc clean\nHEAD c3538819b","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T09:24:31.541Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T09:24:31.549Z","evidence":"PR 1188 merged 486eba106 after SHIP at 0f38f04da; v1.0.150 contains it with SpecWithCode-1.0.150-amd64.deb attached\nHEAD 39a27cf67","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T09:25:59.890Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T09:25:59.892Z","evidence":"Ministorm: studio 1.0.150 installed via sudo dpkg -i after sha256 check; service 1.0.151; new thread mcp:9118f4fa-77f1-43da-a8b7-3fb418c489ed replied 'This chat opened and is running on ministorm'. Proof limit: running desktop still 1.0.76 in memory until relaunched\nHEAD 39a27cf67","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T09:26:00.706Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T09:26:00.709Z","evidence":"specweave verify, fresh-context review and complete in this thread\nHEAD 39a27cf67","model":"claude-opus-5-5[1m]"}

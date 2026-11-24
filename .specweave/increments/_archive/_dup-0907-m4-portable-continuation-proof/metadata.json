@@ -1,0 +1,16 @@
+{
+  "id": "0907-m4-portable-continuation-proof",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-13T14:36:37.110Z",
+  "updated": "2026-10-13T15:33:05.626Z",
+  "lastActivity": "2026-10-13T15:33:05.626Z",
+  "title": "M4 portable continuation proof",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-13T15:33:05.614Z",
+  "approvedAt": "2026-10-13T15:33:05.626Z"
+}

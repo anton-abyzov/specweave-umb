@@ -1,0 +1,22 @@
+
+ RUN  v4.1.11 /private/tmp/easychamp-seo-inventory-landing-20261007
+      Coverage enabled with v8
+
+
+ Test Files  3 passed (3)
+      Tests  25 passed (25)
+   Start at  10:49:06
+   Duration  2.12s (transform 3.84s, setup 4.00s, import 1.05s, tests 57ms, environment 185ms)
+
+ % Coverage report from v8
+---------------|---------|----------|---------|---------|-------------------
+File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+---------------|---------|----------|---------|---------|-------------------
+---------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 13/13 )
+Branches     : 100% ( 20/20 )
+Functions    : 100% ( 3/3 )
+Lines        : 100% ( 11/11 )
+================================================================================

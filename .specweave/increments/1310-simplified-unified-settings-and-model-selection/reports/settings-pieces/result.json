@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "settings-resting-390-light",
+    "settings-open-390-light",
+    "settings-resting-desktop-light",
+    "settings-open-desktop-light",
+    "settings-resting-390-dark",
+    "settings-open-390-dark",
+    "settings-resting-desktop-dark",
+    "settings-open-desktop-dark"
+  ],
+  "errors": [],
+  "at": "2026-11-12T17:14:45.028Z"
+}

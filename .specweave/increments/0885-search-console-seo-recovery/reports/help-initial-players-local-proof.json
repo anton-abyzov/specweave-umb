@@ -1,0 +1,1151 @@
+{
+  "checkedAt": "2026-10-07T14:44:44.911Z",
+  "base": "http://localhost:3941",
+  "headless": true,
+  "rawHtml": [
+    {
+      "path": "/help/league-console/create-league-or-tournament",
+      "httpStatus": 200,
+      "videoObjects": 2,
+      "iframes": 2,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/aHjrZktaWIU?rel=0",
+          "title": "Create your league",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/lYWivk-WUts?rel=0",
+          "title": "Create your league on iPad",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/add-teams-and-players",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/F_3z8lPPyIg?rel=0",
+          "title": "Add a competition, teams and players",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/import-teams-csv",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/4eQwT8Ff9wM?rel=0",
+          "title": "Import teams and players from a spreadsheet",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/generate-schedule",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/NwLANJZhS1E?rel=0",
+          "title": "Generate your schedule",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/enter-results-match-center",
+      "httpStatus": 200,
+      "videoObjects": 2,
+      "iframes": 2,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/LN7dgPLSneo?rel=0",
+          "title": "Enter results and update standings",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/agFQCm4MXjY?rel=0",
+          "title": "Enter results on iPad",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/registration-entry-fees",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/YccMyflmJfg?rel=0",
+          "title": "Open registration with an entry fee",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/connect-stripe-payouts",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/8xEqh4PUWgg?rel=0",
+          "title": "Connect Stripe to get paid",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/club-registration-programs",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/bsPU4eI5w6E?rel=0",
+          "title": "Club registration programs",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/customize-pages-and-blocks",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/sOZJ7FULJ3w?rel=0",
+          "title": "Customize pages with blocks",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/site-menu-and-theme",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/CX5xz7aSD8w?rel=0",
+          "title": "Site menu and theme",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/put-league-website-live",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/eK56BTP4b7U?rel=0",
+          "title": "Put your league website live",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    },
+    {
+      "path": "/help/facilities/publish-facility",
+      "httpStatus": 200,
+      "videoObjects": 1,
+      "iframes": 1,
+      "frames": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/s04EEJCS0Qw?rel=0",
+          "title": "Set up and publish your facility",
+          "loading": "lazy",
+          "width": "1280",
+          "height": "720",
+          "aspectRatio": "16/9"
+        }
+      ]
+    }
+  ],
+  "geometry": [
+    {
+      "path": "/help/league-console/create-league-or-tournament",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/aHjrZktaWIU?rel=0",
+          "title": "Create your league",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/lYWivk-WUts?rel=0",
+          "title": "Create your league on iPad",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 668.34375,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/add-teams-and-players",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/F_3z8lPPyIg?rel=0",
+          "title": "Add a competition, teams and players",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 391.375,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/import-teams-csv",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/4eQwT8Ff9wM?rel=0",
+          "title": "Import teams and players from a spreadsheet",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/generate-schedule",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/NwLANJZhS1E?rel=0",
+          "title": "Generate your schedule",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/enter-results-match-center",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/LN7dgPLSneo?rel=0",
+          "title": "Enter results and update standings",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 435.96875,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/agFQCm4MXjY?rel=0",
+          "title": "Enter results on iPad",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 692.140625,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/registration-entry-fees",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/YccMyflmJfg?rel=0",
+          "title": "Open registration with an entry fee",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/connect-stripe-payouts",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/8xEqh4PUWgg?rel=0",
+          "title": "Connect Stripe to get paid",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/club-registration-programs",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/bsPU4eI5w6E?rel=0",
+          "title": "Club registration programs",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 433.765625,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/customize-pages-and-blocks",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/sOZJ7FULJ3w?rel=0",
+          "title": "Customize pages with blocks",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 457.5625,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/site-menu-and-theme",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/CX5xz7aSD8w?rel=0",
+          "title": "Site menu and theme",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/put-league-website-live",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/eK56BTP4b7U?rel=0",
+          "title": "Put your league website live",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 391.375,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/facilities/publish-facility",
+      "width": 320,
+      "httpStatus": 200,
+      "scrollWidth": 320,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/s04EEJCS0Qw?rel=0",
+          "title": "Set up and publish your facility",
+          "width": 278,
+          "height": 156.375,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 278,
+          "frameHeight": 156.375,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/create-league-or-tournament",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/aHjrZktaWIU?rel=0",
+          "title": "Create your league",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/lYWivk-WUts?rel=0",
+          "title": "Create your league on iPad",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 682.921875,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/add-teams-and-players",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/F_3z8lPPyIg?rel=0",
+          "title": "Add a competition, teams and players",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 369.78125,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/import-teams-csv",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/4eQwT8Ff9wM?rel=0",
+          "title": "Import teams and players from a spreadsheet",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/generate-schedule",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/NwLANJZhS1E?rel=0",
+          "title": "Generate your schedule",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/enter-results-match-center",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/LN7dgPLSneo?rel=0",
+          "title": "Enter results and update standings",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 391.375,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/agFQCm4MXjY?rel=0",
+          "title": "Enter results on iPad",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 686.921875,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/registration-entry-fees",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/YccMyflmJfg?rel=0",
+          "title": "Open registration with an entry fee",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 391.375,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/connect-stripe-payouts",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/8xEqh4PUWgg?rel=0",
+          "title": "Connect Stripe to get paid",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 391.375,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/club-registration-programs",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/bsPU4eI5w6E?rel=0",
+          "title": "Club registration programs",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/customize-pages-and-blocks",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/sOZJ7FULJ3w?rel=0",
+          "title": "Customize pages with blocks",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 412.171875,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/site-menu-and-theme",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/CX5xz7aSD8w?rel=0",
+          "title": "Site menu and theme",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 391.375,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/put-league-website-live",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/eK56BTP4b7U?rel=0",
+          "title": "Put your league website live",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 369.78125,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/facilities/publish-facility",
+      "width": 390,
+      "httpStatus": 200,
+      "scrollWidth": 390,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/s04EEJCS0Qw?rel=0",
+          "title": "Set up and publish your facility",
+          "width": 348,
+          "height": 195.75,
+          "left": 21,
+          "top": 391.375,
+          "frameWidth": 348,
+          "frameHeight": 195.75,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/create-league-or-tournament",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/aHjrZktaWIU?rel=0",
+          "title": "Create your league",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 363.75,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/lYWivk-WUts?rel=0",
+          "title": "Create your league on iPad",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 462.375,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/add-teams-and-players",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/F_3z8lPPyIg?rel=0",
+          "title": "Add a competition, teams and players",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 359.75,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/import-teams-csv",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/4eQwT8Ff9wM?rel=0",
+          "title": "Import teams and players from a spreadsheet",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 363.75,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/generate-schedule",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/NwLANJZhS1E?rel=0",
+          "title": "Generate your schedule",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 363.75,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/enter-results-match-center",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/LN7dgPLSneo?rel=0",
+          "title": "Enter results and update standings",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 390.9375,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        },
+        {
+          "src": "https://www.youtube-nocookie.com/embed/agFQCm4MXjY?rel=0",
+          "title": "Enter results on iPad",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 231.5625,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/registration-entry-fees",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/YccMyflmJfg?rel=0",
+          "title": "Open registration with an entry fee",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 363.75,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/connect-stripe-payouts",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/8xEqh4PUWgg?rel=0",
+          "title": "Connect Stripe to get paid",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 332.5625,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/league-console/club-registration-programs",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/bsPU4eI5w6E?rel=0",
+          "title": "Club registration programs",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 390.9375,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/customize-pages-and-blocks",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/sOZJ7FULJ3w?rel=0",
+          "title": "Customize pages with blocks",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 390.9375,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/site-menu-and-theme",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/CX5xz7aSD8w?rel=0",
+          "title": "Site menu and theme",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 332.5625,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/website-builder/put-league-website-live",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/eK56BTP4b7U?rel=0",
+          "title": "Put your league website live",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 359.75,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    },
+    {
+      "path": "/help/facilities/publish-facility",
+      "width": 1440,
+      "httpStatus": 200,
+      "scrollWidth": 1440,
+      "players": [
+        {
+          "src": "https://www.youtube-nocookie.com/embed/s04EEJCS0Qw?rel=0",
+          "title": "Set up and publish your facility",
+          "width": 778,
+          "height": 437.625,
+          "left": 331,
+          "top": 363.75,
+          "frameWidth": 778,
+          "frameHeight": 437.625,
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "overlayButtons": 0,
+          "expectedAspect": "16 / 9"
+        }
+      ]
+    }
+  ],
+  "playback": {
+    "path": "/help/league-console/create-league-or-tournament",
+    "width": 390,
+    "playerSrc": "https://www.youtube-nocookie.com/embed/aHjrZktaWIU?rel=0",
+    "before": {
+      "currentTime": 0,
+      "paused": true,
+      "readyState": 0
+    },
+    "after": null,
+    "status": "failed",
+    "error": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.ytp-large-play-button')\u001b[22m\n",
+    "playerText": "How do I create a league or a tournament? | EasyChamp\nEasyChamp\nEasyChamp\n181 subscribers\nWatch on"
+  },
+  "status": "failed",
+  "error": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.ytp-large-play-button')\u001b[22m\n"
+}

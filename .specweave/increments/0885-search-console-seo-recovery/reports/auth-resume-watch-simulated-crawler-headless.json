@@ -1,0 +1,180 @@
+{
+  "checkedAt": "2026-10-07T18:34:48.456Z",
+  "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+  "headless": true,
+  "proofType": "simulated crawler rendering; not actual Google URL Inspection",
+  "userAgent": "Mozilla/5.0 (compatible; Google-InspectionTool/1.0;)",
+  "httpStatus": 200,
+  "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate, no-transform",
+    "x-ec-shed": "bot; MISS"
+  },
+  "state": {
+    "title": "South Africa vs Iraq (0–0) — EasyChamp Matchday",
+    "canonical": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+    "h1": [
+      "South Africa vs Iraq"
+    ],
+    "width": 390,
+    "scrollWidth": 390,
+    "nodes": [
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsEvent",
+        "@id": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+        "name": "South Africa vs Iraq",
+        "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+        "startDate": "2009-06-14T14:00:00Z",
+        "image": [
+          "https://watch.easychamp.com/api/og?type=match&id=40aff015-26af-40cb-961a-414886763cd1&locale=en"
+        ],
+        "description": "South Africa 0 – 0 Iraq in Confederations Cup 2009.",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Emirates Airline Park",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "South Africa Johannesburg"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -26.197519,
+            "longitude": 28.060767
+          }
+        },
+        "organizer": {
+          "@type": "SportsOrganization",
+          "name": "International",
+          "url": "https://watch.easychamp.com/league/2e270f59-4dad-4a9b-80b2-934386162dd0"
+        },
+        "homeTeam": {
+          "@type": "SportsTeam",
+          "name": "South Africa"
+        },
+        "awayTeam": {
+          "@type": "SportsTeam",
+          "name": "Iraq"
+        },
+        "competitor": [
+          {
+            "@type": "SportsTeam",
+            "name": "South Africa"
+          },
+          {
+            "@type": "SportsTeam",
+            "name": "Iraq"
+          }
+        ],
+        "performer": [
+          {
+            "@type": "SportsTeam",
+            "name": "South Africa"
+          },
+          {
+            "@type": "SportsTeam",
+            "name": "Iraq"
+          }
+        ]
+      },
+      {
+        "@type": "Place",
+        "name": "Emirates Airline Park",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "South Africa Johannesburg"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -26.197519,
+          "longitude": 28.060767
+        }
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "South Africa Johannesburg"
+      },
+      {
+        "@type": "GeoCoordinates",
+        "latitude": -26.197519,
+        "longitude": 28.060767
+      },
+      {
+        "@type": "SportsOrganization",
+        "name": "International",
+        "url": "https://watch.easychamp.com/league/2e270f59-4dad-4a9b-80b2-934386162dd0"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "South Africa"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "Iraq"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "South Africa"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "Iraq"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "South Africa"
+      },
+      {
+        "@type": "SportsTeam",
+        "name": "Iraq"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://watch.easychamp.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Confederations Cup 2009",
+            "item": "https://watch.easychamp.com/competition/d9dcd2cc-1cd1-4066-9a6d-210fc0bd3d1a"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "South Africa vs Iraq",
+            "item": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1"
+          }
+        ]
+      },
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://watch.easychamp.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Confederations Cup 2009",
+        "item": "https://watch.easychamp.com/competition/d9dcd2cc-1cd1-4066-9a6d-210fc0bd3d1a"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "South Africa vs Iraq",
+        "item": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1"
+      }
+    ],
+    "text": "EasyChamp Matchday\nSign in\nSouth Africa vs Iraq\nConfederations Cup 2009\nCONFEDERATIONS CUP 2009\nFT\nSA\nSouth Africa\nSouth Africa\n0\n–\n0\nIR\nIraq\nIraq\nEmirates Airline Park\nHALVES\nH1\n0–0\nH2\n0–0\n\nSouth Africa Johannesburg\n\nFacts\nStandings\nEvents\nCOMPETITION\nConfederations Cup 2009\n·\nstage_1\n·\n1\nVENUE\nEmirates Airline Park\n·\nSunday, June 14, 2009 · 2:00 PM UTC\n\nPrint match protocol\n\nBEFORE KICK-OFF\n\nHead-to-head\n\nHistory before Sunday, June 14, 2009 · 2:00 PM UTC\n\nRecent form\n\nLast 5 completed matches\n\nSA\nSouth Africa\n0 W 0 D 0 L\nGoals for / against 0 / 0\n\nNo matches yet.\n\nIR\nIraq\n0 W 0 D 0 L\nGoals for / against 0 / 0\n\nNo matches yet.\n\nPrevious meetings\n\nNo previous meetings\n\nHome\nMatches\nPredict\nDiscover\nMore\nTerms\nPrivacy"
+  },
+  "screenshot": "/tmp/easychamp-seo-audit-20261007/auth-resume-watch-simulated-crawler-390.png",
+  "status": "passed"
+}

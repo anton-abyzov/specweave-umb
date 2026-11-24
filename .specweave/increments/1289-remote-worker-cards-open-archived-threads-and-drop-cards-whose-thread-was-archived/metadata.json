@@ -1,0 +1,13 @@
+{
+  "id": "1289-remote-worker-cards-open-archived-threads-and-drop-cards-whose-thread-was-archived",
+  "uuid": "3c682b62-6912-4bfe-8b43-cb063537e8e7",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-11T04:22:46.052Z",
+  "updated": "2026-11-11T04:22:46.052Z",
+  "lastActivity": "2026-11-11T04:22:46.052Z",
+  "title": "Remote worker cards: open archived threads and drop cards whose thread was archived",
+  "project": "specweave",
+  "externalLinks": {}
+}

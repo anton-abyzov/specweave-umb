@@ -1,0 +1,100 @@
+{
+  "ok": true,
+  "ranAt": "2026-11-02T03:32:06.616Z",
+  "increment": "1145-hand-off-the-coordinator-of-a-large-project",
+  "commands": [
+    {
+      "cmd": "gh pr checks 1171 -R anton-abyzov/specwithcode-dev --required",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 5,
+    "done": 5,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-03",
+            "status": "claimed"
+          }
+        ]
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-03",
+            "status": "claimed"
+          }
+        ]
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-03",
+            "status": "claimed"
+          }
+        ]
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-03",
+            "status": "claimed"
+          }
+        ]
+      },
+      {
+        "id": "AC-05",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "claimed"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          }
+        ]
+      }
+    ]
+  },
+  "tasks": {
+    "total": 4,
+    "done": 3,
+    "skipped": 0,
+    "open": 1
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

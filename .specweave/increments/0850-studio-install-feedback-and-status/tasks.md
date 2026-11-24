@@ -35,3 +35,20 @@
 ### T-009: Build + restart studio + manual smoke
 **Status**: [ ] pending
 **Test**: Given fresh build When user installs appstore at project scope Then modal shows project path, persists done, badge flips to "Installed v<X>"; remove flips back to "Not installed".
+
+### T-010: Correct per-agent membership and semantic-version status
+- AC: AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US4-04 | Files: repositories/anton-abyzov/vskill/src/eval-server/install-state-routes.ts, repositories/anton-abyzov/vskill/src/eval-server/remove-skill-routes.ts, repositories/anton-abyzov/vskill/src/eval-server/skill-install-paths.ts, repositories/anton-abyzov/vskill/src/eval-server/__tests__/, repositories/anton-abyzov/vskill/src/eval-ui/src/components/InstallTargetsModal.tsx, repositories/anton-abyzov/vskill/src/eval-ui/src/components/__tests__/, repositories/anton-abyzov/vskill/src/eval-ui/src/utils/ | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-0850-status-completion && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run src/eval-server/__tests__/install-state-routes.test.ts src/eval-server/__tests__/remove-skill-routes.test.ts src/eval-ui/src/components/__tests__/InstallTargetsModal.test.tsx --maxWorkers=1 --no-file-parallelism
+
+Fresh review on October 21, 2026 found that scope-wide lock agents falsely mark a removed skill installed when another skill remains, and prerelease/build suffixes produce incorrect update badges. Use actual per-agent files with shared-reader semantics, correct SemVer precedence, and fixtures covering remove followed by refresh. Prior completed tasks remain historical; this is an additive correction.
+
+### T-012: Keep installed-skill management reachable from discovery
+- AC: AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-0850-status-completion/src/eval-ui/src/components/FindSkillsPalette/SkillDetailPanel.tsx, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-0850-status-completion/src/eval-ui/src/components/FindSkillsPalette/__tests__/, /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-0850-status-completion/e2e/, .specweave/increments/0850-studio-install-feedback-and-status/reports/ | Test: Failing-first discovery install, Done, reopen management, remove/reinstall/update, per-scope refresh; focused component regression suite, full touched-module coverage and built headless UI
+- Dependencies: T-010
+
+October 22, 2026 released-package verification found that after a real fixture installation, the installed-scope pill and primary CTA are disabled. The existing modal's per-agent Remove/Reinstall/Update controls cannot be reached from the discovery panel. Confirm the supported entry paths, then expose an explicit management action without silently installing or removing anything. Preserve scope selection, permission/security guards, retained error feedback and status refresh. Use isolated fixture roots and no real user-home changes. This source correction does not authorize a new release, production action or cleanup. Fresh independent review precedes source delivery; publication and manual acceptance remain T-011.
+
+### T-011: Verify and close 0850
+- AC: AC-US1-01, AC-US1-02, AC-US1-03, AC-US1-04, AC-US2-01, AC-US2-02, AC-US2-03, AC-US2-04, AC-US3-01, AC-US3-02, AC-US3-03, AC-US3-04, AC-US3-05, AC-US4-01, AC-US4-02, AC-US4-03, AC-US4-04 | Files: .specweave/increments/0850-studio-install-feedback-and-status/reports/ | Test: cd /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-0850-status-completion && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npm run build
+- Dependencies: T-010, T-012
+
+Require fresh-context acceptance review, scoped coverage, built-UI headless smoke, and the project-required manual UI acceptance before recording completion. Coordinate the release owner and retain all worktrees under the incident cleanup hold. Verify and close 0850.

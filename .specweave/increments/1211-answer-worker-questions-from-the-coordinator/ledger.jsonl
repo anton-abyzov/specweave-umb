@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"coordinator-answers-1211","at":"2026-11-03T15:14:57.389Z","note":"session 01a1a1f7-63c0-7c80-984e-ae917c9085db"}
+{"t":"T-01","e":"claim","by":"coordinator-answers-1211","at":"2026-11-03T15:14:57.391Z","line":"Forward coordinator answers with user provenance"}
+{"t":"T-01","e":"done","by":"coordinator-answers-1211","at":"2026-11-03T15:16:45.119Z","evidence":"2d37d3f389; 24 tests passed in ProjectWorkspaceService and OrchestratorMcpService.activity; user authorship, stable retry identity, agent impersonation rejection and coordinator role guards verified\nHEAD 0f512e71d","line":"Allowed coordinator replies with original user provenance"}
+{"t":"T-02","e":"claim","by":"coordinator-answers-1211","at":"2026-11-03T15:16:45.683Z","line":"Review and merge coordinator answer routing"}
+{"t":"T-02","e":"done","by":"coordinator-answers-1211","at":"2026-11-03T15:35:06.578Z","evidence":"PR1291 merged 037770c9cfd4aa4bb1e0ae380172f2679df07476; exact-head e7988db7 SHIP fresh review and required CI passed; reports/coordinator-answers.md\nHEAD 0c12b3ca9","line":"Verified review and CI, merged coordinator answer fix"}

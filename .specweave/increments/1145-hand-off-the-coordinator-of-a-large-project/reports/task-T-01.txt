@@ -1,0 +1,7 @@
+$ gh pr view 1055 -R anton-abyzov/specwithcode-dev --json state,mergeCommit -q '.state+" "+.mergeCommit.oid' | grep MERGED && gh pr checks 1055 -R anton-abyzov/specwithcode-dev --required
+# exit 0 — 2026-11-02T03:31:45.680Z
+
+MERGED 3a60040c3c18c5b430752550bdf1977aea5583e9
+Changed paths	pass	6s	https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41026376371/job/123965355651	
+PR Gate	pass	9s	https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41026376371/job/123970967025	
+PR Gate (typecheck)	pass	13m38s	https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41026376371/job/123965405395	

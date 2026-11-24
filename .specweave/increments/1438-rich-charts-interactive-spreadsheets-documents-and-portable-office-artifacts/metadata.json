@@ -1,0 +1,18 @@
+{
+  "id": "1438-rich-charts-interactive-spreadsheets-documents-and-portable-office-artifacts",
+  "uuid": "d4216309-be8e-4dc9-97af-94a45d7d8177",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T21:48:36.716Z",
+  "updated": "2026-11-21T04:42:38.378Z",
+  "lastActivity": "2026-11-21T04:42:38.378Z",
+  "title": "Rich charts, interactive spreadsheets, documents, and portable Office artifacts",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-21T02:19:39.692Z",
+  "approvedAt": "2026-11-21T02:19:39.702Z"
+}

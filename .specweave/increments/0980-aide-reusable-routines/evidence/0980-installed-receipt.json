@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-10-21T17:50:28.377Z",
+  "app": "/Applications/SpecWithCode.app",
+  "serverPid": 40094,
+  "scratch": "/Users/antonabyzov/Projects/scratch/0980-installed-check-20261021/",
+  "headless": true,
+  "version": "1.0.66",
+  "plistVersion": "1.0.66",
+  "cases": [
+    {
+      "name": "installed version is 1.0.66",
+      "pass": true,
+      "server": "1.0.66",
+      "plist": "1.0.66"
+    },
+    {
+      "name": "personal project Example Household exists",
+      "pass": true,
+      "kind": "personal"
+    },
+    {
+      "name": "Routines tab and four templates",
+      "pass": true,
+      "tabLabel": "Routines",
+      "templates": [
+        "Monthly tax prep",
+        "Monthly profit and loss",
+        "Research brief",
+        "Email triage and draft replies"
+      ]
+    },
+    {
+      "name": "template form defaults: When you ask, prepare-only, own thread note",
+      "pass": true
+    },
+    {
+      "name": "tax prep persisted after reload: manual cadence, inputs, own-thread label",
+      "pass": true,
+      "taxCadence": "When you ask",
+      "schedule": {
+        "type": "manual"
+      },
+      "ownThread": true,
+      "brief": {
+        "inputs": [
+          {
+            "label": "Receipts",
+            "location": "~/Example Household/receipts"
+          }
+        ],
+        "output": "~/Example Household/tax/{period}.md",
+        "prepareOnly": true
+      },
+      "promptStart": "Prepare my tax records for the previous month. Sort income and expenses into cat",
+      "rowText": "Monthly tax prep On request When you ask Own thread from the first run Receipts ~/Example Household/receipts Result ~/Example Household/tax/{period}.md Run now"
+    },
+    {
+      "name": "P&L shows monthly cadence label",
+      "pass": true,
+      "pnlCadence": "Monthly on the 1st at 09:00",
+      "schedule": {
+        "type": "monthly",
+        "dayOfMonth": 1,
+        "timeOfDay": "09:00"
+      },
+      "nextRunAt": "2026-11-01T14:00:00.000Z"
+    },
+    {
+      "name": "Run now offered and enabled for manual routine; no Pause on manual",
+      "pass": true,
+      "pauseOnManual": 0,
+      "pnlHasPause": 1
+    },
+    {
+      "name": "Routines pane at 390x844",
+      "pass": true,
+      "visible": true,
+      "runNowEnabled": true,
+      "documentOverflowPx": 0,
+      "sectionOverflowPx": 0
+    },
+    {
+      "name": "Settings page is Routines and lists both",
+      "pass": true,
+      "headings": [
+        "Projects",
+        "Chats",
+        "Settings",
+        "Routines",
+        "Anton’s MacBook M4MAX"
+      ]
+    },
+    {
+      "name": "Run now dispatched with all providers disabled (no provider process)",
+      "pass": true,
+      "childrenBefore": "",
+      "childrenDuring": [],
+      "lastRunAt": "2026-10-21T17:50:33.543Z",
+      "lastRunError": null,
+      "threadId": "thread:project:example-household:f62137e6-48ca-4da3-8e65-1b8bafc02f39",
+      "alerts": [],
+      "rowText": "Monthly tax prep On request When you ask Last ran Today 1:50 PM EDT Open its thread Receipts ~/Example Household/receipts Result ~/Example Household/tax/{period}.md Run now"
+    }
+  ],
+  "screenshots": [
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0980-aide-reusable-routines/evidence/0980-installed-routines-empty-1280.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0980-aide-reusable-routines/evidence/0980-installed-template-form-1280.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0980-aide-reusable-routines/evidence/0980-installed-routines-1280.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0980-aide-reusable-routines/evidence/0980-installed-routines-390.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0980-aide-reusable-routines/evidence/0980-installed-routines-390-scrolled.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0980-aide-reusable-routines/evidence/0980-installed-settings-routines-1280.png",
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0980-aide-reusable-routines/evidence/0980-installed-run-now-1280.png"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "pass": true,
+  "runOutcome": {
+    "dispatched": true,
+    "ownThreadBound": true,
+    "providerTurn": "refused before any provider contact",
+    "serverError": "ProviderSetupError: This provider instance is disabled.",
+    "turnStartAttempts": 4,
+    "routineCardLastRunError": null,
+    "note": "Card shows Last ran with no error; the failure is visible only in the routine thread."
+  }
+}

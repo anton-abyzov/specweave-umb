@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-15T03:43:56.468Z",
+  "increment": "0924-specwithcode-product-led-landing-and-subscription-value",
+  "commands": [
+    {
+      "cmd": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node .specweave/increments/0924-specwithcode-product-led-landing-and-subscription-value/reports/live-check.mjs .specweave/increments/0924-specwithcode-product-led-landing-and-subscription-value/reports/live",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 5,
+    "done": 5
+  },
+  "tasks": {
+    "total": 2,
+    "done": 2,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

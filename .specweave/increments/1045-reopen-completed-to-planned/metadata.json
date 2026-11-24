@@ -1,0 +1,18 @@
+{
+  "id": "1045-reopen-completed-to-planned",
+  "uuid": "b7a44def-addc-4b26-964d-1eee95ee75a0",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T01:52:31.609Z",
+  "updated": "2026-10-24T02:53:23.411Z",
+  "lastActivity": "2026-10-24T02:53:23.411Z",
+  "title": "Reopen a completed increment to planned",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T02:53:23.408Z",
+  "closeReason": "Verify: ACs 6/6, tasks 5/5, vskill, vskill-platform and python checks pass; only 5 specweave git-timing tests (save.test.ts, handoff-roundtrip.test.ts) time out at 5s under load average 120. They pass alone (79/79), are untouched by 1045, and CI unit passed on PR #2139 and release 3.1.8. Fresh-context review: SHIP.",
+  "approvedAt": "2026-10-24T02:53:23.411Z"
+}

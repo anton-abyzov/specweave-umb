@@ -1,0 +1,15 @@
+{
+  "id": "1263-default-model-keeps-options-across-providers-and-names-unsupported-ones",
+  "uuid": "c78d42de-81f3-4766-a4fa-b979ecbef024",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-08T20:05:29.803Z",
+  "updated": "2026-11-08T20:56:15.456Z",
+  "lastActivity": "2026-11-08T20:56:15.456Z",
+  "title": "Default model keeps options across providers and names unsupported ones",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-08T20:56:15.455Z",
+  "approvedAt": "2026-11-08T20:56:15.456Z"
+}

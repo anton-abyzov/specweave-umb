@@ -1,0 +1,22 @@
+
+ RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+
+ ✓ tests/unit/core/session/session-checkpoint.test.ts (13 tests) 18229ms
+     ✓ captures tracked and untracked work and summary without changing ownership, index, refs, or pointer  1322ms
+     ✓ isolates sessions and Git worktrees while canonicalizing subdirectories and symlinks  361ms
+     ✓ captures a child repository while retaining unique umbrella increment context  994ms
+     ✓ saves useful work without guessing an increment when several are active  768ms
+     ✓ throttles only successful saves and keeps the immediately preceding generation  2023ms
+     ✓ rechecks the successful receipt after acquiring a lease  770ms
+     ✓ leaves the last successful receipt untouched after Git failure and retries immediately  1523ms
+     ✓ bounds simultaneous reservations and recovers stale locks without altering another active lease  613ms
+     ✓ retains the old receipt when a scrubbed diff cannot be written completely  1930ms
+     ✓ fails within the Git budget and preserves recovery when a required Git command stalls  4424ms
+     ✓ scrubs secrets before persisting worker input and from the captured diff  759ms
+     ✓ supports an unborn repository and a plain folder, and rejects unsafe input  1425ms
+     ✓ reaps helpers orphaned by a Git timeout when the POSIX capture worker exits  1314ms
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  20:10:38
+   Duration  19.42s (transform 587ms, setup 57ms, import 702ms, tests 18.23s, environment 0ms)

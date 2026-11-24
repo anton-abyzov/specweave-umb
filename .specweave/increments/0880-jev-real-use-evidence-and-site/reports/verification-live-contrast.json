@@ -1,0 +1,1434 @@
+{
+  "testedAt": "2026-09-22T04:49:11.325Z",
+  "baseUrl": "https://spec-weave.com",
+  "testSource": {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0880-release/",
+    "revision": "195d147a5495627d2e16a581c619c2408cb398e0",
+    "branch": "codex/0880-delivery",
+    "trackedChanges": false
+  },
+  "results": [
+    {
+      "path": "/",
+      "width": 390,
+      "pairs": [
+        {
+          "text": "Open source · Local first · Yours to keep",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 12,
+          "fontWeight": 600,
+          "ratio": 13.609,
+          "required": 4.5
+        },
+        {
+          "text": "Change agents.",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 43,
+          "fontWeight": 450,
+          "ratio": 13.609,
+          "required": 3
+        },
+        {
+          "text": "Keep the thread.",
+          "foreground": [
+            105,
+            112,
+            92
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 43,
+          "fontWeight": 400,
+          "ratio": 4.688,
+          "required": 3
+        },
+        {
+          "text": "Your tools will change. The work should stay clear. Keep intent, specifications,",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 16,
+          "fontWeight": 400,
+          "ratio": 5.111,
+          "required": 4.5
+        },
+        {
+          "text": "Start with your project",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            37,
+            40,
+            32
+          ],
+          "fontSize": 15,
+          "fontWeight": 500,
+          "ratio": 14.968,
+          "required": 4.5
+        },
+        {
+          "text": "Product workspace",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            251,
+            252,
+            248
+          ],
+          "fontSize": 13,
+          "fontWeight": 500,
+          "ratio": 14.527,
+          "required": 4.5
+        },
+        {
+          "text": "/ Work",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            251,
+            252,
+            248
+          ],
+          "fontSize": 13,
+          "fontWeight": 500,
+          "ratio": 5.456,
+          "required": 4.5
+        },
+        {
+          "text": "INT-024",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 5.622,
+          "required": 4.5
+        },
+        {
+          "text": "Make exports accessible",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "fontSize": 16,
+          "fontWeight": 500,
+          "ratio": 14.968,
+          "required": 4.5
+        },
+        {
+          "text": "No increment yet",
+          "foreground": [
+            82,
+            97,
+            71
+          ],
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 6.646,
+          "required": 4.5
+        },
+        {
+          "text": "Unassigned",
+          "foreground": [
+            96,
+            103,
+            87
+          ],
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 5.874,
+          "required": 4.5
+        },
+        {
+          "text": "Inside this intent",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            239,
+            242,
+            232
+          ],
+          "fontSize": 11,
+          "fontWeight": 600,
+          "ratio": 13.212,
+          "required": 4.5
+        },
+        {
+          "text": "An intent can start small. Attach a specification when the work needs acceptance",
+          "foreground": [
+            92,
+            101,
+            83
+          ],
+          "background": [
+            239,
+            242,
+            232
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 5.386,
+          "required": 4.5
+        },
+        {
+          "text": "01",
+          "foreground": [
+            177,
+            65,
+            28
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 5.242,
+          "required": 4.5
+        },
+        {
+          "text": "01",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            239,
+            238,
+            230
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 12.86,
+          "required": 4.5
+        },
+        {
+          "text": "Agree on the outcome. Claim the next task.",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            239,
+            238,
+            230
+          ],
+          "fontSize": 15,
+          "fontWeight": 400,
+          "ratio": 4.83,
+          "required": 4.5
+        },
+        {
+          "text": "specweave handoff",
+          "foreground": [
+            71,
+            81,
+            59
+          ],
+          "background": [
+            249,
+            251,
+            243
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 8.023,
+          "required": 4.5
+        },
+        {
+          "text": "Recorded example · synthetic input",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            237,
+            240,
+            229
+          ],
+          "fontSize": 11,
+          "fontWeight": 600,
+          "ratio": 12.969,
+          "required": 4.5
+        },
+        {
+          "text": "“Could I see the leagues available to me?”",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            237,
+            240,
+            229
+          ],
+          "fontSize": 32,
+          "fontWeight": 400,
+          "ratio": 12.969,
+          "required": 3
+        },
+        {
+          "text": "Regex baseline",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            237,
+            240,
+            229
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 4.871,
+          "required": 4.5
+        },
+        {
+          "text": "The companion project",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            231,
+            235,
+            223
+          ],
+          "fontSize": 12,
+          "fontWeight": 600,
+          "ratio": 12.364,
+          "required": 4.5
+        },
+        {
+          "text": "Better skills. Less baggage.",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            231,
+            235,
+            223
+          ],
+          "fontSize": 34,
+          "fontWeight": 450,
+          "ratio": 12.364,
+          "required": 3
+        },
+        {
+          "text": "Find focused expertise, inspect its source, and evaluate whether it helps your w",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            231,
+            235,
+            223
+          ],
+          "fontSize": 16,
+          "fontWeight": 400,
+          "ratio": 4.644,
+          "required": 4.5
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "/jev",
+      "width": 390,
+      "pairs": [
+        {
+          "text": "SpecWeave / Jev",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 5.111,
+          "required": 4.5
+        },
+        {
+          "text": "A small model for a defined choice",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 12,
+          "fontWeight": 600,
+          "ratio": 13.609,
+          "required": 4.5
+        },
+        {
+          "text": "Small decisions.",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 46,
+          "fontWeight": 450,
+          "ratio": 13.609,
+          "required": 3
+        },
+        {
+          "text": "Clear boundaries.",
+          "foreground": [
+            105,
+            112,
+            92
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 46,
+          "fontWeight": 400,
+          "ratio": 4.688,
+          "required": 3
+        },
+        {
+          "text": "See the EasyChamp evidence ↓",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            37,
+            40,
+            32
+          ],
+          "fontSize": 15,
+          "fontWeight": 500,
+          "ratio": 14.968,
+          "required": 4.5
+        },
+        {
+          "text": "Explore the recorded calls",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            252,
+            252,
+            248
+          ],
+          "fontSize": 17,
+          "fontWeight": 700,
+          "ratio": 14.553,
+          "required": 4.5
+        },
+        {
+          "text": "Authored test inputs · not live chat",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            252,
+            252,
+            248
+          ],
+          "fontSize": 13,
+          "fontWeight": 400,
+          "ratio": 5.466,
+          "required": 4.5
+        },
+        {
+          "text": "“",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            252,
+            252,
+            248
+          ],
+          "fontSize": 27,
+          "fontWeight": 400,
+          "ratio": 14.553,
+          "required": 3
+        },
+        {
+          "text": "fallback",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            233,
+            238,
+            225
+          ],
+          "fontSize": 15,
+          "fontWeight": 400,
+          "ratio": 12.674,
+          "required": 4.5
+        },
+        {
+          "text": "1 / CODE FIRST",
+          "foreground": [
+            177,
+            65,
+            28
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 5.242,
+          "required": 4.5
+        },
+        {
+          "text": "Jev off ·",
+          "foreground": [
+            177,
+            65,
+            28
+          ],
+          "background": [
+            236,
+            239,
+            227
+          ],
+          "fontSize": 14,
+          "fontWeight": 600,
+          "ratio": 4.948,
+          "required": 4.5
+        },
+        {
+          "text": "I'm sorry, I can't retrieve a list of all available leagues. I can only provide ",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            236,
+            239,
+            227
+          ],
+          "fontSize": 18,
+          "fontWeight": 400,
+          "ratio": 12.845,
+          "required": 4.5
+        },
+        {
+          "text": "Gemini 2.5 Flash · no list API call",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            236,
+            239,
+            227
+          ],
+          "fontSize": 13,
+          "fontWeight": 400,
+          "ratio": 4.824,
+          "required": 4.5
+        },
+        {
+          "text": "04 / Start with one decision",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            232,
+            237,
+            223
+          ],
+          "fontSize": 12,
+          "fontWeight": 600,
+          "ratio": 12.552,
+          "required": 4.5
+        },
+        {
+          "text": "Test the gap.",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            232,
+            237,
+            223
+          ],
+          "fontSize": 39,
+          "fontWeight": 450,
+          "ratio": 12.552,
+          "required": 3
+        },
+        {
+          "text": "Keep what helps.",
+          "foreground": [
+            105,
+            112,
+            92
+          ],
+          "background": [
+            232,
+            237,
+            223
+          ],
+          "fontSize": 39,
+          "fontWeight": 400,
+          "ratio": 4.324,
+          "required": 3
+        },
+        {
+          "text": "Choose a repeated classification. Label a representative sample. Compare your cu",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            232,
+            237,
+            223
+          ],
+          "fontSize": 17,
+          "fontWeight": 400,
+          "ratio": 4.714,
+          "required": 4.5
+        },
+        {
+          "text": "specweave jev setup",
+          "foreground": [
+            246,
+            244,
+            238
+          ],
+          "background": [
+            37,
+            40,
+            32
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 13.609,
+          "required": 4.5
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "pairs": [
+        {
+          "text": "Open source · Local first · Yours to keep",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 12,
+          "fontWeight": 600,
+          "ratio": 13.609,
+          "required": 4.5
+        },
+        {
+          "text": "Change agents.",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 79.2,
+          "fontWeight": 450,
+          "ratio": 13.609,
+          "required": 3
+        },
+        {
+          "text": "Keep the thread.",
+          "foreground": [
+            105,
+            112,
+            92
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 79.2,
+          "fontWeight": 400,
+          "ratio": 4.688,
+          "required": 3
+        },
+        {
+          "text": "Your tools will change. The work should stay clear. Keep intent, specifications,",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 18,
+          "fontWeight": 400,
+          "ratio": 5.111,
+          "required": 4.5
+        },
+        {
+          "text": "Start with your project",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            37,
+            40,
+            32
+          ],
+          "fontSize": 15,
+          "fontWeight": 500,
+          "ratio": 14.968,
+          "required": 4.5
+        },
+        {
+          "text": "Product workspace",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            251,
+            252,
+            248
+          ],
+          "fontSize": 14,
+          "fontWeight": 500,
+          "ratio": 14.527,
+          "required": 4.5
+        },
+        {
+          "text": "/ Work",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            251,
+            252,
+            248
+          ],
+          "fontSize": 14,
+          "fontWeight": 500,
+          "ratio": 5.456,
+          "required": 4.5
+        },
+        {
+          "text": "INT-024",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 5.622,
+          "required": 4.5
+        },
+        {
+          "text": "Make exports accessible",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "fontSize": 16,
+          "fontWeight": 500,
+          "ratio": 14.968,
+          "required": 4.5
+        },
+        {
+          "text": "No increment yet",
+          "foreground": [
+            82,
+            97,
+            71
+          ],
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 6.646,
+          "required": 4.5
+        },
+        {
+          "text": "Unassigned",
+          "foreground": [
+            96,
+            103,
+            87
+          ],
+          "background": [
+            255,
+            255,
+            255
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 5.874,
+          "required": 4.5
+        },
+        {
+          "text": "Inside this intent",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            239,
+            242,
+            232
+          ],
+          "fontSize": 11,
+          "fontWeight": 600,
+          "ratio": 13.212,
+          "required": 4.5
+        },
+        {
+          "text": "An intent can start small. Attach a specification when the work needs acceptance",
+          "foreground": [
+            92,
+            101,
+            83
+          ],
+          "background": [
+            239,
+            242,
+            232
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 5.386,
+          "required": 4.5
+        },
+        {
+          "text": "01",
+          "foreground": [
+            177,
+            65,
+            28
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 5.242,
+          "required": 4.5
+        },
+        {
+          "text": "01",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            239,
+            238,
+            230
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 12.86,
+          "required": 4.5
+        },
+        {
+          "text": "Agree on the outcome. Claim the next task.",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            239,
+            238,
+            230
+          ],
+          "fontSize": 15,
+          "fontWeight": 400,
+          "ratio": 4.83,
+          "required": 4.5
+        },
+        {
+          "text": "specweave handoff",
+          "foreground": [
+            71,
+            81,
+            59
+          ],
+          "background": [
+            249,
+            251,
+            243
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 8.023,
+          "required": 4.5
+        },
+        {
+          "text": "Recorded example · synthetic input",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            237,
+            240,
+            229
+          ],
+          "fontSize": 11,
+          "fontWeight": 600,
+          "ratio": 12.969,
+          "required": 4.5
+        },
+        {
+          "text": "“Could I see the leagues available to me?”",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            237,
+            240,
+            229
+          ],
+          "fontSize": 32,
+          "fontWeight": 400,
+          "ratio": 12.969,
+          "required": 3
+        },
+        {
+          "text": "Regex baseline",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            237,
+            240,
+            229
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 4.871,
+          "required": 4.5
+        },
+        {
+          "text": "The companion project",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            231,
+            235,
+            223
+          ],
+          "fontSize": 12,
+          "fontWeight": 600,
+          "ratio": 12.364,
+          "required": 4.5
+        },
+        {
+          "text": "Better skills. Less baggage.",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            231,
+            235,
+            223
+          ],
+          "fontSize": 34,
+          "fontWeight": 450,
+          "ratio": 12.364,
+          "required": 3
+        },
+        {
+          "text": "Find focused expertise, inspect its source, and evaluate whether it helps your w",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            231,
+            235,
+            223
+          ],
+          "fontSize": 16,
+          "fontWeight": 400,
+          "ratio": 4.644,
+          "required": 4.5
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "/jev",
+      "width": 1440,
+      "pairs": [
+        {
+          "text": "SpecWeave / Jev",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 5.111,
+          "required": 4.5
+        },
+        {
+          "text": "A small model for a defined choice",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 12,
+          "fontWeight": 600,
+          "ratio": 13.609,
+          "required": 4.5
+        },
+        {
+          "text": "Small decisions.",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 86,
+          "fontWeight": 450,
+          "ratio": 13.609,
+          "required": 3
+        },
+        {
+          "text": "Clear boundaries.",
+          "foreground": [
+            105,
+            112,
+            92
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 86,
+          "fontWeight": 400,
+          "ratio": 4.688,
+          "required": 3
+        },
+        {
+          "text": "See the EasyChamp evidence ↓",
+          "foreground": [
+            255,
+            255,
+            255
+          ],
+          "background": [
+            37,
+            40,
+            32
+          ],
+          "fontSize": 15,
+          "fontWeight": 500,
+          "ratio": 14.968,
+          "required": 4.5
+        },
+        {
+          "text": "Explore the recorded calls",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            252,
+            252,
+            248
+          ],
+          "fontSize": 17,
+          "fontWeight": 700,
+          "ratio": 14.553,
+          "required": 4.5
+        },
+        {
+          "text": "Authored test inputs · not live chat",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            252,
+            252,
+            248
+          ],
+          "fontSize": 13,
+          "fontWeight": 400,
+          "ratio": 5.466,
+          "required": 4.5
+        },
+        {
+          "text": "“",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            252,
+            252,
+            248
+          ],
+          "fontSize": 38,
+          "fontWeight": 400,
+          "ratio": 14.553,
+          "required": 3
+        },
+        {
+          "text": "fallback",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            233,
+            238,
+            225
+          ],
+          "fontSize": 15,
+          "fontWeight": 400,
+          "ratio": 12.674,
+          "required": 4.5
+        },
+        {
+          "text": "1 / CODE FIRST",
+          "foreground": [
+            177,
+            65,
+            28
+          ],
+          "background": [
+            246,
+            244,
+            238
+          ],
+          "fontSize": 12,
+          "fontWeight": 400,
+          "ratio": 5.242,
+          "required": 4.5
+        },
+        {
+          "text": "Jev off ·",
+          "foreground": [
+            177,
+            65,
+            28
+          ],
+          "background": [
+            236,
+            239,
+            227
+          ],
+          "fontSize": 14,
+          "fontWeight": 600,
+          "ratio": 4.948,
+          "required": 4.5
+        },
+        {
+          "text": "I'm sorry, I can't retrieve a list of all available leagues. I can only provide ",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            236,
+            239,
+            227
+          ],
+          "fontSize": 18,
+          "fontWeight": 400,
+          "ratio": 12.845,
+          "required": 4.5
+        },
+        {
+          "text": "Gemini 2.5 Flash · no list API call",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            236,
+            239,
+            227
+          ],
+          "fontSize": 13,
+          "fontWeight": 400,
+          "ratio": 4.824,
+          "required": 4.5
+        },
+        {
+          "text": "04 / Start with one decision",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            232,
+            237,
+            223
+          ],
+          "fontSize": 12,
+          "fontWeight": 600,
+          "ratio": 12.552,
+          "required": 4.5
+        },
+        {
+          "text": "Test the gap.",
+          "foreground": [
+            37,
+            40,
+            32
+          ],
+          "background": [
+            232,
+            237,
+            223
+          ],
+          "fontSize": 62,
+          "fontWeight": 450,
+          "ratio": 12.552,
+          "required": 3
+        },
+        {
+          "text": "Keep what helps.",
+          "foreground": [
+            105,
+            112,
+            92
+          ],
+          "background": [
+            232,
+            237,
+            223
+          ],
+          "fontSize": 62,
+          "fontWeight": 400,
+          "ratio": 4.324,
+          "required": 3
+        },
+        {
+          "text": "Choose a repeated classification. Label a representative sample. Compare your cu",
+          "foreground": [
+            101,
+            105,
+            94
+          ],
+          "background": [
+            232,
+            237,
+            223
+          ],
+          "fontSize": 17,
+          "fontWeight": 400,
+          "ratio": 4.714,
+          "required": 4.5
+        },
+        {
+          "text": "specweave jev setup",
+          "foreground": [
+            246,
+            244,
+            238
+          ],
+          "background": [
+            37,
+            40,
+            32
+          ],
+          "fontSize": 14,
+          "fontWeight": 400,
+          "ratio": 13.609,
+          "required": 4.5
+        }
+      ],
+      "failures": []
+    }
+  ]
+}

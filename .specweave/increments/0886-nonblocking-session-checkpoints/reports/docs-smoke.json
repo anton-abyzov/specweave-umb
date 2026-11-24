@@ -1,0 +1,153 @@
+{
+  "headless": true,
+  "node": "v22.20.0",
+  "cases": [
+    {
+      "path": "/",
+      "theme": "light",
+      "width": 1440,
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/pricing/",
+      "theme": "light",
+      "width": 1440,
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/",
+      "theme": "dark",
+      "width": 1440,
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/pricing/",
+      "theme": "dark",
+      "width": 1440,
+      "dimensions": {
+        "viewport": 1440,
+        "document": 1440,
+        "body": 1440
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/",
+      "theme": "light",
+      "width": 390,
+      "dimensions": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/pricing/",
+      "theme": "light",
+      "width": 390,
+      "dimensions": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/",
+      "theme": "dark",
+      "width": 390,
+      "dimensions": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/pricing/",
+      "theme": "dark",
+      "width": 390,
+      "dimensions": {
+        "viewport": 390,
+        "document": 390,
+        "body": 390
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/",
+      "theme": "light",
+      "width": 320,
+      "dimensions": {
+        "viewport": 320,
+        "document": 320,
+        "body": 320
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/pricing/",
+      "theme": "light",
+      "width": 320,
+      "dimensions": {
+        "viewport": 320,
+        "document": 320,
+        "body": 320
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/",
+      "theme": "dark",
+      "width": 320,
+      "dimensions": {
+        "viewport": 320,
+        "document": 320,
+        "body": 320
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    },
+    {
+      "path": "/pricing/",
+      "theme": "dark",
+      "width": 320,
+      "dimensions": {
+        "viewport": 320,
+        "document": 320,
+        "body": 320
+      },
+      "newCopyPresent": true,
+      "oldQuotaPromiseAbsent": true
+    }
+  ],
+  "pageErrors": [],
+  "base": "http://127.0.0.1:52238",
+  "ok": true
+}

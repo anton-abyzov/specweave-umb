@@ -1,0 +1,65 @@
+{
+  "deploymentSha": "10969cdf6d4d8f28db5cde0b0fb1b31964946c9f",
+  "deploymentRun": "https://github.com/anton-abyzov/specweave/actions/runs/37737911168",
+  "deploymentEnvironment": "https://spec-weave.com/",
+  "deploymentStatus": "success",
+  "publicRoutes": {
+    "passed": 12,
+    "checks": [
+      "HTTP200",
+      "expected checkpoint copy",
+      "canonical URL",
+      "obsolete quota promises absent"
+    ]
+  },
+  "headless": true,
+  "responsiveSmoke": {
+    "passed": 12,
+    "widths": [
+      1440,
+      390,
+      320
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "routes": [
+      "/",
+      "/pricing/"
+    ],
+    "checks": [
+      "new copy",
+      "expanded pricing FAQ",
+      "horizontal overflow",
+      "document theme"
+    ],
+    "pageErrors": []
+  },
+  "visualReview": {
+    "status": "finding",
+    "finding": "Desktop landing story terminal/art panel remains invisible after handoff step activates; active class exists but computed opacity is 0. Mobile inline panel renders.",
+    "cause": "Production CSS combines active opacity rule before equal-specificity base opacity:0 rule, so base wins.",
+    "sourceChangedByPR1983": false,
+    "suggestedMinimalFix": ".stageBeat.stageBeatActive at docs-site/src/components/landing/landing.module.css:316",
+    "screenshot": "/tmp/specweave-0886-public-docs/landing-desktop-settled.png",
+    "domEvidence": "/tmp/specweave-0886-public-docs/landing-dom.json"
+  },
+  "screenshots": [
+    "/tmp/specweave-0886-public-docs/landing-1440-light.png",
+    "/tmp/specweave-0886-public-docs/pricing-1440-light.png",
+    "/tmp/specweave-0886-public-docs/landing-1440-dark.png",
+    "/tmp/specweave-0886-public-docs/pricing-1440-dark.png",
+    "/tmp/specweave-0886-public-docs/landing-390-light.png",
+    "/tmp/specweave-0886-public-docs/pricing-390-light.png",
+    "/tmp/specweave-0886-public-docs/landing-390-dark.png",
+    "/tmp/specweave-0886-public-docs/pricing-390-dark.png"
+  ],
+  "codeOrServiceChanges": false,
+  "evidence": {
+    "routesAndInitialResponsiveChecks": "/tmp/specweave-0886-public-docs/report-initial.json",
+    "enhancedVisibilityFailure": "/tmp/specweave-0886-public-docs/report.json",
+    "deployment": "/tmp/specweave-0886-public-docs/deployment.json",
+    "deploymentEnvironmentStatus": "/tmp/specweave-0886-public-docs/deployment-statuses.json"
+  }
+}

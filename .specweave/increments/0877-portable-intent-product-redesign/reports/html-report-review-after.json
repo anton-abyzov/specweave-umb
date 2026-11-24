@@ -1,0 +1,42 @@
+{
+  "headless": true,
+  "sourceSha256": "f0f79fa98af77fed35f3a621ef4737175ed94575d6cedc0b4447d2e3ece736f4",
+  "cases": [
+    {
+      "width": 1440,
+      "state": "closed",
+      "violations": [],
+      "passes": 30
+    },
+    {
+      "width": 1440,
+      "state": "open",
+      "violations": [],
+      "passes": 32
+    },
+    {
+      "width": 390,
+      "state": "closed",
+      "violations": [],
+      "passes": 30
+    },
+    {
+      "width": 390,
+      "state": "open",
+      "violations": [],
+      "passes": 32
+    },
+    {
+      "width": 320,
+      "state": "closed",
+      "violations": [],
+      "passes": 30
+    },
+    {
+      "width": 320,
+      "state": "open",
+      "violations": [],
+      "passes": 32
+    }
+  ]
+}

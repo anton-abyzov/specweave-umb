@@ -1,0 +1,4 @@
+$ cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && git merge-base --is-ancestor 56338d0eb 8d5194715e704dfbfe24590f9d6f0611e7da1d88 && git cat-file -e 8d5194715:docs-site/src/pages/code.tsx && git cat-file -e 8d5194715:docs-site/src/components/ecosystem/CoordinatorFlow.tsx && echo 'T-01 commit 56338d0eb is in merged develop 8d5194715 (PR #2053)'
+# exit 0 — 2026-10-15T03:43:42.264Z
+
+T-01 commit 56338d0eb is in merged develop 8d5194715 (PR #2053)

@@ -1,0 +1,17 @@
+{
+  "id": "1173-finished-worktrees-stop-holding-gigabytes",
+  "uuid": "6f0e6b52-3a6e-4c0b-9b41-1172a0d1f6c1",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-02T15:25:00.000Z",
+  "updated": "2026-11-02T16:14:46.714Z",
+  "lastActivity": "2026-11-02T16:14:46.714Z",
+  "title": "Finished worktrees stop holding gigabytes",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T16:14:46.713Z",
+  "approvedAt": "2026-11-02T16:14:46.714Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

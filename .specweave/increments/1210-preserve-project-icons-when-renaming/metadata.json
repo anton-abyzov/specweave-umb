@@ -1,0 +1,17 @@
+{
+  "id": "1210-preserve-project-icons-when-renaming",
+  "uuid": "9a3509d5-7d55-47e8-9e1f-d24452c6f1e8",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T14:57:54.105Z",
+  "updated": "2026-11-03T16:54:22.562Z",
+  "lastActivity": "2026-11-03T16:54:22.562Z",
+  "title": "Preserve project icons when renaming",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T16:54:22.560Z",
+  "approvedAt": "2026-11-03T16:54:22.562Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

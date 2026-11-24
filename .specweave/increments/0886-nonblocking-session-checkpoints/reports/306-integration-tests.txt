@@ -1,0 +1,32 @@
+
+ RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+
+ ✓ tests/unit/commands/jev-command.test.ts (41 tests) 340ms
+ ✓ tests/unit/jev/openai.test.ts (27 tests) 620ms
+ ✓ tests/unit/core/session/usage-guard.test.ts (30 tests) 455ms
+ ✓ tests/unit/jev/client.test.ts (35 tests) 456ms
+ ✓ tests/unit/jev/decide.test.ts (105 tests) 609ms
+ ✓ tests/unit/jev/security-regressions.test.ts (18 tests) 519ms
+     ✓ rejects malformed provider answer 0  328ms
+ ✓ tests/unit/release/publish-version.test.ts (24 tests) 46ms
+ ✓ tests/unit/jev/config.test.ts (31 tests) 106ms
+ ✓ tests/unit/core/session/grok-limit-handoff.test.ts (4 tests) 65ms
+ ✓ tests/unit/core/session/session-checkpoint.test.ts (13 tests) 17839ms
+     ✓ captures tracked and untracked work and summary without changing ownership, index, refs, or pointer  1430ms
+     ✓ isolates sessions and Git worktrees while canonicalizing subdirectories and symlinks  492ms
+     ✓ captures a child repository while retaining unique umbrella increment context  1535ms
+     ✓ saves useful work without guessing an increment when several are active  1300ms
+     ✓ throttles only successful saves and keeps the immediately preceding generation  2116ms
+     ✓ rechecks the successful receipt after acquiring a lease  675ms
+     ✓ leaves the last successful receipt untouched after Git failure and retries immediately  1089ms
+     ✓ bounds simultaneous reservations and recovers stale locks without altering another active lease  431ms
+     ✓ retains the old receipt when a scrubbed diff cannot be written completely  1873ms
+     ✓ fails within the Git budget and preserves recovery when a required Git command stalls  4532ms
+     ✓ scrubs secrets before persisting worker input and from the captured diff  885ms
+     ✓ supports an unborn repository and a plain folder, and rejects unsafe input  811ms
+     ✓ reaps helpers orphaned by a Git timeout when the POSIX capture worker exits  662ms
+
+ Test Files  10 passed (10)
+      Tests  328 passed (328)
+   Start at  02:16:54
+   Duration  20.03s (transform 2.56s, setup 213ms, import 4.13s, tests 21.05s, environment 1ms)

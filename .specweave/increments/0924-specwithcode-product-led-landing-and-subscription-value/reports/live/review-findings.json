@@ -1,0 +1,33 @@
+{
+ "reducedScrollBehavior": "auto",
+ "stepButtons": [
+  "1\nGoal shared",
+  "2\nWork assigned",
+  "3\nWorking in parallel",
+  "4\nResults returned",
+  "$20 plan",
+  "$100 plan",
+  "$200 plan",
+  "0:00\nEvery agent, one workspace"
+ ],
+ "reducedClickScroll": {
+  "y0": 0,
+  "immediate": 1991,
+  "after100ms": 1991,
+  "after1300ms": 1991,
+  "instant": true
+ },
+ "noJsVisibleSectionButtons": [
+  "$20 plan",
+  "$100 plan",
+  "$200 plan",
+  "0:00\nEvery agent, one workspace",
+  "0:04\nA coordinator and its workers",
+  "0:15\nEach job gets the model that fits",
+  "0:25\nResults come back to one conversation",
+  "0:31\nHit a limit, continue on Codex",
+  "0:48\nOne record in git",
+  "0:56\nBring your agents"
+ ],
+ "noJsAnchors": []
+}

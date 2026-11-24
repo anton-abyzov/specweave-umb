@@ -1,0 +1,27 @@
+{
+  "ok": false,
+  "ranAt": "2026-10-07T16:25:32.406Z",
+  "increment": "0885-search-console-seo-recovery",
+  "commands": [
+    {
+      "cmd": "python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-mail-inventory.py",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-release-artifacts.py",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 7,
+    "done": 6
+  },
+  "tasks": {
+    "total": 7,
+    "done": 6,
+    "skipped": 0,
+    "open": 1
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

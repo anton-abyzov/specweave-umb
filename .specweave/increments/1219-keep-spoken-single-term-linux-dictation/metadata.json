@@ -1,0 +1,18 @@
+{
+  "id": "1219-keep-spoken-single-term-linux-dictation",
+  "uuid": "6eeb2a72-dd48-46af-bfa0-2782de2be96f",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T23:02:48.018Z",
+  "updated": "2026-11-03T23:57:14.449Z",
+  "lastActivity": "2026-11-03T23:57:14.449Z",
+  "title": "Keep spoken single-term Linux dictation",
+  "project": "specweave-umb",
+  "parent": "1192-coordinator-voice-on-linux-and-mac-with-a-shared-vocabulary",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:57:14.448Z",
+  "approvedAt": "2026-11-03T23:57:14.449Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

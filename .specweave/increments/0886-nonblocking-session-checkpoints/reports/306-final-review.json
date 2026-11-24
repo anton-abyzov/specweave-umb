@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "verdict": "SHIP",
+  "reviewedHead": "7c8288e5cf486fdfcbfc966296b0bb70dc4e315e",
+  "mergeCommit": "10969cdf6d4d8f28db5cde0b0fb1b31964946c9f",
+  "mergedTreeEqualsReviewedTree": true,
+  "findings": []
+}

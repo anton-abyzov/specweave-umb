@@ -1,0 +1,11 @@
+▶ bash scripts/release/release.sh verify studio --version 1.0.115
+▶ cd /Users/antonabyzov/.specwithcode/release.noindex/test/apps/server && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/project/ProjectSkillsActions.test.ts src/project/ProjectSkillsToggles.test.ts src/project/ClaudeSettingsWrite.test.ts src/project/ProjectSkillsFleet.test.ts src/provider/Drivers/ClaudeSkills.test.ts
+▶ cd /Users/antonabyzov/.specwithcode/release.noindex/test/apps/web && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/components/settings/ProjectSkillActions.logic.test.ts src/components/settings/ProjectSkillsSettings.test.tsx
+▶ cd /Users/antonabyzov/.specwithcode/release.noindex/test/packages/contracts && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/projectSkillsActions.test.ts
+ok   bash scripts/release/release.sh verify studio --version 1.0.115 (exit 0)
+ok   cd /Users/antonabyzov/.specwithcode/release.noindex/test/apps/server && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/project/ProjectSkillsActions.test.ts src/project/ProjectSkillsToggles.test.ts src/project/ClaudeSettingsWrite.test.ts src/project/ProjectSkillsFleet.test.ts src/provider/Drivers/ClaudeSkills.test.ts (exit 0)
+ok   cd /Users/antonabyzov/.specwithcode/release.noindex/test/apps/web && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/components/settings/ProjectSkillActions.logic.test.ts src/components/settings/ProjectSkillsSettings.test.tsx (exit 0)
+ok   cd /Users/antonabyzov/.specwithcode/release.noindex/test/packages/contracts && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/projectSkillsActions.test.ts (exit 0)
+ACs 4/4 · tasks 9/9 done (0 skipped)
+PASS → .specweave/increments/1136-skills-control-center-in-specwithcode/reports/verify.md
+Next: specweave complete 1136-skills-control-center-in-specwithcode

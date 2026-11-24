@@ -1,0 +1,73 @@
+{
+  "testedAt": "2026-09-22T04:49:11.625Z",
+  "baseUrl": "https://spec-weave.com",
+  "testSource": {
+    "root": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0880-release/",
+    "revision": "195d147a5495627d2e16a581c619c2408cb398e0",
+    "branch": "codex/0880-delivery",
+    "trackedChanges": false
+  },
+  "headless": true,
+  "results": [
+    {
+      "path": "/",
+      "width": 320,
+      "status": "pass",
+      "consoleErrors": []
+    },
+    {
+      "path": "/jev",
+      "width": 320,
+      "status": "pass",
+      "consoleErrors": []
+    },
+    {
+      "path": "/",
+      "width": 375,
+      "status": "pass",
+      "consoleErrors": []
+    },
+    {
+      "path": "/jev",
+      "width": 375,
+      "status": "pass",
+      "consoleErrors": []
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "status": "pass",
+      "consoleErrors": []
+    },
+    {
+      "path": "/jev",
+      "width": 390,
+      "status": "pass",
+      "consoleErrors": []
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "status": "pass",
+      "consoleErrors": []
+    },
+    {
+      "path": "/jev",
+      "width": 768,
+      "status": "pass",
+      "consoleErrors": []
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "status": "pass",
+      "consoleErrors": []
+    },
+    {
+      "path": "/jev",
+      "width": 1440,
+      "status": "pass",
+      "consoleErrors": []
+    }
+  ]
+}

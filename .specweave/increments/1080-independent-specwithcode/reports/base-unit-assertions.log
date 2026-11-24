@@ -1,0 +1,99 @@
+
+ RUN  v4.1.11 /private/tmp/swc-independent-umbrella/repositories/anton-abyzov/specweave-baseline
+
+ ❯ tests/unit/integrations/github/from-repo-project-root.test.ts (4 tests | 1 failed) 7ms
+     ✓ constructor stores projectRoot when provided 1ms
+     ✓ constructor leaves projectRoot undefined when not provided 0ms
+     × fromRepo sets projectRoot via findProjectRoot (not undefined) 5ms
+     ✓ setProjectRoot updates the project root 0ms
+A reason is required: specweave small-fix "typo in the README"
+Unknown mode "sometimes". Use one of: off, remind, enforce
+ ❯ tests/unit/core/hooks/require-increment.test.ts (13 tests | 2 failed) 107ms
+     ✓ off (the default) changes nothing 4ms
+     ✓ enforce denies an unplanned edit and names the commands that unblock it 3ms
+     ✓ enforce passes planning files, files outside the project, and sessions with work 17ms
+     ✓ a bound SpecWithCode thread counts as planned work 5ms
+     × a thread small fix stops exempting once the thread worked an increment that then closed 21ms
+     ✓ remind warns once per session 3ms
+     ✓ passes an edit in the worktree when the thread is bound to an open increment in the umbrella 8ms
+     ✓ denies when the binding belongs to an unrelated repository 9ms
+     ✓ a standalone project worktree with its own .specweave matches a binding to the main checkout 11ms
+     × small-fix from the worktree with only the thread id exempts the thread in this project only 10ms
+     ✓ small-fix exempts the session and logs the exemption 4ms
+     ✓ require-increment sets the mode and installs, then removes, only its own hook group 6ms
+     ✓ remind recommends an increment and never asks to retry a blocked edit 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/core/hooks/require-increment.test.ts > required-increment guard (AC-03) > a thread small fix stops exempting once the thread worked an increment that then closed
+AssertionError: expected { hookSpecificOutput: { …(3) } } to deeply equal {}
+
+- Expected
++ Received
+
+- {}
++ {
++   "hookSpecificOutput": {
++     "hookEventName": "PreToolUse",
++     "permissionDecision": "deny",
++     "permissionDecisionReason": "This project requires an increment before code changes (planning.requireIncrement = enforce), and this session has none. Plan it with `specweave create-increment \"<title>\"` and fill spec.md, or continue an open one with `specweave task claim T-NN <increment>`. If the change is too small to plan, run `specweave small-fix \"<why>\"`. Then retry the edit.",
++   },
++ }
+
+ ❯ tests/unit/core/hooks/require-increment.test.ts:119:57
+    117|     process.env.SPECWEAVE_STUDIO_THREAD_ID = 'thread:codex';
+    118|     expect(smallFixCommand('typo', { cwd: root })).toBe(0);
+    119|     expect(await handle(edit('src/a.ts', ''), context)).toEqual({});
+       |                                                         ^
+    120|     fs.writeFileSync(path.join(inc, 'metadata.json'), '{"status":"acti…
+    121|     recordIncrementWork(inc, { e: 'claim', t: 'T-01' }, { home });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/unit/core/hooks/require-increment.test.ts > SpecWithCode worktrees outside the project (1001 AC-01, AC-02) > small-fix from the worktree with only the thread id exempts the thread in this project only
+AssertionError: expected { hookSpecificOutput: { …(3) } } to deeply equal {}
+
+- Expected
++ Received
+
+- {}
++ {
++   "hookSpecificOutput": {
++     "hookEventName": "PreToolUse",
++     "permissionDecision": "deny",
++     "permissionDecisionReason": "This project requires an increment before code changes (planning.requireIncrement = enforce), and this session has none. Plan it with `specweave create-increment \"<title>\"` and fill spec.md, or continue an open one with `specweave task claim T-NN <increment>`. If the change is too small to plan, run `specweave small-fix \"<why>\"`. Then retry the edit.",
++   },
++ }
+
+ ❯ tests/unit/core/hooks/require-increment.test.ts:202:64
+    200|     expect(smallFixCommand('rename a variable', { cwd: worktree })).to…
+    201|     expect(readSmallFixes(root)).toMatchObject([{ reason: 'rename a va…
+    202|     expect(await handle(wtEdit('no-session-marker'), context)).toEqual…
+       |                                                                ^
+    203|
+    204|     // The same thread's small fix recorded for another project does n…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/unit/integrations/github/from-repo-project-root.test.ts > fromRepo() sets projectRoot for budget protection > fromRepo sets projectRoot via findProjectRoot (not undefined)
+AssertionError: expected '/private/tmp/swc-independent-umbrella' to contain 'specweave'
+
+Expected: "specweave"
+Received: "/private/tmp/swc-independent-umbrella"
+
+ ❯ tests/unit/integrations/github/from-repo-project-root.test.ts:62:27
+     60|     // If we ARE inside a specweave project (which we are), verify it'…
+     61|     if (projectRoot !== undefined) {
+     62|       expect(projectRoot).toContain('specweave');
+       |                           ^
+     63|     }
+     64|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  3 failed | 14 passed (17)
+   Start at  00:36:01
+   Duration  527ms (transform 365ms, setup 103ms, import 362ms, tests 114ms, environment 0ms)
+

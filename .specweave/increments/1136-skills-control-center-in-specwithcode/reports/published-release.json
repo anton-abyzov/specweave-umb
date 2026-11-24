@@ -1,0 +1,127 @@
+{
+  "private": {
+    "tag": "v1.0.115",
+    "draft": false,
+    "publishedAt": "2026-10-29T05:16:18Z",
+    "url": "https://github.com/anton-abyzov/specwithcode-dev/releases/tag/v1.0.115",
+    "assets": [
+      {
+        "name": "deployment-helpers-manifest.json",
+        "size": 35955
+      },
+      {
+        "name": "install.sh",
+        "size": 41979
+      },
+      {
+        "name": "latest-mac.yml",
+        "size": 520
+      },
+      {
+        "name": "SHA256SUMS",
+        "size": 1282
+      },
+      {
+        "name": "SpecWithCode-1.0.115-arm64.dmg",
+        "size": 161330461
+      },
+      {
+        "name": "SpecWithCode-1.0.115-arm64.dmg.blockmap",
+        "size": 167999
+      },
+      {
+        "name": "SpecWithCode-1.0.115-arm64.zip",
+        "size": 155228727
+      },
+      {
+        "name": "SpecWithCode-1.0.115-arm64.zip.blockmap",
+        "size": 163627
+      },
+      {
+        "name": "studio-1.0.115-095714ab3657.tar.gz",
+        "size": 116163306
+      },
+      {
+        "name": "studio-1.0.115-deployment-helpers-095714ab3657.tar.gz",
+        "size": 1003293
+      },
+      {
+        "name": "studio-1.0.115-linux-arm64-095714ab3657.tar.gz",
+        "size": 116161892
+      },
+      {
+        "name": "studio-1.0.115-linux-x64-095714ab3657.tar.gz",
+        "size": 116157798
+      },
+      {
+        "name": "studio-update.json",
+        "size": 5941
+      }
+    ]
+  },
+  "public": {
+    "tag": "v1.0.115",
+    "draft": false,
+    "publishedAt": "2026-10-29T05:17:35Z",
+    "url": "https://github.com/anton-abyzov/specwithcode/releases/tag/v1.0.115",
+    "assets": [
+      {
+        "name": "deployment-helpers-manifest.json",
+        "size": 35955
+      },
+      {
+        "name": "install.sh",
+        "size": 41979
+      },
+      {
+        "name": "latest-mac.yml",
+        "size": 520
+      },
+      {
+        "name": "SHA256SUMS",
+        "size": 1282
+      },
+      {
+        "name": "SpecWithCode-1.0.115-arm64.dmg",
+        "size": 161330461
+      },
+      {
+        "name": "SpecWithCode-1.0.115-arm64.dmg.blockmap",
+        "size": 167999
+      },
+      {
+        "name": "SpecWithCode-1.0.115-arm64.zip",
+        "size": 155228727
+      },
+      {
+        "name": "SpecWithCode-1.0.115-arm64.zip.blockmap",
+        "size": 163627
+      },
+      {
+        "name": "SpecWithCode-arm64.dmg",
+        "size": 161330461
+      },
+      {
+        "name": "studio-1.0.115-095714ab3657.tar.gz",
+        "size": 116163306
+      },
+      {
+        "name": "studio-1.0.115-deployment-helpers-095714ab3657.tar.gz",
+        "size": 1003293
+      },
+      {
+        "name": "studio-1.0.115-linux-arm64-095714ab3657.tar.gz",
+        "size": 116161892
+      },
+      {
+        "name": "studio-1.0.115-linux-x64-095714ab3657.tar.gz",
+        "size": 116157798
+      },
+      {
+        "name": "studio-update.json",
+        "size": 5941
+      }
+    ]
+  },
+  "recordedAt": "2026-10-29T05:24:31.228412+00:00"
+}

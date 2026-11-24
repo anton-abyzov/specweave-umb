@@ -1,0 +1,10 @@
+
+> specweave@3.0.4 lint:skills
+> node scripts/lint-skills.mjs
+
+lint-skills: 37 files clean
+
+> specweave@3.0.4 lint:docs-refs
+> node scripts/lint-docs-refs.mjs
+
+docs-refs: OK — 76 pages, 11 skills, 54 CLI commands.

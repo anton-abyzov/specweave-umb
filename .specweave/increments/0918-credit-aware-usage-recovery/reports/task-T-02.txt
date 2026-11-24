@@ -1,0 +1,4 @@
+$ test "$(defaults read /Applications/SpecWithCode.app/Contents/Info CFBundleShortVersionString)" = 1.0.19 && (cd /Users/antonabyzov/Projects/github/cw-rel119 && test $(git rev-parse HEAD) = 1ca53135463163a59b588b2f51880645afd67941 && git merge-base --is-ancestor d8d0422d5 HEAD && git merge-base --is-ancestor 939a796c4 HEAD) && test -s .specweave/increments/0918-credit-aware-usage-recovery/reports/release-readback.md && echo 'credit recovery in installed 1.0.19 (F=1ca53135463163a59b588b2f51880645afd67941)'
+# exit 0 — 2026-10-15T03:40:42.724Z
+
+credit recovery in installed 1.0.19 (F=1ca53135463163a59b588b2f51880645afd67941)

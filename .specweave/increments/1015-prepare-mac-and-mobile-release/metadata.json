@@ -1,0 +1,17 @@
+{
+  "id": "1015-prepare-mac-and-mobile-release",
+  "uuid": "c0b9166c-aadb-4c41-a574-a80a12b6d07c",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T05:26:36.623Z",
+  "updated": "2026-10-23T15:34:22.187Z",
+  "lastActivity": "2026-10-23T15:34:22.187Z",
+  "title": "Prepare Mac and mobile release",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T15:34:22.187Z",
+  "approvedAt": "2026-10-23T15:34:22.187Z"
+}

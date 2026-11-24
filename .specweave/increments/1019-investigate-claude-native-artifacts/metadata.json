@@ -1,0 +1,17 @@
+{
+  "id": "1019-investigate-claude-native-artifacts",
+  "uuid": "1570f81c-74df-4e90-849a-56bf51618f75",
+  "status": "completed",
+  "type": "experiment",
+  "priority": "P1",
+  "created": "2026-10-23T05:48:58.668Z",
+  "updated": "2026-10-23T05:55:50.773Z",
+  "lastActivity": "2026-10-23T05:55:50.773Z",
+  "title": "Investigate Claude native artifacts",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T05:55:50.772Z",
+  "approvedAt": "2026-10-23T05:55:50.773Z"
+}

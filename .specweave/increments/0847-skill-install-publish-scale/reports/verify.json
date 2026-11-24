@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-09T12:11:20.482Z",
+  "increment": "0847-skill-install-publish-scale",
+  "commands": [
+    {
+      "cmd": "python3 /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0847-skill-install-publish-scale/reports/studio-release-20261009/desktop-release/verify-delivery.py",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 42,
+    "done": 42
+  },
+  "tasks": {
+    "total": 47,
+    "done": 46,
+    "skipped": 0,
+    "open": 1
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-11T04:15:01.248Z","note":"session ce4bc26d-76df-456d-84f4-f5c324590922","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-11T04:15:01.250Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-11T04:15:01.252Z","evidence":"PR anton-abyzov/specwithcode#128 merged as fd62c56c50; 2570 tests and typecheck gate pass; review SHIP at c847a53aa1 (/Users/antonabyzov/.specwithcode/m4/evidence/1283/review-r4.md)\nHEAD 9357308f4","link":"https://github.com/anton-abyzov/specwithcode/pull/128","model":"claude-fable-5-2[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-11T04:15:04.811Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-11T04:15:04.812Z","evidence":"download-stats.yml and scripts/download-stats merged in fd62c56c50; node --test lib.test.mjs 40/40 (/Users/antonabyzov/.specwithcode/m4/evidence/1283/download-stats-test.log)\nHEAD 9357308f4","model":"claude-fable-5-2[1m]"}

@@ -1,0 +1,17 @@
+{
+  "id": "0998-brand-search-discovery-and-seo-audit",
+  "uuid": "13102157-d768-4044-9753-9bb242e939f0",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-22T18:27:59.847Z",
+  "updated": "2026-10-22T18:41:21.161Z",
+  "lastActivity": "2026-10-22T18:41:21.161Z",
+  "title": "Brand search discovery and SEO audit",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-22T18:41:21.159Z",
+  "approvedAt": "2026-10-22T18:41:21.161Z"
+}

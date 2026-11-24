@@ -1,0 +1,7 @@
+Type checking 1 packages, 2 at a time; logs in /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1136-skills-control-center-in-specwithcode/reports/typecheck-server
+PACKAGE                            EXIT  DIAGS   NEW  RESULT
+apps/server                           1     87     0  pass
+fixed: apps/server/src/server.ts TS377030 (baseline 8, now 0)
+fixed: apps/server/src/server.ts TS377035 (baseline 1, now 0)
+The baseline can shrink: bash scripts/studio-verify/typecheck-gate.sh --write-baseline
+Typecheck gate: 1 packages, 0 new diagnostics, passed

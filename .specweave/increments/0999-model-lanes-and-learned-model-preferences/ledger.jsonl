@@ -1,0 +1,17 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-22T21:40:51.425Z","note":"session 56c4ac41-2bb6-46fd-b433-931da7e7232b"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T21:40:51.426Z"}
+{"t":"T-01","e":"claim","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:36:42.829Z"}
+{"t":"T-01","e":"done","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:36:42.831Z","evidence":"commit 19c31d3c3: contracts for model lanes and learned preferences\nHEAD df0d3fc12"}
+{"t":"T-01","e":"claim","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:36:54.586Z"}
+{"t":"T-01","e":"release","by":"claude@antons-macbook-m4max","at":"2026-10-22T22:35:00.000Z"}
+{"t":"T-02","e":"claim","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:37:24.498Z"}
+{"t":"T-02","e":"done","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:37:24.587Z","evidence":"commit 19c31d3c3: packages/shared/src/modelLanes.ts with 23 vitest unit tests\nHEAD df0d3fc12"}
+{"t":"T-03","e":"claim","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:37:29.791Z"}
+{"t":"T-03","e":"done","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:37:29.902Z","evidence":"commit 19c31d3c3: TaskRouting.ts, OrchestratorMcpService.ts, studio_model_preference tool and tests\nHEAD df0d3fc12"}
+{"t":"T-04","e":"claim","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:37:35.875Z"}
+{"t":"T-04","e":"done","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:37:35.985Z","evidence":"commit 19c31d3c3 and bcafeb0f7: ModelLanesSettings, ProjectDefaultsSettings, RoutingDecisionChip, unit tests and headless screenshots\nHEAD df0d3fc12"}
+{"t":"T-05","e":"claim","by":"gemini@antons-macbook-m4max","at":"2026-10-22T22:37:41.833Z"}
+{"t":"T-05","e":"claim","by":"gemini@antons-macbook-m4max","at":"2026-10-23T02:56:51.392Z"}
+{"t":"T-05","e":"done","by":"gemini@antons-macbook-m4max","at":"2026-10-23T02:56:51.393Z","evidence":"PR #620 squashed and merged as 826f25b14, Release macOS workflow 39890033618 succeeded, release v1.0.74 published, downloaded and staged on M4\nHEAD ebad5e224"}
+{"t":"T-06","e":"claim","by":"gemini@antons-macbook-m4max","at":"2026-10-23T03:00:13.797Z"}
+{"t":"T-06","e":"done","by":"gemini@antons-macbook-m4max","at":"2026-10-23T03:00:13.885Z","evidence":"AC-01 through AC-06 complete, verified with 179 tests, PR #620 merged, release v1.0.74 published and staged\nHEAD ebad5e224"}

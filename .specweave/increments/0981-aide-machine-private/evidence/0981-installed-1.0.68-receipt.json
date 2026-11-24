@@ -1,0 +1,152 @@
+{
+  "checkedAt": "2026-10-21T23:13:35.336Z",
+  "scratch": "/Users/antonabyzov/Projects/scratch/0980-installed-check-20261021/",
+  "serverPid": 29014,
+  "headless": true,
+  "plistVersion": "1.0.68",
+  "version": "1.0.68",
+  "cases": [
+    {
+      "name": "installed version is 1.0.68",
+      "pass": true,
+      "server": "1.0.68",
+      "plist": "1.0.68"
+    },
+    {
+      "name": "one personal assistant before the checks",
+      "pass": true,
+      "personal": [
+        "example-household"
+      ]
+    },
+    {
+      "name": "RPC projects.createNew personal refused (attempt 1)",
+      "pass": true,
+      "ok": true,
+      "value": {
+        "projectId": "example-household",
+        "workspaceRoot": "/Users/antonabyzov/Projects/scratch/0980-installed-check-20261021/Example Household"
+      }
+    },
+    {
+      "name": "RPC projects.createNew personal refused (attempt 2)",
+      "pass": true,
+      "ok": true,
+      "value": {
+        "projectId": "example-household",
+        "workspaceRoot": "/Users/antonabyzov/Projects/scratch/0980-installed-check-20261021/Example Household"
+      }
+    },
+    {
+      "name": "MCP studio_project_create personal refused (attempt 1)",
+      "pass": false,
+      "isError": false,
+      "text": "{\"id\":\"55236289-420c-4266-9770-a0ed3ce1611d\",\"title\":\"Second Aide MCP 1\",\"workspaceRoot\":\"/Users/antonabyzov/Projects/scratch/0980-installed-check-20261021/state/projects/second-aide-mcp-1\",\"repositoryIdentity\":null,\"faviconPath\":null,\"projectIcon\":null,\"defaultModelSelection\":null,\"defaultThreadEnvMode\":null,\"autoPull\":false,\"workspaceSettings\":{\"logicalProject\":{\"id\":\"logical:6f714a80-ce97-43c8-"
+    },
+    {
+      "name": "MCP studio_project_create personal refused (attempt 2)",
+      "pass": false,
+      "isError": false,
+      "text": "{\"id\":\"12dc1c2e-fb72-4944-b542-00d056598776\",\"title\":\"Second Aide MCP 2\",\"workspaceRoot\":\"/Users/antonabyzov/Projects/scratch/0980-installed-check-20261021/state/projects/second-aide-mcp-2\",\"repositoryIdentity\":null,\"faviconPath\":null,\"projectIcon\":null,\"defaultModelSelection\":null,\"defaultThreadEnvMode\":null,\"autoPull\":false,\"workspaceSettings\":{\"logicalProject\":{\"id\":\"logical:f2e3b78d-4fa0-4934-"
+    },
+    {
+      "name": "two concurrent personal creates both refused",
+      "pass": true,
+      "concurrent": [
+        {
+          "ok": true,
+          "value": {
+            "projectId": "example-household",
+            "workspaceRoot": "/Users/antonabyzov/Projects/scratch/0980-installed-check-20261021/Example Household"
+          }
+        },
+        {
+          "ok": true,
+          "value": {
+            "projectId": "example-household",
+            "workspaceRoot": "/Users/antonabyzov/Projects/scratch/0980-installed-check-20261021/Example Household"
+          }
+        }
+      ]
+    },
+    {
+      "name": "still exactly one personal assistant",
+      "pass": true,
+      "personal": [
+        "example-household"
+      ]
+    },
+    {
+      "name": "a project's kind cannot change to personal",
+      "pass": true,
+      "kindChange": {
+        "ok": false,
+        "error": "RPC projects.mutate: {\"_tag\":\"Failure\",\"cause\":[{\"_tag\":\"Fail\",\"error\":{\"_tag\":\"ProjectMutationError\",\"commandId\":\"kind-1792624447234\",\"message\":\"A project's kind is set when it is created and cannot be changed.\",\"cause\":{\"name\":\"ProjectRequestDeniedError\",\"message\":\"A project's kind is set when it is created and cannot be changed.\"}}}]}"
+      },
+      "codeKind": "code"
+    },
+    {
+      "name": "grant caller: studio_project_list omits the assistant",
+      "pass": true,
+      "workerIds": [],
+      "isError": false
+    },
+    {
+      "name": "owner sees an assistant thread to probe",
+      "pass": true,
+      "coordinatorThread": "thread:project:example-household:f62137e6-48ca-4da3-8e65-1b8bafc02f39",
+      "ownerThreads": "{\"includeArchived\":false,\"projectId\":\"example-household\",\"currentThreadId\":null,\"threads\":[{\"threadId\":\"thread:project:example-household:f62137e6-48ca-4da3-8e65-1b8bafc02f39\",\"projectId\":\"example-hous"
+    },
+    {
+      "name": "grant caller: studio_project_read on the assistant refused as private",
+      "pass": true,
+      "isError": true,
+      "text": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-anna-macbook cannot reach this machine's assist"
+    },
+    {
+      "name": "grant caller: studio_thread_list on the assistant refused as private",
+      "pass": true,
+      "isError": true,
+      "text": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-anna-macbook cannot reach this machine's assist"
+    },
+    {
+      "name": "grant caller: studio_thread_read on the assistant refused as private",
+      "pass": true,
+      "isError": true,
+      "text": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-anna-macbook cannot reach this machine's assist"
+    },
+    {
+      "name": "grant caller: studio_thread_send on the assistant refused as private",
+      "pass": false,
+      "isError": true,
+      "text": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"runtime_mode_escalation_denied\",\"message\":\"Child runtime mode full-access is broader than parent mode approval-required.\"}"
+    },
+    {
+      "name": "grant caller: studio_thread_interrupt on the assistant refused as private",
+      "pass": false,
+      "isError": true,
+      "text": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"runtime_mode_escalation_denied\",\"message\":\"Child runtime mode full-access is broader than parent mode approval-required.\"}"
+    },
+    {
+      "name": "grant caller: studio_thread_wait on the assistant refused as private",
+      "pass": true,
+      "isError": true,
+      "text": "{\"_tag\":\"OrchestratorMcpFailure\",\"code\":\"outside_grant_scope\",\"message\":\"A personal assistant is private to its machine: its threads, memory and routines never move, copy or sync to another machine, and other machines' work cannot reach them. fictional-anna-macbook cannot reach this machine's assist"
+    },
+    {
+      "name": "owner on this machine still reads the assistant",
+      "pass": true,
+      "text": "{\"id\":\"example-household\",\"title\":\"Example Household\",\"workspaceRoot\":\"/Users/antonabyzov/Projects/scratch/0980-installe"
+    },
+    {
+      "name": "installed UI: assistant opens with no handoff controls",
+      "pass": true,
+      "handoffControls": []
+    }
+  ],
+  "screenshots": [
+    "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0981-aide-machine-private/evidence/0981-installed-1.0.68-assistant-1280.png"
+  ],
+  "pageErrors": [],
+  "pass": false
+}

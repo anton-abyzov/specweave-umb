@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-16T20:49:19.605Z",
+  "increment": "0001-device-update-hold",
+  "commands": [
+    {
+      "cmd": "node node_modules/vite-plus/bin/vp test run apps/server/src/device/LocalDeviceHost.test.ts apps/server/src/device/DeviceService.test.ts apps/server/src/serviceUpdate/ServiceUpdateHold.test.ts",
+      "exit": 0
+    },
+    {
+      "cmd": "node apps/server/scripts/cli.ts build",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 3,
+    "done": 3
+  },
+  "tasks": {
+    "total": 2,
+    "done": 2,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

@@ -1,0 +1,18 @@
+{
+  "id": "1197-preserve-report-headings-when-frontmatter-supplies-the-title",
+  "uuid": "d787dbf1-d551-41d1-9c68-b006e076d045",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T07:26:26.429Z",
+  "updated": "2026-11-03T23:59:08.759Z",
+  "lastActivity": "2026-11-03T23:59:08.759Z",
+  "title": "Preserve report headings when frontmatter supplies the title",
+  "project": "specweave-umb",
+  "parent": "1176-reports-show-once-with-their-own-title",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-03T23:59:08.756Z",
+  "approvedAt": "2026-11-03T23:59:08.759Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

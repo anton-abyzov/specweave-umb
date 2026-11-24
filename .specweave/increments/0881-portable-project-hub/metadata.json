@@ -1,0 +1,28 @@
+{
+  "id": "0881-portable-project-hub",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-09-22T03:08:11.335Z",
+  "updated": "2026-09-22T05:43:34.079Z",
+  "lastActivity": "2026-09-22T05:43:34.079Z",
+  "testMode": "TDD",
+  "coverageTarget": 60,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "ado": {
+      "featureId": "2457",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2457",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-09-22T05:44:23.563Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb",
+  "readyForReviewAt": "2026-09-22T05:43:34.077Z",
+  "approvedAt": "2026-09-22T05:43:34.079Z"
+}

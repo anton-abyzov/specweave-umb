@@ -1,0 +1,25 @@
+
+> docs-site@0.0.0 test
+> vitest run src/__tests__/docusaurus-config.test.ts src/__tests__/sidebars.test.ts src/theme/__tests__/swizzleHeaders.test.ts --coverage
+
+
+ RUN  v4.0.18 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0885-seo/docs-site
+      Coverage enabled with v8
+
+ ✓ src/theme/__tests__/swizzleHeaders.test.ts (2 tests) 2ms
+ ✓ src/__tests__/docusaurus-config.test.ts (4 tests) 2ms
+ ✓ src/__tests__/sidebars.test.ts (8 tests) 3ms
+
+ Test Files  3 passed (3)
+      Tests  14 passed (14)
+   Start at  09:26:08
+   Duration  649ms (transform 86ms, setup 199ms, import 112ms, tests 7ms, environment 1.24s)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-------------------|---------|----------|---------|---------|-------------------
+All files          |     100 |      100 |   66.66 |     100 |
+ ...urus.config.ts |     100 |      100 |   66.66 |     100 |
+ sidebars.ts       |     100 |      100 |     100 |     100 |
+-------------------|---------|----------|---------|---------|-------------------

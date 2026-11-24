@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "ranAt": "2026-09-22T05:37:30.519Z",
+  "increment": "0883-deploy-bounded-cli-scan-fixes",
+  "commands": [
+    {
+      "cmd": "cd /tmp/specweave-0881-root && npm run lint:skills && npm run lint:docs-refs && node scripts/e2e/bounded-scans.mjs",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 4
+  },
+  "tasks": {
+    "total": 2,
+    "done": 2,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

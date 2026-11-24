@@ -1,0 +1,33 @@
+{
+  "files": [
+    {
+      "file": "easychamp-auth-resume-current-release.json",
+      "originalBytes": 9633,
+      "originalSha256": "f6cd15de7a5c49b712a9c69091ef195159c9b7158636459ccae73ba03c480f61",
+      "archivedSha256": "f6cd15de7a5c49b712a9c69091ef195159c9b7158636459ccae73ba03c480f61",
+      "method": "complete original sanitized receipt or screenshot"
+    },
+    {
+      "file": "auth-resume-watch-simulated-crawler-headless.json",
+      "originalBytes": 6263,
+      "originalSha256": "fd1427eed7287c4a4f204ac5fcc7856c873c5f9ba3fb74b909d93e47ff693f35",
+      "archivedSha256": "fd1427eed7287c4a4f204ac5fcc7856c873c5f9ba3fb74b909d93e47ff693f35",
+      "method": "complete original sanitized receipt or screenshot"
+    },
+    {
+      "file": "auth-resume-watch-raw-seo.json",
+      "originalBytes": 1554,
+      "originalSha256": "7f4de3c7ef6bbbd8b72ce4707961675a015b7a931ee7a875598dffae75a0a166",
+      "archivedSha256": "7f4de3c7ef6bbbd8b72ce4707961675a015b7a931ee7a875598dffae75a0a166",
+      "method": "complete original sanitized receipt or screenshot"
+    },
+    {
+      "file": "auth-resume-watch-simulated-crawler-390.png",
+      "originalBytes": 85172,
+      "originalSha256": "a3092c11ed15dbc643efd5047a5b8c19e7f1e8a2a08294914d5eb8d2a74fa05e",
+      "archivedSha256": "a3092c11ed15dbc643efd5047a5b8c19e7f1e8a2a08294914d5eb8d2a74fa05e",
+      "method": "complete original sanitized receipt or screenshot"
+    }
+  ],
+  "note": "Current EasyChamp owner releases preserved; crawler rendering is simulated and is not authenticated Google URL Inspection."
+}

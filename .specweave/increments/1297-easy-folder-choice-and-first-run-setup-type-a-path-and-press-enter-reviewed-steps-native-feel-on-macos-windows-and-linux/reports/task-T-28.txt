@@ -1,0 +1,40 @@
+8602090f11bf99f96875d0af979ce9a54e51c9bf
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/verify/specwithcode
+
+ ✓ apps/web/src/components/settings/AddProviderInstanceDialog.test.ts (16 tests) 5ms
+ ✓ apps/web/src/components/settings/providerStatus.test.ts (20 tests) 5ms
+ ✓ apps/web/src/components/settings/ProviderStatusRow.test.tsx (35 tests) 84ms
+ ✓ apps/web/src/i18n/i18n.test.ts (321 tests) 455ms
+   ✓ phrases (10)
+     ✓ only holds phrases the interface still shows 355ms
+stderr | apps/web/src/components/settings/ProviderInstanceCard.test.ts > deriveProviderModelsForDisplay > leaves the account to the status row above the editor
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+
+stderr | apps/web/src/components/settings/ProviderInstanceCard.test.ts > deriveProviderModelsForDisplay > surfaces a failed probe message in the list row, and leaves it to the status row in the editor
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+
+stderr | apps/web/src/components/settings/ProviderInstanceCard.test.ts > deriveProviderModelsForDisplay > says a provider was turned on automatically, with Undo, only while it is on
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+Warning: useRouter must be used inside a <RouterProvider> component!
+
+ ✓ apps/web/src/components/settings/ProviderInstanceCard.test.ts (9 tests) 29ms
+
+ Test Files  5 passed (5)
+      Tests  401 passed (401)
+   Start at  14:47:03
+   Duration  3.50s (transform 61%, import 24%, environment 9%, tests 5%)
+
+  Transform  transforming modules took 6.63s · 61% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

@@ -1,0 +1,126 @@
+{
+  "source": "2bb52069a33603a4c53cc866024458110b26702b",
+  "observedAt": "2026-10-13T19:45:29.757304+00:00",
+  "proof": "Isolated real StudioSidebar + SidebarUpdatePill + ToastProvider; real grouping/snapshot source; production CSS; fixture IPC and component-test store mocks; no live app/stores/providers",
+  "screenshots": [
+    {
+      "path": "/Users/antonabyzov/Projects/research/studio-project-names-update-feedback-2026-10-13/1440-light-update-result.png",
+      "sha256": "9177c95360fa17e871ff0178a2c6f542647525e74192d95461c24d13db81e4a8"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/research/studio-project-names-update-feedback-2026-10-13/1440-dark-update-result.png",
+      "sha256": "f6c39a839e9eeb06cc5683a96738a52a59ad4ae700579594e0f6fc3448350848"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/research/studio-project-names-update-feedback-2026-10-13/390-light-update-result.png",
+      "sha256": "9d1ee55e3e833ab10dffab2cffdf2ba185ea27d4f8271c250911bde225ce2eea"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/research/studio-project-names-update-feedback-2026-10-13/390-dark-update-result.png",
+      "sha256": "aafa7225fe34967fb1884661c2c4170a512b7d7c712947325e45619075872a65"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/research/studio-project-names-update-feedback-2026-10-13/390-error-result.png",
+      "sha256": "f06535aa7286d36667b854b2e9c694153bedaae337cd05e2d9d4270aea7f7949"
+    }
+  ],
+  "cases": [
+    {
+      "theme": "light",
+      "viewport": 1440,
+      "labels": [
+        "Aide",
+        "JobWeave",
+        "SpecWithCode",
+        "EasyChamp",
+        "unnamed",
+        "folder-only"
+      ],
+      "groupedMembers": 3,
+      "selection": true,
+      "tooltip": true,
+      "menu": true,
+      "manualUpdateResult": true,
+      "errors": []
+    },
+    {
+      "theme": "dark",
+      "viewport": 1440,
+      "labels": [
+        "Aide",
+        "JobWeave",
+        "SpecWithCode",
+        "EasyChamp",
+        "unnamed",
+        "folder-only"
+      ],
+      "groupedMembers": 3,
+      "selection": true,
+      "tooltip": true,
+      "menu": true,
+      "manualUpdateResult": true,
+      "errors": []
+    },
+    {
+      "theme": "light",
+      "viewport": 390,
+      "labels": [
+        "Aide",
+        "JobWeave",
+        "SpecWithCode",
+        "EasyChamp",
+        "unnamed",
+        "folder-only"
+      ],
+      "groupedMembers": 3,
+      "selection": true,
+      "tooltip": true,
+      "menu": true,
+      "manualUpdateResult": true,
+      "errors": []
+    },
+    {
+      "theme": "dark",
+      "viewport": 390,
+      "labels": [
+        "Aide",
+        "JobWeave",
+        "SpecWithCode",
+        "EasyChamp",
+        "unnamed",
+        "folder-only"
+      ],
+      "groupedMembers": 3,
+      "selection": true,
+      "tooltip": true,
+      "menu": true,
+      "manualUpdateResult": true,
+      "errors": []
+    },
+    {
+      "selection": "remote",
+      "label": "sw_easychamp",
+      "errors": []
+    },
+    {
+      "selection": "saved",
+      "label": "EasyChamp handoff proof",
+      "errors": []
+    },
+    {
+      "selection": "invalid",
+      "label": "anton-abyzov/sw_easychamp",
+      "errors": []
+    },
+    {
+      "handledErrorFeedback": true,
+      "checked": true,
+      "errors": []
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "sourceUnchanged": true,
+  "browser": "153.0.8010.12",
+  "completedAt": "2026-10-13T19:45:58.260184+00:00"
+}

@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "status": "passed",
+  "host": "m1",
+  "mode": "destination",
+  "key": "specweave",
+  "projectId": "1da07017-97d8-48cb-80e3-eabaeb79fd02",
+  "coordinatorId": "project-coordinator:1da07017-97d8-48cb-80e3-eabaeb79fd02",
+  "startedAt": "2026-10-13T15:18:36.025Z",
+  "baseline": [
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb-fleet",
+      "sha": "a8c47fca7a1b2b4f1a25516c665cd8f4b528f574",
+      "branch": "codex/0907-handoff-specweave",
+      "origin": "git@github.com:anton-abyzov/specweave-umb.git",
+      "status": "",
+      "readmeSha256": "732a37ae2d8fb6f7187f11152af07aef994e99f7c02e174648044c00f9ef847a"
+    },
+    {
+      "path": "/Users/antonabyzov/Projects/github/specweave-umb-fleet/repositories/anton-abyzov/specweave",
+      "sha": "a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a",
+      "branch": "develop",
+      "origin": "git@github.com:anton-abyzov/specweave.git",
+      "status": "",
+      "readmeSha256": "d39febdaaa6105bc3d00b79f24c5c9aa2415e2d47c309e86c84085b994c26fab"
+    }
+  ],
+  "marker": "M4-CONTEXT-b7848dd2911a8799",
+  "decision": "Inspect package metadata next; defer installation and deployment.",
+  "outcome": {
+    "workerText": "I\u2019ll read only the ten specified local sources and compare the observed HEADs with the transport envelope.\nOutcome: M1 package inspection completed; all ten specified commands succeeded.\n\n- Root: `/Users/antonabyzov/Projects/github/specweave-umb-fleet`; origin `git@github.com:anton-abyzov/specweave-umb.git`; branch `codex/0907-handoff-specweave`; HEAD `a8c47fca7a1b2b4f1a25516c665cd8f4b528f574`. This matches the envelope\u2019s transport commit, distinct from M4\u2019s earlier root HEAD.\n- Nested: `/Users/antonabyzov/Projects/github/specweave-umb-fleet/repositories/anton-abyzov/specweave`; origin `git@github.com:anton-abyzov/specweave.git`; branch `develop`; HEAD `a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a`. It matches the checkpoint code pin; destination branch and origin format differ from M4\u2019s detached/HTTPS checkout.\n- [Checkpoint](/Users/antonabyzov/Projects/github/specweave-umb-fleet/.specweave/increments/0907-m4-portable-continuation-proof/checkpoint.json): marker `M4-CONTEXT-b7848dd2911a8799`; source decision: \u201cInspect package metadata next; defer installation and deployment.\u201d\n- [Package](/Users/antonabyzov/Projects/github/specweave-umb-fleet/repositories/anton-abyzov/specweave/package.json): name `specweave`; script key `test:unit:fast`; complete command verbatim: `vitest run --config vitest.unit.config.ts`.\n\nBoth READMEs confirm the carried source observations: saved receipts do not prove current runtime health, and SpecWithCode is a desktop app built on SpecWeave. No builds, tests, installs, or source work were performed.",
+    "relayText": "The destination worker has finished; I\u2019ll read its terminal result once.\n[SpecWeave destination proof](studio://thread/thread%3Adelegated-task%3Acommand%253Amcp%253Aa8debb20-065d-462f-a9e1-cd483bafbca0%253Adelegate-task%253Adestination-proof-20261013-f38b8dc5-964b-438d-a56e-e093cdf9f6e4) completed all ten read-only commands successfully.\n\n- Root: `/Users/antonabyzov/Projects/github/specweave-umb-fleet`; origin `git@github.com:anton-abyzov/specweave-umb.git`; branch `codex/0907-handoff-specweave`; HEAD `a8c47fca7a1b2b4f1a25516c665cd8f4b528f574` matches the transport commit.\n- Nested: `/Users/antonabyzov/Projects/github/specweave-umb-fleet/repositories/anton-abyzov/specweave`; origin `git@github.com:anton-abyzov/specweave.git`; branch `develop`; HEAD `a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a` matches the checkpoint code pin.\n- [Checkpoint](/Users/antonabyzov/Projects/github/specweave-umb-fleet/.specweave/increments/0907-m4-portable-continuation-proof/checkpoint.json): `M4-CONTEXT-b7848dd2911a8799`; decision: \u201cInspect package metadata next; defer installation and deployment.\u201d\n- [package.json](/Users/antonabyzov/Projects/github/specweave-umb-fleet/repositories/anton-abyzov/specweave/package.json): package `specweave`; script `test:unit:fast`; complete command: `vitest run --config vitest.unit.config.ts`.\n\nPackage inspection is complete; no installation, build, test, or deployment was performed.",
+    "workerThreadId": "thread:delegated-task:command%3Amcp%3Aa8debb20-065d-462f-a9e1-cd483bafbca0%3Adelegate-task%3Adestination-proof-20261013-f38b8dc5-964b-438d-a56e-e093cdf9f6e4",
+    "automaticWakeRunId": "run:thread:project-coordinator%3A1da07017-97d8-48cb-80e3-eabaeb79fd02:ordinal:4",
+    "completionState": "acknowledged",
+    "packageInspection": {
+      "name": "specweave",
+      "packageSha256": "680d2499169c6d496259d88f8b64843f8ab7781bbcd83095c0ccbb3ecaeacd54",
+      "workerScripts": [
+        [
+          "test:unit:fast",
+          "vitest run --config vitest.unit.config.ts"
+        ]
+      ],
+      "relayScripts": [
+        [
+          "test:unit:fast",
+          "vitest run --config vitest.unit.config.ts"
+        ]
+      ]
+    }
+  },
+  "quiescence": [
+    {
+      "threadId": "project-coordinator:1da07017-97d8-48cb-80e3-eabaeb79fd02",
+      "activeRuns": [],
+      "activeProviderTurns": [],
+      "pendingRequests": [],
+      "pendingWork": [],
+      "activeTasks": [],
+      "pendingDeliveries": []
+    },
+    {
+      "threadId": "thread:delegated-task:command%3Amcp%3Aa8debb20-065d-462f-a9e1-cd483bafbca0%3Adelegate-task%3Adestination-proof-20261013-f38b8dc5-964b-438d-a56e-e093cdf9f6e4",
+      "activeRuns": [],
+      "activeProviderTurns": [],
+      "pendingRequests": [],
+      "pendingWork": [],
+      "activeTasks": [],
+      "pendingDeliveries": []
+    }
+  ],
+  "temporarySessionRevoked": true
+}

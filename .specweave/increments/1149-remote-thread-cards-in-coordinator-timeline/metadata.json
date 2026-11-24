@@ -1,0 +1,17 @@
+{
+  "id": "1149-remote-thread-cards-in-coordinator-timeline",
+  "uuid": "8858a7bc-ef71-460e-a007-4424791d2d88",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-31T06:41:01.662Z",
+  "updated": "2026-11-20T19:55:26.554Z",
+  "lastActivity": "2026-11-20T19:55:26.554Z",
+  "title": "Remote thread cards in coordinator timeline",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-20T19:55:26.552Z",
+  "approvedAt": "2026-11-20T19:55:26.554Z"
+}

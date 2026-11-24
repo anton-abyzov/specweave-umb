@@ -1,0 +1,19 @@
+{
+  "root": "/Users/antonabyzov/Projects/github/specweave-umb",
+  "workId": "b3685943-24d4-4761-8fd3-94af27db763b",
+  "hubRevision": 3,
+  "nativeSkills": [
+    "sw-auto",
+    "sw-brainstorm",
+    "sw-do",
+    "sw-done",
+    "sw-handoff",
+    "sw-increment",
+    "sw-jev",
+    "sw-project",
+    "sw-qa",
+    "sw-review",
+    "sw-sync",
+    "sw-team"
+  ]
+}

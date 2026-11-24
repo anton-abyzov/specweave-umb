@@ -28,6 +28,22 @@
       "unit": 60,
       "integration": 90,
       "e2e": 100
+    },
+    "strictClose": true,
+    "commands": [
+      "python3 scripts/fleet-project-sync.py --self-test",
+      "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "python3 scripts/release/timing.py --self-test"
+    ],
+    "ownerCommands": {
+      "repositories/anton-abyzov/specweave": ["npm run test:unit:fast"],
+      "repositories/anton-abyzov/vskill": ["npm test"],
+      "repositories/anton-abyzov/vskill-platform": ["npm test"],
+      "repositories/anton-abyzov/specweave-status": ["npm test", "npm run build"],
+      "repositories/anton-abyzov/specwithcode": [
+        "npm run verify:pr -- --jobs 1 --no-server",
+        "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\""
+      ]
     }
   },
   "limits": {
@@ -88,7 +104,8 @@
     }
   },
   "planning": {
-    "deepInterview": "critical"
+    "deepInterview": "critical",
+    "requireIncrement": "remind"
   },
   "cicd": {
     "pushStrategy": "direct",
@@ -199,5 +216,13 @@
       }
     }
   },
-  "livingDocs": "onDone"
+  "livingDocs": false,
+  "jev": {
+    "enabled": true,
+    "provider": "openrouter",
+    "model": "jev-1.13",
+    "guards": {
+      "bash": true
+    }
+  }
 }

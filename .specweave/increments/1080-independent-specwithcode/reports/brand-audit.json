@@ -1,0 +1,81 @@
+{
+  "product": "SpecWithCode",
+  "checksPassed": 17,
+  "checksFailed": 4,
+  "checks": [
+    "independent runtime values",
+    "CLI package and alpha version",
+    "upstream MIT provenance retained exactly",
+    "project terms remain separate from inherited notices",
+    "hosted services and telemetry opt in only",
+    "legal pages name the owner and state the telemetry default truthfully",
+    "security policy reaches a real inbox",
+    "self update only from an owned feed and original update endpoints absent",
+    "owned runtime has no original brand, env or origin",
+    "real first-party mark replaced",
+    "no upstream store, invite or signing identifier",
+    "upstream wordmark outline absent from every text file",
+    "brand-bearing images are not upstream artwork",
+    "build scripts use owned artifact identity",
+    "workspace source exports resolve on disk",
+    "workspace protocol imports use owned package names",
+    "approval default and propagated headless policy"
+  ],
+  "failed": [
+    "reference trees and unlisted fixtures preserved; reviewed fixture migrations hash-verified",
+    "no upstream product, vendor or domain name outside the documented references",
+    "no publishable key outside tests and none issued for an upstream host",
+    "pinned registry, patch and encoded payload bytes preserved"
+  ],
+  "root": "/private/tmp/swc-independent-umbrella/repositories/anton-abyzov/specweave-studio",
+  "upstream": "10f39eb9ac80c9a4b7f5097575dd2addc3b6f631",
+  "runtimeNode": "v22.20.0",
+  "genericUpstreamArtworkKept": [
+    {
+      "path": "assets/dev/app-icon.icon/Assets/background.svg",
+      "depicts": "blueprint paper: a blue gradient, a square grid, a frame line and corner hatching",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "assets/nightly/app-icon.icon/Assets/cloud-lower-left.svg",
+      "depicts": "one soft blue-to-violet cloud",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "assets/nightly/app-icon.icon/Assets/cloud-upper-right.svg",
+      "depicts": "the same cloud, mirrored",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "apps/marketing/public/nightly-sky.svg",
+      "depicts": "a wide navy-to-violet night sky strip with a few stars and two blurred clouds",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "assets/nightly/app-icon.icon/Assets/background.svg",
+      "depicts": "night sky: a navy-to-violet gradient, two soft glows, five dot stars, two cross stars and two horizon bands",
+      "comparedWithUpstream": "two comments reworded; it draws what upstream's layer at this path draws"
+    },
+    {
+      "path": "apps/mobile/assets/android-icon-background-nightly.png",
+      "depicts": "that night sky, full bleed, under the two clouds",
+      "comparedWithUpstream": "this checkout's render of the three nightly layers"
+    },
+    {
+      "path": "apps/mobile/assets/android-icon-background-dev.png",
+      "depicts": "the blueprint paper, full bleed",
+      "comparedWithUpstream": "this checkout's render of the development background layer"
+    },
+    {
+      "path": "apps/mobile/assets/android-splash-icon-nightly.png",
+      "depicts": "the page-and-prompt brand mark over that night sky and the two clouds",
+      "comparedWithUpstream": "Studio's mark composed over a render of the three nightly layers"
+    },
+    {
+      "path": "apps/mobile/assets/android-splash-icon-dev.png",
+      "depicts": "the page-and-prompt brand mark over the blueprint paper",
+      "comparedWithUpstream": "Studio's mark composed over a render of the development background layer"
+    }
+  ],
+  "noServiceOrAuthActions": true
+}

@@ -1,0 +1,11 @@
+
+ RUN  v4.1.11 /private/tmp/swc-independent-umbrella/repositories/anton-abyzov/specweave
+
+ ✓ tests/unit/cli/helpers/init/instruction-templates.test.ts (22 tests) 16ms
+ ✓ tests/unit/cli/helpers/init/instruction-file-writer.test.ts (14 tests) 65ms
+
+ Test Files  2 passed (2)
+      Tests  36 passed (36)
+   Start at  00:23:42
+   Duration  473ms (transform 308ms, setup 161ms, import 215ms, tests 81ms, environment 0ms)
+

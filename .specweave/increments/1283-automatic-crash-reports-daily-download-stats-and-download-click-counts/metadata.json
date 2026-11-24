@@ -1,0 +1,13 @@
+{
+  "id": "1283-automatic-crash-reports-daily-download-stats-and-download-click-counts",
+  "uuid": "939aac68-831f-4dc2-99d1-e9acc0d2ac05",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-10T22:19:59.969Z",
+  "updated": "2026-11-11T04:15:04.812Z",
+  "lastActivity": "2026-11-11T04:15:04.812Z",
+  "title": "Automatic crash reports, daily download stats and download click counts",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

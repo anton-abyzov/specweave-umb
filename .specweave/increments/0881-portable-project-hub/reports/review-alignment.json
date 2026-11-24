@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "increment": "0881",
+  "task": "T-06",
+  "reviewedAt": "2026-09-22T05:08:16.960847+00:00",
+  "mode": "single",
+  "reviewerContext": "independent subagent",
+  "findings": [],
+  "droppedNits": 0,
+  "verification": [
+    "Read shared tokens/font declarations, dashboard globals/project hub styles, docs continuity import, parity script and captured current website reference.",
+    "Chromium launched headless:true with PWDEBUG=0 and PLAYWRIGHT_HTML_OPEN=never; built dashboard inspected at /project,/overview,/sync,/increments,/notifications,/costs.",
+    "Computed-style receipts saved in reports/artifacts/review-alignment-controls.json; screenshots in review-alignment-sync.png and review-alignment-increments.png.",
+    "WCAG relative luminance calculation: #ffffff on #d9dcd0 =1.391:1; #8f9d81 on #fbfcf8 =2.789:1.",
+    "Post-fix headless selected-control/primary/helper verification passes on Sync, Increments, Notifications and Costs. Newsreader450 and IBM Plex400/500/600 load locally with zero external requests.",
+    "Nonempty temporary-project overview renders one active increment; center total remains white. Screenshot: review-alignment-nonempty-overview.png.",
+    "Final193f9f6c3 real-disk fixture: one active increment and one provider spend record. Overview total1 and provider$1.25 both use dark ink; provider expansion works. Receipt: reports/artifacts/review-alignment-final-metrics.json. Screenshots refreshed."
+  ],
+  "limitations": [
+    "No full build or suite rerun; parent owns full release and website parity verification.",
+    "Read-only review continued across parent rebase; transient merge conflicts were not treated as findings.",
+    "Existing core review findings remain resolved."
+  ],
+  "resolvedFindings": [
+    {
+      "severity": "medium",
+      "file": "src/dashboard/client/src/styles/globals.css",
+      "line": 64,
+      "summary": "The light gray remapping leaves selected controls and helper text at inaccessible contrast.",
+      "confidence": "confirmed",
+      "status": "resolved",
+      "reproduction": "Built dashboard /sync Platform Health, /increments All, /notifications Pending and /costs Breakdown render #ffffff on #d9dcd0 (1.391:1); text-gray-600 helper text maps to #8f9d81 against light panels (about2.8:1).",
+      "fix": "Pair light selected backgrounds with dark text and use a text-appropriate muted color for text-gray-600, without changing white labels on dark actions.",
+      "verification": "Built dashboard headless recheck: selected controls are dark ink on all four affected routes; helper text uses muted foreground; Sync Now matches website dark action with white foreground; parity test now asserts these states."
+    },
+    {
+      "severity": "medium",
+      "file": "scripts/e2e/brand-parity.mjs",
+      "line": 63,
+      "summary": "Adjacent primary actions retain the old indigo style, while the parity test declares these routes passing after screenshots only.",
+      "confidence": "confirmed",
+      "status": "resolved",
+      "reproduction": "Built /sync Sync Now computes oklch(0.511 0.262 276.966) from bg-indigo-600; website reference and hub primary are #252820. Config save uses the same legacy action class. The adjacent-route loop has no parity assertions.",
+      "fix": "Apply shared action tokens on adjacent primary controls and assert their computed colors/contrast in the parity test.",
+      "verification": "Built dashboard headless recheck: selected controls are dark ink on all four affected routes; helper text uses muted foreground; Sync Now matches website dark action with white foreground; parity test now asserts these states."
+    },
+    {
+      "severity": "medium",
+      "file": "src/dashboard/client/src/components/charts/StatusDonut.tsx",
+      "line": 68,
+      "summary": "A nonempty overview still renders the donut total white on its new light card.",
+      "confidence": "confirmed",
+      "status": "resolved",
+      "reproduction": "Create one active increment in a temporary project and open /overview. Total1 renders rgb255255255 on the pale card. The original empty-project parity fixture never renders this span.",
+      "fix": "Use the ink token for standalone chart values and verify a nonempty overview fixture. Inspect the equivalent ProviderBreakdown amount text.",
+      "verification": "Independent headless final rebuilt candidate193f9f6c3: actual one-increment overview total1 and provider spend$1.25 both compute rgb(37,40,32); provider row expands and model detail appears."
+    }
+  ],
+  "reviewedCommit": "193f9f6c3"
+}

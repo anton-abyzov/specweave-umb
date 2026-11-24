@@ -1,0 +1,15 @@
+{
+  "id": "1360-terminal-commands-switch-on-by-default-with-a-stable-commands-folder",
+  "uuid": "c7ff20fc-d9bc-4f47-b133-2d89c226f90f",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-16T05:52:09.664Z",
+  "updated": "2026-11-16T07:00:45.906Z",
+  "lastActivity": "2026-11-16T07:00:45.906Z",
+  "title": "Terminal commands switch, on by default, with a stable commands folder",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-16T07:00:45.905Z",
+  "approvedAt": "2026-11-16T07:00:45.906Z"
+}

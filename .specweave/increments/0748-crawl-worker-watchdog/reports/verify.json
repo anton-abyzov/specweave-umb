@@ -1,0 +1,495 @@
+{
+  "ok": false,
+  "ranAt": "2026-10-27T21:14:20.895Z",
+  "increment": "0748-crawl-worker-watchdog",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/.specwithcode/m4/worktrees/vskill-platform/0854-isolated-runtime && PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never node_modules/.bin/vitest run src/lib/watchdog/__tests__ --maxWorkers=4",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 31,
+    "done": 30,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-US1-01",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-001b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US1-02",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-001b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US1-03",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-001b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US1-04",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-001b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US1-05",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-001b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US1-06",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-001b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US1-07",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-002",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US1-08",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-003",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-01",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-02",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005b",
+            "status": "done"
+          },
+          {
+            "id": "T-008",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-03",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-04",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-05",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005b",
+            "status": "done"
+          },
+          {
+            "id": "T-006",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-06",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-07",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-08",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005b",
+            "status": "done"
+          },
+          {
+            "id": "T-007",
+            "status": "done"
+          },
+          {
+            "id": "T-009",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US2-09",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-01",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-011b",
+            "status": "done"
+          },
+          {
+            "id": "T-013",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-02",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-011b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-03",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-011b",
+            "status": "done"
+          },
+          {
+            "id": "T-013",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-04",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-011b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-05",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-011b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-06",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-011b",
+            "status": "done"
+          },
+          {
+            "id": "T-012b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-07",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-011b",
+            "status": "done"
+          },
+          {
+            "id": "T-012b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US3-08",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-011b",
+            "status": "done"
+          },
+          {
+            "id": "T-012b",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-01",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-001a",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-02",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-005a",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-03",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-011a",
+            "status": "done"
+          },
+          {
+            "id": "T-012a",
+            "status": "done"
+          },
+          {
+            "id": "T-014",
+            "status": "done"
+          },
+          {
+            "id": "T-020",
+            "status": "open"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-04",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-015",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-05",
+        "done": true,
+        "via": "checkbox",
+        "tasks": [
+          {
+            "id": "T-004",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-US4-06",
+        "done": false,
+        "via": "none",
+        "tasks": [
+          {
+            "id": "T-010",
+            "status": "blocked"
+          },
+          {
+            "id": "T-017",
+            "status": "done"
+          },
+          {
+            "id": "T-018",
+            "status": "stale"
+          },
+          {
+            "id": "T-019",
+            "status": "done"
+          },
+          {
+            "id": "T-021",
+            "status": "done"
+          }
+        ],
+        "acceptance": "open",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 25,
+    "done": 21,
+    "skipped": 0,
+    "open": 4
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

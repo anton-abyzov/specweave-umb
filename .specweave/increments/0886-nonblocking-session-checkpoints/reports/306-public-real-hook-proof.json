@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "hookExitCode": 0,
+  "hookStdout": "{}\n",
+  "hookMs": 51,
+  "legacySettingsEnabled": true,
+  "sessionId": "release-proof-a1437f613f9a4f67a7cda75c1cac81a6",
+  "fixtureDirectory": "/private/tmp/specweave-3.0.6-live-proof-w476d9rr",
+  "receiptPath": "/Users/antonabyzov/.specweave/checkpoints/2099c66e7fcfff0c3f5d8c56fb2cf2c0cadeacf268048f9b90b1edaf6f9defe7/current.json",
+  "checkpoint": {
+    "version": 1,
+    "sessionId": "release-proof-a1437f613f9a4f67a7cda75c1cac81a6",
+    "cwd": "/private/tmp/specweave-3.0.6-live-proof-w476d9rr",
+    "savedAt": "2026-10-08T06:37:38.381Z",
+    "docPath": "/Users/antonabyzov/.specweave/checkpoints/2099c66e7fcfff0c3f5d8c56fb2cf2c0cadeacf268048f9b90b1edaf6f9defe7/snapshot-1791441458307-d64f2a32-18fb-4b0e-84fd-98211e509d48/handoff.md",
+    "diffPath": "/Users/antonabyzov/.specweave/checkpoints/2099c66e7fcfff0c3f5d8c56fb2cf2c0cadeacf268048f9b90b1edaf6f9defe7/snapshot-1791441458307-d64f2a32-18fb-4b0e-84fd-98211e509d48/handoff.diff"
+  },
+  "docBytes": 1203,
+  "diffBytes": 0,
+  "fresh": true
+}

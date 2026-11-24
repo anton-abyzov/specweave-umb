@@ -1,0 +1,81 @@
+{
+  "synthetic": true,
+  "installs": 0,
+  "sourceRoot": "/Users/antonabyzov/Projects/github/studio-bulk-threads",
+  "ownedServerPid": 18913,
+  "checks": [
+    {
+      "scene": "restart",
+      "theme": "light",
+      "sparkleButton": true,
+      "tooltipReleaseNotes": true,
+      "threeChoiceDialog": true,
+      "waitingLabel": "Restarts when idle",
+      "installCalls": 0,
+      "prepareCalls": 1
+    },
+    {
+      "scene": "server",
+      "theme": "light",
+      "selfUpdate": "boot-service",
+      "row": true,
+      "updateButton": true
+    },
+    {
+      "scene": "server-none",
+      "theme": "light",
+      "selfUpdate": null,
+      "rendersNothing": true
+    },
+    {
+      "scene": "restart",
+      "theme": "dark",
+      "sparkleButton": true,
+      "tooltipReleaseNotes": true,
+      "threeChoiceDialog": true,
+      "waitingLabel": "Restarts when idle",
+      "installCalls": 0,
+      "prepareCalls": 1
+    },
+    {
+      "scene": "server",
+      "theme": "dark",
+      "selfUpdate": "boot-service",
+      "row": true,
+      "updateButton": true
+    },
+    {
+      "scene": "server-none",
+      "theme": "dark",
+      "selfUpdate": null,
+      "rendersNothing": true
+    }
+  ],
+  "screenshots": [
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/1-restart-idle-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/1-restart-idle-footer-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/1-restart-tooltip-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/1-restart-tooltip-footer-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/2-restart-dialog-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/3-restarts-when-idle-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/3-restarts-when-idle-footer-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/4-server-update-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/4-server-update-footer-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/4-server-update-tooltip-footer-light.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/1-restart-idle-dark.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/1-restart-idle-footer-dark.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/1-restart-tooltip-dark.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/1-restart-tooltip-footer-dark.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/2-restart-dialog-dark.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/3-restarts-when-idle-dark.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/3-restarts-when-idle-footer-dark.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/4-server-update-dark.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/4-server-update-footer-dark.png",
+    "/Users/antonabyzov/Projects/github/studio-bulk-threads/.evidence/update-surface/4-server-update-tooltip-footer-dark.png"
+  ],
+  "pageErrors": [],
+  "blockedExternalRequests": [],
+  "origin": "http://127.0.0.1:51749",
+  "passed": true,
+  "ownedServerExitCode": 143
+}

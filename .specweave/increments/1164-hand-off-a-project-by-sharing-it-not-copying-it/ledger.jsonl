@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T06:15:36.765Z","note":"session 783736e7-2363-4145-9d3b-468e158c15ad","model":"opus[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T06:15:36.769Z","model":"opus[1m]"}
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T10:56:28.416Z","note":"session e6c9f84b-4f95-43c2-984b-9ec6d5d19d9e","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T10:56:28.418Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T10:56:28.419Z","evidence":"#1191 merged 00e9f67e69; CI green, SHIP on d2341c6204; secrets tests in destinationService.homeSecrets, secretLocations\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T10:56:29.100Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T10:56:29.101Z","evidence":"#1191 merged 00e9f67e69; CI green, SHIP on d2341c6204; LinkedMemoryPeers, linkedMemory tests; Google check starts the built server\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T10:56:29.800Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T10:56:29.802Z","evidence":"#1191 merged 00e9f67e69; CI green, SHIP on d2341c6204; linkedMemoryThreeWay, LinkedMemorySync, handoffBundle tests\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T10:56:30.489Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T10:56:30.491Z","evidence":"#1191 merged 00e9f67e69; CI green, SHIP on d2341c6204; HandoffShare, ProjectMachineHandoff, MachineHandoffDialog tests\nHEAD 9b5466e8c","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:23:01.761Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T19:23:01.765Z","evidence":"Live on M4 1.0.152 and Ministorm 1.0.153: coordinator moved there and back in linked and real folders; memory merged; #1191, #1202\nHEAD 8a0c37765","model":"claude-opus-5-5[1m]"}

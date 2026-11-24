@@ -1,0 +1,11 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:52:03.204Z","note":"session 6085a5b4-41cd-4834-aa2a-82349e560d53","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:52:03.207Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:52:03.209Z","evidence":"PR 1189 merged 47b99bb48c; head 3371c1fdf9 SHIP, 35 checks green; projectArtifacts and ThreadArtifacts tests\nHEAD ba30c2ba7","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:52:10.678Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:52:10.687Z","evidence":"PR 1189 merged 47b99bb48c; head 3371c1fdf9 SHIP, 35 checks green; verify.mjs 17 checks; evidence ~/.specwithcode/m4/evidence/artifact-markdown\nHEAD ba30c2ba7","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:52:18.866Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:52:18.869Z","evidence":"PR 1189 merged 47b99bb48c; head 3371c1fdf9 SHIP, 35 checks green; verify.mjs list columns and sort, light and dark\nHEAD ba30c2ba7","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:54:48.250Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T07:54:48.271Z","evidence":"Installed 1.0.149 viewer: serif title and facts; bench p99 9.3 ms every document, 12.5 ms typical; ~/.specwithcode/m4/evidence/artifact-markdown\nHEAD ba30c2ba7","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:54:15.757Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T21:54:15.760Z","evidence":"Installed 1.0.152 headless check passed in both themes: heading titles, raster pages, no pull request filter, list columns, serif viewer; evidence ~/.specwithcode/m4/evidence/artifact-markdown/installed-1.0.152\nHEAD 54303c9d5","model":"claude-opus-5-5[1m]"}

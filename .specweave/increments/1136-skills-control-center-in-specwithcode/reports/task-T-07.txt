@@ -1,0 +1,12 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/1136-closure-fixes/apps/server && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/project/ProjectSkillsToggles.test.ts -t 'can undo plugin disable'
+# exit 0 — 2026-10-29T04:20:57.861Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/1136-closure-fixes/apps/server
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed | 13 skipped (14)
+   Start at  00:20:56
+   Duration  1.04s (transform 60%, import 36%, tests 2%, setup 1%)

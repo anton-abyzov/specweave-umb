@@ -1,0 +1,18 @@
+{
+  "id": "1071-same-cli-subscription-change-recovery",
+  "uuid": "a88a5216-984f-4638-823a-46224b795b35",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-25T05:16:39.106Z",
+  "updated": "2026-10-25T19:38:31.399Z",
+  "lastActivity": "2026-10-25T19:38:31.399Z",
+  "title": "Recover limit-held threads when the same CLI changes subscription",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T19:38:31.395Z",
+  "closeReason": "verify failures are unrelated umbrella suites (specweave test:unit:fast, vskill, vskill-platform); 1071 code merged in #709, SHIP review at reports/review-exact-head-563c1c246b.md, installed in 1.0.85",
+  "approvedAt": "2026-10-25T19:38:31.399Z"
+}

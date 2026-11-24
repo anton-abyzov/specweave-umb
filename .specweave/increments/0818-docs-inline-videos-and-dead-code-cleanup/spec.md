@@ -3,7 +3,7 @@ increment: 0818-docs-inline-videos-and-dead-code-cleanup
 title: "Inline /watch videos on 4 /docs pages, delete dead VideoHero + orphan video assets, lift unique scene-kit components"
 type: feature
 priority: P2
-status: planned
+status: backlog
 created: 2026-05-01
 structure: user-stories
 test_mode: TDD

@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:00.504Z","note":"session a2fc3a3a-0f45-4215-9460-faaf48f029d6","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:14:00.506Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:15:24.680Z","evidence":"PR fix/fleet-list-table; vp test 11 passed; live run widest line 67\nHEAD a972d409a","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T06:21:07.733Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T06:21:08.602Z","evidence":"PR #1179 merged 649c6df813; release v1.0.149; installed specwithcode v1.0.149 prints the table, widest line 67\nHEAD c3538819b","model":"claude-opus-5-5[1m]"}

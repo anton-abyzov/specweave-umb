@@ -1,0 +1,16 @@
+{
+  "id": "1262-concise-transcripts-fold-tool-rows-the-same-on-web-desktop-and-ios",
+  "uuid": "7f33ac1a-dbad-4466-a39b-4dbdf52526d3",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T21:24:49.745Z",
+  "updated": "2026-11-07T22:47:39.190Z",
+  "lastActivity": "2026-11-07T22:47:39.190Z",
+  "title": "Concise transcripts fold tool rows the same on web, desktop and iOS",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T22:47:39.189Z",
+  "closeReason": "Umbrella verify fails only on unrelated repos (specweave, vskill, vskill-platform test commands exit 127: npm not found in the verify shell); 1148 changed only anton-abyzov/specwithcode, where web 12/12 shared cases, PR Gate and Swift 14/14 pass",
+  "approvedAt": "2026-11-07T22:47:39.190Z"
+}

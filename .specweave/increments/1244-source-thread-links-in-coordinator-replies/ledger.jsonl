@@ -1,0 +1,10 @@
+{"t":"*","e":"session","by":"1244-provenance","at":"2026-11-06T18:43:20.304Z","note":"session 01a1b141-eac4-7651-9aac-372a10b63b81"}
+{"t":"T-01","e":"claim","by":"1244-provenance","at":"2026-11-06T18:43:20.305Z","line":"Retaining structured coordinator trigger sources"}
+{"t":"T-02","e":"claim","by":"1244-web","at":"2026-11-06T18:43:33.914Z","line":"Adding coordinator reply source links"}
+{"t":"T-03","e":"claim","by":"1244-mobile","at":"2026-11-06T18:43:39.613Z","line":"Adding mobile reply source links"}
+{"t":"T-03","e":"done","by":"1244-mobile","at":"2026-11-06T18:46:49.953Z","evidence":"88 focused mobile tests passed; mobile TypeScript check passed; source paths preserve exact environments and archived navigation. Evidence /Users/antonabyzov/.specwithcode/m4/evidence/1244-source-links/mobile-tests.txt\nHEAD 82e0de7f8","line":"Added mobile reply source links with scoped navigation"}
+{"t":"T-01","e":"done","by":"1244-provenance","at":"2026-11-06T18:47:30.833Z","evidence":"de564e0e6d; 36 focused provenance/notification/PR-watch/worker-wake tests passed; server production build passed on Node 22.20.0\nHEAD 82e0de7f8","line":"Retained structured run-bound reply sources"}
+{"t":"T-02","e":"done","by":"1244-web","at":"2026-11-06T18:49:06.933Z","evidence":"Focused coordinator suite 68 passed; source chip suite 3 passed; production web build passed; headless light 1280px and dark 390px screenshots, scoped click and keyboard navigation verified in /Users/antonabyzov/.specwithcode/m4/evidence/1244-source-links\nHEAD 82e0de7f8"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-06T20:47:42.667Z","line":"Verifying integrated source links"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-07T00:17:40.842Z"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-07T00:17:40.844Z","evidence":"584163ca2abf1cf51d14f73f5393361c2f2f3287; Sonnet SHIP; 99 focused tests; four-package typecheck zero new diagnostics; required CI green\nHEAD 054a8f432","line":"Verified source links and final review","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/1444"}

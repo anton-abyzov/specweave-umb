@@ -1,0 +1,13 @@
+{"filters":{"sortBy":"totalGithubStars","sortDir":"desc"},"queryAndAdapterMs":1322,"cards":20,"total":101314,"allUntainted":true,"allMatch":true}
+{"filters":{"sortBy":"totalGithubStars","sortDir":"asc"},"queryAndAdapterMs":524,"cards":20,"total":101314,"allUntainted":true,"allMatch":true}
+{"filters":{"sortBy":"skillCount","sortDir":"desc"},"queryAndAdapterMs":488,"cards":20,"total":101314,"allUntainted":true,"allMatch":true}
+{"filters":{"sortBy":"skillCount","sortDir":"asc"},"queryAndAdapterMs":521,"cards":20,"total":101314,"allUntainted":true,"allMatch":true}
+{"filters":{"sortBy":"avgTrustScore","sortDir":"desc"},"queryAndAdapterMs":499,"cards":20,"total":101314,"allUntainted":true,"allMatch":true}
+{"filters":{"sortBy":"avgTrustScore","sortDir":"asc"},"queryAndAdapterMs":498,"cards":20,"total":101314,"allUntainted":true,"allMatch":true}
+{"filters":{"sortBy":"totalGithubStars","offset":20},"queryAndAdapterMs":520,"cards":20,"total":101314,"allUntainted":true,"allMatch":true}
+{"filters":{"search":"seo-no-publisher-index-source-20261007-1791388856943"},"queryAndAdapterMs":534,"cards":0,"total":0,"allUntainted":true,"allMatch":true}
+{"filters":{"search":"ANTON"},"queryAndAdapterMs":511,"cards":20,"total":95,"allUntainted":true,"allMatch":true}
+{"filters":{"search":"ANTON","offset":20},"queryAndAdapterMs":512,"cards":20,"total":95,"allUntainted":true,"allMatch":true}
+{"filters":{"search":"ANTON","offset":19999960},"queryAndAdapterMs":805,"cards":0,"total":95,"allUntainted":true,"allMatch":true}
+{"filters":{"offset":19999960},"queryAndAdapterMs":852,"cards":0,"total":101314,"allUntainted":true,"allMatch":true}
+{"countANTON":95,"queryAndAdapterMs":217}

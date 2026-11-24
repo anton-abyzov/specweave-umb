@@ -1,0 +1,38 @@
+[
+ {
+  "mode": "light",
+  "w": 1440,
+  "extra": "reduced",
+  "finalUrl": "https://spec-weave.com/code/",
+  "scrollHeight": 6467,
+  "scrollWidth": 1440,
+  "errs": []
+ },
+ {
+  "mode": "light",
+  "w": 375,
+  "extra": "reduced",
+  "finalUrl": "https://spec-weave.com/code/",
+  "scrollHeight": 9111,
+  "scrollWidth": 375,
+  "errs": []
+ },
+ {
+  "mode": "dark",
+  "w": 1440,
+  "extra": "reduced",
+  "finalUrl": "https://spec-weave.com/code/",
+  "scrollHeight": 6467,
+  "scrollWidth": 1440,
+  "errs": []
+ },
+ {
+  "mode": "dark",
+  "w": 375,
+  "extra": "reduced",
+  "finalUrl": "https://spec-weave.com/code/",
+  "scrollHeight": 9111,
+  "scrollWidth": 375,
+  "errs": []
+ }
+]

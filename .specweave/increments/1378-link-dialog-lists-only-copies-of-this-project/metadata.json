@@ -1,0 +1,15 @@
+{
+  "id": "1378-link-dialog-lists-only-copies-of-this-project",
+  "uuid": "0fd49aad-59a2-4dbb-9b04-4bf892f23c61",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-17T19:32:28.290Z",
+  "updated": "2026-11-17T21:28:32.050Z",
+  "lastActivity": "2026-11-17T21:28:32.050Z",
+  "title": "Link dialog lists only copies of this project",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-17T21:28:32.049Z",
+  "approvedAt": "2026-11-17T21:28:32.050Z"
+}

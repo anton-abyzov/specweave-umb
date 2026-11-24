@@ -1,0 +1,447 @@
+{
+  "measureOnly": false,
+  "measurements": {
+    "coordinator-1440": {
+      "overflow": false,
+      "rows": [
+        {
+          "title": "Error-rate repair watch",
+          "height": 97,
+          "right": 1423,
+          "text": "Error-rate repair watch\nActive\n\nEvery 30 min\nNext Today 7:05 PM EDT\n\nRun now\nPause",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 201,
+              "height": 28,
+              "right": 1116,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Pause",
+              "top": 201,
+              "height": 28,
+              "right": 1199,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Final matchday results",
+          "height": 98,
+          "right": 1423,
+          "text": "Final matchday results\nPaused\n\nSat, Sun at 22:30\n\nRun now\nEnable",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 299,
+              "height": 28,
+              "right": 1116,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Enable",
+              "top": 299,
+              "height": 28,
+              "right": 1203,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Watch the mobile club release",
+          "height": 120,
+          "right": 1423,
+          "text": "Watch the mobile club release\nPaused\n\nWeekdays at 09:00\nLast ran Sun, Oct 18, 9:00 AM EDT\n\nThe release check could not reach the store listing.\n\nRun now\nEnable",
+          "hasError": true,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 419,
+              "height": 28,
+              "right": 1116,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Enable",
+              "top": 419,
+              "height": 28,
+              "right": 1203,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails",
+          "height": 135,
+          "right": 1423,
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\nPaused\n\nMonthly on the 1st at 08:00\n\nRun now\nEnable",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 554,
+              "height": 28,
+              "right": 1116,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Enable",
+              "top": 554,
+              "height": 28,
+              "right": 1203,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Finish the approved analytics campaign",
+          "height": 98,
+          "right": 1423,
+          "text": "Finish the approved analytics campaign\nOn request\n\nWhen you ask\nOpen its thread\n\nRun now",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 652,
+              "height": 28,
+              "right": 1116,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        }
+      ],
+      "paneRight": 1440
+    },
+    "header": "Routines\n\nOn Development Mac · 1 active · 3 paused · 1 on request\n\nNew routine\nManage routines",
+    "calls": [
+      {
+        "command": "routineToggle",
+        "args": {
+          "environmentId": "host",
+          "input": {
+            "id": "routine-repair-watch",
+            "enabled": false
+          }
+        }
+      },
+      {
+        "command": "routineRun",
+        "args": {
+          "environmentId": "host",
+          "input": {
+            "id": "routine-repair-watch",
+            "commandId": "d760b787-99e6-4692-bd4d-c59ff3d3e0c3"
+          }
+        }
+      }
+    ],
+    "coordinator-900": {
+      "overflow": false,
+      "rows": [
+        {
+          "title": "Error-rate repair watch",
+          "height": 97,
+          "right": 883,
+          "text": "Error-rate repair watch\nActive\n\nEvery 30 min\nNext Today 7:05 PM EDT\n\nRun now\nPause",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 201,
+              "height": 28,
+              "right": 576,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Pause",
+              "top": 201,
+              "height": 28,
+              "right": 659,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Final matchday results",
+          "height": 98,
+          "right": 883,
+          "text": "Final matchday results\nPaused\n\nSat, Sun at 22:30\n\nRun now\nEnable",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 299,
+              "height": 28,
+              "right": 576,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Enable",
+              "top": 299,
+              "height": 28,
+              "right": 663,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Watch the mobile club release",
+          "height": 120,
+          "right": 883,
+          "text": "Watch the mobile club release\nPaused\n\nWeekdays at 09:00\nLast ran Sun, Oct 18, 9:00 AM EDT\n\nThe release check could not reach the store listing.\n\nRun now\nEnable",
+          "hasError": true,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 419,
+              "height": 28,
+              "right": 576,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Enable",
+              "top": 419,
+              "height": 28,
+              "right": 663,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails",
+          "height": 135,
+          "right": 883,
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\nPaused\n\nMonthly on the 1st at 08:00\n\nRun now\nEnable",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 554,
+              "height": 28,
+              "right": 576,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Enable",
+              "top": 554,
+              "height": 28,
+              "right": 663,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Finish the approved analytics campaign",
+          "height": 98,
+          "right": 883,
+          "text": "Finish the approved analytics campaign\nOn request\n\nWhen you ask\nOpen its thread\n\nRun now",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 652,
+              "height": 28,
+              "right": 576,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        }
+      ],
+      "paneRight": 900
+    },
+    "coordinator-390": {
+      "overflow": false,
+      "rows": [
+        {
+          "title": "Error-rate repair watch",
+          "height": 109,
+          "right": 373,
+          "text": "Error-rate repair watch\nActive\n\nEvery 30 min\nNext Today 7:05 PM EDT\n\nRun now\nPause",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 213,
+              "height": 40,
+              "right": 144,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Pause",
+              "top": 213,
+              "height": 40,
+              "right": 235,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Final matchday results",
+          "height": 110,
+          "right": 373,
+          "text": "Final matchday results\nPaused\n\nSat, Sun at 22:30\n\nRun now\nEnable",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 323,
+              "height": 40,
+              "right": 144,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Enable",
+              "top": 323,
+              "height": 40,
+              "right": 239,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Watch the mobile club release",
+          "height": 151,
+          "right": 373,
+          "text": "Watch the mobile club release\nPaused\n\nWeekdays at 09:00\nLast ran Sun, Oct 18, 9:00 AM EDT\n\nThe release check could not reach the store listing.\n\nRun now\nEnable",
+          "hasError": true,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 474,
+              "height": 40,
+              "right": 144,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Enable",
+              "top": 474,
+              "height": 40,
+              "right": 239,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails",
+          "height": 166,
+          "right": 373,
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\nPaused\n\nMonthly on the 1st at 08:00\n\nRun now\nEnable",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 640,
+              "height": 40,
+              "right": 144,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Enable",
+              "top": 640,
+              "height": 40,
+              "right": 239,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Finish the approved analytics campaign",
+          "height": 128,
+          "right": 373,
+          "text": "Finish the approved analytics campaign\nOn request\n\nWhen you ask\nOpen its thread\n\nRun now",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 768,
+              "height": 40,
+              "right": 144,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        }
+      ],
+      "paneRight": 390
+    },
+    "empty": "Routines\n\nOn Development Mac\n\nManage routines\nNo routines yet\n\nA routine sends the coordinator a request on a schedule or when you ask.\n\nNew routine",
+    "personal": {
+      "overflow": false,
+      "rows": [
+        {
+          "title": "Monthly tax prep",
+          "height": 158,
+          "right": 1423,
+          "text": "Monthly tax prep\nOn request\n\nWhen you ask\nLast ran Fri, Oct 2, 5:00 AM EDT\nOpen its thread\n\nReceipts ~/Example Household/receipts\nStatements ~/Example Household/bank/{period}.csv\nResult ~/Example Household/tax/{period}-prep.md\nRun now",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 275,
+              "height": 28,
+              "right": 1116,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        },
+        {
+          "title": "Monthly profit and loss",
+          "height": 159,
+          "right": 1423,
+          "text": "Monthly profit and loss\nActive\n\nMonthly on the 3rd at 09:00\nNext Tue, Nov 3, 4:00 AM EST\nOwn thread from the first run\n\nSales ~/Example Studio/invoices\nResult ~/Example Studio/reports/pnl-{period}.md\nRun now\nPause",
+          "hasError": false,
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 434,
+              "height": 28,
+              "right": 1116,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            },
+            {
+              "label": "Pause",
+              "top": 434,
+              "height": 28,
+              "right": 1199,
+              "border": "1px",
+              "background": "rgb(252, 252, 251)"
+            }
+          ]
+        }
+      ],
+      "paneRight": 1440
+    }
+  },
+  "errors": []
+}

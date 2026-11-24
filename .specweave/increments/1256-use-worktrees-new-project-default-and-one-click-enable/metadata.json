@@ -1,0 +1,15 @@
+{
+  "id": "1256-use-worktrees-new-project-default-and-one-click-enable",
+  "uuid": "f78a9adc-09a4-4854-b14c-7e5fbaf47aac",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T06:36:21.081Z",
+  "updated": "2026-11-10T06:51:58.374Z",
+  "lastActivity": "2026-11-10T06:51:58.374Z",
+  "title": "Use worktrees default for new projects and one-click enable",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-10T06:51:58.373Z",
+  "approvedAt": "2026-11-10T06:51:58.374Z"
+}

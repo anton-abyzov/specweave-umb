@@ -1,0 +1,17 @@
+$ cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run packages/shared/src/providerUsageLinks.test.ts apps/web/src/components/usage/AccountHeader.test.tsx apps/web/src/studio/modelAvailability.test.ts
+# exit 0 — 2026-11-12T14:58:53.074Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev
+
+
+ Test Files  3 passed (3)
+      Tests  32 passed (32)
+   Start at  09:58:51
+   Duration  1.96s (transform 60%, import 31%, environment 7%, tests 1%)
+
+  Transform  transforming modules took 2.15s · 60% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

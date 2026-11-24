@@ -1,0 +1,35 @@
+{
+  "base": "http://127.0.0.1:3123",
+  "checks": [
+    {
+      "width": 1440,
+      "showcaseLinks": 3,
+      "detailExamples": 10,
+      "overflow": false,
+      "keyboardFocus": true
+    },
+    {
+      "width": 390,
+      "showcaseLinks": 3,
+      "detailExamples": 10,
+      "overflow": false,
+      "keyboardFocus": true
+    },
+    {
+      "project": "EasyChamp",
+      "destination": "https://easychamp.com/",
+      "h1": "Run the league."
+    },
+    {
+      "project": "JobWeave",
+      "destination": "https://jobweave.ai/",
+      "h1": "Every opportunity remembers what happened."
+    },
+    {
+      "project": "Verified Skills",
+      "destination": "https://verified-skill.com/",
+      "h1": "Give your agent\nskills that\nearn their place."
+    }
+  ],
+  "errors": []
+}

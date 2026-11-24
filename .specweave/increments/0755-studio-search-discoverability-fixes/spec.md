@@ -1,10 +1,10 @@
 ---
 increment: 0755-studio-search-discoverability-fixes
-title: "Studio search discoverability: ranking + LIST filter + auto-reindex"
+title: 'Studio search discoverability: ranking + LIST filter + auto-reindex'
 type: bug
 priority: P1
-status: planned
-created: 2026-04-26
+status: abandoned
+created: 2026-04-26T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

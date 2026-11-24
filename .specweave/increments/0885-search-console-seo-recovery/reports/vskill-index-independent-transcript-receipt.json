@@ -1,0 +1,48 @@
+{
+  "provenance": "Transcript-derived summary of independent reviewer inline read-only tool output; not an original captured log",
+  "reviewer": "seo_independent_review",
+  "catalog": {
+    "checkedAt": "2026-10-07T15:54:51.998Z",
+    "oid": "199021",
+    "bytes": "120922112",
+    "definition": "CREATE INDEX \"Skill_public_author_metrics_idx\" ON public.\"Skill\" USING btree (lower(author), \"normalizedRepoUrl\") INCLUDE (author, \"githubStars\", \"trustScore\", \"isTainted\") WHERE ((\"tenantId\" IS NULL) AND (\"isDeprecated\" = false))",
+    "valid": true,
+    "ready": true,
+    "live": true,
+    "activeIndexProgressRows": 0,
+    "migration": "20261007160000_public_publisher_covering_index",
+    "checksum": "91bf3713936a26d24a93efb0b7d42262452b3c6f3ffd65b87bc8e8114385c401",
+    "finishedAt": "2026-10-07T15:54:18.473Z",
+    "finishedRecords": 1,
+    "rolledBackRecords": 0,
+    "sizeDifferenceNote": "8192 bytes of normal index growth after the apply receipt; definition and identity unchanged"
+  },
+  "relationalOracle": {
+    "sourceHead": "a73c6916c85a32b82ba4483154df4f05544f6e13",
+    "casesPassed": 90,
+    "readOnlySelects": 138,
+    "fixtureRows": 79,
+    "eligibleAuthors": 33,
+    "strategy": "Actual emitted final SQL against a VALUES Skill CTE compared with an independent JavaScript relational oracle",
+    "sorts": 3,
+    "directions": [
+      "asc",
+      "desc"
+    ],
+    "searchVariants": 5,
+    "offsets": [
+      0,
+      20,
+      80
+    ],
+    "covers": [
+      "mixed-case authors",
+      "public/private/deprecated/tainted rows",
+      "nullable averages",
+      "negative/deduplicated/null stars",
+      "true count fallback"
+    ],
+    "productionSkillRowsRead": 0,
+    "kvWrites": 0
+  }
+}

@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-31T20:33:51.867Z","note":"session e9764c82-e0ee-42c5-be98-4af0635673aa","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-31T20:33:51.869Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-31T20:33:51.869Z","evidence":"/Volumes/KINGSTON/MediaLibrary/06-PRODUCTIONS/specwithcode-overview-2026-11/raw/screen/v2/m4-core/TAKES.md: 31.8 min of M4 takes\nHEAD 6ea3db431","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-31T20:33:52.664Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-31T20:33:52.665Z","evidence":"/Volumes/KINGSTON/MediaLibrary/06-PRODUCTIONS/specwithcode-overview-2026-11/broll/v2/INDEX.md: 94 motion assets\nHEAD 6ea3db431","model":"claude-opus-5-5[1m]"}

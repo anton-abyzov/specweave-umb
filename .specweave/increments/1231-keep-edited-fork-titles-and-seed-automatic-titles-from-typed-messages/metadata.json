@@ -1,0 +1,17 @@
+{
+  "id": "1231-keep-edited-fork-titles-and-seed-automatic-titles-from-typed-messages",
+  "uuid": "f668996c-ade4-4e7f-93f7-b09b7881e1f3",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T23:46:26.933Z",
+  "updated": "2026-11-04T00:54:24.782Z",
+  "lastActivity": "2026-11-04T00:54:24.782Z",
+  "title": "Keep edited fork titles and seed automatic titles from typed messages",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T00:54:24.774Z",
+  "approvedAt": "2026-11-04T00:54:24.782Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

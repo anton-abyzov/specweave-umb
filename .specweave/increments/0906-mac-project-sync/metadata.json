@@ -1,0 +1,16 @@
+{
+  "id": "0906-mac-project-sync",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-13T06:36:53.223Z",
+  "updated": "2026-10-13T14:01:35.609Z",
+  "lastActivity": "2026-10-13T14:01:35.609Z",
+  "title": "Verified project copies across M4 M1 and M3",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-13T14:01:35.608Z",
+  "approvedAt": "2026-10-13T14:01:35.609Z"
+}

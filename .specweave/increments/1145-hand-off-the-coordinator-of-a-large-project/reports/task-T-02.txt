@@ -1,0 +1,4 @@
+$ git -C repositories/anton-abyzov/specweave-studio show origin/main:docs/user/moving-a-project.md | grep -n 'What a coordinator handoff carries'
+# exit 0 — 2026-11-02T03:31:48.550Z
+
+202:### What a coordinator handoff carries

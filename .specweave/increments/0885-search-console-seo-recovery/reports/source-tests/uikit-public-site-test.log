@@ -1,0 +1,8 @@
+
+ RUN  v4.1.10 /private/tmp/easychamp-seo-inventory-uikit-20261007
+
+
+ Test Files  60 passed (60)
+      Tests  877 passed (877)
+   Start at  09:18:47
+   Duration  7.36s (transform 2.35s, setup 387ms, import 8.22s, tests 6.91s, environment 9.42s)

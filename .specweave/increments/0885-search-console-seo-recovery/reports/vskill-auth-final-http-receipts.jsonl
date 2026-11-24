@@ -1,0 +1,31 @@
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.171, "bodyBytes": 119202}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.108, "bodyBytes": 119202}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.214, "bodyBytes": 119202}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.321, "bodyBytes": 119202}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.275, "bodyBytes": 119202}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.266, "bodyBytes": 119202}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 1.853, "bodyBytes": 119202}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.113, "bodyBytes": 119202}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 0.254, "bodyBytes": 119202}
+{"path": "/publishers", "status": 200, "elapsedSeconds": 1.013, "bodyBytes": 119202}
+{"path": "/publishers?sort=totalGithubStars", "status": 200, "elapsedSeconds": 0.14, "bodyBytes": 119268}
+{"path": "/api/v1/authors?sort=stars", "status": 200, "elapsedSeconds": 0.098, "bodyBytes": 2090, "cards": 20, "total": 101704, "error": null}
+{"path": "/publishers?sort=skillCount", "status": 200, "elapsedSeconds": 5.524, "bodyBytes": 119596}
+{"path": "/api/v1/authors?sort=skills", "status": 200, "elapsedSeconds": 2.617, "bodyBytes": 2116, "cards": 20, "total": 101704, "error": null}
+{"path": "/publishers?sort=avgTrustScore", "status": 200, "elapsedSeconds": 2.099, "bodyBytes": 119281}
+{"path": "/api/v1/authors?sort=trust", "status": 200, "elapsedSeconds": 0.094, "bodyBytes": 2038, "cards": 20, "total": 101704, "error": null}
+{"path": "/publishers?page=2", "status": 200, "elapsedSeconds": 0.702, "bodyBytes": 119425}
+{"path": "/api/v1/authors?offset=20", "status": 200, "elapsedSeconds": 1.716, "bodyBytes": 2094, "cards": 20, "total": 101704, "error": null}
+{"path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791398378938851000", "status": 200, "elapsedSeconds": 4.282, "bodyBytes": 35552}
+{"path": "/api/v1/authors?search=seo-no-publisher-20261007-index-fresh-1791398378938851000", "status": 200, "elapsedSeconds": 0.645, "bodyBytes": 46, "cards": 0, "total": 0, "error": null}
+{"path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791398378938851000-repeat-0", "status": 200, "elapsedSeconds": 0.821, "bodyBytes": 35633}
+{"path": "/publishers?search=seo-no-publisher-20261007-index-fresh-1791398378938851000-repeat-1", "status": 200, "elapsedSeconds": 2.297, "bodyBytes": 35633}
+{"path": "/publishers?search=ANTON", "status": 200, "elapsedSeconds": 2.189, "bodyBytes": 119520}
+{"path": "/api/v1/authors?search=ANTON", "status": 200, "elapsedSeconds": 3.191, "bodyBytes": 2048, "cards": 20, "total": 96, "error": null}
+{"path": "/publishers?search=ANTON&page=2", "status": 200, "elapsedSeconds": 0.711, "bodyBytes": 119873}
+{"path": "/api/v1/authors?search=ANTON&offset=20", "status": 200, "elapsedSeconds": 0.798, "bodyBytes": 2070, "cards": 20, "total": 96, "error": null}
+{"path": "/publishers?search=ANTON&page=999999", "status": 404, "elapsedSeconds": 1.108, "bodyBytes": 22588}
+{"path": "/api/v1/authors?search=ANTON&offset=19999960", "status": 200, "elapsedSeconds": 1.048, "bodyBytes": 54, "cards": 0, "total": 96, "error": null}
+{"path": "/publishers?search=a", "status": 200, "elapsedSeconds": 0.813, "bodyBytes": 119436}
+{"path": "/publishers?page=999999", "status": 404, "elapsedSeconds": 1.102, "bodyBytes": 22563}
+{"path": "/api/v1/authors?offset=19999960", "status": 200, "elapsedSeconds": 1.302, "bodyBytes": 58, "cards": 0, "total": 101704, "error": null}

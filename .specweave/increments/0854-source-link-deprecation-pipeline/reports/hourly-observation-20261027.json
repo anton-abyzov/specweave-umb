@@ -1,0 +1,65 @@
+{
+  "endedAt": "2026-10-27T23:05:00.737268+00:00",
+  "tailExitCode": 0,
+  "boundedStop": true,
+  "events": [
+    {
+      "eventTimestamp": 1793142031138,
+      "outcome": "exceededMemory",
+      "scriptVersion": {
+        "id": "6965507e-0978-4165-8906-b49b3590dea5"
+      },
+      "scriptName": "verified-skill-com",
+      "event": {
+        "cron": "0 * * * *",
+        "scheduledTime": 1793142017665
+      },
+      "sweepLogs": [
+        [
+          "[stale-source-sweep] processed 500 skills, deprecated 13, skipped-recent 0, healthy 487, transient 0"
+        ],
+        [
+          "[cron] stale-source-sweep completed in 35232ms:",
+          {
+            "probed": 500,
+            "healthy": 487,
+            "transient": 0,
+            "deprecated": 13,
+            "skippedRecent": 0,
+            "circuitTripped": false
+          }
+        ]
+      ]
+    },
+    {
+      "eventTimestamp": 1793142054259,
+      "outcome": "exceededMemory",
+      "scriptVersion": {
+        "id": "6965507e-0978-4165-8906-b49b3590dea5"
+      },
+      "scriptName": "verified-skill-com",
+      "event": {
+        "cron": "*/10 * * * *",
+        "scheduledTime": 1793142053005
+      },
+      "sweepLogs": [
+        [
+          "[stale-source-sweep] processed 500 skills, deprecated 0, skipped-recent 2, healthy 498, transient 0"
+        ],
+        [
+          "[cron] stale-source-sweep completed in 16096ms:",
+          {
+            "probed": 500,
+            "healthy": 498,
+            "transient": 0,
+            "deprecated": 0,
+            "skippedRecent": 2,
+            "circuitTripped": false
+          }
+        ]
+      ]
+    }
+  ],
+  "unparsedRemainder": false,
+  "acceptance": "observations only; no backlog or shard-removal assertion inferred"
+}

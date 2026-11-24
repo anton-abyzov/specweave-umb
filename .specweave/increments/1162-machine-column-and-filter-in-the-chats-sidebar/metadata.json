@@ -1,0 +1,15 @@
+{
+  "id": "1162-machine-column-and-filter-in-the-chats-sidebar",
+  "uuid": "0060ece7-268d-43e6-b8b3-3f7a478c8b2d",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T04:05:57.917Z",
+  "updated": "2026-11-02T05:15:49.270Z",
+  "lastActivity": "2026-11-02T05:15:49.270Z",
+  "title": "Machine column and filter in the Chats sidebar",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

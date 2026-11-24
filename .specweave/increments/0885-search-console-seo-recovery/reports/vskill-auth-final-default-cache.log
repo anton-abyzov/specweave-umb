@@ -1,0 +1,1 @@
+{"status":"PASS_OBSERVED_CONTROL_PLANE_ABSENCE_WRITE_THROUGH_PARITY","first":{"kind":"defaultFirstAfterAuthenticatedAbsence","path":"/publishers","recordedAt":"2026-10-07T18:38:53.237Z","status":200,"elapsedSeconds":5.735,"cfCacheStatus":null,"cards":20,"total":101704},"expirationUnchanged":true,"deletedOnlyExactKey":false}

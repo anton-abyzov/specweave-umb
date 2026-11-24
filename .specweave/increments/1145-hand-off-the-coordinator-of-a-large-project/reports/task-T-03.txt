@@ -1,0 +1,8 @@
+$ specweave verify 1145-hand-off-the-coordinator-of-a-large-project --cmd 'gh pr checks 1171 -R anton-abyzov/specwithcode-dev --required'
+# exit 0 — 2026-11-02T03:32:06.623Z
+
+▶ gh pr checks 1171 -R anton-abyzov/specwithcode-dev --required
+ok   gh pr checks 1171 -R anton-abyzov/specwithcode-dev --required (exit 0)
+ACs 5/5 · tasks 3/4 done (0 skipped)
+PASS → .specweave/increments/1145-hand-off-the-coordinator-of-a-large-project/reports/verify.md
+Next: specweave complete 1145-hand-off-the-coordinator-of-a-large-project

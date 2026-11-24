@@ -1,0 +1,79 @@
+# 1069 Evidence-backed thread lifecycle and automatic resolution
+
+## Problem
+Runtime Idle says no turn is executing; it does not say whether the requested job is finished. Owners report long-lived unresolved work across EasyChamp and SpecWeave. Native child rows and ancestor-derived classifications inflate the apparent root backlog. Current source automatically resolves only from observed merged PR readiness and eligible thread state; it does not establish delivery acceptance for non-code work or deployment obligations.
+
+## Scope
+In: owner-provided complete inventories and freshness (consumed only; individual adjudication and recovery remain exclusively with the completion-sweep owner), runtime/config audit, durable evidence-backed lifecycle reasons, automatic resolution and reopening, truthful status presentation, focused regression and headless evidence.
+Out: underlying task recovery, bulk resolution, archives, Stop release, auth changes, notification/iOS implementation, release-owner takeover. Preserve the 1011 hold. Existing completion owner merges reviewed source and release owner deploys; installed evidence is a separate gate.
+
+## Acceptance Criteria
+- [ ] AC-01: Audit distinguishes visible roots from native children, lists complete local pagination and explicit unknown federation coverage for both projects, and records installed version and effective configuration with freshness.
+- [ ] AC-02: Automatic code completion requires current-scope evidence of Git push, PR merge, deployment and verification, with no outstanding required action. Research/no-code completion requires the actual answer/artifact delivered and verified against requested scope, with code gates explicitly N/A and a rationale. Terminal turns, age, CI, merged PRs, checkboxes or a claim of done alone never prove delivery.
+- [ ] AC-03: Pending requests, outstanding agent work, external waits, user-only decisions, nested activity, Stop/auth holds and unknown remote state have distinct auditable reasons; agent-settleable waits are not user blockers.
+- [ ] AC-04: Resolution preserves history and Stop; newer requests or reopened obligations invalidate old acceptance atomically and reopen work without racing pending/nested work.
+- [ ] AC-05: Reload/restart and filtered/paginated views preserve lifecycle classification and explicit missing or disconnected evidence.
+- [ ] AC-06: Focused tests and wide/narrow headless screenshots demonstrate completion/reopening and every protected state; exact-head review and CI are recorded separately from installed acceptance.
+
+- [ ] AC-07: The supplied 1006 ENOSPC final-message/status mismatch displays an owned operational wait, never generic Idle or user-blocked; historical 162 MiB is not treated as current disk evidence. Remaining HTTP500 project_mutation_failed, compatibility and installed acceptance stay unresolved.
+- [ ] AC-08: Structured reasons persist through reload/restart, supersede stale reasons only on verified recovery, and agree across grouping/filter/pagination. Operational recovery never auto-resumes explicit Stop. Auth/provider/limit failures, pending release/review fixes, active descendants and unknown remote state are covered.
+- [ ] AC-09: Missing evidence, partial delivery, stale evidence and newly reopened acceptance cannot resolve work across transitions or restart. User-blocked requires Anton's output; deployment, dependency and resource waits carry reasons and owners.
+
+- [ ] AC-10: Explicit user-requested self-resolution persists an exact-run intent and resolves only after its successful final turn, independently of automatic activation, PR snapshots and delivery receipts. Stop, pending work, children, supersession and restart races remain guarded; the response distinguishes scheduled resolution from verified delivery.
+
+- [ ] AC-11: An independently verified code receipt for an app-owned delegated worker can resolve the current turn when deployment is explicitly outside its assignment. An expired or superseded receipt, a Stop or reopen, pending work, or an unverified required gate keeps the thread unresolved. Current eligible stored receipts are applied after restart without a second report.
+- [ ] AC-12: The coordinator completion flow directs an independent verifier to record the exact completed run and its scoped evidence, including later follow-ups, without starting a receipt-only chain of workers.
+
+## Approach
+First reconcile owner inventories and inspect current lifecycle contracts, projection candidates, settlement service, orchestrator guards and presentation. Define the smallest durable evidence contract before implementation; do not derive acceptance from final-text heuristics. Extend existing commands/events and settlement locking rather than a second sweeper. Keep runtime status separate from delivery disposition. Use isolated synthetic state for tests. Coordinate shared presentation files before edits and retain existing owner boundaries.
+
+The verified-delivery follow-up applies still-current receipts from the existing sweep and checks the thread event sequence in the settlement transaction. A scoped app-owned worker can resolve after an independent verifier confirms why deployment is outside its assignment. The coordinator reuses verification that is already needed for the assignment. [Source PR #1356](https://github.com/anton-abyzov/specwithcode-dev/pull/1356).
+
+## Decisions
+### Asked
+- D-11: Anton chose to keep PR #708's version (77260fe25e, 957bffb0e4) and port the missing fixes onto it (2026-10-26). Evidence-gated automatic settlement stays behind the server-side default-off `LifecycleEvidenceActivation` flag; receipts are recorded, shown and resolve threads either way. T-01 is skipped (no owner inventories or receipts exist); T-04 installed acceptance waits on the next release.
+- D-10: 1070 ships its dependency seam behind a server-side default-off flag after exact-head SHIP and green CI. Only 1069/#708 may activate it with integrated acceptance checks; unrelated releases remain unblocked.
+- D-08: 1070 owns concurrent changes to ProjectionStore.ts, Orchestrator.ts, DeferredThreadResolution.ts and thread MCP handlers/tools. Sequence 1069 shared persistence changes after its merge; coordinate receipt contracts before editing overlapping files.
+- D-09: Increment collision resolved by the completion owner via CLI: this increment remains 1069; subscription recovery is 1071.
+- D-05: Completion evidence follows `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1040-fix-project-badges-and-status-counts/completion-evidence-contract.md`. Code gates are push, merge, deployment and requested-scope verification; no-code gates require delivered verified answer/artifact with explicit code-gate N/A rationale.
+- D-06: Completion-sweep owner exclusively adjudicates every individual idle thread and performs recovery/resolution. This lane consumes those receipts and implements product correctness.
+- D-07: Disk/network/tool availability are operational waits with owners; only Anton-dependent output is user-blocked. Verified recovery supersedes stale reasons without releasing Stop.
+- D-01: Same-writer branch switch in existing worktree approved; untracked generated cache remains untouched and excluded from commits.
+### Defaulted
+- D-02: Missing acceptance is unknown, not proof of unfinished work or permission to resolve.
+- D-03: Answer-only requests may complete when their actual requested outcome is satisfied; no artifact requirement is invented.
+- D-04: Owner inventory reason labels are triage until their per-root evidence is reconciled.
+### Open
+- None. Dependency #706 merged as 62dde36aaf7b9e0329f979e4c6ba1935599e7571; shared integration is released to this lane. Independent policy contract uses current request ID, run ID and acceptance revision, owner-attributed reasons, timestamped evidence references and explicit code/no-code gate applicability. Legacy missing evidence fails closed. Owner adjudication is the evidence producer; provider final text is never acceptance.
+
+## Tasks
+
+### T-01 Audit current lifecycle and owner inventories
+- AC: AC-01, AC-02, AC-03 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/project-attention-1040/idle-lifecycle-audit.md | Test: owner receipt reconciliation with source paths, installed/config readbacks and completeness accounting
+
+### T-02 Define and implement evidence-backed lifecycle contract
+- AC: AC-02, AC-03, AC-04, AC-07, AC-08, AC-09 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/threadLifecycleEvidence.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/threadLifecycleEvidence.test.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/threadLifecycleEvidence.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/threadLifecycleEvidence.test.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/orchestrationV2.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ThreadSettlementService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ThreadResolutionPolicy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ThreadAutomaticResolutionGuard.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProjectionStore.ts | Test: focused lifecycle public-command and settlement tests; finalize exact command/event files after audit before claim
+
+### T-03 Present lifecycle reasons and verify persistence
+- AC: AC-03, AC-05, AC-07, AC-08 | Files: finalize owned presentation and projection test paths after T-01 before claim | Test: focused lifecycle presentation tests plus reload/restart and pagination fixtures
+
+### T-05 Integrate the existing settlement command seam
+- AC: AC-02, AC-04, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ThreadLifecycleAcceptance.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ThreadLifecycleAcceptance.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.control-reads.test.ts, repositories/anton-abyzov/specwithcode/packages/shared/package.json | Test: exact-run accepted/missing/stale/partial/reopened evidence at deferred finish and automatic settlement, persisted projection roundtrip and recovery
+
+### T-06 Preserve automatic settlement and watch behavior under missing evidence
+- AC: AC-02, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/runtimeLayer.test.ts | Test: existing runtime lifecycle and PR watch integration tests assert automatic refusal without acceptance while explicit settlement remains available
+
+### T-04 Verify and close 1069
+- AC: AC-06, AC-07, AC-08, AC-09 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/project-attention-1040/idle-lifecycle-verification.md | Test: exact supplied final-message/status mismatch; structured persistence across reload/restart; verified recovery and stale-reason supersession; grouping/filter/pagination agreement; preserved unfinished acceptance; missing/partial/stale/reopened evidence transitions; focused regressions, production builds, headless wide/narrow captures, exact-head CI, specweave verify 1069, fresh-context review, specweave complete 1069; retain installed gate if acceptance is unavailable
+
+### T-07 Honor explicit Resolve after the final turn
+- AC: AC-04, AC-09, AC-10 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/orchestrationV2.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.control-reads.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/toolkits/thread/handlers.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/toolkits/thread/tools.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/OrchestratorMcpToolkit.integration.test.ts | Test: focused orchestrator control and MCP integration tests, server production build; preserve default-off legacy intents and receipt adjudication
+
+### T-08 Verify and close 1069
+- AC: AC-10 | Files: /Users/antonabyzov/.specwithcode/m4/evidence/project-attention-1040/explicit-resolve-followup.md | Test: fresh exact-head review, green required CI, merge and installed explicit Resolve acceptance through existing release owner; specweave verify 1069 and specweave complete 1069 after all original tasks and gates are satisfied
+
+### T-09 Apply scoped worker delivery receipts
+- AC: AC-11 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/orchestrationV2.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/threadLifecycleEvidence.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/threadLifecycleEvidence.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProjectionStore.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ThreadSettlementService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ThreadSettlementService.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.lifecycle-receipt.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/EventSink.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/ThreadSettlementService.test.ts apps/server/src/orchestration-v2/Orchestrator.lifecycle-receipt.test.ts packages/shared/src/threadLifecycleEvidence.test.ts
+
+### T-10 Record independently verified worker closeouts
+- AC: AC-12 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/DelegatedCompletionText.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/DelegatedCompletionText.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/toolkits/thread/tools.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/RuntimeInstructions.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/RuntimeInstructions.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/ProjectWorkspaceService.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/DelegatedCompletionText.test.ts apps/server/src/provider/RuntimeInstructions.test.ts apps/server/src/mcp/toolkits/thread/recordDelivery.test.ts apps/server/src/project/ProjectWorkspaceService.test.ts

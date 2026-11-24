@@ -1,0 +1,271 @@
+{
+  "checkedAt": "2026-10-07T18:37:48.543617+00:00",
+  "scope": "read-only release recheck after Cloudflare authentication resume; no product writes, claims, dispatch, or deployment",
+  "specweave": {
+    "installed": "3.0.3",
+    "currentStable": "3.0.3",
+    "registryVerified": true
+  },
+  "contextSync": {
+    "sha": "948f164e74aa66126c616f55b5785003ee017eaa",
+    "date": "2026-10-07T17:45:22Z",
+    "previous": "8e5cfe07470d86f9eb9afb7ee5b07ea900bb2583",
+    "changedFiles": [
+      "SYNC-LOG.md",
+      "mac/claude-code-setup.json",
+      "mac/memory-index.md"
+    ],
+    "sharedMemoryIndexesUnchanged": true,
+    "read": [
+      "README.md",
+      "memory/MEMORY.md",
+      "memory/antonoly-max-index.md",
+      "SYNC-LOG.md"
+    ]
+  },
+  "source": [
+    {
+      "repo": "ec-landing",
+      "defaultBranch": "develop",
+      "head": "396874efc4859e9cc15cd4af28706c488c30fb33",
+      "date": "2026-10-07T14:56:20Z",
+      "unchangedSinceSEORelease": true
+    },
+    {
+      "repo": "ec-arena-ui",
+      "defaultBranch": "develop",
+      "head": "3966bfab4c23ce4479ff8cd5d10d7bfa80081cec",
+      "date": "2026-10-07T18:30:55Z",
+      "deployedHead": "817f749c966ef96135e5e96ebb33f24f9e0b2257",
+      "seoMergeAncestor": "7187b746af193cb47bc48cbd8444ef25725591db",
+      "deployedDescendantOfSEO": true,
+      "commitsAheadOfSEO": 9,
+      "newerOwnerReleasesPreserved": true
+    }
+  ],
+  "arenaSEOBlobChecks": [
+    {
+      "path": ".uikit-revision",
+      "seoMergeBlob": "8b773af4bce912fbc5fca3b64d1fea0c58768467",
+      "deployedBlob": "8b773af4bce912fbc5fca3b64d1fea0c58768467",
+      "latestDevelopBlob": "8b773af4bce912fbc5fca3b64d1fea0c58768467",
+      "unchangedSinceSEO": true
+    },
+    {
+      "path": "src/lib/news-jsonld.ts",
+      "seoMergeBlob": "4c374a062921e3cca4e30d1c67ae3d21ccd26103",
+      "deployedBlob": "4c374a062921e3cca4e30d1c67ae3d21ccd26103",
+      "latestDevelopBlob": "4c374a062921e3cca4e30d1c67ae3d21ccd26103",
+      "unchangedSinceSEO": true
+    },
+    {
+      "path": "src/lib/broadcast-fixture-video.ts",
+      "seoMergeBlob": "4e9f838f331b09577101e90632bac0079eb71910",
+      "deployedBlob": "4e9f838f331b09577101e90632bac0079eb71910",
+      "latestDevelopBlob": "4e9f838f331b09577101e90632bac0079eb71910",
+      "unchangedSinceSEO": true
+    }
+  ],
+  "arenaOwnerChangedFiles": [
+    "src/app/champ/[id]/page.tsx",
+    "src/app/styles/broadcast/original.css",
+    "src/app/styles/broadcast/team.css",
+    "src/app/team/[id]/page.tsx",
+    "src/app/team/[id]/team-seasons-0788.test.tsx",
+    "src/components/arena/StandingsSection.tsx",
+    "src/components/broadcast/home/__tests__/BroadcastHomeView-0788.test.tsx",
+    "src/components/broadcast/original/OriginalHome.tsx",
+    "src/components/broadcast/team/ImportedCompetitionRecord.tsx",
+    "src/components/broadcast/team/ImportedTeamSeasons.tsx",
+    "src/lib/__tests__/bracket-data.test.ts",
+    "src/lib/__tests__/imported-team-seasons-0943.test.tsx",
+    "src/lib/__tests__/public-read-standings-route.test.ts",
+    "src/lib/__tests__/standings-qualification.test.ts",
+    "src/lib/bracket-data.ts",
+    "src/lib/imported-team-seasons.server.ts",
+    "src/lib/league-mappers.ts",
+    "src/lib/public-read/standings-render-data.ts",
+    "src/lib/standings-qualification.ts"
+  ],
+  "arenaCurrentCI": [
+    {
+      "id": 37667428225,
+      "head_sha": "3966bfab4c23ce4479ff8cd5d10d7bfa80081cec",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/anton-abyzov/ec-arena-ui/actions/runs/37667428225",
+      "created_at": "2026-10-07T18:30:58Z"
+    },
+    {
+      "id": 37656987536,
+      "head_sha": "817f749c966ef96135e5e96ebb33f24f9e0b2257",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/anton-abyzov/ec-arena-ui/actions/runs/37656987536",
+      "created_at": "2026-10-07T17:10:17Z"
+    },
+    {
+      "id": 37654879828,
+      "head_sha": "d003c80265f3fbdcbcfbaa6c69ba340398837ba1",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/anton-abyzov/ec-arena-ui/actions/runs/37654879828",
+      "created_at": "2026-10-07T16:48:06Z"
+    }
+  ],
+  "cluster": {
+    "checkedAt": "2026-10-07T18:32:54.168756+00:00",
+    "deployments": [
+      {
+        "name": "ec-landing",
+        "generation": 107,
+        "observedGeneration": 107,
+        "replicas": 2,
+        "ready": 2,
+        "updated": 2,
+        "images": [
+          "ghcr.io/anton-abyzov/ec-landing:develop-396874e"
+        ],
+        "argocdSync": "Synced",
+        "argocdRevision": "f08289e78974443b9be2ae73757089d6bd03c466",
+        "argocdHealth": "Healthy",
+        "pods": [
+          {
+            "name": "ec-landing-6c76d57b64-hlrtn",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-landing:develop-396874e",
+                "imageID": "ghcr.io/anton-abyzov/ec-landing@sha256:ad8ea72390fa66c5eeebace8b5d8130d555bf16ee362280a44d252fbf48a46f9"
+              }
+            ]
+          },
+          {
+            "name": "ec-landing-6c76d57b64-zqtvs",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-landing:develop-396874e",
+                "imageID": "ghcr.io/anton-abyzov/ec-landing@sha256:ad8ea72390fa66c5eeebace8b5d8130d555bf16ee362280a44d252fbf48a46f9"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ec-arena-ui",
+        "generation": 143,
+        "observedGeneration": 143,
+        "replicas": 5,
+        "ready": 5,
+        "updated": 5,
+        "images": [
+          "ghcr.io/anton-abyzov/ec-arena-ui:develop-817f749"
+        ],
+        "argocdSync": "Synced",
+        "argocdRevision": "f08289e78974443b9be2ae73757089d6bd03c466",
+        "argocdHealth": "Healthy",
+        "pods": [
+          {
+            "name": "ec-arena-ui-7fbcdd544-46dtp",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-817f749",
+                "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:6524b9f96fea921f4dbeb3df0d6d0904ddcccb2c251968ce03cfe965aa49f430"
+              }
+            ]
+          },
+          {
+            "name": "ec-arena-ui-7fbcdd544-77mq9",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-817f749",
+                "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:6524b9f96fea921f4dbeb3df0d6d0904ddcccb2c251968ce03cfe965aa49f430"
+              }
+            ]
+          },
+          {
+            "name": "ec-arena-ui-7fbcdd544-7kjfq",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-817f749",
+                "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:6524b9f96fea921f4dbeb3df0d6d0904ddcccb2c251968ce03cfe965aa49f430"
+              }
+            ]
+          },
+          {
+            "name": "ec-arena-ui-7fbcdd544-r62xw",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-817f749",
+                "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:6524b9f96fea921f4dbeb3df0d6d0904ddcccb2c251968ce03cfe965aa49f430"
+              }
+            ]
+          },
+          {
+            "name": "ec-arena-ui-7fbcdd544-x8wjc",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-817f749",
+                "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:6524b9f96fea921f4dbeb3df0d6d0904ddcccb2c251968ce03cfe965aa49f430"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "previousClusterReceipt": "easychamp-current-final-release-cluster-snapshot.json",
+  "ownerDrift": [
+    "Arena has newer owner PRs 285-288 deployed at 817f749 and scaled from 3 to 5 ready replicas.",
+    "Arena develop PR289 at 3966bfab4c23ce4479ff8cd5d10d7bfa80081cec is newer than the deployed image; its current CI status is recorded separately.",
+    "GitOps changed from c113cc38 to f08289e78974443b9be2ae73757089d6bd03c466. Both applications are Synced and Healthy.",
+    "Newest Arena owner PR289 CI failed before deploy. Healthy deployed 817f749 remains preserved; no corrective write or takeover attempted."
+  ],
+  "affectedPublicChecks": {
+    "headless": "auth-resume-watch-simulated-crawler-headless.json",
+    "rawHTTP": "auth-resume-watch-raw-seo.json",
+    "landingHelp": "not repeated: source/image/digest unchanged; existing final 12-page/14-player and 36-geometry proof retained"
+  },
+  "ownersAndCheckoutsPreserved": true,
+  "arenaLatestOwnerCIFailedSteps": [
+    {
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "name": "validate (2)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failedSteps": [
+        "Unit tests (shard 2/2)"
+      ]
+    },
+    {
+      "name": "validate (1)",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "name": "update-gitops",
+      "status": "completed",
+      "conclusion": "skipped",
+      "failedSteps": []
+    }
+  ]
+}

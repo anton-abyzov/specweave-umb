@@ -1,10 +1,10 @@
 ---
 increment: 0863-studio-folder-switch
-title: "Skill Studio click-to-switch project folders"
+title: Skill Studio click-to-switch project folders
 type: feature
 priority: P1
-status: planned
-created: 2026-05-31
+status: completed
+created: 2026-05-31T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

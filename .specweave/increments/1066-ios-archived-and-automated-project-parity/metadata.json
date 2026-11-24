@@ -1,0 +1,15 @@
+{
+  "id": "1066-ios-archived-and-automated-project-parity",
+  "uuid": "15d35042-6e49-48da-ba72-1b1aaeacbbc2",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-25T03:18:38.065Z",
+  "updated": "2026-10-25T03:19:15.307Z",
+  "lastActivity": "2026-10-25T03:19:15.307Z",
+  "title": "iOS Archived and Automated project parity",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

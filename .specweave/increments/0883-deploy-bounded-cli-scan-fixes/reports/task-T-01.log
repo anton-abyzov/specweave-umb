@@ -1,0 +1,107 @@
+$ cd repositories/anton-abyzov/0883-release && npm run build && npm run lint:skills && npm run lint:docs-refs && node scripts/e2e/bounded-scans.mjs
+# exit 0 — 2026-09-22T04:49:40.560Z
+
+
+> specweave@2.2.4 build
+> tsc && npm run build:dashboard && npm run copy:locales && npm run copy:plugins && npm run copy:hook-deps && npm run copy:adapters && npm run stamp:plugin-version
+
+
+> specweave@2.2.4 build:dashboard
+> npx vite build --config src/dashboard/client/vite.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 82 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../dist/dashboard/index.html                   0.63 kB │ gzip:   0.42 kB
+../../../dist/dashboard/assets/index-BeKUULf0.css   62.12 kB │ gzip:  12.07 kB
+../../../dist/dashboard/assets/index-Bf5TF0_l.js   432.02 kB │ gzip: 119.67 kB
+✓ built in 565ms
+
+> specweave@2.2.4 copy:locales
+> node scripts/build/copy-locales.js
+
+✓ Locales copied successfully
+
+> specweave@2.2.4 copy:plugins
+> node scripts/build/copy-plugin-js.js
+
+📦 Transpiling plugin TypeScript files with esbuild...
+✓ Transpiled 25 plugin files (88 skipped, already up-to-date)
+
+> specweave@2.2.4 copy:hook-deps
+> node scripts/build/copy-hook-dependencies.js
+
+🔧 Copying hook dependencies to plugin vendor directories...
+
+
+📦 Copying dependencies for plugin: specweave
+   ✅ Copied: core/increment/ac-status-manager.js
+   ✅ Copied: core/increment/active-increment-manager.js
+   ✅ Copied: core/increment/auto-transition-manager.js
+   ✅ Copied: core/increment/duplicate-detector.js
+   ✅ Copied: core/increment/metadata-manager.js
+   ✅ Copied: core/increment/status-auto-transition.js
+   ✅ Copied: core/types/increment-metadata.js
+   ✅ Copied: generators/spec/task-parser.js
+   ✅ Copied: core/tasks/task-id.js
+   ✅ Copied: utils/logger.js
+   ✅ Copied: utils/credential-masker.js
+   ✅ Copied: utils/translation.js
+   ✅ Copied: core/ac-test-validator.js
+   ✅ Copied: core/ac-test-validator-cli.js
+   ✅ Copied: utils/fs-native.js
+   ✅ Copied: utils/chalk-fallback.js
+   ✅ Copied: sync/github-reconciler.js
+   ✅ Copied: core/universal-auto-create.js
+   ✅ Copied: utils/feature-id-derivation.js
+   ✅ Copied: sync/provider-router.js
+   ✅ Copied: sync/status-mapper.js
+   ✅ Copied: sync/config.js
+   ✅ Copied: utils/execFileNoThrow.js
+   ✅ Copied: utils/clean-env.js
+   ✅ Copied: utils/auth-helpers.js
+   📊 Copied 25/25 files
+
+✅ All hook dependencies copied successfully!
+
+> specweave@2.2.4 copy:adapters
+> node scripts/build/copy-adapters.js
+
+✓ Adapter assets copied successfully
+
+> specweave@2.2.4 stamp:plugin-version
+> node scripts/build/stamp-plugin-version.cjs
+
+✓ plugin/marketplace versions already aligned at 2.2.4
+
+> specweave@2.2.4 lint:skills
+> node scripts/lint-skills.mjs
+
+lint-skills: 45 files clean
+
+> specweave@2.2.4 lint:docs-refs
+> node scripts/lint-docs-refs.mjs
+
+docs-refs: OK — 154 pages, 11 skills, 81 CLI commands.
+PASS living-docs: exit 1, 85 ms
+PASS gc: exit 1, 44 ms
+PASS dashboard --no-browser: exit 1, 43 ms
+PASS lsp setup --dry-run: exit 1, 72 ms
+PASS lsp search foo: exit 1, 59 ms
+PASS lsp refs missing.ts foo: exit 1, 59 ms
+PASS lsp def missing.ts foo: exit 1, 58 ms
+PASS lsp hover missing.ts foo: exit 1, 59 ms
+PASS lsp symbols missing.ts: exit 1, 59 ms
+PASS lsp warmup: exit 1, 61 ms
+PASS lsp status: exit 1, 60 ms
+PASS lsp warmup --quiet: exit 1, 59 ms
+PASS gc --json: exit 1, 44 ms
+PASS save --dry-run --no-push: exit 1, 57 ms
+PASS symlink escape and discovery depth: counted = scanned = 16
+PASS lsp setup --dry-run --min-files 1: exit 0, 63 ms
+PASS gc --json: exit 0, 43 ms
+PASS save --dry-run --no-push: exit 0, 138 ms
+PASS save --dry-run --no-push: exit 0, 266 ms
+BLACKBOX: PASS

@@ -2,7 +2,7 @@
   "id": "0855-sse-notification-token-gate-fix",
   "name": "sse-notification-token-gate-fix",
   "title": "Fix SSE notifications: token-gate exemption for EventSource stream path",
-  "status": "active",
+  "status": "completed",
   "created": "2026-05-30",
   "owner": "anton",
   "repo": "specweave-umb",
@@ -11,10 +11,22 @@
     "0838",
     "0850"
   ],
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2464",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2464",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-10T22:51:35.401Z"
+    }
+  },
   "priority": "medium",
-  "lastActivity": "2026-05-30",
+  "lastActivity": "2026-10-10T22:51:33.113Z",
   "testMode": "test-after",
   "coverageTarget": 80,
-  "type": "feature"
+  "type": "feature",
+  "updated": "2026-10-10T22:51:33.113Z",
+  "readyForReviewAt": "2026-10-10T22:51:33.112Z",
+  "closeReason": "All tasks were checked off by 2026-06-01 and nothing changed since; closed in the 2026-10-10 sweep without a fresh verify run",
+  "approvedAt": "2026-10-10T22:51:33.113Z"
 }

@@ -1,0 +1,54 @@
+{
+  "originalAudit": "easychamp-final-gap-audit.json",
+  "confirmedGap": "Help pages emitted VideoObject metadata while requiring interaction to create the actual YouTube iframe player.",
+  "repair": "Visible lazy privacy-enhanced YouTube players now exist in the initial HTML, with accessible titles, no autoplay and responsive dimensions meeting 200px minimum viewport height.",
+  "reviewedHead": "1cf2f06ffc6125e2b30bbb8fb702e90d305759cb",
+  "pullRequest": "https://github.com/anton-abyzov/ec-landing/pull/168",
+  "mergeCommit": "396874efc4859e9cc15cd4af28706c488c30fb33",
+  "deploymentReceipt": "help-player-final-release-receipt.json",
+  "currentPublicSourceAndLayout": "PASS: 12 leaf pages / 14 matching initial players; 36 route-width checks / 42 player samples; 200px minimum height, no overflow.",
+  "rawHtmlAndGeometryReceipt": "help-initial-players-public-final-proof.json",
+  "remainingCategoryLimits": [
+    "Actual Google recrawl, indexing and rich-result validation require later Search Console readback; simulated crawler rendering is not Google URL Inspection.",
+    "Current field INP p75 remains unverified because the public PageSpeed API returned shared-project quota429. Lab interaction samples do not establish field INP.",
+    "Older notices omit affected URL/video details; unsupported legacy routes and intentional private/removed/noindex/canonical boundaries remain documented rather than claimed cleared.",
+    "Missing recommended Event endDate/offers are intentionally omitted when no authoritative final time/ticket offer exists; neither may be fabricated."
+  ],
+  "currentPublicPlayback": [
+    {
+      "width": 320,
+      "status": "passed",
+      "before": {
+        "time": 0,
+        "paused": true,
+        "readyState": 0
+      },
+      "after": {
+        "time": 1.021467,
+        "paused": false,
+        "readyState": 4,
+        "duration": 65.481
+      },
+      "receipt": "help-isolated-playback-public-320.json",
+      "log": "help-isolated-playback-public-320.log"
+    },
+    {
+      "width": 390,
+      "status": "passed",
+      "before": {
+        "time": 0,
+        "paused": true,
+        "readyState": 0
+      },
+      "after": {
+        "time": 1.018667,
+        "paused": false,
+        "readyState": 4,
+        "duration": 65.481
+      },
+      "receipt": "help-isolated-playback-public-390.json",
+      "log": "help-isolated-playback-public-390.log"
+    }
+  ],
+  "status": "Help discoverability gap repaired, independently reviewed, pushed, merged, deployed and publicly verified."
+}

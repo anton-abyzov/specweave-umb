@@ -1,0 +1,14 @@
+diff --git a/apps/web/tests/settings-presentation/fixture.tsx b/apps/web/tests/settings-presentation/fixture.tsx
+index 91738e4fe..d5b87606b 100644
+--- a/apps/web/tests/settings-presentation/fixture.tsx
++++ b/apps/web/tests/settings-presentation/fixture.tsx
+@@ -57,6 +57,9 @@ const projectTitles = new Map([
+   ["project", "Atlas Studio"],
+   ["beacon", "Beacon"],
+ ]);
++// The app paints its background in the shell; the bare fixture page takes the same tokens so a
++// dark capture shows the rows on the dark background they sit on in the app.
++document.body.classList.add("bg-background", "text-foreground");
+ createRoot(document.getElementById("root")!).render(
+   search.has("routines") && !search.has("tab") ? (
+     <main style={{ maxWidth: 960, margin: "24px auto", padding: 16 }}>

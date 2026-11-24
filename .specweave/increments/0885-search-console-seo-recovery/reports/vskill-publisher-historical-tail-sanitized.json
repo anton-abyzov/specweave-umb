@@ -1,0 +1,496 @@
+[
+  {
+    "eventTimestamp": 1791381312517,
+    "version": "40d9c0bf-d945-456e-b274-e386aa67de7d",
+    "url": "https://verified-skill.com/publishers/openbq-org",
+    "outcome": "canceled",
+    "status": null,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791381329433,
+    "version": "40d9c0bf-d945-456e-b274-e386aa67de7d",
+    "url": "https://verified-skill.com/publishers/crawlrrai",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791381415356,
+    "version": "40d9c0bf-d945-456e-b274-e386aa67de7d",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791381755048,
+    "version": "40d9c0bf-d945-456e-b274-e386aa67de7d",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791381760717,
+    "version": "40d9c0bf-d945-456e-b274-e386aa67de7d",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791381766061,
+    "version": "40d9c0bf-d945-456e-b274-e386aa67de7d",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791381770813,
+    "version": "40d9c0bf-d945-456e-b274-e386aa67de7d",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382688809,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382695549,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382696024,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382696546,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382697179,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382703219,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382703609,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382704290,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382704749,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382705127,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382705777,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers?sort=totalGithubStars",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382707388,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/api/v1/authors?sort=stars",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382716071,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers?sort=skillCount",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382721210,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/api/v1/authors?sort=skills",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382726639,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers?sort=avgTrustScore",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382734039,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/api/v1/authors?sort=trust",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382734269,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers?page=2",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382740336,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/api/v1/authors?offset=20",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791382747554,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers?search=seo-no-publisher-20261007-ab6x",
+    "outcome": "ok",
+    "status": 500,
+    "publisherErrors": [
+      "[publisher-page] Public aggregation failed: timeout"
+    ]
+  },
+  {
+    "eventTimestamp": 1791383328939,
+    "version": "ea792e62-52d9-4a05-a309-5f0d190df2b1",
+    "url": "https://verified-skill.com/publishers?search=seo-no-publisher-20261007-ab6x",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385488413,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385498003,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385499503,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385501557,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385503398,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385506266,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385508489,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385508930,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385509373,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385511857,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385512299,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers?sort=totalGithubStars",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385512653,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/api/v1/authors?sort=stars",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385512953,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers?sort=skillCount",
+    "outcome": "ok",
+    "status": 500,
+    "publisherErrors": [
+      "[publisher-page] Public aggregation failed: timeout"
+    ]
+  },
+  {
+    "eventTimestamp": 1791385523417,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/api/v1/authors?sort=skills",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385619169,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385625398,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385632222,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385632847,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385633293,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385633690,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385634163,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385634646,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385635285,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385635801,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385636293,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers?sort=totalGithubStars",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385636778,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/api/v1/authors?sort=stars",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385637079,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers?sort=skillCount",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385645223,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/api/v1/authors?sort=skills",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385650663,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers?sort=avgTrustScore",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385655788,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/api/v1/authors?sort=trust",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385656014,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers?page=2",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385663378,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/api/v1/authors?offset=20",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  },
+  {
+    "eventTimestamp": 1791385740328,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/api/v1/authors?offset=20",
+    "outcome": "ok",
+    "status": 500,
+    "publisherErrors": [
+      "[publisher-page] Public aggregation failed: timeout"
+    ]
+  },
+  {
+    "eventTimestamp": 1791385843409,
+    "version": "d44b5d29-8f68-42e4-bcc9-dd332f11cceb",
+    "url": "https://verified-skill.com/publishers?search=seo-no-publisher-final-cold-1",
+    "outcome": "ok",
+    "status": 200,
+    "publisherErrors": []
+  }
+]

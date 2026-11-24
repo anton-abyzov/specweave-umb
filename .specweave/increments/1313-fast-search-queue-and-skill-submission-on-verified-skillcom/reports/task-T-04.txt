@@ -1,0 +1,190 @@
+$ npm --prefix repositories/anton-abyzov/vskill-platform test -- src/app/api/v1/submissions
+# exit 0 — 2026-11-12T22:58:13.368Z
+
+
+> vskill-platform@0.0.2 test
+> vitest run src/app/api/v1/submissions
+
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.7 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform
+
+stderr | src/app/api/v1/submissions/discover/__tests__/route.test.ts > POST /api/v1/submissions/discover > proceeds without token when getCloudflareContext fails
+GITHUB_TOKEN not configured — using unauthenticated GitHub API calls
+
+ ✓ src/app/api/v1/submissions/discover/__tests__/route.test.ts (15 tests) 27ms
+ ✓ src/app/api/v1/submissions/stream/__tests__/route.test.ts (8 tests) 41ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/registry-alias.test.ts (4 tests) 109ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.defer.test.ts (2 tests) 71ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.intake.test.ts > storage failure cannot become a terminal policy receipt
+[bulk] Failed to create submission: https://github.com/acme/skills alpha fixture storage unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-016: continues batch when createSubmission fails for one entry
+[bulk] Failed to create submission: https://github.com/org/repo-2 skill-2 KV write timeout
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-017: succeeds even when queue send fails
+[bulk] Queue send failed for sub_1: Queue unavailable
+[bulk] Queue send failed for sub_2: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-018: walks skillPathCandidates when primary path 404s, persists resolved path
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.intake.test.ts (11 tests) 18ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-019: skillPathCandidates absent → behavior is identical to today (root SKILL.md fallback)
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > TC-022: walks trailing-strip candidate when primary + leading-strip both 404
+[bulk] Queue send failed for sub_1: Queue unavailable
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.test.ts > POST /api/v1/submissions/bulk > refuses private repositories: nothing is created or enqueued
+[bulk] Queue send failed for sub_1: Queue unavailable
+[bulk] Queue send failed for sub_2: Queue unavailable
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.test.ts (14 tests) 131ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.db-lifecycle.test.ts (7 tests) 45ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.throughput.test.ts (7 tests) 95ms
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["sourceType","sourceId","artifactPath"])
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity changed during intake; retry
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > never settles an exhausted deleted-row race under HTTP200 (["repoUrl","skillName"])
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity changed during intake; retry
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PRIVATE","tenantId":null})
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity cannot be safely reused
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with actual canonical upsert > does not settle, disclose or requeue a scoped canonical match ({"privacy":"PUBLIC","tenantId":"other-tenant"})
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity cannot be safely reused
+
+stderr | src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts > bulk route with a same-name skill at another path > answers a legacy (repoUrl, skillName) collision at a different path as a terminal conflict
+[bulk] Failed to create submission: https://github.com/new-owner/new-repo new-name Submission identity cannot be safely reused
+
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.identity-collision.test.ts (6 tests) 12ms
+ ✓ src/app/api/v1/submissions/bulk/__tests__/route.skillpath-validation.test.ts (16 tests) 29ms
+ ✓ src/app/api/v1/submissions/search/__tests__/route.test.ts (16 tests) 17ms
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 3: DB fallback > returns degraded empty stats when DB row not found
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 4: Compute on demand > does not compute stats when all caches are empty
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 4: Compute on demand > stays fast when circuit breaker is open
+[queue-stats-cache] DB circuit open; skipping DB stats fallback
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 4: Compute on demand > stays fast when circuit breaker is open
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 5: Empty stats (last resort) > returns degraded empty stats with no-cache when all tiers fail
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > 0757: 503 on cold-worker empty tier > returns 503 with Retry-After: 5 when all tiers miss (source=empty)
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Error resilience > survives KV error and falls through to memory
+[queue-stats-cache] KV read failed: KV unavailable
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Error resilience > survives DB error and returns degraded empty stats
+[queue-stats-cache] DB fallback read failed: DB down
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Error resilience > survives DB error and returns degraded empty stats
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Error resilience > returns stale non-zero DB fallback rows without recomputing
+[queue-stats-api] Returning stale stats from db; cron refresh owns recomputation
+
+ ✓ src/app/api/v1/submissions/stats/__tests__/route.test.ts (15 tests) 20ms
+stderr | src/app/api/v1/submissions/__tests__/route.pagination.test.ts > GET /api/v1/submissions - pagination & filtering > returns first 50 submissions by default, total from the stats cache, no count
+[queue/positions] position query failed: db.$queryRaw is not a function
+
+stderr | src/app/api/v1/submissions/__tests__/route.active-cache.test.ts > active list cache > falls back to an old cached page, marked degraded, when the DB fails
+GET /api/v1/submissions error: submission list rows exceeded its 5000ms budget
+
+stderr | src/app/api/v1/submissions/__tests__/route.pagination.test.ts > GET /api/v1/submissions - pagination & filtering > supports offset parameter
+[queue/positions] position query failed: db.$queryRaw is not a function
+
+stderr | src/app/api/v1/submissions/__tests__/route.queue-fallback.test.ts > US-002: Queue Send Failure Fallback > single submission — queue send fails > should fall back to inline processSubmission when queue send throws (AC-US2-01)
+[POST /submissions] Queue send failed for sub_single_001, falling back to inline processing: Queue unavailable
+
+stderr | src/app/api/v1/submissions/__tests__/route.active-cache.test.ts > published list > runs an exact count for a reason filter and degrades to approximate when it runs out of time
+[fetch-submission-list] count skipped: submission list count exceeded its 2000ms budget
+
+stderr | src/app/api/v1/submissions/__tests__/route.pagination.test.ts > GET /api/v1/submissions - pagination & filtering > defaults unchanged when no offset provided
+[queue/positions] position query failed: db.$queryRaw is not a function
+
+stderr | src/app/api/v1/submissions/__tests__/route.active-cache.test.ts > free-text search > returns a plain 503 when the search runs out of time, without serving the unfiltered cache
+GET /api/v1/submissions error: submission text search exceeded its 4000ms budget
+
+stderr | src/app/api/v1/submissions/__tests__/route.active-cache.test.ts > reason filter > answers a reason-filtered list that runs out of time with a clear 503 when nothing is cached
+[fetch-submission-list] count skipped: submission list count exceeded its 2000ms budget
+
+stderr | src/app/api/v1/submissions/__tests__/route.active-cache.test.ts > reason filter > answers a reason-filtered list that runs out of time with a clear 503 when nothing is cached
+GET /api/v1/submissions error: submission list rows exceeded its 3000ms budget
+
+stderr | src/app/api/v1/submissions/__tests__/route.filters.test.ts > GET /api/v1/submissions admin filters (0789) > TC-FILT-010: admin filter + DB error → 503 (KV fallback NOT consulted)
+[queue/submissions] filtered count skipped: circuit open
+
+stderr | src/app/api/v1/submissions/__tests__/route.filters.test.ts > GET /api/v1/submissions admin filters (0789) > TC-FILT-010: admin filter + DB error → 503 (KV fallback NOT consulted)
+GET /api/v1/submissions error: circuit open
+
+stderr | src/app/api/v1/submissions/__tests__/route.pagination.test.ts > GET /api/v1/submissions - pagination & filtering > TC-008: pagination with offset returns correct slice and total
+[queue/positions] position query failed: db.$queryRaw is not a function
+
+ ✓ src/app/api/v1/submissions/__tests__/route.active-cache.test.ts (10 tests) 16ms
+ ✓ src/app/api/v1/submissions/__tests__/route.skillmd-check.test.ts (14 tests) 18ms
+stderr | src/app/api/v1/submissions/__tests__/route.pagination.test.ts > GET /api/v1/submissions - pagination & filtering > TC-055: fresh re-hydration overrides stale RECEIVED state with in-progress state
+[queue/positions] position query failed: db.$queryRaw is not a function
+
+stdout | src/app/api/v1/submissions/__tests__/route.pagination.test.ts > GET /api/v1/submissions - pagination & filtering > TC-055: fresh re-hydration overrides stale RECEIVED state with in-progress state
+[queue/submissions] source=db state=all reason=none sort=processingOrder:asc limit=10 offset=0 rows=1 total=13 pendingDbUpdates=1 durationMs=0
+
+ ✓ src/app/api/v1/submissions/__tests__/route.filters.test.ts (15 tests) 17ms
+ ✓ src/app/api/v1/submissions/__tests__/route.privacy-gate.test.ts (17 tests) 20ms
+ ✓ src/app/api/v1/submissions/__tests__/route.pagination.test.ts (17 tests) 23ms
+ ✓ src/app/api/v1/submissions/__tests__/route.auth-degrade.test.ts (10 tests) 26ms
+ ✓ src/app/api/v1/submissions/__tests__/route.rate-limit-orphans.test.ts (11 tests) 20ms
+ ✓ src/app/api/v1/submissions/__tests__/route.mine-feed.test.ts (13 tests) 14ms
+ ✓ src/app/api/v1/submissions/__tests__/route.skill-path-dots.test.ts (5 tests) 19ms
+stderr | src/app/api/v1/submissions/__tests__/http-contract.test.ts > POST /api/v1/submissions — HTTP contract (T-013) > never leaks Prisma error code/meta into the response body (AC-US3-04)
+POST /api/v1/submissions error: {
+  message: [32m'P2002 leaked'[39m,
+  stack: [32m'Error: P2002 leaked\n'[39m +
+    [32m'    at /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/src/app/api/v1/submissions/__tests__/http-contract.test.ts:251:38\n'[39m +
+    [32m'    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n'[39m +
+    [32m'    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n'[39m +
+    [32m'    at file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n'[39m +
+    [32m'    at new Promise (<anonymous>)\n'[39m +
+    [32m'    at runWithTimeout (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n'[39m +
+    [32m'    at runTest (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)\n'[39m +
+    [32m'    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)\n'[39m +
+    [32m'    at runSuite (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)\n'[39m +
+    [32m'    at runFiles (file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1787:3)'[39m
+}
+
+ ✓ src/app/api/v1/submissions/__tests__/http-contract.test.ts (6 tests) 14ms
+stderr | src/app/api/v1/submissions/__tests__/route.queue-fallback.test.ts > US-002: Queue Send Failure Fallback > batch submission — queue sendBatch fails > should fall back to inline processing for all chunk items when sendBatch throws (AC-US2-01)
+[POST /submissions] sendBatch failed for chunk 0 (2 items), falling back to inline processing: sendBatch unavailable
+
+ ✓ src/app/api/v1/submissions/[id]/__tests__/route.private.test.ts (2 tests) 5ms
+ ✓ src/app/api/v1/submissions/positions/__tests__/route.test.ts (5 tests) 8ms
+ ✓ src/app/api/v1/submissions/__tests__/route.repo-check.test.ts (5 tests) 9ms
+stderr | src/app/api/v1/submissions/__tests__/route.failure-surface.test.ts > GET /api/v1/submissions — failure surface (0713 US-002) > AC-US2-02: surfaces DB failures as 503 instead of empty array > returns 503 with Retry-After:30 and database_unavailable hint when findMany times out
+GET /api/v1/submissions error: submission list rows exceeded its 5000ms budget
+
+stderr | src/app/api/v1/submissions/__tests__/route.failure-surface.test.ts > GET /api/v1/submissions — failure surface (0713 US-002) > AC-US2-03: list/stats mismatch warning > emits list_empty_total_mismatch warning when DB returns 0 but stats say >0 for filter
+[queue/submissions] list_empty_total_mismatch: stateFilter=active dbRows=0 statsExpected=50
+
+stderr | src/app/api/v1/submissions/__tests__/route.failure-surface.test.ts > GET /api/v1/submissions — failure surface (0713 US-002) > AC-US2-04: non-category branch surfaces errors > propagates fetchSubmissionList errors to the 503 fallback (state=all)
+GET /api/v1/submissions error: circuit open
+
+ ✓ src/app/api/v1/submissions/__tests__/route.failure-surface.test.ts (6 tests) 9ms
+ ✓ src/app/api/v1/submissions/__tests__/route.private-paywall.test.ts (6 tests) 8ms
+ ✓ src/app/api/v1/submissions/__tests__/republish-no-prisma-leak.test.ts (2 tests) 6ms
+ ✓ src/app/api/v1/submissions/[id]/__tests__/route.publishedSkillName.test.ts (2 tests) 3ms
+ ✓ src/app/api/v1/submissions/__tests__/route.cache-poison.test.ts (2 tests) 5ms
+ ✓ src/app/api/v1/submissions/__tests__/route.queue-fallback.test.ts (16 tests) 302ms
+ ✓ src/app/api/v1/submissions/__tests__/parse-usable-list-cache.test.ts (8 tests) 2ms
+
+ Test Files  32 passed (32)
+      Tests  293 passed (293)
+   Start at  17:58:12
+   Duration  1.25s (transform 1.52s, setup 280ms, collect 7.90s, tests 1.16s, environment 2ms, prepare 1.41s)
+

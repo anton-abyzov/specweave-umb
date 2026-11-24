@@ -1,0 +1,47 @@
+{
+  "version": "2.3.0",
+  "latest": "2.3.0",
+  "dist": {
+    "shasum": "17d851e13971bc4b046e96bce68ce2e0f1640a53",
+    "tarball": "https://registry.npmjs.org/specweave/-/specweave-2.3.0.tgz",
+    "fileCount": 4173,
+    "integrity": "sha512-rsjJ5MSHZ/snUSFxV1m1tW4uHxCSuJ7IqeBrW+7mV0DeT5VXVk2/2bWN1lMPK5dtZsO9UfUV9dhjo1cjngt2hQ==",
+    "signatures": [
+      {
+        "sig": "MEUCIQCznTfHqUad3gyDZugozVHlh15UNuccWXXN1hX0E6Xn2QIgT4MKDDm5T9cRxL+6RuSHQgFoxH4d9u74Iwq09za1brU=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+        "sig": "MEQCIF4sljp+y6xolaB6pX8UgcjjtHClSij73WyM1z75WTOgAiB3ByCo1B2YJspdgamXrFFSf3Qdkcti+zMq22g23t9TQA=="
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/specweave@2.3.0",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 21856491
+  },
+  "installed": "/var/folders/js/x0hbrvjj2rl7hsgjy5955_r40000gn/T/0883-registry-AlRTsu/install/node_modules/specweave",
+  "refresh": [
+    {
+      "args": [
+        "refresh-plugins"
+      ],
+      "exit": 1,
+      "elapsedMs": 64
+    },
+    {
+      "args": [
+        "refresh-plugins",
+        "--quiet"
+      ],
+      "exit": 1,
+      "elapsedMs": 59
+    }
+  ],
+  "boundedScans": "PASS",
+  "checkedAt": "2026-09-22T05:36:13.579Z"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "0985-fast-observable-service-install",
+  "uuid": "a2060969-60c1-43ba-b833-80115be70591",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-21T13:10:49.626Z",
+  "updated": "2026-10-21T22:00:08.262Z",
+  "lastActivity": "2026-10-21T22:00:08.262Z",
+  "title": "Fast observable service install",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-21T22:00:08.253Z",
+  "approvedAt": "2026-10-21T22:00:08.262Z"
+}

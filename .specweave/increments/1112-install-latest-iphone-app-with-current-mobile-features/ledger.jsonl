@@ -1,0 +1,14 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:58:00.740Z","note":"session 01a174b7-d685-7673-a350-222097cde42e"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:58:00.742Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:59:28.355Z","evidence":"/Users/antonabyzov/.specwithcode/m4/evidence/iphone-latest-20261028/receipt.md\nHEAD 10af84610"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T04:59:31.245Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:02:46.428Z","evidence":"415 Swift tests in 56 suites; simulator build passed; 27 app/UI tests passed, 0 failed. /Users/antonabyzov/.specwithcode/m4/evidence/iphone-latest-20261028/simulator-summary.json\nHEAD 10af84610"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:02:47.911Z"}
+{"t":"T-03","e":"block","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:03:44.865Z","note":"Build 11 installed and independently verified; physical launch refused because iPhoneA is locked. Anton must unlock phone to finish launch and live screenshot acceptance."}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:30:15.205Z"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:31:21.539Z","evidence":"Installed 0.1.0 (11), signed Connect/Apple/push verified; unlocked launch PID 10341 matched independent process readback. Physical screenshot service unsupported; account/push/live-control proof limits recorded. /Users/antonabyzov/.specwithcode/m4/evidence/iphone-latest-20261028/receipt.md\nHEAD 10af84610"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-28T05:31:25.322Z"}
+{"t":"*","e":"session","by":"claude@minisforum","at":"2026-11-20T19:49:48.949Z","note":"session 1453e101-bb7e-4f8b-b6a9-56a877afd6ee","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@minisforum","at":"2026-11-20T19:49:48.950Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@minisforum","at":"2026-11-20T19:49:48.950Z","evidence":"Device install recorded in T-03 (0.1.0 (11) on iPhoneA, launch readback); no code to release\nHEAD 97a1267e","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"claude@minisforum","at":"2026-11-20T19:55:14.666Z","note":"review by gemini-4-neon (google, Copilot Enterprise on m4) at specwithcode 5e374f8d2: ship (low: evidence folder iphone-latest-20261028 no longer on disk)","model":"claude-opus-5-5[1m]"}

@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:34:04.571Z","note":"session 9ac6d406-bed8-4139-adbe-e5c692b44714"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:34:04.572Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-19T23:34:07.922Z","evidence":"PR #443 e3f4fc4234: shellModel + StudioSidebar tests 80/80 pass; 11 new/updated fail on main\nHEAD 53a8ef3b3"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:22:18.283Z"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:22:18.285Z","evidence":"PR #443 merged 9bd18496e7; verify.mjs headless 1280 dark + 390 light: 75 live events, 0 reorders, worst frame 17ms, keyboard next ok\nHEAD 53a8ef3b3"}
+{"t":"T-03","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:22:21.806Z"}
+{"t":"T-03","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T00:22:21.808Z","evidence":"specweave verify + fresh-context review reports/review-fresh-context.md\nHEAD 53a8ef3b3"}

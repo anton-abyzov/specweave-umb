@@ -1,0 +1,18 @@
+{
+  "id": "0966-run-on-add-to-machine",
+  "uuid": "7d67b169-373e-41dc-ac80-9819cac3d0e9",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T17:49:58.000Z",
+  "updated": "2026-10-20T22:23:15.067Z",
+  "lastActivity": "2026-10-20T22:23:15.067Z",
+  "title": "Run on: add a project to another machine",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T22:23:15.066Z",
+  "closeReason": "verify failures are unrelated umbrella load timeouts (specweave save/handoff-roundtrip, vskill enumerate/source-link, load avg 288); ACs 13/13",
+  "approvedAt": "2026-10-20T22:23:15.067Z"
+}

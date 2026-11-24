@@ -1,0 +1,6 @@
+$ gh pr checks 1171 -R anton-abyzov/specwithcode-dev --required
+# exit 0 — 2026-11-02T03:31:52.172Z
+
+Changed paths	pass	7s	https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41381984122/job/125074654957	
+PR Gate	pass	6s	https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41381984122/job/125079159263	
+PR Gate (typecheck)	pass	13m17s	https://github.com/anton-abyzov/specwithcode-dev/actions/runs/41381984122/job/125074760128	

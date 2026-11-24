@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-21T17:55:11.152Z",
+  "increment": "0934-skills-consolidation-and-studio-skills-view",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/node_modules/vite-plus/bin/vp test run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/server/src/project/projectSkillsInventory.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/server/src/provider/Drivers/GrokSkills.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/server/src/project/ProjectSkillsService.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ProjectSkillsSettings.logic.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ProjectSkillsSettings.test.tsx --maxWorkers=1 --no-file-parallelism",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/local/bin/python3 - <<'PY_CHECK'\nimport subprocess,re\np=subprocess.run(['/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node','/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill/node_modules/tsx/dist/cli.mjs','/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/server/scripts/skills-attention-report.ts','/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave'],cwd='/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio',text=True,capture_output=True)\nprint(p.stdout);print(p.stderr)\nassert p.returncode==0\nassert '(error)' not in p.stdout and '(timeout)' not in p.stdout\nassert re.search(r'^phantom 0$',p.stdout,re.M)\nm=re.search(r'^attention (\\d+)$',p.stdout,re.M);assert m and int(m.group(1))<=12\nPY_CHECK",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/local/bin/python3 - <<'PY_CHECK'\nimport subprocess,json,pathlib\np=subprocess.run(['vskill','doctor','--json'],text=True,capture_output=True)\nd=json.loads(p.stdout);print(json.dumps(d,indent=2));assert p.returncode in (0,1)\nassert not [i for i in d['issues'] if i['kind'] in ('bad-name','bad-description','identical-copy')]\nassert not pathlib.Path('/Users/antonabyzov/.claude/skills/.trash').exists()\nh=pathlib.Path('/Users/antonabyzov'); root=h/'Projects/github/specweave-umb'\nsettings=json.loads((h/'.claude/settings.json').read_text())\nfor name in ('cowork-plugin-management:create-cowork-plugin','cowork-plugin-management:cowork-plugin-customizer','anthropic-skills:nanobanana','anthropic-skills:social-media-posting','anthropic-skills:remotion-best-practices'): assert settings['skillOverrides'][name]=='off'\nfor manifest in (h/'.claude/plugins/synced').glob('*/manifest.json'):\n    d=json.loads(manifest.read_text()); plugins=d.get('plugins',{})\n    names=list(plugins) if isinstance(plugins,dict) else [p['name'] for p in plugins]\n    assert not ({'sw','marketing'} & set(names))\nplugins=json.loads((h/'.claude/plugins/installed_plugins.json').read_text())['plugins']['sw@specweave']\nrelevant=[p for p in plugins if p['scope']=='user' or p.get('projectPath')==str(root)]\nassert relevant\nfor p in relevant:\n    assert tuple(map(int,p['version'].split('.'))) >= (3,0,23)\n    assert pathlib.Path(p['installPath']).is_dir()\nlinks=list((root/'.claude/skills').glob('sw-*')); assert links\nfor p in links: assert p.is_symlink() and p.resolve()==(root/'.agents/skills'/p.name).resolve()\nfor name in ('sw-brainstorm','sw-team'):\n    for base in (root/'.agents/skills',root/'.claude/skills'): assert not (base/name).exists()\nlegacy=h/'vskill.lock'\nif legacy.exists():\n    skills=json.loads(legacy.read_text()).get('skills',{});assert 'resume-tailoring-skill' not in skills and 'social-media-posting-skill' not in skills\nprint('machine hygiene assertions passed')\nPY_CHECK",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/local/bin/python3 - <<'PY_CHECK'\nimport json,pathlib,hashlib\nr=pathlib.Path('/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports');m=json.loads((r/'archive-scan-20261021-manifest.json').read_text());a=json.loads((r/'archive-scan-20261021-result.json').read_text());rest=json.loads((r/'archive-scan-20261021-restoration.json').read_text())\nassert len(m['files'])==len(a['files'])==a['filesScanned']==158\nassert len({x['path'] for x in m['files']})==len({x['realpath'] for x in m['files']})==158\nassert sorted((x['path'],x['realpath'],x['bytes']) for x in m['files'])==sorted((x['path'],x['realpath'],x['bytes']) for x in a['files'])\nassert not m['errors'] and not a['errors']\nassert all(x['exitCode']==0 and not x['stderr'] and not x['parseErrors'] for x in a['files'])\nassert sum(x['uncompressedBytes'] for x in a['files'])==a['uncompressedBytes']==6130100518\nfor name,c in a['candidates'].items():\n    calls=[(x,y) for x in a['files'] for y in x['matches'] if name in y['candidates']]\n    assert c['calls']==len(calls) and c['sessions']==len({x['realpath'] for x,y in calls})\nused='hyperframes-creative hyperframes-studio asc-build-lifecycle asc-id-resolver asc-testflight-orchestration asc-screenshot-resize asc-whats-new-writer asc-apple-ads typesafe-ai reverse-engineer-anything jev-browser-use'.split()\nremoved='faceless-explainer music-to-video pr-to-video talking-head-recut embedded-captions slideshow figma remotion-to-hyperframes slack-messaging excalidraw-mcp competitors nanobanana'.split()\nfor name in used: assert (pathlib.Path('/Users/antonabyzov/.agents/skills')/name/'SKILL.md').is_file()\nfor name in removed:\n    assert a['candidates'][name]['calls']==0\n    for root in map(pathlib.Path,('/Users/antonabyzov/.agents/skills','/Users/antonabyzov/.claude/skills','/Users/antonabyzov/.codex/skills')): assert not (root/name).exists() and not (root/name).is_symlink()\nfor item in rest['files']:\n    for base,field in ((rest['source'],'sourceSha256'),(rest['target'],'restoredSha256')):\n        p=pathlib.Path(base)/item['relativePath'];assert hashlib.sha256(p.read_bytes()).hexdigest()==item[field]\nassert hashlib.sha256(pathlib.Path('/Users/antonabyzov/.agents/skills/asc-cli-usage/SKILL.md').read_bytes()).hexdigest()==rest['ascCliUsageUnchangedSha256']\nacceptance=json.loads((r/'archive-scan-20261021-acceptance.json').read_text())\nfor name in acceptance['backupDirectoriesVerified']: assert (pathlib.Path(rest['source']).parent/name).is_dir()\nprint('158 archived receipts reconcile; 11 used skills present; 12 zero-use skills absent; all 13 backups preserved; restoration hash matches')\nPY_CHECK",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/local/bin/python3 - <<'PY_CHECK'\nimport subprocess,json\np=subprocess.run(['vskill','doctor','--json'],text=True,capture_output=True)\nd=json.loads(p.stdout);print(json.dumps({'exitCode':p.returncode,'summary':d.get('summary'),'issues':d['issues']},indent=2))\nassert p.returncode==0 and not d['issues']\nPY_CHECK",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/local/bin/python3 - <<'PY_CHECK'\nimport pathlib,json,hashlib,yaml\nbase=pathlib.Path('/Users/antonabyzov/.agents');lock=json.loads((base/'vskill.lock').read_text())['skills']\nfor name in ('social-media-posting','html-report','webapp-testing','unslop','obsidian-brain','rea','dcfc-inquiry-replies'):\n    p=base/'skills'/name/'SKILL.md';raw=p.read_text(encoding='utf-8-sig').replace('\\r\\n','\\n');sha=hashlib.sha256(raw.encode()).hexdigest()\n    assert sha==lock[name]['sha'],name\n    print(name,'lock hash matches disk')\nfor name in ('frontend-design','webapp-testing','unslop','jev-browser-use','motion-graphics','remotion-best-practices','asc-whats-new-writer'):\n    text=(base/'skills'/name/'SKILL.md').read_text();meta=yaml.safe_load(text.split('---',2)[1]);assert 'use when' in meta['description'].lower(),name\nhtml=yaml.safe_load((base/'skills/html-report/SKILL.md').read_text().split('---',2)[1]);assert 0<len(html['description'])<=1024\nremotion=yaml.safe_load((base/'skills/remotion-best-practices/SKILL.md').read_text().split('---',2)[1]);assert len(remotion['description'])>30\nassert lock['obsidian-brain']['pinnedVersion']=='1.1.0' and 'kie-gemini-omni' not in lock\nprint('seven retained trigger descriptions and D03 private-fork locks passed')\nPY_CHECK",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/local/bin/python3 - <<'PY_CHECK'\nimport subprocess,json\np=subprocess.run(['vskill','outdated','--json'],cwd='/Users/antonabyzov/.agents',text=True,capture_output=True)\ndata=json.loads(p.stdout);assert isinstance(data,list),data\nupdates=[r for r in data if r.get('updateAvailable')]\nassert p.returncode==(1 if updates else 0),(p.returncode,p.stderr)\nwarnings=[r for r in data if r.get('warning')]\nprint(json.dumps({'entries':len(data),'exitCode':p.returncode,'updates':[r['name'] for r in updates],'warnings':warnings}));assert not warnings\nPY_CHECK",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/local/bin/python3 - <<'PY_CHECK'\nimport pathlib,re\np=pathlib.Path('/Users/antonabyzov/Projects/github/specweave-umb/AGENTS.md');text=p.read_text()\nassert 'Available Subagent Types' not in text and p.stat().st_size<9000\nblock=text[:text.index('<!-- SW:END:jev -->')+len('<!-- SW:END:jev -->')]\nassert len(block.encode())/4<=1200\njev=text.split('<!-- SW:SECTION:jev',1)[1].split('<!-- SW:END:jev -->',1)[0]\nrows=[l for l in jev.splitlines() if l.startswith('|')][2:];assert len(rows)<=6\nprint('instruction bytes',p.stat().st_size,'procedure tokens by bytes/4',len(block.encode())/4,'Jev rows',len(rows))\nPY_CHECK",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/local/bin/python3 -B /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/hygiene-reconcile-20261021-check.py",
+      "exit": 0
+    },
+    {
+      "cmd": "/usr/local/bin/python3 /Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0934-skills-consolidation-and-studio-skills-view/reports/publication-check-20261021.py",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 8,
+    "done": 8
+  },
+  "tasks": {
+    "total": 10,
+    "done": 10,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

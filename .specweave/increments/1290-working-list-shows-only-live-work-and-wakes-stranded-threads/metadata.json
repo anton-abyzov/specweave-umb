@@ -1,0 +1,13 @@
+{
+  "id": "1290-working-list-shows-only-live-work-and-wakes-stranded-threads",
+  "uuid": "998b47d8-b71e-43e8-b359-d1f00e766618",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-11T04:27:23.013Z",
+  "updated": "2026-11-11T04:27:23.013Z",
+  "lastActivity": "2026-11-11T04:27:23.013Z",
+  "title": "Working list shows only live work and wakes stranded threads",
+  "project": "specweave",
+  "externalLinks": {}
+}

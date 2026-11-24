@@ -1,0 +1,122 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-26T09:49:04.178Z",
+  "increment": "1080-independent-specwithcode",
+  "commands": [
+    {
+      "cmd": "node .specweave/increments/1080-independent-specwithcode/reports/verify-final-main.mjs && node .specweave/increments/1080-independent-specwithcode/reports/verify-publication.mjs && node .specweave/increments/1080-independent-specwithcode/reports/verify-template-package.mjs",
+      "exit": 0
+    },
+    {
+      "cmd": "node repositories/anton-abyzov/specweave-studio/scripts/studio-brand-audit.mjs --source-terms-only && node --test repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/runtime-package.test.mjs repositories/anton-abyzov/specweave-studio/scripts/studio-fleet/npm-package.test.mjs && cd repositories/anton-abyzov/specweave-studio && node_modules/.bin/vp test run scripts/lib/third-party-licenses.test.ts",
+      "exit": 0
+    },
+    {
+      "cmd": "git diff --check",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 3,
+    "done": 3,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-11",
+            "status": "done"
+          },
+          {
+            "id": "T-12",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          },
+          {
+            "id": "T-08",
+            "status": "done"
+          },
+          {
+            "id": "T-09",
+            "status": "done"
+          },
+          {
+            "id": "T-10",
+            "status": "done"
+          },
+          {
+            "id": "T-11",
+            "status": "done"
+          },
+          {
+            "id": "T-12",
+            "status": "done"
+          }
+        ]
+      }
+    ]
+  },
+  "tasks": {
+    "total": 12,
+    "done": 12,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

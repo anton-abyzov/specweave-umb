@@ -1,0 +1,15 @@
+{
+  "id": "1165-icons-for-sidebar-mod-stats",
+  "uuid": "f5e97b47-2df9-4066-9877-6b43571c4c25",
+  "status": "active",
+  "type": "feature",
+  "priority": "P2",
+  "created": "2026-11-02T05:31:43.066Z",
+  "updated": "2026-11-02T05:46:07.026Z",
+  "lastActivity": "2026-11-02T05:46:07.026Z",
+  "title": "Icons for sidebar mod stats",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

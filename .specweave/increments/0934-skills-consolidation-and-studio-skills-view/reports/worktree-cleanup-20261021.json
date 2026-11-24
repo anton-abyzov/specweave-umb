@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-21T17:54:36.220080+00:00",
+  "removedWorktree": "/Users/antonabyzov/Projects/github/wt-0932-0934/specweave-cards",
+  "removedEmptyParent": "/Users/antonabyzov/Projects/github/wt-0932-0934",
+  "head": "133a31aa4dc25ca758df7376c5455d2c0f5d9bac",
+  "retainedRemoteRefs": [
+    "origin/inc/0933-cards"
+  ],
+  "otherSpecweaveWorktreesPreserved": [
+    "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave",
+    "/Users/antonabyzov/.specwithcode/m4/worktrees/specweave/chore-x-one-shot-a-20261021",
+    "/Users/antonabyzov/.specwithcode/m4/worktrees/sw-ac-gate",
+    "/Users/antonabyzov/Projects/github/wt-specweave-ac-trace"
+  ],
+  "recoveryBackupsRetained": true,
+  "processesStopped": [],
+  "forceUsed": false,
+  "platformWorktree": "already absent at start of final reconciliation; not recreated",
+  "ownership": "native children completed; previous app children idle with no latest run; no active external owner; remaining cwd processes belong to current parent Codex PID 48447"
+}

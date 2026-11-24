@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-22T23:41:43.146Z","note":"session 6e80bc5a-9799-4f56-aa41-ddd1171dcf1f"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T23:41:43.147Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T23:41:43.148Z","evidence":"commit 13d415ea6 on feat/model-capabilities-billing, PR #619: contracts fields + shared/modelBilling.ts; contracts+shared tests pass\nHEAD df0d3fc12"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T23:41:43.543Z"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T23:41:43.544Z","evidence":"commit 13d415ea6 on feat/model-capabilities-billing, PR #619: providerFallback isPaidModelOn, providerFallbackPaidModel.test.ts, taskRouting modelBilling; 3086 focused tests pass\nHEAD df0d3fc12"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T23:41:43.940Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T23:41:43.941Z","evidence":"commit 13d415ea6 on feat/model-capabilities-billing, PR #619: OpenCodeProvider/PiProvider capabilities+billing, Pi default copies billing, no fake effort ladder; tests pass\nHEAD df0d3fc12"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-22T23:41:44.348Z"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-22T23:41:44.349Z","evidence":"commit 13d415ea6 on feat/model-capabilities-billing, PR #619: ProviderSessionManager skips MCP for toolCalls false; composerImageInput guard; tests pass\nHEAD df0d3fc12"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T00:42:27.113Z","model":"opus[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-23T00:42:27.115Z","evidence":"PR #619 merged as 3be13671b; all required checks green (PR Gate 60m, typecheck, Google, public mirror)\nHEAD ebad5e224","model":"opus[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T00:46:24.857Z","model":"opus[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-23T00:46:24.859Z","evidence":"fresh-context review: all 8 ACs met, no defects, CLOSE yes; verify: only unrelated vskill CreateSkillPage/boot-ordering tests fail (outside this change)\nHEAD ebad5e224","model":"opus[1m]"}

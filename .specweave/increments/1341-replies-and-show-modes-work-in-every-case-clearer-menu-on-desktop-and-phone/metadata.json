@@ -1,0 +1,18 @@
+{
+  "id": "1341-replies-and-show-modes-work-in-every-case-clearer-menu-on-desktop-and-phone",
+  "uuid": "ce219f82-f58c-42c8-94b4-4e6c6b0cae4f",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T01:55:36.111Z",
+  "updated": "2026-11-22T19:47:17.189Z",
+  "lastActivity": "2026-11-22T19:47:17.189Z",
+  "title": "Replies and Show modes: work in every case, clearer menu on desktop and phone",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

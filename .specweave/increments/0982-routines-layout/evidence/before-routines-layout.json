@@ -1,0 +1,408 @@
+{
+  "measureOnly": true,
+  "measurements": {
+    "coordinator-1440": {
+      "overflow": false,
+      "rows": [
+        {
+          "title": "Error-rate repair watch",
+          "height": 175,
+          "right": 1424,
+          "text": "Error-rate repair watch\n\nEvery 30 min\n\nGoes to the coordinator\n\nLast run 10/20/2026, 11:56:51 PM · Next 10/21/2026, 3:23:51 AM\n\nRun now\nPause",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 246,
+              "height": 32,
+              "right": 1068,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Pause",
+              "top": 246,
+              "height": 32,
+              "right": 1132,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Final matchday results",
+          "height": 175,
+          "right": 1424,
+          "text": "Final matchday results\n\nSat, Sun at 22:30 · Paused\n\nGoes to the coordinator\n\nNot run yet\n\nRun now\nEnable",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 421,
+              "height": 32,
+              "right": 1068,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Enable",
+              "top": 421,
+              "height": 32,
+              "right": 1136,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Watch the mobile club release",
+          "height": 195,
+          "right": 1424,
+          "text": "Watch the mobile club release\n\nWeekdays at 09:00 · Paused\n\nGoes to the coordinator\n\nLast run 10/18/2026, 9:00:00 AM (failed)\n\nThe release check could not reach the store listing.\n\nRun now\nEnable",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 617,
+              "height": 32,
+              "right": 1068,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Enable",
+              "top": 617,
+              "height": 32,
+              "right": 1136,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails",
+          "height": 195,
+          "right": 1424,
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\n\nMonthly on the 1st at 08:00 · Paused\n\nGoes to the coordinator\n\nNot run yet\n\nRun now\nEnable",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 812,
+              "height": 32,
+              "right": 1068,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Enable",
+              "top": 812,
+              "height": 32,
+              "right": 1136,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Finish the approved analytics campaign",
+          "height": 175,
+          "right": 1424,
+          "text": "Finish the approved analytics campaign\n\nWhen you ask\n\nOpen its thread\n\nNot run yet\n\nRun now",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 987,
+              "height": 32,
+              "right": 1068,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        }
+      ],
+      "paneRight": 1440
+    },
+    "header": "Routines\nManage routines",
+    "coordinator-900": {
+      "overflow": false,
+      "rows": [
+        {
+          "title": "Error-rate repair watch",
+          "height": 175,
+          "right": 884,
+          "text": "Error-rate repair watch\n\nEvery 30 min\n\nGoes to the coordinator\n\nLast run 10/20/2026, 11:56:52 PM · Next 10/21/2026, 3:23:52 AM\n\nRun now\nPause",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 246,
+              "height": 32,
+              "right": 528,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Pause",
+              "top": 246,
+              "height": 32,
+              "right": 592,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Final matchday results",
+          "height": 175,
+          "right": 884,
+          "text": "Final matchday results\n\nSat, Sun at 22:30 · Paused\n\nGoes to the coordinator\n\nNot run yet\n\nRun now\nEnable",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 421,
+              "height": 32,
+              "right": 528,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Enable",
+              "top": 421,
+              "height": 32,
+              "right": 596,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Watch the mobile club release",
+          "height": 195,
+          "right": 884,
+          "text": "Watch the mobile club release\n\nWeekdays at 09:00 · Paused\n\nGoes to the coordinator\n\nLast run 10/18/2026, 9:00:00 AM (failed)\n\nThe release check could not reach the store listing.\n\nRun now\nEnable",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 617,
+              "height": 32,
+              "right": 528,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Enable",
+              "top": 617,
+              "height": 32,
+              "right": 596,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails",
+          "height": 195,
+          "right": 884,
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\n\nMonthly on the 1st at 08:00 · Paused\n\nGoes to the coordinator\n\nNot run yet\n\nRun now\nEnable",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 812,
+              "height": 32,
+              "right": 528,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Enable",
+              "top": 812,
+              "height": 32,
+              "right": 596,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Finish the approved analytics campaign",
+          "height": 175,
+          "right": 884,
+          "text": "Finish the approved analytics campaign\n\nWhen you ask\n\nOpen its thread\n\nNot run yet\n\nRun now",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 987,
+              "height": 32,
+              "right": 528,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        }
+      ],
+      "paneRight": 900
+    },
+    "coordinator-390": {
+      "overflow": false,
+      "rows": [
+        {
+          "title": "Error-rate repair watch",
+          "height": 194,
+          "right": 374,
+          "text": "Error-rate repair watch\n\nEvery 30 min\n\nGoes to the coordinator\n\nLast run 10/20/2026, 11:56:54 PM · Next 10/21/2026, 3:23:54 AM\n\nRun now\nPause",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 265,
+              "height": 32,
+              "right": 88,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Pause",
+              "top": 265,
+              "height": 32,
+              "right": 152,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Final matchday results",
+          "height": 175,
+          "right": 374,
+          "text": "Final matchday results\n\nSat, Sun at 22:30 · Paused\n\nGoes to the coordinator\n\nNot run yet\n\nRun now\nEnable",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 440,
+              "height": 32,
+              "right": 88,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Enable",
+              "top": 440,
+              "height": 32,
+              "right": 156,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Watch the mobile club release",
+          "height": 195,
+          "right": 374,
+          "text": "Watch the mobile club release\n\nWeekdays at 09:00 · Paused\n\nGoes to the coordinator\n\nLast run 10/18/2026, 9:00:00 AM (failed)\n\nThe release check could not reach the store listing.\n\nRun now\nEnable",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 636,
+              "height": 32,
+              "right": 88,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Enable",
+              "top": 636,
+              "height": 32,
+              "right": 156,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails",
+          "height": 216,
+          "right": 374,
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\n\nMonthly on the 1st at 08:00 · Paused\n\nGoes to the coordinator\n\nNot run yet\n\nRun now\nEnable",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 851,
+              "height": 32,
+              "right": 88,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Enable",
+              "top": 851,
+              "height": 32,
+              "right": 156,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Finish the approved analytics campaign",
+          "height": 175,
+          "right": 374,
+          "text": "Finish the approved analytics campaign\n\nWhen you ask\n\nOpen its thread\n\nNot run yet\n\nRun now",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 1026,
+              "height": 32,
+              "right": 88,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        }
+      ],
+      "paneRight": 390
+    },
+    "empty": "Routines\nManage routines\n\nSchedules belong to this project and run on this host. An enabled schedule is separate from a completed task.\n\nNo routines for this project yet. Manage routines to create a schedule with this project selected.",
+    "personal": {
+      "overflow": false,
+      "rows": [
+        {
+          "title": "Monthly tax prep",
+          "height": 245,
+          "right": 1424,
+          "text": "Monthly tax prep\n\nWhen you ask\n\nOpen its thread\n\nReceipts ~/Example Household/receipts\nStatements ~/Example Household/bank/{period}.csv\nResult ~/Example Household/tax/{period}-prep.md\n\nLast run 10/2/2026, 5:00:00 AM\n\nRun now",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 316,
+              "height": 32,
+              "right": 1068,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        },
+        {
+          "title": "Monthly profit and loss",
+          "height": 225,
+          "right": 1424,
+          "text": "Monthly profit and loss\n\nMonthly on the 3rd at 09:00\n\nIts own thread starts on the first run\n\nSales ~/Example Studio/invoices\nResult ~/Example Studio/reports/pnl-{period}.md\n\nNot run yet · Next 11/3/2026, 4:00:00 AM\n\nRun now\nPause",
+          "buttons": [
+            {
+              "label": "Run now",
+              "top": 541,
+              "height": 32,
+              "right": 1068,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "label": "Pause",
+              "top": 541,
+              "height": 32,
+              "right": 1132,
+              "border": "0px",
+              "background": "rgba(0, 0, 0, 0)"
+            }
+          ]
+        }
+      ],
+      "paneRight": 1440
+    }
+  },
+  "errors": []
+}

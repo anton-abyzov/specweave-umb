@@ -1,0 +1,18 @@
+{
+  "id": "1043-1035-follow-up-report-links-f-05-guard-message-payloads",
+  "uuid": "d91435ca-498b-4547-86f4-6ff444e8714b",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T23:55:08.114Z",
+  "updated": "2026-10-24T06:12:47.603Z",
+  "lastActivity": "2026-10-24T06:12:47.603Z",
+  "title": "1035 follow-up: report links, F-05 guard, message payloads",
+  "project": "specweave-umb",
+  "parent": "1035-redesign-report-and-artifact-experience",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T06:12:47.602Z",
+  "approvedAt": "2026-10-24T06:12:47.603Z"
+}

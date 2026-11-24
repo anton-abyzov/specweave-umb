@@ -1,0 +1,13 @@
+{
+  "id": "1367-mcp-endpoint-and-mcp-clients-cap-request-and-response-size-with-the-dependency-bumps-from-the-m8ven-scan",
+  "uuid": "08963f1d-7f1e-43ce-b04f-b7fc60d5f378",
+  "status": "active",
+  "type": "hotfix",
+  "priority": "P1",
+  "created": "2026-11-16T13:57:52.267Z",
+  "updated": "2026-11-16T13:57:52.267Z",
+  "lastActivity": "2026-11-16T13:57:52.267Z",
+  "title": "MCP endpoint and MCP clients cap request and response size, with the dependency bumps from the m8ven scan",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

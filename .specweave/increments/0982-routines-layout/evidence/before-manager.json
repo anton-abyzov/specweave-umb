@@ -1,0 +1,93 @@
+{
+  "measureOnly": true,
+  "measurements": {
+    "390": {
+      "rows": [
+        {
+          "text": "Error-rate repair watch\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nEvery 30 min · Next run in 3h\nsucceeded",
+          "height": 156
+        },
+        {
+          "text": "Final matchday results\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nSat, Sun at 22:30 · Paused",
+          "height": 151
+        },
+        {
+          "text": "Watch the mobile club release\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nWeekdays at 09:00 · Paused\nfailed\nThe release check could not reach the store listing.",
+          "height": 181
+        },
+        {
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nMonthly on the 1st at 08:00 · Paused",
+          "height": 191
+        },
+        {
+          "text": "Finish the approved analytics campaign\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nWhen you ask · Not scheduled",
+          "height": 151
+        },
+        {
+          "text": "Deploy preview on push\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nOn webhook · Listening\nsucceeded",
+          "height": 157
+        }
+      ],
+      "overflow": false
+    },
+    "760": {
+      "rows": [
+        {
+          "text": "Error-rate repair watch\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nEvery 30 min · Next run in 3h\nsucceeded",
+          "height": 108
+        },
+        {
+          "text": "Final matchday results\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nSat, Sun at 22:30 · Paused",
+          "height": 107
+        },
+        {
+          "text": "Watch the mobile club release\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nWeekdays at 09:00 · Paused\nfailed\nThe release check could not reach the store listing.",
+          "height": 133
+        },
+        {
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nMonthly on the 1st at 08:00 · Paused",
+          "height": 147
+        },
+        {
+          "text": "Finish the approved analytics campaign\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nWhen you ask · Not scheduled",
+          "height": 107
+        },
+        {
+          "text": "Deploy preview on push\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nOn webhook · Listening\nsucceeded",
+          "height": 109
+        }
+      ],
+      "overflow": false
+    },
+    "1280": {
+      "rows": [
+        {
+          "text": "Error-rate repair watch\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nEvery 30 min · Next run in 3h\nsucceeded",
+          "height": 108
+        },
+        {
+          "text": "Final matchday results\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nSat, Sun at 22:30 · Paused",
+          "height": 107
+        },
+        {
+          "text": "Watch the mobile club release\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nWeekdays at 09:00 · Paused\nfailed\nThe release check could not reach the store listing.",
+          "height": 133
+        },
+        {
+          "text": "Publish approved named highlight clips to every connected channel after the editor signs off on captions and thumbnails\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nMonthly on the 1st at 08:00 · Paused",
+          "height": 127
+        },
+        {
+          "text": "Finish the approved analytics campaign\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nWhen you ask · Not scheduled",
+          "height": 107
+        },
+        {
+          "text": "Deploy preview on push\nCheck the latest state, fix what is broken in a worker thread and report back with the pull request, or say that nothing needed doing.\nOn webhook · Listening\nsucceeded",
+          "height": 109
+        }
+      ],
+      "overflow": false
+    }
+  },
+  "errors": []
+}

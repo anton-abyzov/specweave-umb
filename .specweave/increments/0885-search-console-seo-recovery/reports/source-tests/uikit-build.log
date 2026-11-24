@@ -1,0 +1,409 @@
+
+> @anton-abyzov/ec-uikit@0.29.0 build
+> NODE_OPTIONS=--max-old-space-size=8192 tsup && node scripts/build-server-entry.mjs && node scripts/postbuild-stamp-use-client.mjs && node scripts/stamp-training-revision.mjs && npm run build:messages && npm run build:css && npm run build:css-purity && node scripts/gate-fixture-spotlight-entry.mjs
+
+CLI Building entry: {"primitives/index":"src/primitives/index.ts","forms/index":"src/forms/index.ts","media/index":"src/media/index.ts","icons/index":"src/icons/index.tsx","icons/svg":"src/icons/svg.ts","player/index":"src/player/index.ts","pitch/index":"src/pitch/index.ts","match/index":"src/match/index.ts","fixture-spotlight/index":"src/match/FixtureSpotlightGroup.tsx","standings/index":"src/standings/index.ts","placement/index":"src/placement/index.ts","quiz/index":"src/quiz/index.ts","bracket/index":"src/bracket/index.ts","fan-challenge/index":"src/fan-challenge/index.ts","chat/index":"src/chat/index.ts","composer/index":"src/composer/index.ts","composer/club":"src/composer/club/index.ts","public-site/index":"src/public-site/index.ts","locales/index":"src/public-site/locales.ts","public-site/server":"src/public-site/server.ts","matchday-labels/index":"src/i18n/resolve.ts","analytics/index":"src/analytics/index.ts","analytics/consent-banner":"src/analytics/ConsentBanner.tsx","primitives/filter-recipes":"src/primitives/filter-recipes.ts","betting/index":"src/betting/index.ts","engagement/index":"src/engagement/index.ts","tournament/index":"src/tournament/index.ts","shell/index":"src/shell/index.ts","shell/theme":"src/shell/theme.ts","profile/index":"src/profile/index.ts","notifications/index":"src/notifications/index.ts","viz/index":"src/viz/index.ts","replay/index":"src/replay/index.ts","formations/index":"src/formations/index.ts","logic/index":"src/logic/index.ts","tactical-core/index":"src/tactical/index.ts","tactical-react/index":"src/tactical-react/index.ts","training-core/index":"src/training/index.ts","roster-print/index":"src/roster-print/index.ts","responsibilities/index":"src/responsibilities/index.ts","fixtures/index":"src/fixtures/index.ts","motion/index":"src/motion/index.ts","calendar/index":"src/calendar/index.ts","types/index":"src/types/index.ts","messages/index":"src/messages/index.ts"}
+CLI Using tsconfig: tsconfig.json
+CLI tsup v8.5.1
+CLI Using tsup config: /private/tmp/easychamp-seo-inventory-uikit-20261007/tsup.config.ts
+CLI Target: es2022
+CLI Cleaning output folder
+ESM Build start
+DTS Build start
+ESM dist/fixtures/index.js                1.07 KB
+ESM dist/types/index.js                   33.00 B
+ESM dist/calendar/index.js                47.63 KB
+ESM dist/logic/index.js                   10.04 KB
+ESM dist/motion/index.js                  49.26 KB
+ESM dist/volleyball-CAWAGULY.js           25.78 KB
+ESM dist/replay/index.js                  95.30 KB
+ESM dist/formations/index.js              2.17 KB
+ESM dist/chunk-QZ5B25AC.js                789.00 B
+ESM dist/chunk-NPCIZWXU.js                6.22 KB
+ESM dist/chunk-EZ3NR2J7.js                52.87 KB
+ESM dist/tactical-core/index.js           142.22 KB
+ESM dist/soccer-C36BGE4Y.js               262.28 KB
+ESM dist/responsibilities/index.js        75.46 KB
+ESM dist/engagement/index.js              18.18 KB
+ESM dist/chunk-KZFBVQBM.js                2.40 KB
+ESM dist/tactical-react/index.js          216.80 KB
+ESM dist/chunk-S6SJCBIL.js                76.40 KB
+ESM dist/betting/index.js                 140.66 KB
+ESM dist/tournament/index.js              60.26 KB
+ESM dist/shell/index.js                   55.90 KB
+ESM dist/shell/theme.js                   448.00 B
+ESM dist/chunk-IJ6GKOKJ.js                3.13 KB
+ESM dist/roster-print/index.js            29.49 KB
+ESM dist/profile/index.js                 16.92 KB
+ESM dist/notifications/index.js           24.72 KB
+ESM dist/viz/index.js                     23.35 KB
+ESM dist/locales/index.js                 496.00 B
+ESM dist/public-site/server.js            2.89 KB
+ESM dist/chunk-OFFRCSTL.js                21.42 KB
+ESM dist/composer/club.js                 2.45 KB
+ESM dist/analytics/consent-banner.js      1.90 KB
+ESM dist/analytics/index.js               2.59 KB
+ESM dist/chunk-NCFPRORH.js                53.91 KB
+ESM dist/public-site/index.js             255.17 KB
+ESM dist/fixture-spotlight/index.js       426.00 B
+ESM dist/matchday-labels/index.js         243.00 B
+ESM dist/standings/index.js               1.55 KB
+ESM dist/primitives/filter-recipes.js     531.00 B
+ESM dist/quiz/index.js                    4.94 KB
+ESM dist/chunk-Q3VIPZA5.js                2.32 KB
+ESM dist/chat/index.js                    14.75 KB
+ESM dist/bracket/index.js                 4.17 KB
+ESM dist/placement/index.js               10.04 KB
+ESM dist/chunk-CUQWF7SE.js                74.52 KB
+ESM dist/fan-challenge/index.js           38.43 KB
+ESM dist/chunk-3KJ4HPXE.js                1.46 KB
+ESM dist/chunk-S36ABSDK.js                3.42 KB
+ESM dist/chunk-4CLMIYZE.js                23.96 KB
+ESM dist/chunk-J3YSK2JA.js                15.41 KB
+ESM dist/chunk-T5HO7QQ3.js                73.23 KB
+ESM dist/chunk-OH5QS5BE.js                1.23 KB
+ESM dist/forms/index.js                   453.00 B
+ESM dist/chunk-3UAWSXYR.js                44.22 KB
+ESM dist/composer/index.js                330.80 KB
+ESM dist/chunk-NBYD5VTH.js                176.29 KB
+ESM dist/chunk-OVHNFZOG.js                2.05 KB
+ESM dist/chunk-KQEAODTB.js                134.64 KB
+ESM dist/chunk-IYXRCNLI.js                6.06 KB
+ESM dist/chunk-EPXYIT5C.js                425.69 KB
+ESM dist/icons/index.js                   2.09 KB
+ESM dist/chunk-TERUDXLV.js                15.31 KB
+ESM dist/primitives/index.js              6.06 KB
+ESM dist/chunk-CWFOG6VY.js                9.31 KB
+ESM dist/icons/svg.js                     656.00 B
+ESM dist/player/index.js                  4.33 KB
+ESM dist/chunk-OHYYDXWP.js                56.39 KB
+ESM dist/chunk-XNG353PI.js                47.40 KB
+ESM dist/chunk-3PAM6O6A.js                17.99 KB
+ESM dist/media/index.js                   43.37 KB
+ESM dist/chunk-L3VBEAUH.js                5.09 KB
+ESM dist/pitch/index.js                   93.24 KB
+ESM dist/chunk-SISA2OSP.js                4.10 KB
+ESM dist/chunk-2OOUKUFY.js                5.94 KB
+ESM dist/chunk-SAACTFYW.js                27.78 KB
+ESM dist/match/index.js                   86.42 KB
+ESM dist/chunk-OR4BEW6N.js                3.95 KB
+ESM dist/chunk-FAST72YO.js                1.73 KB
+ESM dist/chunk-DMOJV5OJ.js                206.00 B
+ESM dist/chunk-H2W2BO7A.js                18.20 KB
+ESM dist/chunk-MXO5AFOV.js                51.13 KB
+ESM dist/chunk-W43MTIVM.js                16.27 KB
+ESM dist/chunk-4Z6WIFHM.js                50.74 KB
+ESM dist/chunk-HXRMEZDV.js                8.35 KB
+ESM dist/chunk-QYR76MO5.js                6.52 KB
+ESM dist/chunk-6VZWSHMI.js                1.68 KB
+ESM dist/chunk-4XB4GCGJ.js                7.91 KB
+ESM dist/chunk-5AKPJED2.js                12.13 KB
+ESM dist/chunk-PVK64UEE.js                7.26 KB
+ESM dist/chunk-OFA4OIRU.js                87.26 KB
+ESM dist/chunk-5SAR4T6C.js                10.89 KB
+ESM dist/chunk-SH3JJKYJ.js                4.37 KB
+ESM dist/chunk-D7SPCJJK.js                9.98 KB
+ESM dist/chunk-3KTRDYUU.js                13.51 KB
+ESM dist/chunk-UBOQIIK5.js                32.42 KB
+ESM dist/chunk-5GLXM365.js                2.90 KB
+ESM dist/chunk-2YHVX2AT.js                2.61 KB
+ESM dist/chunk-B5HV2N6L.js                2.48 KB
+ESM dist/chunk-JWKKSTUR.js                933.00 B
+ESM dist/chunk-XO4LRZ7U.js                42.00 B
+ESM dist/chunk-BA6YI35R.js                755.00 B
+ESM dist/chunk-NYMUOFJ5.js                9.87 KB
+ESM dist/chunk-KKTYTI3B.js                19.56 KB
+ESM dist/chunk-A7SS7MTJ.js                151.12 KB
+ESM dist/chunk-7VP7TSIJ.js                1.72 KB
+ESM dist/chunk-EWN4X66F.js                5.87 KB
+ESM dist/chunk-X7A7RKAP.js                7.93 KB
+ESM dist/chunk-GFZHXPLE.js                1.61 KB
+ESM dist/chunk-YP52DHND.js                4.63 KB
+ESM dist/chunk-N6TJ37CL.js                4.66 KB
+ESM dist/chunk-KQQPAU56.js                1.16 KB
+ESM dist/chunk-FLVWT443.js                422.00 B
+ESM dist/chunk-ZC2R4FXK.js                9.66 KB
+ESM dist/chunk-447PQZR7.js                34.88 KB
+ESM dist/chunk-PZ5AY32C.js                233.00 B
+ESM dist/chunk-YBXAO5JF.js                34.45 KB
+ESM dist/chunk-RKJJL7MB.js                768.00 B
+ESM dist/chunk-B2VPQ4OR.js                460.95 KB
+ESM dist/chunk-MEWPKTRL.js                7.75 KB
+ESM dist/messages/index.js                1.15 MB
+ESM dist/training-core/index.js           1.82 MB
+ESM dist/fixtures/index.js.map            71.00 B
+ESM dist/types/index.js.map               71.00 B
+ESM dist/logic/index.js.map               71.00 B
+ESM dist/calendar/index.js.map            101.02 KB
+ESM dist/formations/index.js.map          71.00 B
+ESM dist/volleyball-CAWAGULY.js.map       39.44 KB
+ESM dist/motion/index.js.map              117.63 KB
+ESM dist/chunk-QZ5B25AC.js.map            1.51 KB
+ESM dist/chunk-NPCIZWXU.js.map            18.50 KB
+ESM dist/replay/index.js.map              204.96 KB
+ESM dist/chunk-EZ3NR2J7.js.map            130.25 KB
+ESM dist/chunk-KZFBVQBM.js.map            6.32 KB
+ESM dist/responsibilities/index.js.map    79.49 KB
+ESM dist/engagement/index.js.map          33.84 KB
+ESM dist/tactical-core/index.js.map       277.99 KB
+ESM dist/soccer-C36BGE4Y.js.map           381.69 KB
+ESM dist/shell/theme.js.map               71.00 B
+ESM dist/chunk-S6SJCBIL.js.map            149.17 KB
+ESM dist/tournament/index.js.map          114.02 KB
+ESM dist/betting/index.js.map             247.96 KB
+ESM dist/tactical-react/index.js.map      395.80 KB
+ESM dist/profile/index.js.map             33.79 KB
+ESM dist/locales/index.js.map             71.00 B
+ESM dist/roster-print/index.js.map        36.17 KB
+ESM dist/public-site/server.js.map        71.00 B
+ESM dist/shell/index.js.map               104.14 KB
+ESM dist/notifications/index.js.map       62.29 KB
+ESM dist/chunk-IJ6GKOKJ.js.map            9.36 KB
+ESM dist/composer/club.js.map             71.00 B
+ESM dist/viz/index.js.map                 42.93 KB
+ESM dist/analytics/consent-banner.js.map  4.64 KB
+ESM dist/analytics/index.js.map           71.00 B
+ESM dist/chunk-OFFRCSTL.js.map            64.00 KB
+ESM dist/standings/index.js.map           71.00 B
+ESM dist/matchday-labels/index.js.map     71.00 B
+ESM dist/primitives/filter-recipes.js.map 71.00 B
+ESM dist/quiz/index.js.map                7.74 KB
+ESM dist/chunk-NCFPRORH.js.map            166.92 KB
+ESM dist/chunk-Q3VIPZA5.js.map            11.24 KB
+ESM dist/chat/index.js.map                21.98 KB
+ESM dist/bracket/index.js.map             71.00 B
+ESM dist/chunk-3KJ4HPXE.js.map            3.45 KB
+ESM dist/fan-challenge/index.js.map       59.52 KB
+ESM dist/chunk-J3YSK2JA.js.map            38.09 KB
+ESM dist/fixture-spotlight/index.js.map   71.00 B
+ESM dist/chunk-S36ABSDK.js.map            7.06 KB
+ESM dist/chunk-4CLMIYZE.js.map            51.57 KB
+ESM dist/chunk-CUQWF7SE.js.map            147.96 KB
+ESM dist/chunk-3UAWSXYR.js.map            67.74 KB
+ESM dist/placement/index.js.map           16.25 KB
+ESM dist/chunk-OH5QS5BE.js.map            3.97 KB
+ESM dist/forms/index.js.map               71.00 B
+ESM dist/chunk-OVHNFZOG.js.map            6.76 KB
+ESM dist/chunk-IYXRCNLI.js.map            15.61 KB
+ESM dist/chunk-T5HO7QQ3.js.map            134.09 KB
+ESM dist/icons/index.js.map               71.00 B
+ESM dist/chunk-KQEAODTB.js.map            344.81 KB
+ESM dist/player/index.js.map              5.55 KB
+ESM dist/primitives/index.js.map          71.00 B
+ESM dist/chunk-CWFOG6VY.js.map            24.12 KB
+ESM dist/icons/svg.js.map                 71.00 B
+ESM dist/chunk-NBYD5VTH.js.map            343.15 KB
+ESM dist/chunk-TERUDXLV.js.map            27.11 KB
+ESM dist/chunk-OHYYDXWP.js.map            116.49 KB
+ESM dist/chunk-3PAM6O6A.js.map            54.43 KB
+ESM dist/chunk-XNG353PI.js.map            92.46 KB
+ESM dist/media/index.js.map               75.49 KB
+ESM dist/chunk-2OOUKUFY.js.map            16.49 KB
+ESM dist/pitch/index.js.map               180.31 KB
+ESM dist/chunk-OR4BEW6N.js.map            13.95 KB
+ESM dist/chunk-SAACTFYW.js.map            58.42 KB
+ESM dist/chunk-DMOJV5OJ.js.map            1.02 KB
+ESM dist/chunk-SISA2OSP.js.map            10.28 KB
+ESM dist/chunk-H2W2BO7A.js.map            33.87 KB
+ESM dist/chunk-MXO5AFOV.js.map            101.90 KB
+ESM dist/match/index.js.map               158.52 KB
+ESM dist/chunk-FAST72YO.js.map            8.88 KB
+ESM dist/chunk-W43MTIVM.js.map            25.62 KB
+ESM dist/chunk-4Z6WIFHM.js.map            107.17 KB
+ESM dist/chunk-QYR76MO5.js.map            12.18 KB
+ESM dist/chunk-HXRMEZDV.js.map            24.78 KB
+ESM dist/chunk-5AKPJED2.js.map            36.27 KB
+ESM dist/chunk-4XB4GCGJ.js.map            21.09 KB
+ESM dist/chunk-PVK64UEE.js.map            20.36 KB
+ESM dist/chunk-D7SPCJJK.js.map            28.77 KB
+ESM dist/chunk-6VZWSHMI.js.map            5.52 KB
+ESM dist/chunk-5SAR4T6C.js.map            22.12 KB
+ESM dist/chunk-SH3JJKYJ.js.map            8.36 KB
+ESM dist/chunk-3KTRDYUU.js.map            29.69 KB
+ESM dist/chunk-2YHVX2AT.js.map            9.11 KB
+ESM dist/chunk-5GLXM365.js.map            10.19 KB
+ESM dist/chunk-OFA4OIRU.js.map            230.68 KB
+ESM dist/chunk-UBOQIIK5.js.map            74.68 KB
+ESM dist/chunk-JWKKSTUR.js.map            3.10 KB
+ESM dist/chunk-B5HV2N6L.js.map            10.33 KB
+ESM dist/chunk-XO4LRZ7U.js.map            71.00 B
+ESM dist/chunk-NYMUOFJ5.js.map            19.00 KB
+ESM dist/chunk-BA6YI35R.js.map            2.94 KB
+ESM dist/chunk-EWN4X66F.js.map            12.98 KB
+ESM dist/chunk-KKTYTI3B.js.map            32.10 KB
+ESM dist/chunk-7VP7TSIJ.js.map            4.72 KB
+ESM dist/chunk-GFZHXPLE.js.map            3.63 KB
+ESM dist/chunk-X7A7RKAP.js.map            20.72 KB
+ESM dist/chunk-ZC2R4FXK.js.map            20.37 KB
+ESM dist/chunk-A7SS7MTJ.js.map            320.29 KB
+ESM dist/chunk-FLVWT443.js.map            1.75 KB
+ESM dist/chunk-PZ5AY32C.js.map            71.00 B
+ESM dist/chunk-YP52DHND.js.map            13.81 KB
+ESM dist/chunk-KQQPAU56.js.map            3.16 KB
+ESM dist/chunk-447PQZR7.js.map            84.28 KB
+ESM dist/chunk-N6TJ37CL.js.map            13.35 KB
+ESM dist/chunk-RKJJL7MB.js.map            2.37 KB
+ESM dist/chunk-YBXAO5JF.js.map            55.28 KB
+ESM dist/chunk-L3VBEAUH.js.map            14.43 KB
+ESM dist/chunk-MEWPKTRL.js.map            22.83 KB
+ESM dist/public-site/index.js.map         556.09 KB
+ESM dist/composer/index.js.map            626.38 KB
+ESM dist/chunk-EPXYIT5C.js.map            625.33 KB
+ESM dist/chunk-B2VPQ4OR.js.map            483.27 KB
+ESM dist/messages/index.js.map            1.13 MB
+ESM dist/training-core/index.js.map       2.68 MB
+ESM ⚡️ Build success in 257ms
+DTS ⚡️ Build success in 27597ms
+DTS dist/public-site/server.d.ts         2.17 KB
+DTS dist/analytics/consent-banner.d.ts   2.24 KB
+DTS dist/fixture-spotlight/index.d.ts    1.05 KB
+DTS dist/messages/index.d.ts             7.14 KB
+DTS dist/primitives/filter-recipes.d.ts  4.61 KB
+DTS dist/icons/svg.d.ts                  7.00 KB
+DTS dist/matchday-labels/index.d.ts      1.93 KB
+DTS dist/locales/index.d.ts              3.60 KB
+DTS dist/roster-print/index.d.ts         3.40 KB
+DTS dist/shell/theme.d.ts                3.09 KB
+DTS dist/composer/club.d.ts              5.48 KB
+DTS dist/types/index.d.ts                33.89 KB
+DTS dist/responsibilities/index.d.ts     7.71 KB
+DTS dist/forms/index.d.ts                5.56 KB
+DTS dist/quiz/index.d.ts                 3.05 KB
+DTS dist/engagement/index.d.ts           8.03 KB
+DTS dist/fan-challenge/index.d.ts        11.27 KB
+DTS dist/fixtures/index.d.ts             8.99 KB
+DTS dist/placement/index.d.ts            5.80 KB
+DTS dist/chat/index.d.ts                 3.31 KB
+DTS dist/formations/index.d.ts           16.12 KB
+DTS dist/media/index.d.ts                10.78 KB
+DTS dist/calendar/index.d.ts             15.16 KB
+DTS dist/player/index.d.ts               17.97 KB
+DTS dist/shell/index.d.ts                12.87 KB
+DTS dist/standings/index.d.ts            17.07 KB
+DTS dist/notifications/index.d.ts        14.84 KB
+DTS dist/profile/index.d.ts              8.77 KB
+DTS dist/icons/index.d.ts                30.88 KB
+DTS dist/pitch/index.d.ts                44.65 KB
+DTS dist/tournament/index.d.ts           28.83 KB
+DTS dist/viz/index.d.ts                  25.53 KB
+DTS dist/analytics/index.d.ts            45.00 KB
+DTS dist/tactical-react/index.d.ts       35.71 KB
+DTS dist/match/index.d.ts                42.55 KB
+DTS dist/composer/index.d.ts             41.06 KB
+DTS dist/tactical-core/index.d.ts        29.97 KB
+DTS dist/bracket/index.d.ts              57.25 KB
+DTS dist/motion/index.d.ts               35.88 KB
+DTS dist/replay/index.d.ts               49.52 KB
+DTS dist/training-core/index.d.ts        41.95 KB
+DTS dist/logic/index.d.ts                58.55 KB
+DTS dist/betting/index.d.ts              53.16 KB
+DTS dist/public-site/index.d.ts          133.89 KB
+DTS dist/primitives/index.d.ts           110.78 KB
+DTS dist/recurrence-Dv5FtaWj.d.ts        7.16 KB
+DTS dist/consentLabels-VX7KFnlT.d.ts     1.04 KB
+DTS dist/formations-BYZV7V98.d.ts        1.28 KB
+DTS dist/names-i0P4ak9V.d.ts             3.56 KB
+DTS dist/dismiss-BkTlwb13.d.ts           5.20 KB
+DTS dist/RatingBadge-CnKeY5ty.d.ts       2.57 KB
+DTS dist/initials-BKEYKulH.d.ts          508.00 B
+DTS dist/EmptyState-C6D_K0Xb.d.ts        2.85 KB
+DTS dist/EntityLink-DA1g791N.d.ts        3.58 KB
+DTS dist/schedule-labels-BGXK2NZC.d.ts   1.39 KB
+DTS dist/types-BzXV9JsD.d.ts             69.66 KB
+DTS dist/fixture-spotlight-Uk7hQ_yx.d.ts 5.84 KB
+DTS dist/GameMedia-C9Dxgn4j.d.ts         1.41 KB
+DTS dist/labels-vvw6oJbR.d.ts            12.90 KB
+DTS dist/player-card-CJuHKzAP.d.ts       7.22 KB
+DTS dist/notifications-Dnn_5uBX.d.ts     3.50 KB
+DTS dist/eventDisplay-CtykGejI.d.ts      3.17 KB
+DTS dist/parts-CTq37PrH.d.ts             5.91 KB
+DTS dist/mark-frame-CFM370oq.d.ts        1.93 KB
+DTS dist/links-DUebco6f.d.ts             3.19 KB
+DTS dist/product-items-BmjOileK.d.ts     5.98 KB
+DTS dist/deriveFacets-rR4peXq_.d.ts      4.63 KB
+DTS dist/ProductMenu-B1Dpia7L.d.ts       1.91 KB
+DTS dist/fixture-games-8abKjY0-.d.ts     5.11 KB
+DTS dist/capabilities-DylJSqVE.d.ts      12.61 KB
+DTS dist/PlanChip-BaHz2rxZ.d.ts          4.38 KB
+DTS dist/geometry-JD0M1CQV.d.ts          14.68 KB
+DTS dist/formation-seed-CvTLl2ln.d.ts    8.77 KB
+DTS dist/knockout-DId-2IOo.d.ts          21.96 KB
+DTS dist/cms-config-WGmikQwB.d.ts        9.42 KB
+DTS dist/sport-kinds-BCKJif8w.d.ts       13.64 KB
+DTS dist/catalog-C5mkp9gb.d.ts           9.60 KB
+DTS dist/schema-wjaS73gM.d.ts            14.68 KB
+DTS dist/lerp-C0NMg3o7.d.ts              3.65 KB
+DTS dist/EventIcons-Ci6R9AOQ.d.ts        8.96 KB
+DTS dist/index-_5rsVFyf.d.ts             54.65 KB
+DTS dist/labels-BWc5HN1Y.d.ts            31.63 KB
+[build-server-entry] emitted isolated dist/public-site/server.js
+[stamp-use-client] dist/betting/index.js
+[stamp-use-client] dist/chat/index.js
+[stamp-use-client] dist/chunk-2YHVX2AT.js
+[stamp-use-client] dist/chunk-4CLMIYZE.js
+[stamp-use-client] dist/chunk-4Z6WIFHM.js
+[stamp-use-client] dist/chunk-5SAR4T6C.js
+[stamp-use-client] dist/chunk-A7SS7MTJ.js
+[stamp-use-client] dist/chunk-IYXRCNLI.js
+[stamp-use-client] dist/chunk-JWKKSTUR.js
+[stamp-use-client] dist/chunk-KQEAODTB.js
+[stamp-use-client] dist/chunk-MXO5AFOV.js
+[stamp-use-client] dist/chunk-NBYD5VTH.js
+[stamp-use-client] dist/chunk-OH5QS5BE.js
+[stamp-use-client] dist/chunk-Q3VIPZA5.js
+[stamp-use-client] dist/chunk-SH3JJKYJ.js
+[stamp-use-client] dist/chunk-TERUDXLV.js
+[stamp-use-client] dist/chunk-UBOQIIK5.js
+[stamp-use-client] dist/chunk-W43MTIVM.js
+[stamp-use-client] dist/composer/index.js
+[stamp-use-client] dist/engagement/index.js
+[stamp-use-client] dist/match/index.js
+[stamp-use-client] dist/media/index.js
+[stamp-use-client] dist/pitch/index.js
+[stamp-use-client] dist/placement/index.js
+[stamp-use-client] dist/public-site/index.js
+[stamp-use-client] dist/quiz/index.js
+[stamp-use-client] dist/shell/index.js
+[stamp-use-client] dist/tactical-react/index.js
+[stamp-use-client] server boundary OK: 1 transitive file(s) from dist/public-site/server.js
+[stamp-use-client] server boundary OK: 3 transitive file(s) from dist/primitives/filter-recipes.js
+[stamp-use-client] server boundary OK: 5 transitive file(s) from dist/messages/index.js
+[stamp-use-client] server boundary OK: 5 transitive file(s) from dist/training-core/index.js
+[stamp-use-client] done: 28 file(s) stamped, 121 scanned
+[stamp-use-client] server boundary OK: 2 transitive file(s) from dist/roster-print/index.js
+[stamp-use-client] server boundary OK: 2 transitive file(s) from dist/responsibilities/index.js
+[stamp-use-client] server boundary OK: 4 transitive file(s) from dist/composer/club.js
+[stamp-training-revision] 94575566e429cae9c118bdfd7ebf574d188d5b2d (git); 1 file(s) stamped; 326 exercise(s) → dist/training/library.json, 371 glossary row(s) → glossary.json, 3 session(s) → sessions.json
+
+> @anton-abyzov/ec-uikit@0.29.0 build:messages
+> mkdir -p dist/messages && cp src/messages/*.json dist/messages/
+
+
+> @anton-abyzov/ec-uikit@0.29.0 build:css
+> tailwindcss -i src/styles/entry.css -o dist/style.css --minify && node scripts/postbuild-css.mjs && cp src/styles/tokens.css dist/tokens.css && cp src/styles/theme.css dist/theme.css && cp src/styles/partials/fixture-spotlight.css dist/fixture-spotlight.css && npm run build:tokens
+
+≈ tailwindcss v4.3.2
+
+Found 1 warning while optimizing generated CSS:
+
+[2m│   }[22m
+[2m│   .text-\[length\:var\(--text-\*\)\] {[22m
+[2m│[22m     font-size: var(--text-*);
+[2m┆[22m                           [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .text-\[length\:var\(--text-base\)\] {[22m
+
+Done in 203ms
+✓ dist/style.css: stripped 1898 bytes of self-referential theme emissions
+
+> @anton-abyzov/ec-uikit@0.29.0 build:tokens
+> node scripts/export-tokens.mjs && node scripts/generate-mobile-tokens.mjs
+
+✓ /private/tmp/easychamp-seo-inventory-uikit-20261007/dist/tokens.json: 217 scalar tokens × 2 themes, 52 declared raw
+✓ /private/tmp/easychamp-seo-inventory-uikit-20261007/dist/mobile/tokens.ts: 864 lines
+
+> @anton-abyzov/ec-uikit@0.29.0 build:css-purity
+> cp scripts/css-purity.mjs dist/css-purity.mjs && cp scripts/css-purity.d.mts dist/css-purity.d.mts
+
+{"entry":"./dist/fixture-spotlight/index.js","chunks":11,"decodedBytes":47245,"sourceFiles":15,"unrelatedGraphAbsent":true}

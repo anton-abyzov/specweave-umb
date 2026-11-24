@@ -1,0 +1,51 @@
+$ bash scripts/release/release.sh verify studio --version 1.0.115
+# exit 0 — 2026-10-29T05:29:55.184Z
+
+studio 1.0.115: PASS
+  PASS  private release: v1.0.115 published with 13 assets
+  PASS  public mirror release: v1.0.115 published with 14 assets
+  PASS  M4 service: serverVersion 1.0.115
+  PASS  M1 service: serverVersion 1.0.115
+  PASS  M3 service: serverVersion 1.0.115
+{
+  "track": "studio",
+  "version": "1.0.115",
+  "checks": [
+    {
+      "name": "private release",
+      "kind": "gh_release",
+      "blocking": true,
+      "status": "pass",
+      "detail": "v1.0.115 published with 13 assets"
+    },
+    {
+      "name": "public mirror release",
+      "kind": "gh_release",
+      "blocking": true,
+      "status": "pass",
+      "detail": "v1.0.115 published with 14 assets"
+    },
+    {
+      "name": "M4 service",
+      "kind": "fleet_endpoint",
+      "blocking": true,
+      "status": "pass",
+      "detail": "serverVersion 1.0.115"
+    },
+    {
+      "name": "M1 service",
+      "kind": "fleet_endpoint",
+      "blocking": true,
+      "status": "pass",
+      "detail": "serverVersion 1.0.115"
+    },
+    {
+      "name": "M3 service",
+      "kind": "fleet_endpoint",
+      "blocking": true,
+      "status": "pass",
+      "detail": "serverVersion 1.0.115"
+    }
+  ],
+  "result": "pass"
+}

@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-08T06:55:05.705Z",
+  "increment": "0886-nonblocking-session-checkpoints",
+  "commands": [
+    {
+      "cmd": "env PATH=\"/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH\" npm --prefix /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave run build",
+      "exit": 0
+    },
+    {
+      "cmd": "env PATH=\"/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH\" npm --prefix /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave run lint:skills",
+      "exit": 0
+    },
+    {
+      "cmd": "env PATH=\"/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH\" npm --prefix /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave run lint:docs-refs",
+      "exit": 0
+    },
+    {
+      "cmd": "env PATH=\"/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH\" SW_TEST_REPO=/Users/antonabyzov/.local/share/specweave/releases/3.0.6-63d0901d69ce/node_modules/specweave node /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave/scripts/e2e/session-checkpoints.mjs",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 6,
+    "done": 6
+  },
+  "tasks": {
+    "total": 5,
+    "done": 5,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

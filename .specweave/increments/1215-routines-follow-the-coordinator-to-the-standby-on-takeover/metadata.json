@@ -1,0 +1,15 @@
+{
+  "id": "1215-routines-follow-the-coordinator-to-the-standby-on-takeover",
+  "uuid": "eb9ec364-4bfe-430e-bc94-efb0a8e4db00",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-03T18:19:16.152Z",
+  "updated": "2026-11-03T18:19:16.153Z",
+  "lastActivity": "2026-11-03T18:19:16.153Z",
+  "title": "Routines follow the coordinator to the standby on takeover",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

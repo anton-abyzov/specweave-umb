@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-17T06:57:21.924Z",
+  "increment": "0885-search-console-seo-recovery",
+  "commands": [
+    {
+      "cmd": "python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-mail-inventory.py",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-release-artifacts.py",
+      "exit": 0
+    },
+    {
+      "cmd": "npm --prefix /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify run test:coverage -- --reporter=dot",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-live-seo.py --site specweave --crawl-specweave",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-live-seo.py --site vskill",
+      "exit": 0
+    },
+    {
+      "cmd": "python3 .specweave/increments/0885-search-console-seo-recovery/scripts/verify-live-seo.py --site easychamp",
+      "exit": 0
+    },
+    {
+      "cmd": "env PLAYWRIGHT_MODULE=/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vsp-0885-verify/node_modules/playwright node .specweave/increments/0885-search-console-seo-recovery/scripts/verify-specweave-design.mjs",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 7,
+    "done": 7
+  },
+  "tasks": {
+    "total": 7,
+    "done": 7,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

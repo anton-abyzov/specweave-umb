@@ -1,0 +1,10 @@
+{
+  "files": [
+    {
+      "filename": "environments/prod/ec-landing/values-prod.yaml",
+      "patch": "@@ -31,7 +31,7 @@ strategy:\n # Whatever is committed here is a placeholder; CI overwrites it on every push.\n image:\n   repository: \"ghcr.io/anton-abyzov/ec-landing\"\n-  tag: \"develop-07cde18\"\n+  tag: \"develop-396874e\"\n   pullPolicy: \"Always\"\n env:\n   NODE_ENV: \"production\"",
+      "status": "modified"
+    }
+  ],
+  "sha": "c113cc38dc2507b3934b1690685f0cf749962305"
+}

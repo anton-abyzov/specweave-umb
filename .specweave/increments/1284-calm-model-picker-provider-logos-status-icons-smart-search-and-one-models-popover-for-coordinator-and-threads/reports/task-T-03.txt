@@ -1,0 +1,25 @@
+$ cd repositories/anton-abyzov/specwithcode-dev/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/shell/ProjectModelsPopover.test.tsx src/components/studio/shell/CoordinatorModelPicker.test.tsx src/components/chat/ProviderModelPicker.test.tsx
+# exit 0 — 2026-11-11T18:48:51.688Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+Warning: Route file "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.1 [39m[90m/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/web[39m
+
+ [32m✓[39m [30m[42m unit [49m[39m src/components/studio/shell/ProjectModelsPopover.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 82[2mms[22m[39m
+ [32m✓[39m [30m[42m unit [49m[39m src/components/chat/ProviderModelPicker.test.tsx [2m([22m[2m29 tests[22m[2m)[22m[32m 102[2mms[22m[39m
+ [32m✓[39m [30m[42m unit [49m[39m src/components/studio/shell/CoordinatorModelPicker.test.tsx [2m([22m[2m53 tests[22m[2m)[22m[32m 179[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+[2m      Tests [22m [1m[32m88 passed[39m[22m[90m (88)[39m
+[2m   Start at [22m 13:48:38
+[2m   Duration [22m 13.03s[2m (transform 85%, import 10%, environment 4%, tests 1%)[22m
+

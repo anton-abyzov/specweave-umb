@@ -1,11 +1,11 @@
 {
   "id": "0849-sleek-repos-cabinet-dedupe",
-  "status": "active",
-  "type": "ux",
+  "status": "completed",
+  "type": "feature",
   "priority": "P1",
   "created": "2026-05-21T22:30:00.000Z",
   "activatedAt": "2026-05-21T22:30:00.000Z",
-  "lastActivity": "2026-05-22T00:42:00.000Z",
+  "lastActivity": "2026-10-11T04:39:20.762Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -13,5 +13,18 @@
   "planning": {
     "parallel": false
   },
-  "summary": "Sectioned Public/Private Repositories cabinet (web + Mac), one canonical Connect CTA per surface, empty state stays informational. Closes user feedback: duplicated buttons + unclear public/private differentiation."
+  "summary": "Sectioned Public/Private Repositories cabinet (web + Mac), one canonical Connect CTA per surface, empty state stays informational. Closes user feedback: duplicated buttons + unclear public/private differentiation.",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2474",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2474",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-11T04:39:26.063Z"
+    }
+  },
+  "updated": "2026-10-11T04:39:20.762Z",
+  "readyForReviewAt": "2026-10-11T04:39:20.760Z",
+  "closeReason": "All 5 tasks done; shipped in vskill cd07902 and vskill-platform 1adb5059 on main (2026-05-21), released and deployed since; type ux corrected to feature",
+  "approvedAt": "2026-10-11T04:39:20.762Z"
 }

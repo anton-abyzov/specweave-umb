@@ -1,0 +1,11 @@
+{
+  "id": "0001-device-update-hold",
+  "uuid": "f8cb240b-1d7d-4ed4-bdd7-060591f1e3c1",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-16T20:36:57.200Z",
+  "updated": "2026-10-16T20:50:59.974Z",
+  "lastActivity": "2026-10-16T20:50:59.974Z",
+  "title": "Pause Device hub during guarded updates"
+}

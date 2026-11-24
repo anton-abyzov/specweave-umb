@@ -1,0 +1,17 @@
+{
+  "id": "1026-keep-the-chrome-extension-connected-and-show-when-it-is-not",
+  "uuid": "c49a7361-3719-44b1-9bae-7e6a5b8f843a",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-23T13:43:19.324Z",
+  "updated": "2026-10-24T01:35:31.397Z",
+  "lastActivity": "2026-10-24T01:35:31.397Z",
+  "title": "Keep the Chrome extension connected and show when it is not",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T01:35:31.395Z",
+  "approvedAt": "2026-10-24T01:35:31.397Z"
+}

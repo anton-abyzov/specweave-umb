@@ -1,0 +1,21 @@
+{
+  "headless": true,
+  "scope": "Actual ChatMarkdown and outside-document chip; isolated fixture, no provider turns or installed runtime changes",
+  "cases": [
+    {
+      "theme": "light",
+      "width": 760,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "width": 760,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "passed": true
+    }
+  ]
+}

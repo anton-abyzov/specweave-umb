@@ -1,0 +1,18 @@
+{
+  "repository": "anton-abyzov/specwithcode",
+  "repositoryId": 1414999661,
+  "head": "1c40934b9d7bde54559c8b98d1eeb0a375366f9a",
+  "version": "1.0.90",
+  "fork": false,
+  "detectedProjectLicense": null,
+  "baselineHead": "39b0a05fdf625fd06cef5c2fbe30de87ed3da96f",
+  "historyStatus": "ahead",
+  "initialStars": 2,
+  "stars": 2,
+  "contributors": [
+    "anton-abyzov"
+  ],
+  "independentReadme": true,
+  "blanketLicenseRemoved": true,
+  "inheritedNoticeExact": true
+}

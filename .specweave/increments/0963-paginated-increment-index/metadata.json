@@ -1,0 +1,18 @@
+{
+  "id": "0963-paginated-increment-index",
+  "uuid": "a8c45844-87ef-4c10-bb34-6e09859c96a6",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T17:32:05.000Z",
+  "updated": "2026-10-20T18:14:21.338Z",
+  "lastActivity": "2026-10-20T18:14:21.338Z",
+  "title": "Paginated, searchable increment index",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T18:14:21.336Z",
+  "closeReason": "verify ACs 5/5; only failure was unrelated save.test.ts 5000ms timeout under load, passes alone 51/51; earlier run failed on unrelated pickup/pre-compact timeouts",
+  "approvedAt": "2026-10-20T18:14:21.338Z"
+}

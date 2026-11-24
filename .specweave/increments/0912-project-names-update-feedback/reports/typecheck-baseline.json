@@ -1,0 +1,31 @@
+{
+  "source": "2bb52069a33603a4c53cc866024458110b26702b",
+  "exitCode": 1,
+  "changedFilesHaveDiagnostics": false,
+  "diagnosticFiles": {
+    "apps/web/src/components/chat/FailureDetail.test.tsx": {
+      "unchangedFromBaseline": true
+    },
+    "apps/web/src/components/chat/explicitCreditSend.test.ts": {
+      "unchangedFromBaseline": true
+    },
+    "apps/web/src/components/studio/CapacityFleet.test.tsx": {
+      "unchangedFromBaseline": true
+    },
+    "apps/web/src/components/studio/ProjectPlan.test.tsx": {
+      "unchangedFromBaseline": true
+    },
+    "apps/web/src/components/studio/ProjectWorkspace.test.tsx": {
+      "unchangedFromBaseline": true
+    },
+    "apps/web/src/lib/displayDates.test.ts": {
+      "unchangedFromBaseline": true
+    },
+    "apps/web/src/lib/newThreadWorkspaceDefault.test.ts": {
+      "unchangedFromBaseline": true
+    },
+    "apps/web/src/lib/newThreadWorkspaceDefault.ts": {
+      "unchangedFromBaseline": true
+    }
+  }
+}

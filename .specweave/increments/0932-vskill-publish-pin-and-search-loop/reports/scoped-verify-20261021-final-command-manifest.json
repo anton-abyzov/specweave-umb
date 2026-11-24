@@ -1,0 +1,31 @@
+{
+  "commands": [
+    "npm --prefix repositories/anton-abyzov/vskill test -- --maxWorkers=2",
+    "cd /Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize && npx --no-install vitest run src/lib/__tests__/search-slug.test.ts src/app/api/v1/cron/rescan-stale src/app/api/v1/skills src/app/api/v1/internal/finalize-scan src/lib/submission/__tests__/publish.test.ts --maxWorkers=2 --no-cache",
+    "cd /Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize && node --test crawl-worker/sources/submission-scanner.test.js",
+    "npm view vskill version | grep -q 1.2.10 && vskill --version | grep -q 1.2.10",
+    "vskill whoami | python3 -c 'import sys; assert \"Active tenant: anton-abyzov\" in sys.stdin.read()' && gh run view 39383673080 -R anton-abyzov/vskill --json conclusion --jq .conclusion | grep -q success",
+    "curl --fail --silent https://verified-skill.com/api/v1/skills/anton-abyzov/specweave/sw-do | grep -q '\"3.1.0\"'"
+  ],
+  "scope": "0932 task tests: full vskill suite, platform task paths, scanner regression, release, tenant/nightly, public registry",
+  "environment": {
+    "node": "22.20.0",
+    "gitGlobal": "/dev/null",
+    "gitSystem": false,
+    "SPECWEAVE_WORKSPACE": "unset",
+    "maxWorkers": 2
+  },
+  "runStartedAt": "2026-10-21T06:48:04Z",
+  "retryReason": "Two timing assertions failed in first full CLI suite, then all 161 tests in those same two unchanged files passed in an isolated recheck. Repeat all six commands without changing tests or scope.",
+  "sourceHeadsAtStart": {
+    "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill": "36c5c532dbc105463cf89906bb632fdd775e1dbc",
+    "/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize": "e86907bfa521f6f9ea0bc0aaf86a7c5aaaa9f0d2"
+  },
+  "runFinishedAt": "2026-10-21T06:50:48Z",
+  "exitCode": 0,
+  "sourceHeadsAtEnd": {
+    "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill": "36c5c532dbc105463cf89906bb632fdd775e1dbc",
+    "/Users/antonabyzov/Projects/github/wt-0932-0934/platform-finalize": "58e2eb892e5868ee1010da6a8a2eb6edbc4bf4d3"
+  },
+  "sourceHeadChange": "Platform head advanced during the full CLI command from e86907bfa521f6f9ea0bc0aaf86a7c5aaaa9f0d2 to 58e2eb892e5868ee1010da6a8a2eb6edbc4bf4d3. git diff confirms only package.json build:worker command/comment changes; no tested source or tests changed. Both source heads are recorded."
+}

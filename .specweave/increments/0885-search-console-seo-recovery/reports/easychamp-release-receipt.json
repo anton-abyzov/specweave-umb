@@ -1,0 +1,366 @@
+{
+  "checkedAt": "2026-10-07T14:17:54.987341+00:00",
+  "scope": "EasyChamp supported Landing, Arena and shared UIKit VideoObject publication metadata recovery; no deprecated frontend mutation",
+  "source": [
+    {
+      "repo": "ec-uikit",
+      "pr": "https://github.com/anton-abyzov/ec-uikit/pull/145",
+      "reviewedHead": "5982da96b5962936d9914ff79cd26c6621de0d60",
+      "merge": "10729170ee2302863d3cb724f14722958dbc3e6f"
+    },
+    {
+      "repo": "ec-landing",
+      "pr": "https://github.com/anton-abyzov/ec-landing/pull/165",
+      "reviewedHead": "074ab549b8b27d084a40e4495f52675e484367a0",
+      "merge": "116549bf3aaf7b678f25b4535c3694b5ef195ad8"
+    },
+    {
+      "repo": "ec-arena-ui",
+      "pr": "https://github.com/anton-abyzov/ec-arena-ui/pull/284",
+      "reviewedHead": "ba16c761231835cad79f80914457ad60e33e4783",
+      "merge": "7187b746af193cb47bc48cbd8444ef25725591db"
+    },
+    {
+      "repo": "ec-landing",
+      "pr": "https://github.com/anton-abyzov/ec-landing/pull/167",
+      "reviewedHead": "ea31431d2981e1624daa8c688941ace575286cb5",
+      "merge": "f77de0be51be5e967cb262848dba5a4ebebd00de"
+    },
+    {
+      "repo": "ec-uikit",
+      "pr": "https://github.com/anton-abyzov/ec-uikit/pull/146",
+      "reviewedHeadPrefix": "2b72e6c",
+      "merge": "ce3b8fd0c143d76fd66619f49dd9f65c74e81d72",
+      "change": "comment only; consumer functional pin stays 5982da9",
+      "reviewedHead": "2b72e6ca03e54b6b61949c972f8f452bb1c2be92"
+    }
+  ],
+  "consumerFunctionalPin": "5982da96b5962936d9914ff79cd26c6621de0d60",
+  "independentReviewer": "/root/seo_independent_review",
+  "tests": [
+    {
+      "repo": "ec-uikit",
+      "tests": 877,
+      "files": 60,
+      "log": "source-tests/uikit-public-site-test.log",
+      "focusedTests": 27,
+      "coverage": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      },
+      "coverageLog": "source-tests/uikit-video-coverage.log",
+      "buildLog": "source-tests/uikit-build.log"
+    },
+    {
+      "repo": "ec-landing",
+      "testsPassed": 5741,
+      "testsSkipped": 1,
+      "files": 282,
+      "log": "source-tests/landing-all-final-tests.log",
+      "focusedTests": 61,
+      "focusedLog": "source-tests/landing-blog-video-tests.log",
+      "coverage": {
+        "statements": 90.32,
+        "branches": 74.26,
+        "functions": 91.66,
+        "lines": 92.45
+      },
+      "coverageLog": "source-tests/landing-blog-help-coverage-final.log",
+      "typecheckLog": "source-tests/landing-final-typecheck.log",
+      "buildLog": "source-tests/landing-blog-video-build.log"
+    },
+    {
+      "repo": "ec-arena-ui",
+      "testsPassed": 8521,
+      "files": 683,
+      "log": "source-tests/arena-all-final-tests.log",
+      "focusedTests": 77,
+      "focusedLog": "source-tests/arena-source-attribution-test-final.log",
+      "coverage": {
+        "statements": 100,
+        "branches": 95.04,
+        "functions": 100,
+        "lines": 100
+      },
+      "coverageLog": "source-tests/arena-attribution-coverage-final.log",
+      "typecheckLog": "source-tests/arena-final-typecheck.log",
+      "buildLog": "source-tests/arena-source-attribution-build.log"
+    }
+  ],
+  "exactTestCommandsReceipt": "easychamp-source-test-invocations.json",
+  "ci": [
+    {
+      "conclusion": "success",
+      "headSha": "f77de0be51be5e967cb262848dba5a4ebebd00de",
+      "jobs": [
+        {
+          "name": "validate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "update-gitops",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "conclusion": "success",
+      "headSha": "7187b746af193cb47bc48cbd8444ef25725591db",
+      "jobs": [
+        {
+          "name": "build",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "validate (2)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "validate (1)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "update-gitops",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "cluster": {
+    "checkedAt": "2026-10-07T14:17:07.078512+00:00",
+    "deployments": [
+      {
+        "name": "ec-landing",
+        "generation": 106,
+        "replicas": 2,
+        "ready": 2,
+        "updated": 2,
+        "images": [
+          "ghcr.io/anton-abyzov/ec-landing:develop-07cde18"
+        ],
+        "argocdSync": "Synced",
+        "argocdRevision": "081e2ac9d9a432039dfec963399612ea4b1f26df",
+        "argocdHealth": "Healthy",
+        "pods": [
+          {
+            "name": "ec-landing-58dc458748-46psv",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-landing:develop-07cde18",
+                "imageID": "ghcr.io/anton-abyzov/ec-landing@sha256:f833160c9ac71647164f46be412736d9cca8231e46b04145cb28e15a62971f74"
+              }
+            ]
+          },
+          {
+            "name": "ec-landing-58dc458748-gxr78",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-landing:develop-07cde18",
+                "imageID": "ghcr.io/anton-abyzov/ec-landing@sha256:f833160c9ac71647164f46be412736d9cca8231e46b04145cb28e15a62971f74"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ec-arena-ui",
+        "generation": 137,
+        "replicas": 3,
+        "ready": 3,
+        "updated": 3,
+        "images": [
+          "ghcr.io/anton-abyzov/ec-arena-ui:develop-7187b74"
+        ],
+        "argocdSync": "Synced",
+        "argocdRevision": "081e2ac9d9a432039dfec963399612ea4b1f26df",
+        "argocdHealth": "Healthy",
+        "pods": [
+          {
+            "name": "ec-arena-ui-cc584dcdb-48vm9",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-7187b74",
+                "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:77ff7d71fd4cf7237babcfdb55d62b283ebd4ec4952513f7868b3d9b186332d4"
+              }
+            ]
+          },
+          {
+            "name": "ec-arena-ui-cc584dcdb-bhw2x",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-7187b74",
+                "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:77ff7d71fd4cf7237babcfdb55d62b283ebd4ec4952513f7868b3d9b186332d4"
+              }
+            ]
+          },
+          {
+            "name": "ec-arena-ui-cc584dcdb-xm9mt",
+            "phase": "Running",
+            "containers": [
+              {
+                "ready": true,
+                "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-7187b74",
+                "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:77ff7d71fd4cf7237babcfdb55d62b283ebd4ec4952513f7868b3d9b186332d4"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "publicRendererRows": [
+    {
+      "case": "help-390-light",
+      "status": "passed",
+      "url": "https://easychamp.com/help/league-console/create-league-or-tournament",
+      "width": 390,
+      "scrollWidth": 390,
+      "screenshot": "public-design/easychamp/final-release-help-390-light.png"
+    },
+    {
+      "case": "help-1440-light",
+      "status": "passed",
+      "url": "https://easychamp.com/help/league-console/create-league-or-tournament",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "screenshot": "public-design/easychamp/final-release-help-1440-light.png"
+    },
+    {
+      "case": "help-390-dark",
+      "status": "passed",
+      "url": "https://easychamp.com/help/league-console/create-league-or-tournament",
+      "width": 390,
+      "scrollWidth": 390,
+      "screenshot": "public-design/easychamp/final-release-help-390-dark.png"
+    },
+    {
+      "case": "/ko/sim",
+      "status": "passed",
+      "url": "https://easychamp.com/ko/sim",
+      "width": 390,
+      "scrollWidth": 390,
+      "screenshot": "public-design/easychamp/final-release-ko-sim-390.png"
+    },
+    {
+      "case": "/ko/coach",
+      "status": "passed",
+      "url": "https://easychamp.com/ko/coach",
+      "width": 390,
+      "scrollWidth": 390,
+      "screenshot": "public-design/easychamp/final-release-ko-coach-390.png"
+    },
+    {
+      "case": "/tr/sim",
+      "status": "passed",
+      "url": "https://easychamp.com/tr/sim",
+      "width": 390,
+      "scrollWidth": 390,
+      "screenshot": "public-design/easychamp/final-release-tr-sim-390.png"
+    },
+    {
+      "case": "/tools/round-robin-generator",
+      "status": "passed",
+      "url": "https://easychamp.com/tools/round-robin-generator",
+      "width": 390,
+      "scrollWidth": 390,
+      "screenshot": "public-design/easychamp/final-release-tools-round-robin-generator-390.png"
+    },
+    {
+      "case": "/pro-clubs",
+      "status": "passed",
+      "url": "https://easychamp.com/pro-clubs",
+      "width": 390,
+      "scrollWidth": 390,
+      "screenshot": "public-design/easychamp/final-release-pro-clubs-390.png"
+    },
+    {
+      "case": "blog-390",
+      "status": "passed",
+      "url": "https://easychamp.com/blog/efa-efootball-qualification-2026-groups-playoffs",
+      "width": 390,
+      "scrollWidth": 390,
+      "screenshot": "public-design/easychamp/final-release-blog-390.png"
+    },
+    {
+      "case": "watch-390-simulated-crawler",
+      "status": "passed",
+      "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+      "width": 390,
+      "scrollWidth": 390,
+      "screenshot": "public-design/easychamp/final-release-watch-simulated-crawler-390.png",
+      "proofType": "simulated crawler rendering; not actual Google URL Inspection"
+    }
+  ],
+  "publicRendererCount": 10,
+  "rawHelp": {
+    "leafPages": 12,
+    "VideoObjects": 14,
+    "hubVideoObjects": 0,
+    "receipt": "help-all-raw-html-video-proof.json",
+    "note": "Hub has no video player; valid schema is emitted server-side on tutorial leaf pages."
+  },
+  "nativePlayerPlayback": "final-release-blog-playback.json",
+  "genericWatchAutomation": {
+    "status": 429,
+    "producer": "Cloudflare watch-crawler-shed HEADLESS policy at worker.js:211-215",
+    "body": "busy",
+    "retryAfter": 3600,
+    "receipt": "final-release-watch-isolated-headless.json",
+    "policyUnchanged": true,
+    "deployedWorkerVersion": "81bb6145-68a4-4218-b78a-3032b4a3dc39"
+  },
+  "rawWatchSeoClientReceipt": "final-watch-seo-client-proof.json",
+  "publicationSources": [
+    "youtube-help-publication-times.json",
+    "youtube-efa-video-publication.json"
+  ],
+  "allEmitterAudit": "video-source-attribution-audit.md",
+  "remainingExternalGates": [
+    "Actual Google recrawl and Search Console validation completion; simulated rendering is not actual Google URL Inspection.",
+    "Legacy routes remain read-only and may redirect to retired frontends outside supported scope."
+  ],
+  "ownersPreserved": true,
+  "ownWorktreesClean": true,
+  "ownExactSourceRolloutReceipt": "easychamp-final-cluster-readback.json",
+  "laterOwnerLandingRelease": {
+    "ancestryReceipt": "landing-later-owner-release-ancestry.json",
+    "head": "07cde1843350a8474fccef2aad86adc6ce3ef768",
+    "preservesSEOCommit": true,
+    "changedFiles": [
+      "src/app/privacy/page.tsx"
+    ],
+    "ci": [
+      {
+        "id": 37632861643,
+        "name": "Build and Update GitOps",
+        "headSha": "07cde1843350a8474fccef2aad86adc6ce3ef768",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/anton-abyzov/ec-landing/actions/runs/37632861643",
+        "event": "push"
+      }
+    ],
+    "currentPodReceipt": "easychamp-final-release-cluster-proof.json"
+  }
+}

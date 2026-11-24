@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-07T14:10:52.572Z",
+  "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+  "headless": true,
+  "httpStatus": 429,
+  "headers": {
+    "alt-svc": "h3=\":443\"; ma=86400",
+    "cache-control": "no-store",
+    "cf-ray": "a46d7de7cef86139-MIA",
+    "content-length": "4",
+    "content-type": "text/plain;charset=UTF-8",
+    "date": "Wed, 07 Oct 2026 14:10:52 GMT",
+    "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=vzSjHzpHUJniAPhKRZnb4ft1btiZswZVIVPhvCEWQ54diifYN0fZd7OHIUVhSLX5PWGrXRoel01yIS9RUAXuPAPZL8klbZM%2B7FRZnmRc0LB3RbE9yQe0u%2F6m%2FK5HypFRJgm%2FDGtR\"}]}",
+    "retry-after": "3600",
+    "server": "cloudflare",
+    "server-timing": "cfEdge;dur=9,cfOrigin;dur=0,cfWorker;dur=0",
+    "x-ec-shed": "headless"
+  },
+  "state": {
+    "title": "",
+    "h1": [],
+    "width": 390,
+    "scrollWidth": 390,
+    "nodes": [],
+    "text": "busy"
+  },
+  "screenshot": "/tmp/easychamp-seo-audit-20261007/final-release-watch-isolated-390.png",
+  "status": "failed",
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n429 !== 200\n"
+}

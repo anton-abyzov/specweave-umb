@@ -2,7 +2,7 @@
   "id": "0683-studio-update-notifications",
   "title": "vSkill Studio — Update Notifications UI (Row Indicator, Section Badge, TopRail Bell, Detail CTA)",
   "type": "feature",
-  "status": "superseded",
+  "status": "abandoned",
   "superseded_by": "0708-skill-update-push-pipeline",
   "supersededBy": "0708-skill-update-push-pipeline",
   "supersededAt": "2026-04-24",
@@ -40,5 +40,9 @@
   ],
   "testMode": "TDD",
   "coverageTarget": 90,
-  "externalLinks": {}
+  "externalLinks": {},
+  "closeReason": "superseded by 0708-skill-update-push-pipeline",
+  "abandonedAt": "2026-09-06T05:43:01.928Z",
+  "lastActivity": "2026-04-23",
+  "updated": "2026-04-23"
 }

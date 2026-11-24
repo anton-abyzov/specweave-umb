@@ -1,0 +1,34 @@
+{
+  "scope": "0933 task test commands, scoped verification, not aggregate verification",
+  "node": "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node",
+  "python": "/usr/local/bin/python3",
+  "commands": [
+    "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/node_modules/vitest/vitest.mjs run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/tasks/cards.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/tasks/ledger.test.ts --maxWorkers=1 --no-file-parallelism",
+    "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/node_modules/vitest/vitest.mjs run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/cli/commands/card.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/session/pickup.test.ts --maxWorkers=1 --no-file-parallelism",
+    "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/node_modules/vitest/vitest.mjs run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/tasks/verify-runner.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/tests/unit/core/lifecycle/LifecycleHookDispatcher.test.ts --maxWorkers=1 --no-file-parallelism",
+    "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && npm run lint:standalone-skills && npm run lint:docs-refs",
+    "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/node_modules/vite-plus/bin/vp test run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/server/src/mods/__tests__/SpecweaveProgress.cards.test.ts /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web/src/studio/threadPlanProgress.test.ts --maxWorkers=1 --no-file-parallelism",
+    "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /opt/homebrew/lib/node_modules/specweave/bin/specweave.js cards 0930 --md | grep -q 'pull/348' && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /opt/homebrew/lib/node_modules/specweave/bin/specweave.js cards 0931 --md | grep -q 'pull/2081'",
+    "cd /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/node_modules/vitest/vitest.mjs run /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave/src/core/tasks/verify-and-gate.test.ts --maxWorkers=1 --no-file-parallelism"
+  ],
+  "metadataSha256Before": "997a0475b727109595a4ed53bc7f819f1ca0af4bc62ba40ad8b4999ee0777486",
+  "gitConfigEnvironmentRemoved": true,
+  "PWDEBUG": "0",
+  "PLAYWRIGHT_HTML_OPEN": "never",
+  "gitConfigIsolation": {
+    "GIT_CONFIG_GLOBAL": "/dev/null",
+    "GIT_CONFIG_NOSYSTEM": "1"
+  },
+  "workspaceEnvironmentRemoved": true,
+  "workspaceResolution": "cwd is umbrella root; temporary fixtures retain their own project roots",
+  "verifiedCounts": [
+    27,
+    27,
+    11,
+    41,
+    5
+  ],
+  "verifiedTestTotal": 111,
+  "completeExit": 0,
+  "metadataSha256After": "997a0475b727109595a4ed53bc7f819f1ca0af4bc62ba40ad8b4999ee0777486"
+}

@@ -1,0 +1,30 @@
+[
+ {
+  "mode": "light",
+  "w": 1440,
+  "extra": "nojs",
+  "finalUrl": "https://spec-weave.com/code/",
+  "errs": []
+ },
+ {
+  "mode": "light",
+  "w": 375,
+  "extra": "nojs",
+  "finalUrl": "https://spec-weave.com/code/",
+  "errs": []
+ },
+ {
+  "mode": "dark",
+  "w": 1440,
+  "extra": "nojs",
+  "finalUrl": "https://spec-weave.com/code/",
+  "errs": []
+ },
+ {
+  "mode": "dark",
+  "w": 375,
+  "extra": "nojs",
+  "finalUrl": "https://spec-weave.com/code/",
+  "errs": []
+ }
+]

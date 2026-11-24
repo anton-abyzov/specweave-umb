@@ -1,0 +1,17 @@
+{
+  "headless": true,
+  "results": [
+    {
+      "route": "/code/",
+      "status": 200,
+      "productLicenseAbsent": true,
+      "sourceAvailableAlt": true
+    },
+    {
+      "route": "/code/download/",
+      "status": 200,
+      "productLicenseAbsent": true,
+      "sourceAvailableAlt": true
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "at": "2026-09-14T07:44:26.625Z",
+  "headless": true,
+  "origin": "http://127.0.0.1:63397",
+  "routes": [
+    {
+      "route": "/docs/getting-started",
+      "status": 200,
+      "title": "Start with your project"
+    },
+    {
+      "route": "/docs/academy",
+      "status": 200,
+      "title": "SpecWeave Software Engineering Academy"
+    },
+    {
+      "route": "/docs/guides/compliance-standards",
+      "status": 200,
+      "title": "Compliance Standards Reference"
+    },
+    {
+      "route": "/docs/guides/core-concepts/living-documentation",
+      "status": 200,
+      "title": "Living Documentation"
+    },
+    {
+      "route": "/docs/skills/extensible/skill-development-guidelines",
+      "status": 200,
+      "title": "Skill Development Guidelines"
+    },
+    {
+      "route": "/docs/skills/extensible/extensible-skills",
+      "status": 200,
+      "title": "Extensible Skills: Customization Without Modification"
+    },
+    {
+      "route": "/docs/skills/extensible",
+      "status": 200,
+      "title": "Extensible Skills"
+    },
+    {
+      "route": "/docs/skills/extensible/extensible-skills-standard",
+      "status": 200,
+      "title": "Extensible Skills Specification"
+    },
+    {
+      "route": "/docs/guides/lazy-plugin-loading",
+      "status": 200,
+      "title": "Lazy Plugin Loading (Upcoming v1.1)"
+    },
+    {
+      "route": "/docs/reference/skills",
+      "status": 200,
+      "title": "Skills reference"
+    },
+    {
+      "route": "/product",
+      "status": 200,
+      "title": "The work outlives\nthe session."
+    },
+    {
+      "route": "/integrations",
+      "status": 200,
+      "title": "Keep your tracker.\nConnect the evidence."
+    }
+  ],
+  "pageErrors": [],
+  "assertions": [
+    "Extensibility overview has no self-link and labels unpublished guide.",
+    "Lazy-loading related link honestly labels canonical getting started.",
+    "Unpublished authoring template returns HTTP 404.",
+    "Historical availability notice remains visible on mobile."
+  ],
+  "pass": true
+}

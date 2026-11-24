@@ -1,0 +1,18 @@
+{
+  "id": "0958-brace-shorthand-report-links-name-real-files",
+  "uuid": "455ee2b9-9732-4595-bc61-627ff56e8b64",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T13:17:11.021Z",
+  "updated": "2026-10-20T15:31:09.762Z",
+  "lastActivity": "2026-10-20T15:31:09.762Z",
+  "title": "Brace shorthand report links name real files",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T15:31:09.760Z",
+  "closeReason": "ACs 8/8, tasks 5/5; fresh-context review + re-review passed (PR #480 295ff49777, PR #483 65ede2f547); umbrella verify failures are load timeouts in specweave/vskill/vskill-platform, untouched by this work; AC-08 evidence from a fixture build rendering the real components",
+  "approvedAt": "2026-10-20T15:31:09.762Z"
+}

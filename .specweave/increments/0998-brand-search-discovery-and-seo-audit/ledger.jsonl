@@ -1,0 +1,11 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:29:49.282Z","note":"session 01a164dc-93d4-71f0-83e8-828d7b97fbf1"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:29:49.283Z"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:29:49.658Z"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:29:50.034Z"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:29:50.434Z"}
+{"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:34:52.672Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:39:41.334Z","evidence":"135 live sitemap URLs: 200 responses, unique titles, one matching canonical/H1/description; no noindex or spaced brand. DNS NXDOMAIN and Supermetrics plan gate saved in /Users/antonabyzov/.specwithcode/m4/evidence/seo-brand-20261022/sitemap-crawl.json and the committed audit.\nHEAD 79c009b83"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:39:41.968Z","evidence":"9b1be59d4: generated brand checks pass; visible alias, product/download social cards and shared product/site identity. 32 focused tests pass, including live 159784442-byte v1.0.71 installer HEAD.\nHEAD 79c009b83"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:39:42.639Z","evidence":"9b1be59d4: production build verifies 136 indexable URLs, 12428 internal links, comparison TechArticle headline/canonical/example, brand FAQ parity. Hidden preview at 390px has no overflow.\nHEAD 79c009b83"}
+{"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:39:43.380Z","evidence":"9b1be59d4: browser checks load Schibsted Grotesk and JetBrains Mono from same-origin hashed WOFF2 with no Google font requests. Independent review verified all eight binaries and both OFL licenses byte-match upstream.\nHEAD 79c009b83"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-22T18:39:44.029Z","evidence":"9b1be59d4: comprehensive audit committed; 32 tests pass and Node22 root typecheck passes. Fresh-context independent review PASS at /Users/antonabyzov/.specwithcode/m4/evidence/seo-brand-20261022/fresh-review.md. Google submission/rank and deploy boundaries explicit.\nHEAD 79c009b83"}

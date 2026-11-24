@@ -1,0 +1,77 @@
+
+ RUN  v3.2.7 /Users/antonabyzov/.codex/worktrees/hosted-private-publishing/specweave-umb/repositories/anton-abyzov/vskill-platform
+      Coverage enabled with v8
+
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > authenticates, queues by opaque ID, scans and publishes a private artifact under its tenant 5147ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > denies free tenants before any private repository read or submission write 2349ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > accepts the personal installation owner’s live Pro subscription 3207ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > does not borrow a member’s personal Pro for a free organization 996ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > rejects anonymous and cross-tenant intake without creating work 2284ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > does not reveal private status to anonymous users or another tenant 3114ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > downloads a frozen verified bundle only for current tenant members 3921ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > preserves private intent for a public GitHub source and never overwrites its public catalog identity 4807ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > keeps public search, catalog, queue, direct reads, versions and publisher stats empty 4931ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > coalesces concurrent submissions and duplicate queue deliveries into one version 7185ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > unchanged resubmission is idempotent but a bundled-script edit creates a new version 7472ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > allows the same source path in two authorized tenants without sharing skill identity 5965ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > rechecks entitlement when queued work runs after subscription cancellation 3563ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > rechecks membership when queued work runs after the submitter is removed 3125ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > closed-gate rollback rejects new intake and prevents already-queued publication 3468ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > never retries a revoked scoped credential with a platform token 3449ms
+stderr | tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > refuses unresolved scans instead of treating an outage as approval
+[ai-router] workers-ai failed: private request — no more providers
+
+stderr | tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > refuses unresolved scans instead of treating an outage as approval
+[tier2] Private judge provider failed
+
+stderr | tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > refuses unresolved scans instead of treating an outage as approval
+[tier2] Both models failed for scan
+
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > refuses unresolved scans instead of treating an outage as approval 3734ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > rejects a malicious bundle through the real scanner pipeline 3725ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > fails closed on a symlink repository tree 2524ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > fails closed on a truncated repository tree 2721ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > rejects traversal paths before repository reads 1791ms
+ ✓ tests/integration/0896/hosted-private-publishing.test.ts > 0896 real database private publishing sandbox (no E2E bypass) > publishes the public sandbox in the same run without weakening private isolation 2274ms
+ ✓ tests/integration/0896/public-surfaces.test.ts > 0896 real database public consumers > keeps private metadata and totals out of every full statistics query 2568ms
+stderr | tests/integration/0896/public-surfaces.test.ts > 0896 real database public consumers > keeps private metadata and totals out of the degraded statistics path
+[stats-compute] Full stats failed: {
+  error: 'synthetic full-path outage',
+  stack: 'Error: synthetic full-path outage |     at /Users/antonabyzov/.codex/worktrees/hosted-private-publishing/specweave-umb/repositories/anton-abyzov/vskill-platform/tests/integration/0896/public-surfaces.test.ts:48:55 |     at file:///Users/antonabyzov/.codex/worktrees/hosted-private-publishing/specweave-umb/repositories/anton-abyzov/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11'
+}
+[stats-compute] Falling back to minimal stats (individual queries)
+
+ ✓ tests/integration/0896/public-surfaces.test.ts > 0896 real database public consumers > keeps private metadata and totals out of the degraded statistics path 1672ms
+stdout | tests/integration/0896/public-surfaces.test.ts > 0896 real database public consumers > cannot deprecate private artifacts through anonymous source checks or public rediscovery
+[check-source] Auto-deprecated public-skill
+
+ ✓ tests/integration/0896/public-surfaces.test.ts > 0896 real database public consumers > cannot deprecate private artifacts through anonymous source checks or public rediscovery 2731ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > removed revokes frozen downloads without touching another source or tenant 3664ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > deleted revokes frozen downloads without touching another source or tenant 3136ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > archived revokes frozen downloads without touching another source or tenant 7631ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > all-to-selected without a removed list revokes existing private access 4395ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > publicized source preserves explicit hosted privacy while legacy source-derived privacy converts 4517ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > revocation invalidates a held scan before it can publish or revive (existing=false, renamed=false) 3004ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > revocation invalidates a held scan before it can publish or revive (existing=true, renamed=false) 4001ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > revocation invalidates a held scan before it can publish or revive (existing=false, renamed=true) 4086ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > revocation invalidates a held scan before it can publish or revive (existing=true, renamed=true) 6149ms
+ ✓ tests/integration/0896/repository-revocation.test.ts > 0896 repository lifecycle revocation against real PostgreSQL > restored access requires explicit resubmission and a fresh scan even when source content is unchanged 6734ms
+ ✓ tests/e2e/0896/hosted-public-private-http.test.ts > headless browser publishes private + public over HTTP, reads frozen private files and rejects foreign sessions 4558ms
+
+ Test Files  4 passed (4)
+      Tests  36 passed (36)
+   Start at  02:35:14
+   Duration  177.72s (transform 5.31s, setup 0ms, collect 14.61s, tests 154.55s, environment 1ms, prepare 753ms)
+
+JSON report written to /Users/antonabyzov/.codex/worktrees/hosted-private-publishing/specweave-umb/repositories/anton-abyzov/vskill-platform/scripts/0896/.reports/results.json
+ % Coverage report from v8
+------------|---------|----------|---------|---------|--------------------------
+File        | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s        
+------------|---------|----------|---------|---------|--------------------------
+All files   |   92.58 |    76.75 |   94.44 |   92.58 |                          
+ errors.ts  |     100 |      100 |     100 |     100 |                          
+ github.ts  |   97.29 |    69.35 |     100 |   97.29 | 59-60                    
+ http.ts    |   85.18 |    68.75 |     100 |   85.18 | 17-18,30-31              
+ scan.ts    |     100 |      100 |     100 |     100 |                          
+ service.ts |   90.76 |    78.19 |   88.88 |   90.76 | ...7-138,193-195,220-225 
+------------|---------|----------|---------|---------|--------------------------

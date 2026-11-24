@@ -1,0 +1,115 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-25T03:18:09.797Z",
+  "increment": "1023-add-approved-folders-while-project-work-runs",
+  "commands": [
+    {
+      "cmd": "cd /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/feat-1009-cursor-settings-design-20261024 && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node node_modules/vite-plus/bin/vp test run apps/server/src/project/ProjectService.test.ts apps/server/src/project/http.test.ts packages/contracts/src/environmentHttp.test.ts apps/server/src/project/ProjectActionRequests.test.ts apps/server/src/mcp/toolkits/project/route.integration.test.ts apps/server/src/mcp/toolkits/core.test.ts",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 6,
+    "done": 6,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-05",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": "AC-06",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          }
+        ]
+      }
+    ]
+  },
+  "tasks": {
+    "total": 4,
+    "done": 4,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

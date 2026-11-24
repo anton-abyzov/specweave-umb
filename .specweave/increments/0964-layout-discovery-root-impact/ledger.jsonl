@@ -1,0 +1,8 @@
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:35.397Z"}
+{"t":"T-01","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:35.397Z","evidence":"specweave ef26d707e: nested-discovery.test.ts + nested-repos + workspace-adoption 72/72\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specweave/pull/2123"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:35.706Z"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:35.706Z","evidence":"bcf79ed95b: FolderLayout.test.ts 9/9, ProjectFolderChange.test.ts pass (planning_impact refuse/confirm, no-increment unchanged)\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/492"}
+{"t":"T-03","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:36.007Z"}
+{"t":"T-03","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T17:51:36.008Z","evidence":"bcf79ed95b: ProjectFolderChange web test pass; headless: Change folder disabled until planning checkbox\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/492"}
+{"t":"T-04","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:14:10.204Z"}
+{"t":"T-04","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:14:10.204Z","evidence":"0964 verify PASS (ACs 6/6); verify run; fresh-context review found 3 medium issues, fixed in specwithcode-dev ccad65fc61 with regression tests (721/721 server project tests pass)\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/492"}

@@ -1,10 +1,10 @@
 ---
 increment: 0844-vskill-private-repo-install
-title: "vskill: private-repo install support"
+title: 'vskill: private-repo install support'
 type: feature
 priority: P1
-status: planned
-created: 2026-05-10
+status: abandoned
+created: 2026-05-10T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

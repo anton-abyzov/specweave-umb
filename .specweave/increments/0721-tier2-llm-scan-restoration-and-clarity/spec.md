@@ -1,10 +1,12 @@
 ---
 increment: 0721-tier2-llm-scan-restoration-and-clarity
-title: "Tier-2 LLM Scan Restoration, Cost Optimization, and Trust-Tier Label Clarification"
+title: >-
+  Tier-2 LLM Scan Restoration, Cost Optimization, and Trust-Tier Label
+  Clarification
 type: bug
 priority: P0
-status: planned
-created: 2026-04-25
+status: abandoned
+created: 2026-04-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

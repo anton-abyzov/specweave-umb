@@ -1,0 +1,15 @@
+{
+  "id": "1352-a-machine-that-stops-answering-reads-reconnecting-first-says-why-and-clears-without-flicker",
+  "uuid": "bce16978-b406-48d3-b735-1df3d44a277a",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T05:50:28.061Z",
+  "updated": "2026-11-15T09:47:20.687Z",
+  "lastActivity": "2026-11-15T09:47:20.687Z",
+  "title": "A machine that stops answering reads reconnecting first, says why, and clears without flicker",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-15T09:47:20.683Z",
+  "approvedAt": "2026-11-15T09:47:20.687Z"
+}

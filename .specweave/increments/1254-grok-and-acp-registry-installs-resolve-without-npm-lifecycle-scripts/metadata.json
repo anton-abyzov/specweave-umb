@@ -1,0 +1,15 @@
+{
+  "id": "1254-grok-and-acp-registry-installs-resolve-without-npm-lifecycle-scripts",
+  "uuid": "8f510406-bfd4-4864-8e49-29234122442d",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T06:16:57.504Z",
+  "updated": "2026-11-07T07:17:15.681Z",
+  "lastActivity": "2026-11-07T07:17:15.681Z",
+  "title": "Grok and ACP Registry installs resolve without npm lifecycle scripts",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T07:17:15.680Z",
+  "approvedAt": "2026-11-07T07:17:15.681Z"
+}

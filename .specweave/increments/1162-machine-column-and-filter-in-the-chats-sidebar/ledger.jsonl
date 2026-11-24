@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:19:58.104Z","note":"session 8ea66045-0403-49d8-98c7-6665dd0935ef","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:19:58.106Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:19:58.108Z","evidence":"machine column in StudioSidebar and shell.css; unit tests in StudioSidebar.test.tsx and threadMachineFilter.test.ts; chat-machines.mjs at 256 and 216 px\nHEAD a972d409a","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:19:59.671Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T04:19:59.674Z","evidence":"Machine filter in ChatFilterMenu, pill, Group by Machine; unit tests cover saved filter, loading and stale cleanup\nHEAD a972d409a","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-02T05:15:49.267Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-02T05:15:49.270Z","evidence":"chat-machines.mjs passed headless at 256 and 216 px plus short names; #1180 merged ff6bc85f3e; release 1.0.148 dispatched\nHEAD 9a9e323dc","model":"claude-opus-5-5[1m]"}

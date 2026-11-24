@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handoff report: Pause Device hub during guarded updates</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1c1b19;--mut:#6b6760;--line:#e4e0d8;--card:#fff;--acc:#2f6f5e;--hand:#fff6e0;--claude:#b8612f;--codex:#2f5f9e;--grok:#6a4bb0;--muse:#0f7c86;--gemini:#9a6a00;--other:#555}
+@media (prefers-color-scheme:dark){:root{--bg:#161614;--fg:#ece9e2;--mut:#a29d93;--line:#2e2c28;--card:#1e1d1a;--acc:#6fc2a8;--hand:#3a3120}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:32px 16px}h1{font-size:26px;margin:0 0 4px}h2{font-size:17px;margin:32px 0 10px}
+.sub{color:var(--mut);margin:0 0 24px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}.stat .v{font-size:22px;font-weight:650}.stat .l{color:var(--mut);font-size:13px}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:600}tr:last-child td{border-bottom:0}tr.hand td{background:var(--hand)}
+td.t{white-space:nowrap;color:var(--mut)}td.d{white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;max-width:420px}
+.who{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;padding:1px 6px;border-radius:6px;border:1px solid currentColor;white-space:nowrap}
+.claude{color:var(--claude)}.codex{color:var(--codex)}.grok{color:var(--grok)}.muse{color:var(--muse)}.gemini{color:var(--gemini)}.other{color:var(--other)}
+.st{font-size:12.5px;padding:1px 6px;border-radius:6px;background:var(--line)}.st.done{background:var(--acc);color:var(--bg)}
+ul.acs{padding-left:18px}ul.acs li.met{color:var(--acc)}ul.acs li.met::marker{content:"✓ "}footer{color:var(--mut);font-size:13px;margin-top:32px}
+</style>
+</head>
+<body>
+<main>
+<h1>Pause Device hub during guarded updates</h1>
+<p class="sub">Increment 0001-device-update-hold · active · report generated 2026-10-16 20:51 from <code>ledger.jsonl</code></p>
+<div class="stats">
+<div class="stat"><div class="v">2/2</div><div class="l">tasks done</div></div>
+<div class="stat"><div class="v">3/3</div><div class="l">acceptance criteria met</div></div>
+<div class="stat"><div class="v">1</div><div class="l">handoff</div></div>
+<div class="stat"><div class="v">0</div><div class="l">pickups</div></div>
+<div class="stat"><div class="v">codex-device-hold</div><div class="l">tools</div></div>
+<div class="stat"><div class="v">1</div><div class="l">recorded sessions</div></div>
+</div>
+<h2>Timeline</h2>
+<div class="wrap"><table>
+<thead><tr><th>When (UTC)</th><th>Who</th><th>What</th><th>Task</th><th>Evidence or note</th></tr></thead>
+<tbody>
+<tr><td class="t">2026-10-16 20:37</td><td><span class="who other">codex-device-hold</span></td><td>started a session</td><td></td><td class="d">session 01a11f62-d3aa-7bc0-886b-97c6ec180eb6</td></tr>
+<tr><td class="t">2026-10-16 20:37</td><td><span class="who other">codex-device-hold</span></td><td>claimed</td><td>T-01</td><td class="d"></td></tr>
+<tr><td class="t">2026-10-16 20:46</td><td><span class="who other">codex-device-hold</span></td><td>finished</td><td>T-01</td><td class="d">node node_modules/vite-plus/bin/vp test run apps/server/src/device/LocalDeviceHost.test.ts apps/server/src/device/DeviceService.test.ts apps/server/src/serviceUpdate/ServiceUpdateHold.test.ts → exit 0
+log: .specweave/increments/0001-device-update-hold/reports/task-T-01.txt
+RUN  v5.0.1 /Users/antonabyzov/Projects/github/studio-maintenance-device-hold-20261016
+…</td></tr>
+<tr><td class="t">2026-10-16 20:46</td><td><span class="who other">codex-device-hold</span></td><td>claimed</td><td>T-02</td><td class="d"></td></tr>
+<tr><td class="t">2026-10-16 20:47</td><td><span class="who other">codex-device-hold</span></td><td>finished</td><td>T-02</td><td class="d">node apps/server/scripts/cli.ts build → exit 0
+log: .specweave/increments/0001-device-update-hold/reports/task-T-02.txt
+[16:47:38.551] INFO (#1): [cli] Running tsdown...
+…</td></tr>
+<tr><td class="t">2026-10-16 20:50</td><td><span class="who other">codex-device-hold</span></td><td>left a note</td><td></td><td class="d">Private PR256 (9bed7fe80) is ready:65 focused tests, production server build, verify3/3ACs, independent review0findings. Delivered to native All-threads completion audit and release chat at20:49Z via ordinary queued message; own scoped app session revoked. Existing1.0.37 updater failed protected row check and restored1.0.35; effect_outbox net+4 changed, cause unproved. Native1.0.36. Do not blindly retry, weaken guard, duplicate publisher, or claim current Copilot/Grok proof. Current evidence in /Users/antonabyzov/Projects/research/studio-copilot-2026-10-09/current-20261016. This source repair remains pending integration and installed verification.</td></tr>
+<tr class="hand"><td class="t">2026-10-16 20:50</td><td><span class="who other">codex-device-hold</span></td><td>handed off</td><td></td><td class="d">Reviewed private PR256 delivered to existing active release owner; guarded rollout failed separately and requires owner diagnosis · next: Read current maintenance-status and native release owner response; do not duplicate its work. Verify any merged fix/new guarded install via fresh receipt,version,source,health and Copilot/Grok authenticated replies.</td></tr>
+</tbody></table></div>
+<h2>Tasks</h2>
+<div class="wrap"><table>
+<thead><tr><th>Task</th><th>Title</th><th>State</th><th>By</th></tr></thead>
+<tbody>
+<tr><td>T-01</td><td>Respect update hold across device helper lifecycle</td><td><span class="st done">done</span></td><td><span class="who other">codex-device-hold</span></td></tr>
+<tr><td>T-02</td><td>Verify and hand repair to existing release owner</td><td><span class="st done">done</span></td><td><span class="who other">codex-device-hold</span></td></tr>
+</tbody></table></div>
+<h2>Acceptance criteria</h2>
+<ul class="acs">
+<li class="met"><b>AC-01</b> A held or install-gated service cannot spawn or restart the local device hub or agent helper; legitimate restart resumes safely after the hold ends. <small>(met by its tasks)</small></li>
+<li class="met"><b>AC-02</b> Stop and finalization cannot deadlock or resurrect a stopped host while a restart is paused; device settings remain unchanged. <small>(met by its tasks)</small></li>
+<li class="met"><b>AC-03</b> Focused tests, relevant server production build and independent review pass; recoverable source and review evidence are retained for the agreed release owner. <small>(met by its tasks)</small></li>
+</ul>
+<footer>Agents: codex-device-hold. Handoff and pickup rows are highlighted. Generated by <code>specweave report</code>.</footer>
+</main>
+</body>
+</html>

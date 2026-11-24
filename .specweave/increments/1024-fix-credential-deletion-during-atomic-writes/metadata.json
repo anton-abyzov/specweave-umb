@@ -1,0 +1,17 @@
+{
+  "id": "1024-fix-credential-deletion-during-atomic-writes",
+  "uuid": "a56e8fdd-21ad-466e-a6d5-89abed7b8bc2",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-10-23T07:10:50.230Z",
+  "updated": "2026-10-23T07:17:58.976Z",
+  "lastActivity": "2026-10-23T07:17:58.976Z",
+  "title": "Fix credential deletion during atomic writes",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T07:17:58.975Z",
+  "approvedAt": "2026-10-23T07:17:58.976Z"
+}

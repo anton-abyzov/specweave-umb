@@ -1,0 +1,172 @@
+
+ RUN  v4.1.11 /Users/antonabyzov/.codex/worktrees/usage-checkpoint/specweave
+
+ ✓ src/core/session/handoff-doc-format.test.ts (19 tests) 6ms
+ ❯ tests/unit/cli/helpers/init/instruction-templates.test.ts (21 tests | 1 failed) 12ms
+     ✓ AGENTS.md is the one instruction file and CLAUDE.md imports it 2ms
+     ✓ the umbrella section of AGENTS.md is conditional on its own flag 0ms
+     ✓ the hub section of AGENTS.md is conditional on its own flag 0ms
+     ✓ the jev section of AGENTS.md is conditional on its own flag 0ms
+     × AGENTS.md maps "hand off" and "pick up" to the two commands 3ms
+     ✓ CLAUDE.md.template contains no bash-only syntax 0ms
+     ✓ AGENTS.md.template contains no bash-only syntax 0ms
+     ✓ CLAUDE.md.template uses only the supported placeholders 0ms
+     ✓ AGENTS.md.template uses only the supported placeholders 0ms
+     ✓ CLAUDE.md.template keeps the managed block small and the Project notes outside it 0ms
+     ✓ AGENTS.md.template keeps the managed block small and the Project notes outside it 0ms
+     ✓ AGENTS.md keeps the Commands table outside the managed block 0ms
+     ✓ every `specweave <cmd>` in CLAUDE.md.template is registered in bin/specweave.js 1ms
+     ✓ every `specweave <cmd>` in AGENTS.md.template is registered in bin/specweave.js 1ms
+     ✓ every `specweave <cmd>` in README.md.template is registered in bin/specweave.js 1ms
+     ✓ every /sw:<skill> in CLAUDE.md.template is a 2.0 core skill that exists 0ms
+     ✓ every /sw:<skill> in AGENTS.md.template is a 2.0 core skill that exists 0ms
+     ✓ every /sw:<skill> in README.md.template is a 2.0 core skill that exists 0ms
+     ✓ CLAUDE.md uses slash commands and AGENTS.md uses the CLI plus the standalone skills 0ms
+     ✓ README.md.template is short and only needs {{PROJECT_NAME}} 0ms
+     ✓ dead 1.x template files are gone 0ms
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+ ✓ src/core/session/handoff-git-state.test.ts (7 tests) 11610ms
+     ✓ captures branch, sha, porcelain status, stat and dumps the working diff  1704ms
+     ✓ captures the FULL body of a brand-new untracked file in the diff (AC-US4-01/02)  2287ms
+     ✓ restores the index for a brand-new repo with NO commits (no HEAD)  912ms
+     ✓ reports no uncommitted changes on a clean repo and writes an empty diff  2391ms
+   ✓ preserves index bytes and captures quoted Unicode filenames  672ms
+   ✓ bounds stalled Git by the total capture budget  3503ms
+── Malware pre-commit scan ──
+[0;32mPre-commit malware + secret scan passed.[0m
+ ✓ tests/unit/core/hooks/handlers/pre-compact.test.ts (7 tests) 11870ms
+     ✓ returns {} and writes nothing when no increment is active  1295ms
+     ✓ writes a handoff for the active increment and honors the agent reason  2456ms
+     ✓ uses the default reason when the agent supplies none  2444ms
+     ✓ picks the first active increment when several are active (no ambiguity error)  1913ms
+     ✓ abandons the write when the budget is exceeded and still returns {}  1931ms
+     ✓ SPECWEAVE_HOOK_DRY_RUN=1 skips the write (doctor dry-run)  1760ms
+ ✓ src/core/session/work-handoff.test.ts (17 tests) 34768ms
+     ✓ assembles id/status/ledger table/ACs/decisions into the increment handoff.md  1995ms
+     ✓ orders the board by T-id, not user-story group order (G-001)  2371ms
+     ✓ records only the agent's --decision, pointing at spec.md for planned ones  3372ms
+     ✓ releases the agent's own claims and records a handoff event  2322ms
+     ✓ keeps claims with keepClaims  2720ms
+     ✓ is idempotent — re-running overwrites the same files  2877ms
+     ✓ writes a git+config doc noting no active increment  1865ms
+     ✓ throws listing candidate ids when no explicit id  1397ms
+     ✓ uses the explicit id when provided  1851ms
+     ✓ writes .handoff/HANDOFF.md + .handoff/.gitignore=*  2032ms
+     ✓ captures the combined diff and shows the uncommitted warning  1915ms
+     ✓ redacts planted secrets in free-text AND the diff, with counts in the doc  1773ms
+     ✓ classifies a stale .specweave/ with empty active-increment.json as non-SpecWeave  1676ms
+     ✓ classifies a .specweave/ with NO active-increment.json as non-SpecWeave  1646ms
+     ✓ refuses to overwrite a foreign root ./HANDOFF.md and writes to .handoff/  1585ms
+     ✓ overwrites a root ./HANDOFF.md in-place when it carries the marker  1658ms
+     ✓ does not lazily create metadata.json for an active id whose folder lacks it  1710ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/cli/helpers/init/instruction-templates.test.ts > CLAUDE.md.template / AGENTS.md.template (2.0) > AGENTS.md maps "hand off" and "pick up" to the two commands
+AssertionError: expected '<!-- SECTION:header required -->\n# {…' to match /says "hand off"/
+
+- Expected:
+/says "hand off"/
+
++ Received:
+"<!-- SECTION:header required -->
+# {PROJECT_NAME}
+
+This project uses SpecWeave. Work is planned in increments: `.specweave/increments/NNNN-slug/spec.md` holds Problem, Scope, Acceptance Criteria, Approach and Tasks, and `ledger.jsonl` beside it records who claimed and finished what. Start every session with `specweave pickup`.
+<!-- /SECTION -->
+
+<!-- SECTION:loop required -->
+## The loop
+
+1. `specweave pickup`: brings in the latest handoff, then prints the open increment, the next task with its acceptance criteria, claims held by others, branch state, notes and project memory.
+2. New work that needs acceptance criteria or a handoff: `specweave create-increment \"title\"`, then fill in spec.md. If an open increment already owns the files, add ACs and tasks to it instead of opening another. Small self-contained fixes need no increment.
+3. `specweave task claim T-NN`, edit only that task's Files, commit as `NNNN: what changed`, then `specweave task done T-NN --run \"<its Test>\"`.
+4. `specweave verify`, a review in a fresh session for anything that ships, then `specweave complete NNNN`.
+5. Stopping for any reason (out of tokens, switching tool or account): `specweave handoff --reason \"<why>\"`.
+
+**Handoff.** On \"hand off\", \"out of tokens\" or \"switching accounts\", run `specweave handoff --reason \"<why>\"`; tell the user to say \"pick up\" in the next tool. On \"pick up\", run `specweave pickup`. `specweave auto-handoff on` saves local checkpoints after turns without stopping, pushing or releasing claims. Usage warnings never trigger handoff. `pickup` applies explicit handoffs, not checkpoints. `specweave report` writes a timeline.
+
+Tasks live in spec.md as `### T-01 Title` followed by `- AC: AC-01 | Files: src/a.ts, src/a.test.ts | Test: npm test -- a`. An AC is met when the tasks covering it are done. Leave a message for whoever works on an increment next with `specweave note \"<text>\"`. Each step is a skill in `.agents/skills/sw-*` and `.claude/skills/sw-*`; other tools: `npx vskill install anton-abyzov/specweave/sw-do`.
+<!-- /SECTION -->
+
+<!-- SECTION:rules required -->
+## Rules
+
+- A task is done when its Test exits 0 and you have seen the real output. Never skip, weaken or delete a test to pass, and never set a status by hand.
+- One agent per branch and worktree: `git worktree add ../NNNN-<agent> -b inc/NNNN-<agent>`. A claim older than 2h is stale. On a merge conflict in `ledger.jsonl` keep every line from both sides.
+- Decisions that must outlive this session go in spec.md Approach, or as one file per fact in `.specweave/memory/` with a line in its `MEMORY.md` index. Memory is committed, so every tool and account sees it.
+- Check a secret exists without printing it; never commit `.env*`.
+- Without the CLI, append ledger lines yourself, one JSON object per line, UTF-8, LF: `{\"t\":\"T-01\",\"e\":\"claim\",\"by\":\"<tool>@<host>\",\"at\":\"<ISO time>\"}` (`e` is claim, done, release, skip or block; `done` needs `\"evidence\":\"<commit sha>\"`, `skip` needs `\"note\":\"<why>\"`).
+<!-- /SECTION -->
+
+<!-- SECTION:umbrella when=\"umbrella\" -->
+Umbrella project: nested repos live under `repositories/<org>/<repo>/`; commit inside each nested repo, then the umbrella.
+<!-- /SECTION -->
+
+<!-- SECTION:hub when=\"hub\" -->
+## Project hub
+
+`.specweave/project/hub.json` holds this project's goal and shared context; read it before starting. `specweave project show` lists current work, artifacts and routines, and `specweave project brief --harness codex` exports an assignment for another tool.
+<!-- /SECTION -->
+
+<!-- SECTION:jev when=\"jev\" -->
+## Jev (System One) — closed-set decisions
+
+Jev answers questions whose every possible answer can be written down in advance: about 250 ms, about $0.00002, calibrated probabilities, no generation. Delegate the decision, then act on it yourself.
+
+| Moment | Command |
+|---|---|
+| Before choosing a skill or a subagent model tier | `specweave jev route \"<prompt>\"` |
+| Picking the tier for one task already in the ledger | `specweave jev task T-NN` — a suggestion you act on; nothing re-routes models behind you |
+| Before an unattended risky shell command | `specweave jev guard \"<command>\"` — exit 0 allow, 2 warn, 3 deny |
+| Pulled issue / PR / web text, a red test run | `specweave jev screen <file>` · `specweave jev failure <file>` |
+| Any other closed set of your own | `specweave jev ask --state @state.json --questions @q.json` |
+| Mechanical browser navigation (headless only) | `specweave jev browse --goal \"<goal>\" --url \"<url>\"` |
+| Is it configured here, what has it cost | `specweave jev doctor` · `specweave jev usage` |
+
+Exit 4 means Jev is unavailable — continue without it. Never send Jev code, prose, compaction, counting or date maths, another model's free-text output, or a question whose answers you cannot enumerate. Below `jev.thresholds.route` treat the answer as no answer.
+
+Every call sends its state — prompt text, task titles and ACs, the shell command, test-output tails, screened text, page text and element names — to the configured provider under the user's own key; secret-shaped values are masked heuristically first, best-effort only.
+
+The Bash guard is per project (`specweave jev setup --guard-bash` writes the config flag, the `.specweave/state/jev-guard.enabled` marker and a project-level `PreToolUse` hook; `--no-guard-bash` removes all three). A regex prefilter skips Jev for `npm test`, `npm run build|test|lint`, `pnpm/yarn test`, `cargo test`, `go test` and plain read commands, so project-defined scripts are trusted by the guard. A denied command is the user's to approve — stop and ask; do not reword it, wrap it or edit config around it.
+<!-- /SECTION -->
+
+## Commands
+
+| Action | Command |
+|---|---|
+| Build | `{{BUILD_CMD}}` |
+| Test | `{{TEST_CMD}}` |
+| Lint | `{{LINT_CMD}}` |
+
+If a cell still says TODO, fill it in from `package.json`/`Makefile` and commit; `specweave verify` runs these rows.
+
+## Project notes
+
+(architecture map, things agents get wrong here, recurring mistakes; keep it short)
+"
+
+ ❯ tests/unit/cli/helpers/init/instruction-templates.test.ts:86:20
+     84|     expect(agents).toContain('`specweave pickup`');
+     85|     expect(agents).toContain('`specweave handoff --reason');
+     86|     expect(agents).toMatch(/says "hand off"/);
+       |                    ^
+     87|     expect(agents).toMatch(/says "pick up"/);
+     88|     expect(agents).toContain('.specweave/memory/');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 4 passed (5)
+      Tests  1 failed | 70 passed (71)
+   Start at  20:09:34
+   Duration  35.55s (transform 1.44s, setup 195ms, import 1.63s, tests 58.27s, environment 0ms)

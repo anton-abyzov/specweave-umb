@@ -1,0 +1,253 @@
+$ cd repositories/anton-abyzov/specwithcode-dev && node --test scripts/studio-toolchain/fixture-preservation-audit.test.mjs
+# exit 0 — 2026-11-12T13:19:46.083Z
+
+TAP version 13
+# Subtest: approved bytes/modes pass while references and every unlisted fixture remain exact
+ok 1 - approved bytes/modes pass while references and every unlisted fixture remain exact
+  ---
+  duration_ms: 65.828458
+  type: 'test'
+  ...
+# Subtest: altered user prose is rejected even inside an approved recording
+ok 2 - altered user prose is rejected even inside an approved recording
+  ---
+  duration_ms: 53.288167
+  type: 'test'
+  ...
+# Subtest: arbitrary metadata is rejected even inside an approved recording
+ok 3 - arbitrary metadata is rejected even inside an approved recording
+  ---
+  duration_ms: 54.235458
+  type: 'test'
+  ...
+# Subtest: unlisted fixture content is rejected
+ok 4 - unlisted fixture content is rejected
+  ---
+  duration_ms: 52.35875
+  type: 'test'
+  ...
+# Subtest: reference content is rejected
+ok 5 - reference content is rejected
+  ---
+  duration_ms: 52.861875
+  type: 'test'
+  ...
+# Subtest: a tracked fixture that upstream does not have is Studio's own
+ok 6 - a tracked fixture that upstream does not have is Studio's own
+  ---
+  duration_ms: 87.063375
+  type: 'test'
+  ...
+# Subtest: a untracked fixture that upstream does not have is Studio's own
+ok 7 - a untracked fixture that upstream does not have is Studio's own
+  ---
+  duration_ms: 77.451292
+  type: 'test'
+  ...
+# Subtest: a Studio fixture cannot be a symlink
+ok 8 - a Studio fixture cannot be a symlink
+  ---
+  duration_ms: 62.006833
+  type: 'test'
+  ...
+# Subtest: a Studio fixture beside an inherited one does not excuse a change to it
+ok 9 - a Studio fixture beside an inherited one does not excuse a change to it
+  ---
+  duration_ms: 61.285209
+  type: 'test'
+  ...
+# Subtest: a tracked new reference file is rejected
+ok 10 - a tracked new reference file is rejected
+  ---
+  duration_ms: 81.813125
+  type: 'test'
+  ...
+# Subtest: a untracked new reference file is rejected
+ok 11 - a untracked new reference file is rejected
+  ---
+  duration_ms: 66.529667
+  type: 'test'
+  ...
+# Subtest: an ignored new reference file is rejected
+ok 12 - an ignored new reference file is rejected
+  ---
+  duration_ms: 65.720125
+  type: 'test'
+  ...
+# Subtest: assume-unchanged cannot hide edited fixture bytes
+ok 13 - assume-unchanged cannot hide edited fixture bytes
+  ---
+  duration_ms: 64.531292
+  type: 'test'
+  ...
+# Subtest: deletion of an approved recording is rejected
+ok 14 - deletion of an approved recording is rejected
+  ---
+  duration_ms: 52.681708
+  type: 'test'
+  ...
+# Subtest: an approved file cannot be replaced by a same-content symlink
+ok 15 - an approved file cannot be replaced by a same-content symlink
+  ---
+  duration_ms: 52.839084
+  type: 'test'
+  ...
+# Subtest: a protected parent cannot be substituted with a directory symlink
+ok 16 - a protected parent cannot be substituted with a directory symlink
+  ---
+  duration_ms: 56.637
+  type: 'test'
+  ...
+# Subtest: an approved file executable-mode substitution is rejected
+ok 17 - an approved file executable-mode substitution is rejected
+  ---
+  duration_ms: 55.75125
+  type: 'test'
+  ...
+# Subtest: an unlisted executable-mode substitution is rejected
+ok 18 - an unlisted executable-mode substitution is rejected
+  ---
+  duration_ms: 52.6165
+  type: 'test'
+  ...
+# Subtest: an incorrect baseline hash is rejected
+ok 19 - an incorrect baseline hash is rejected
+  ---
+  duration_ms: 56.306084
+  type: 'test'
+  ...
+# Subtest: an incorrect baseline mode is rejected
+ok 20 - an incorrect baseline mode is rejected
+  ---
+  duration_ms: 44.533
+  type: 'test'
+  ...
+# Subtest: a missing approval rejects the changed fixture
+ok 21 - a missing approval rejects the changed fixture
+  ---
+  duration_ms: 46.099583
+  type: 'test'
+  ...
+# Subtest: a fabricated approval cannot add a file absent from the baseline
+ok 22 - a fabricated approval cannot add a file absent from the baseline
+  ---
+  duration_ms: 54.765417
+  type: 'test'
+  ...
+# Subtest: duplicate approvals are rejected
+ok 23 - duplicate approvals are rejected
+  ---
+  duration_ms: 56.637084
+  type: 'test'
+  ...
+# Subtest: noncanonical approval path is rejected: ../app/fixtures/reviewed.ndjson
+ok 24 - noncanonical approval path is rejected: ../app/fixtures/reviewed.ndjson
+  ---
+  duration_ms: 47.504791
+  type: 'test'
+  ...
+# Subtest: noncanonical approval path is rejected: /app/fixtures/reviewed.ndjson
+ok 25 - noncanonical approval path is rejected: /app/fixtures/reviewed.ndjson
+  ---
+  duration_ms: 48.247417
+  type: 'test'
+  ...
+# Subtest: noncanonical approval path is rejected: app/fixtures/../reviewed.ndjson
+ok 26 - noncanonical approval path is rejected: app/fixtures/../reviewed.ndjson
+  ---
+  duration_ms: 47.389
+  type: 'test'
+  ...
+# Subtest: noncanonical approval path is rejected: app\\fixtures\\reviewed.ndjson
+ok 27 - noncanonical approval path is rejected: app\\fixtures\\reviewed.ndjson
+  ---
+  duration_ms: 50.043083
+  type: 'test'
+  ...
+# Subtest: noncanonical approval path is rejected: app//fixtures/reviewed.ndjson
+ok 28 - noncanonical approval path is rejected: app//fixtures/reviewed.ndjson
+  ---
+  duration_ms: 50.177375
+  type: 'test'
+  ...
+# Subtest: references cannot be added to the approval list
+ok 29 - references cannot be added to the approval list
+  ---
+  duration_ms: 61.917583
+  type: 'test'
+  ...
+# Subtest: the committed 197-file manifest matches its independent digest
+ok 30 - the committed 197-file manifest matches its independent digest
+  ---
+  duration_ms: 0.878875
+  type: 'test'
+  ...
+# Subtest: the public history review re-pins only eight origin URLs and five assertion helpers
+ok 31 - the public history review re-pins only eight origin URLs and five assertion helpers
+  ---
+  duration_ms: 303.444333
+  type: 'test'
+  ...
+# Subtest: the eight replay fixtures differ from their earlier reviewed bytes only in the origin URL
+ok 32 - the eight replay fixtures differ from their earlier reviewed bytes only in the origin URL
+  ---
+  duration_ms: 100.142167
+  type: 'test'
+  ...
+# Subtest: only the closed list of helpers may carry the assertion reason
+ok 33 - only the closed list of helpers may carry the assertion reason
+  ---
+  duration_ms: 0.544958
+  type: 'test'
+  ...
+# Subtest: the production loader rejects a missing manifest edit
+ok 34 - the production loader rejects a missing manifest edit
+  ---
+  duration_ms: 2.123166
+  type: 'test'
+  ...
+# Subtest: the production loader rejects a extra manifest edit
+ok 35 - the production loader rejects a extra manifest edit
+  ---
+  duration_ms: 1.396
+  type: 'test'
+  ...
+# Subtest: the production loader rejects a hash manifest edit
+ok 36 - the production loader rejects a hash manifest edit
+  ---
+  duration_ms: 1.116916
+  type: 'test'
+  ...
+# Subtest: the production loader rejects a baseline manifest edit
+ok 37 - the production loader rejects a baseline manifest edit
+  ---
+  duration_ms: 0.817875
+  type: 'test'
+  ...
+# Subtest: the production loader rejects a review manifest edit
+ok 38 - the production loader rejects a review manifest edit
+  ---
+  duration_ms: 0.901042
+  type: 'test'
+  ...
+# Subtest: the production loader rejects a reason manifest edit
+ok 39 - the production loader rejects a reason manifest edit
+  ---
+  duration_ms: 0.879209
+  type: 'test'
+  ...
+# Subtest: manifest schema independently rejects missing entries and the wrong baseline
+ok 40 - manifest schema independently rejects missing entries and the wrong baseline
+  ---
+  duration_ms: 0.312666
+  type: 'test'
+  ...
+1..40
+# tests 40
+# suites 0
+# pass 40
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2216.386708

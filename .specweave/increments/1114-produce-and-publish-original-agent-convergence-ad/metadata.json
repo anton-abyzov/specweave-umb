@@ -1,0 +1,17 @@
+{
+  "id": "1114-produce-and-publish-original-agent-convergence-ad",
+  "uuid": "9548e01a-c022-4698-a638-4f836030627c",
+  "status": "abandoned",
+  "type": "experiment",
+  "priority": "P1",
+  "created": "2026-10-28T05:44:43.438Z",
+  "updated": "2026-11-19T06:30:15.664Z",
+  "lastActivity": "2026-11-19T06:30:15.664Z",
+  "title": "Produce and publish original agent convergence ad",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "abandonedReason": "Close as is: first 10s ad published on X (https://x.com/specwithcode/status/2115323406786650439); hockey revision and corrected posts dropped. strictClose refused complete --reason. Anton approved, November 19, 2026",
+  "abandonedAt": "2026-11-19T06:30:15.664Z"
+}

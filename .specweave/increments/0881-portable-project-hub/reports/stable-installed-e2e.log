@@ -1,0 +1,3 @@
+PASS: real CLI init, preservation, stale writes, work lifecycle, artifact/routine library and three harness briefs
+[LogParser] logDir=/Users/antonabyzov/.claude/projects/-var-folders-js-x0hbrvjj2rl7hsgjy5955_r40000gn-T-sw-project-e2e-25i2TW files=0
+PASS: headless desktop/tablet/mobile, profile/work/artifact/routine flows, brief, download, persistence and zero runtime errors

@@ -1,0 +1,45 @@
+{
+  "pr": "https://github.com/anton-abyzov/specweave/pull/1986",
+  "reviewedHead": "557076b7667b0409d3a1ffc1837ccf391e9d0509",
+  "review": "fresh_review SHIP; no findings",
+  "deployedSha": "55abf329cd0f59190c41042e0a3d1ef9d20752ed",
+  "deploymentRun": "https://github.com/anton-abyzov/specweave/actions/runs/37739794208",
+  "deploymentStatus": "success",
+  "publicBase": "https://spec-weave.com",
+  "headless": true,
+  "publicChecks": {
+    "ok": true,
+    "panelStates": 32,
+    "pricingStates": 6,
+    "widths": [
+      320,
+      390,
+      1440
+    ],
+    "themes": [
+      "dark",
+      "light"
+    ],
+    "motion": [
+      "no-preference",
+      "reduce"
+    ],
+    "minimumActiveOpacity": 1,
+    "desktopTransforms": [
+      "none"
+    ],
+    "pageErrors": []
+  },
+  "task": "T-05",
+  "taskDoneExitCode": 0,
+  "screenshots": [
+    "/tmp/specweave-0886-docs-panel/public/landing-1440-light-no-preference.png",
+    "/tmp/specweave-0886-docs-panel/public/landing-390-dark-no-preference.png"
+  ],
+  "npmVersionChanged": false,
+  "servicesStopped": false,
+  "retainedScreenshots": [
+    "306-public-desktop.png",
+    "306-public-mobile.png"
+  ]
+}

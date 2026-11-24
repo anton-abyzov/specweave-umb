@@ -1,0 +1,226 @@
+{
+  "checked_at": "2026-09-22T04:47:59.985417+00:00",
+  "authorization": "User explicitly approved git push, deployment, production verification and tests after the pending admin-merge/UI acceptance question.",
+  "pr": "https://github.com/anton-abyzov/specweave/pull/1952",
+  "deployment": {
+    "conclusion": "success",
+    "headSha": "5728b69a08ca41f10c10f2143f3751a907434e61",
+    "status": "completed",
+    "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687791703"
+  },
+  "post_merge_ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 35687875065,
+      "name": "github_actions in / for actions/checkout - Update #1586871506",
+      "status": "completed",
+      "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687875065"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 35687875041,
+      "name": "github_actions in / for actions/setup-node - Update #1586871553",
+      "status": "completed",
+      "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687875041"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 35687791668,
+      "name": "Config Separation Validation",
+      "status": "completed",
+      "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687791668"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 35687791669,
+      "name": "Version Alignment",
+      "status": "completed",
+      "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687791669"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 35687791658,
+      "name": "Publish Guard",
+      "status": "completed",
+      "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687791658"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 35687791678,
+      "name": "Supply-chain scan",
+      "status": "completed",
+      "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687791678"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 35687791646,
+      "name": "Hooks cross-platform",
+      "status": "completed",
+      "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687791646"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 35687791703,
+      "name": "Deploy Documentation to GitHub Pages",
+      "status": "completed",
+      "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687791703"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 35687791695,
+      "name": "Test & Validate",
+      "status": "completed",
+      "url": "https://github.com/anton-abyzov/specweave/actions/runs/35687791695"
+    }
+  ],
+  "local_full_unit_coverage": {
+    "passed": 16757,
+    "skipped": 155,
+    "lines": 69.27,
+    "branches": 61.63,
+    "functions": 71.19,
+    "exit_code": 0
+  },
+  "ci_tests": {
+    "unit_passed": 16753,
+    "unit_skipped": 159,
+    "e2e_passed": 89,
+    "e2e_skipped": 106
+  },
+  "live_browser": {
+    "testedAt": "2026-09-22T04:49:11.625Z",
+    "baseUrl": "https://spec-weave.com",
+    "testSource": {
+      "root": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/0880-release/",
+      "revision": "195d147a5495627d2e16a581c619c2408cb398e0",
+      "branch": "codex/0880-delivery",
+      "trackedChanges": false
+    },
+    "headless": true,
+    "results": [
+      {
+        "path": "/",
+        "width": 320,
+        "status": "pass",
+        "consoleErrors": []
+      },
+      {
+        "path": "/jev",
+        "width": 320,
+        "status": "pass",
+        "consoleErrors": []
+      },
+      {
+        "path": "/",
+        "width": 375,
+        "status": "pass",
+        "consoleErrors": []
+      },
+      {
+        "path": "/jev",
+        "width": 375,
+        "status": "pass",
+        "consoleErrors": []
+      },
+      {
+        "path": "/",
+        "width": 390,
+        "status": "pass",
+        "consoleErrors": []
+      },
+      {
+        "path": "/jev",
+        "width": 390,
+        "status": "pass",
+        "consoleErrors": []
+      },
+      {
+        "path": "/",
+        "width": 768,
+        "status": "pass",
+        "consoleErrors": []
+      },
+      {
+        "path": "/jev",
+        "width": 768,
+        "status": "pass",
+        "consoleErrors": []
+      },
+      {
+        "path": "/",
+        "width": 1440,
+        "status": "pass",
+        "consoleErrors": []
+      },
+      {
+        "path": "/jev",
+        "width": 1440,
+        "status": "pass",
+        "consoleErrors": []
+      }
+    ]
+  },
+  "assets": [
+    {
+      "path": "evidence/jev-easychamp-replay.json",
+      "status": 200,
+      "bytes": 38884,
+      "sha256": "8d016d8951db2ea37de9153db85a83c9b8bdd8e66b37a9c615fe072f7097ecf1",
+      "matches_source": true
+    },
+    {
+      "path": "evidence/jev-easychamp-agent-comparison.json",
+      "status": 200,
+      "bytes": 10563,
+      "sha256": "ff84bc810fe256b26ef1d388a1722ffdd03490e2d241cb8e0b8efbc8fcfa1dff",
+      "matches_source": true
+    },
+    {
+      "path": "evidence/jev-easychamp-benchmark.json",
+      "status": 200,
+      "bytes": 12142,
+      "sha256": "04056ec239795be61b998286d096a40117b24d20b6c61bcd8ae7841df2f563cc",
+      "matches_source": true
+    },
+    {
+      "path": "img/jev/decision-routing.webp",
+      "status": 200,
+      "bytes": 48858,
+      "sha256": "a283a8c3548e28e805654fa9fc698aac243e58ec0290ac8ea769812e8c5ac889",
+      "matches_source": true
+    },
+    {
+      "path": "img/jev/decision-routing-960.webp",
+      "status": 200,
+      "bytes": 21998,
+      "sha256": "32bf62c240dbbec1b981649e54a124d521379e7c1101cc2fd75c9e39256e1886",
+      "matches_source": true
+    },
+    {
+      "path": "img/jev/decision-routing-640.webp",
+      "status": 200,
+      "bytes": 11326,
+      "sha256": "5a014913dc35233b249e391b2043a1d8d5a2d9f4171a6874d3d4e30db1392b4d",
+      "matches_source": true
+    }
+  ],
+  "easychamp_health": {
+    "status": 200,
+    "body": {
+      "status": "healthy"
+    }
+  },
+  "source_tree_matches_deployed_merge": true,
+  "installed_cli": "2.3.0-rc.1",
+  "closure": {
+    "status": "completed",
+    "verify_ok": true,
+    "tasks_done": 14,
+    "acceptance_criteria_done": 6,
+    "external_sync": {
+      "github_milestone": 262,
+      "ado_done": 2455,
+      "jira": "Site temporarily unavailable (404); retry also failed. Deployment and local closure succeeded."
+    }
+  }
+}

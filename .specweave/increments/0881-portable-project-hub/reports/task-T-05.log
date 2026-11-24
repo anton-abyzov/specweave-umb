@@ -1,0 +1,18 @@
+$ cd /tmp/specweave-0881-root && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH npx vitest run tests/unit/project-hub tests/unit/cli/commands/project.test.ts tests/unit/dashboard/project-hub-routes.test.ts tests/unit/cli/helpers/init/instruction-templates.test.ts tests/unit/build/version-alignment.test.ts tests/unit/native-skill-installer.test.ts
+# exit 0 — 2026-09-22T03:39:48.522Z
+
+
+ RUN  v4.1.11 /private/tmp/specweave-0881-root
+
+ ✓ tests/unit/build/version-alignment.test.ts (4 tests) 2ms
+ ✓ tests/unit/cli/helpers/init/instruction-templates.test.ts (19 tests) 6ms
+ ✓ tests/unit/native-skill-installer.test.ts (8 tests) 40ms
+ ✓ tests/unit/project-hub/store.test.ts (29 tests) 42ms
+ ✓ tests/unit/cli/commands/project.test.ts (12 tests) 36ms
+ ✓ tests/unit/dashboard/project-hub-routes.test.ts (5 tests) 53ms
+
+ Test Files  6 passed (6)
+      Tests  77 passed (77)
+   Start at  23:39:48
+   Duration  268ms (transform 423ms, setup 150ms, import 450ms, tests 180ms, environment 0ms)
+

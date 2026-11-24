@@ -1,0 +1,299 @@
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > does NOT skip the list fetch when q is too short to be a real query
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > accepts a last-page SSR list cache snapshot when rows < limit is expected at that offset
+[stats-refresh] getCloudflareContext failed:
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+stderr | src/app/queue/__tests__/data.initial-data.test.ts > getQueueInitialDataSSR > accepts a last-page SSR list cache snapshot when rows < limit is expected at that offset
+[stats-refresh] All caches empty — returning LAST_KNOWN_GOOD fallback
+
+ ✓ src/app/queue/__tests__/data.initial-data.test.ts (12 tests) 13ms
+ ✓ src/app/pricing/__tests__/page.test.tsx (5 tests) 27ms
+ ✓ src/app/api/v1/admin/queue/dlq/__tests__/route.test.ts (6 tests) 23ms
+ ✓ src/app/api/v1/submissions/__tests__/route.mine-feed.test.ts (12 tests) 65ms
+ ✓ src/app/api/v1/admin/reports/__tests__/route.test.ts (4 tests) 39ms
+stderr | src/app/api/v1/billing/seats/usage/__tests__/route.test.ts > GET /api/v1/billing/seats/usage > surfaces 503 seat_usage_unavailable when post-withTenant DB awaits fail
+[billing/seats/usage] failed to load seat data transient db error
+
+ ✓ src/app/api/v1/billing/seats/usage/__tests__/route.test.ts (9 tests) 61ms
+ ✓ src/app/api/v1/admin/blocklist/[id]/unblock/__tests__/route.test.ts (4 tests) 103ms
+ ✓ src/app/api/v1/e2e-harness/__tests__/guard.test.ts (6 tests) 99ms
+ ✓ src/app/api/v1/admin/alerts/_test-seed/__tests__/route.test.ts (7 tests) 24ms
+stderr | src/app/api/v1/stats/__tests__/route.test.ts > GET /api/v1/stats > returns 500 when getHomeStats throws
+GET /api/v1/stats error: Error: KV unavailable
+    at /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/src/app/api/v1/stats/__tests__/route.test.ts:50:44
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runSuite (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+ ✓ src/app/api/v1/stats/__tests__/route.test.ts (4 tests) 6ms
+stderr | src/app/api/v1/blocklist/__tests__/route.test.ts > GET /api/v1/blocklist > returns 503 on database error (both DB and KV fail)
+GET /api/v1/blocklist DB failed, trying KV fallback: DB connection failed
+
+stderr | src/app/api/v1/blocklist/__tests__/route.test.ts > GET /api/v1/blocklist > returns 503 on database error (both DB and KV fail)
+GET /api/v1/blocklist KV fallback also failed:
+
+ERROR: `getCloudflareContext` has been called without having called `initOpenNextCloudflareForDev` from the Next.js config file.
+You should update your Next.js config file as shown below:
+
+   ```
+   // next.config.mjs
+
+   import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+   initOpenNextCloudflareForDev();
+
+   const nextConfig = { ... };
+   export default nextConfig;
+   ```
+
+
+
+ ✓ src/app/api/v1/admin/submissions/state-counts/__tests__/route.test.ts (4 tests) 41ms
+ ✓ src/app/api/v1/blocklist/__tests__/route.test.ts (6 tests) 19ms
+ ✓ src/app/api/v1/admin/queue/pause/__tests__/route.test.ts (8 tests) 65ms
+ ✓ src/app/api/v1/tenants/[tenantId]/audit-log/__tests__/route.test.ts (5 tests) 13ms
+ ✓ src/app/api/v1/admin/recompute-slugs/__tests__/route.test.ts (7 tests) 18ms
+ ✓ src/app/api/v1/skills/search/__tests__/route-publisher.test.ts (7 tests) 108ms
+ ✓ src/app/api/v1/submissions/__tests__/route.repo-check.test.ts (5 tests) 111ms
+stderr | src/app/api/v1/internal/pending-sast-scans/__tests__/route.test.ts > GET /api/v1/internal/pending-sast-scans > returns empty array on DB error
+[pending-sast-scans] DB error: connection failed
+
+ ✓ src/app/api/v1/internal/pending-sast-scans/__tests__/route.test.ts (10 tests) 64ms
+ ✓ src/app/api/v1/internal/stats/queue-list-warmup/__tests__/route.test.ts (5 tests) 27ms
+ ✓ src/app/api/v1/skills/search/__tests__/route-bwc-vskill-find.test.ts (3 tests) 15ms
+ ✓ src/app/api/v1/admin/queue/bulk-requeue/__tests__/route.test.ts (4 tests) 85ms
+ ✓ src/app/desktop/latest.json/__tests__/route.test.ts (16 tests) 11ms
+ ✓ src/app/api/v1/submissions/__tests__/route.skillmd-check.test.ts (7 tests) 57ms
+ ✓ src/app/api/v1/internal/unclaim-submission/__tests__/route.test.ts (7 tests) 143ms
+ ✓ src/app/api/v1/admin/backfill-versions/__tests__/route.test.ts (11 tests) 29ms
+stderr | src/app/api/v1/auth/github/grant/__tests__/route.test.ts > DELETE /api/v1/auth/github/grant (0836 US-005) > returns 502 when GitHub responds 404 (OAuth app not found)
+grant-revoke: GitHub 404 — OAuth app Iv1.test-client-id not found
+
+stderr | src/app/api/v1/auth/github/grant/__tests__/route.test.ts > DELETE /api/v1/auth/github/grant (0836 US-005) > returns 502 when GitHub responds 5xx
+grant-revoke: GitHub responded 503
+
+stderr | src/app/api/v1/auth/github/grant/__tests__/route.test.ts > DELETE /api/v1/auth/github/grant (0836 US-005) > returns 502 on network error
+grant-revoke: upstream network
+
+stderr | src/app/api/v1/auth/github/grant/__tests__/route.test.ts > DELETE /api/v1/auth/github/grant (0836 US-005) > returns 502 on AbortError (timeout)
+grant-revoke: upstream timeout
+
+stderr | src/app/api/v1/auth/github/grant/__tests__/route.test.ts > DELETE /api/v1/auth/github/grant (0836 US-005) > returns 503 when GITHUB_CLIENT_SECRET is unset
+grant-revoke: GITHUB_CLIENT_ID or GITHUB_CLIENT_SECRET not configured
+
+stderr | src/app/api/v1/auth/github/grant/__tests__/route.test.ts > DELETE /api/v1/auth/github/grant (0836 US-005) > does not echo the user token in error responses
+grant-revoke: GitHub responded 503
+
+ ✓ src/app/api/v1/auth/github/grant/__tests__/route.test.ts (13 tests) 103ms
+stdout | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > calls updateSearchShard with 'remove' action
+[admin] Skill "steipete/clawdis/skill-creator" hard-deleted by system:internal-key: {"metricsSnapshots":0,"problemReports":0,"agentCompats":0,"skillVersions":0,"submissionsUnlinked":0}
+
+stdout | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > calls updateSearchShard before db.$transaction
+[admin] Skill "steipete/clawdis/skill-creator" hard-deleted by system:internal-key: {}
+
+stdout | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > calls invalidateSearchIndex after shard removal
+[admin] Skill "steipete/clawdis/skill-creator" hard-deleted by system:internal-key: {"metricsSnapshots":0,"problemReports":0,"agentCompats":0,"skillVersions":0,"submissionsUnlinked":0}
+
+stdout | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > fetches skill with SEARCH_ENTRY_SELECT fields
+[admin] Skill "steipete/clawdis/skill-creator" hard-deleted by system:internal-key: {"metricsSnapshots":0,"problemReports":0,"agentCompats":0,"skillVersions":0,"submissionsUnlinked":0}
+
+stdout | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > includes kvCleanup: true in response on success
+[admin] Skill "steipete/clawdis/skill-creator" hard-deleted by system:internal-key: {"metricsSnapshots":0,"problemReports":0,"agentCompats":0,"skillVersions":0,"submissionsUnlinked":0}
+
+ ✓ src/app/api/v1/internal/cache/publishers/__tests__/route.test.ts (3 tests) 13ms
+stderr | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > does not block DB deletion when KV fails
+[admin] KV shard cleanup failed for delete of steipete/clawdis/skill-creator Error: KV network error
+    at /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts:196:45
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runSuite (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+stdout | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > does not block DB deletion when KV fails
+[admin] Skill "steipete/clawdis/skill-creator" hard-deleted by system:internal-key: {"metricsSnapshots":0,"problemReports":0,"agentCompats":0,"skillVersions":0,"submissionsUnlinked":0}
+
+stderr | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > includes kvCleanup: false in response on KV failure
+[admin] KV shard cleanup failed for delete of steipete/clawdis/skill-creator Error: KV down
+    at /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts:207:45
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runSuite (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+stdout | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > includes kvCleanup: false in response on KV failure
+[admin] Skill "steipete/clawdis/skill-creator" hard-deleted by system:internal-key: {"metricsSnapshots":0,"problemReports":0,"agentCompats":0,"skillVersions":0,"submissionsUnlinked":0}
+
+stdout | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts > DELETE /api/v1/admin/skills/[owner]/[repo]/[skill]/delete - KV cleanup > logs KV failure for audit trail
+[admin] Skill "steipete/clawdis/skill-creator" hard-deleted by system:internal-key: {"metricsSnapshots":0,"problemReports":0,"agentCompats":0,"skillVersions":0,"submissionsUnlinked":0}
+
+ ✓ src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/delete/__tests__/route.test.ts (8 tests) 36ms
+ ✓ src/app/api/v1/internal/claim-sast-scan/__tests__/route.test.ts (7 tests) 40ms
+stdout | src/app/api/v1/admin/recompute-skill-cert-tiers/__tests__/route.test.ts > vendor-org bulk update (AC-US1-01) > flips vendor + VERIFIED rows to CERTIFIED+VENDOR_AUTO+T4+100 in one updateMany call
+{"event":"recompute-skill-cert-tier-summary","updated":2,"ts":"2026-10-07T15:40:04.976Z"}
+
+stdout | src/app/api/v1/admin/recompute-skill-cert-tiers/__tests__/route.test.ts > vendor-org bulk update (AC-US1-01) > clears taint on vendor skills even when certTier was already CERTIFIED
+{"event":"recompute-skill-cert-tier-summary","updated":1,"ts":"2026-10-07T15:40:04.978Z"}
+
+stdout | src/app/api/v1/admin/recompute-skill-cert-tiers/__tests__/route.test.ts > non-vendor rows are not touched (AC-US1-01 negative) > leaves a non-vendor + VERIFIED row alone
+{"event":"recompute-skill-cert-tier-summary","updated":0,"ts":"2026-10-07T15:40:04.979Z"}
+
+stdout | src/app/api/v1/admin/recompute-skill-cert-tiers/__tests__/route.test.ts > idempotency (AC-US1-03) > vendor + already-CERTIFIED+T4+100+!isTainted → updated=0
+{"event":"recompute-skill-cert-tier-summary","updated":0,"ts":"2026-10-07T15:40:04.980Z"}
+
+stdout | src/app/api/v1/admin/recompute-skill-cert-tiers/__tests__/route.test.ts > idempotency (AC-US1-03) > running twice in succession → second call updates 0
+{"event":"recompute-skill-cert-tier-summary","updated":1,"ts":"2026-10-07T15:40:04.980Z"}
+
+stdout | src/app/api/v1/admin/recompute-skill-cert-tiers/__tests__/route.test.ts > idempotency (AC-US1-03) > running twice in succession → second call updates 0
+{"event":"recompute-skill-cert-tier-summary","updated":0,"ts":"2026-10-07T15:40:04.981Z"}
+
+ ✓ src/app/api/v1/legacy-redirect/[slug]/__tests__/route.test.ts (4 tests) 10ms
+stdout | src/app/api/v1/admin/recompute-skill-cert-tiers/__tests__/route.test.ts > response shape (AC-US1-02) > sample[] caps at 20 rows even if more exist
+{"event":"recompute-skill-cert-tier-summary","updated":25,"ts":"2026-10-07T15:40:04.993Z"}
+
+ ✓ src/app/api/v1/admin/recompute-skill-cert-tiers/__tests__/route.test.ts (8 tests) 34ms
+ ✓ src/app/api/v1/internal/skills/publish/__tests__/route.submission-decision.test.ts (8 tests) 10ms
+ ✓ src/__tests__/account-page.test.tsx (14 tests) 4ms
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 3: DB fallback > returns degraded empty stats when DB row not found
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 4: Compute on demand > does not compute stats when all caches are empty
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 4: Compute on demand > stays fast when circuit breaker is open
+[queue-stats-cache] DB circuit open; skipping DB stats fallback
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 4: Compute on demand > stays fast when circuit breaker is open
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Tier 5: Empty stats (last resort) > returns degraded empty stats with no-cache when all tiers fail
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > 0757: 503 on cold-worker empty tier > returns 503 with Retry-After: 5 when all tiers miss (source=empty)
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Error resilience > survives KV error and falls through to memory
+[queue-stats-cache] KV read failed: KV unavailable
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Error resilience > survives DB error and returns degraded empty stats
+[queue-stats-cache] DB fallback read failed: DB down
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Error resilience > survives DB error and returns degraded empty stats
+[queue-stats-api] Returning missing stats from empty; cron refresh owns recomputation
+
+stderr | src/app/api/v1/submissions/stats/__tests__/route.test.ts > GET /api/v1/submissions/stats > Error resilience > returns stale non-zero DB fallback rows without recomputing
+[queue-stats-api] Returning stale stats from db; cron refresh owns recomputation
+
+ ✓ src/app/api/v1/submissions/stats/__tests__/route.test.ts (15 tests) 14ms
+ ✓ src/app/api/v1/tenants/[tenantId]/skills/__tests__/route.private-paywall.test.ts (3 tests) 11ms
+ ✓ src/app/api/v1/auth/github/installation/init/__tests__/route.test.ts (3 tests) 15ms
+stderr | src/app/api/v1/internal/reconciler/ensure/__tests__/route.test.ts > POST /api/v1/internal/reconciler/ensure — DO routing (AC-US2-04) > DO unreachable -> 502 with typed error
+[reconciler-ensure] DO forward failed Error: network down
+    at /Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/src/app/api/v1/internal/reconciler/ensure/__tests__/route.test.ts:114:35
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26
+    at file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)
+    at runTest (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at runSuite (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+    at runSuite (file:///Users/antonabyzov/.codex/worktrees/search-console-seo/vskill-platform/node_modules/@vitest/runner/dist/chunk-hooks.js:1729:8)
+
+ ✓ src/app/api/v1/internal/reconciler/ensure/__tests__/route.test.ts (6 tests) 66ms
+ ✓ src/app/desktop/[...asset]/__tests__/route.test.ts (7 tests) 8ms
+ ✓ src/app/api/v1/admin/queue/metrics/__tests__/route.test.ts (2 tests) 15ms
+ ✓ src/app/api/v1/submissions/__tests__/route.cache-poison.test.ts (2 tests) 9ms
+ ✓ src/app/api/v1/admin/refresh-skills/__tests__/route.test.ts (6 tests) 69ms
+ ✓ src/app/api/v1/auth/github/device-flow/code/__tests__/route.test.ts (3 tests) 7ms
+ ✓ src/app/api/v1/admin/alerts/recent/__tests__/route.test.ts (3 tests) 8ms
+ ✓ src/app/api/v1/skills/stream/__tests__/route.submission-decision.test.ts (2 tests) 8ms
+ ✓ src/app/api/v1/tenants/[tenantId]/audit-log/export/__tests__/route.test.ts (4 tests) 11ms
+ ✓ src/app/api/v1/internal/stats/platform/__tests__/route.test.ts (4 tests) 13ms
+ ✓ src/app/account/orgs/[tenantId]/__tests__/page.test.tsx (5 tests) 9ms
+stdout | src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/reset-version/__tests__/route.test.ts > POST reset-version — happy path > deletes the listed ghost SkillVersion rows, deletes paired UpdateEvents, resets currentVersion + lastSeenSha
+[admin] Skill "anton-abyzov/hi-anton/hi-anton" reset by system:internal-key: {"targetVersion":"1.0.0","lastSeenSha":"490c9128011c979c80daed244db87e94e1f70643","deleteVersions":["1.0.1"],"counts":{"skillVersions":1,"updateEvents":2}}
+
+ ✓ src/app/api/v1/admin/skills/[owner]/[repo]/[skill]/reset-version/__tests__/route.test.ts (5 tests) 9ms
+ ✓ src/app/watch/__tests__/seo.test.tsx (2 tests) 8ms
+ ✓ src/app/api/v1/auth/github/device-flow/token/__tests__/route.test.ts (3 tests) 6ms
+ ✓ src/app/studio/find/lib/mock-fetch-gate.test.ts (6 tests) 8ms
+ ✓ src/app/blocklist/__tests__/page.test.tsx (1 test) 40ms
+ ✓ src/app/api/v1/internal/alerts-digest/__tests__/route.test.ts (4 tests) 6ms
+ ✓ src/app/__tests__/sitemap.test.ts (8 tests) 11ms
+ ✓ src/app/api/v1/internal/broadcast/__tests__/route.test.ts (4 tests) 8ms
+ ✓ src/app/api/v1/internal/_shared/__tests__/validators.test.ts (19 tests) 3ms
+ ✓ src/app/api/v1/submissions/[id]/__tests__/route.publishedSkillName.test.ts (2 tests) 6ms
+ ✓ src/app/api/v1/admin/migrate-slugs/__tests__/route.test.ts (2 tests) 52ms
+ ✓ src/app/api/v1/skills/search/__tests__/dedup.test.ts (7 tests) 3ms
+ ✓ src/app/queue/__tests__/data-warmup.test.ts (4 tests) 4ms
+ ✓ src/__tests__/account-repos-parity.test.tsx (4 tests) 4ms
+ ✓ src/app/docs/__tests__/docs-nav.test.ts (12 tests) 24ms
+ ✓ src/app/queue/__tests__/choose-boot-candidates.test.ts (7 tests) 8ms
+ ✓ src/app/__tests__/globals-css-tokens.test.ts (11 tests) 2ms
+ ✓ src/app/docs/__tests__/link-checker.test.ts (4 tests) 4ms
+ ✓ src/app/studio/lib/repo-url-normalize.test.ts (11 tests) 3ms
+ ✓ src/app/studio/__tests__/buildChapters.test.ts (8 tests) 10ms
+ ✓ src/app/__tests__/sitemap-route.test.ts (2 tests) 8ms
+ ✓ src/app/skills/[owner]/[repo]/[skill]/__tests__/rejection-helpers.test.ts (16 tests) 4ms
+ ✓ src/app/__tests__/globals-css-prose.test.ts (6 tests) 3ms
+ ✓ src/app/api/v1/stats/__tests__/trust-stats.test.ts (8 tests) 3ms
+ ✓ src/app/submit/__tests__/repoPrefill.test.ts (9 tests) 5ms
+ ✓ src/app/__tests__/globals-token-sync.test.ts (8 tests) 4ms
+ ✓ src/app/__tests__/layout.nav.test.tsx (3 tests) 2ms
+ ✓ src/app/submit/__tests__/viewQueueLink.test.tsx (5 tests) 2ms
+ ✓ src/app/api/v1/submissions/__tests__/parse-usable-list-cache.test.ts (8 tests) 3ms
+
+ Test Files  649 passed | 4 skipped (653)
+      Tests  6145 passed | 14 skipped (6159)
+   Start at  11:39:20
+   Duration  48.47s (transform 14.69s, setup 111.60s, collect 50.49s, tests 124.06s, environment 286.06s, prepare 37.79s)

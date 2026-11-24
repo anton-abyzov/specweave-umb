@@ -1,0 +1,17 @@
+{
+  "id": "1236-clarify-remote-control-and-machine-handoff",
+  "uuid": "2bc2a170-c75e-4f52-a40d-fd8028304b04",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-04T03:52:36.817Z",
+  "updated": "2026-11-06T20:26:08.656Z",
+  "lastActivity": "2026-11-06T20:26:08.656Z",
+  "title": "Clarify remote control and machine handoff",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-06T20:26:08.655Z",
+  "approvedAt": "2026-11-06T20:26:08.656Z"
+}

@@ -1,0 +1,465 @@
+﻿2026-09-22T05:24:21.0107898Z Current runner version: '2.337.0'
+2026-09-22T05:24:21.0131901Z ##[group]Runner Image Provisioner
+2026-09-22T05:24:21.0132924Z Hosted Compute Agent
+2026-09-22T05:24:21.0133559Z Version: 20260828.587
+2026-09-22T05:24:21.0134242Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-22T05:24:21.0135037Z Build Date: 2026-08-28T16:44:25Z
+2026-09-22T05:24:21.0135730Z Worker ID: {1205c5e3-3587-4b00-a18e-b28de4833043}
+2026-09-22T05:24:21.0136549Z Azure Region: westus2
+2026-09-22T05:24:21.0137518Z ##[endgroup]
+2026-09-22T05:24:21.0139477Z ##[group]Operating System
+2026-09-22T05:24:21.0140272Z Ubuntu
+2026-09-22T05:24:21.0140809Z 24.04.5
+2026-09-22T05:24:21.0141353Z LTS
+2026-09-22T05:24:21.0141938Z ##[endgroup]
+2026-09-22T05:24:21.0142528Z ##[group]Runner Image
+2026-09-22T05:24:21.0143234Z Image: ubuntu-24.04
+2026-09-22T05:24:21.0143816Z Version: 20260907.300.1
+2026-09-22T05:24:21.0145122Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-22T05:24:21.0146709Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-22T05:24:21.0148076Z ##[endgroup]
+2026-09-22T05:24:21.0151164Z ##[group]GITHUB_TOKEN Permissions
+2026-09-22T05:24:21.0153381Z Actions: write
+2026-09-22T05:24:21.0154086Z ArtifactMetadata: write
+2026-09-22T05:24:21.0154789Z Attestations: write
+2026-09-22T05:24:21.0155373Z Checks: write
+2026-09-22T05:24:21.0155922Z CodeQuality: write
+2026-09-22T05:24:21.0156644Z Contents: write
+2026-09-22T05:24:21.0157589Z CopilotRequests: write
+2026-09-22T05:24:21.0158268Z Deployments: write
+2026-09-22T05:24:21.0158864Z Discussions: write
+2026-09-22T05:24:21.0159429Z Drives: write
+2026-09-22T05:24:21.0160035Z Issues: write
+2026-09-22T05:24:21.0160641Z Metadata: read
+2026-09-22T05:24:21.0161380Z Models: read
+2026-09-22T05:24:21.0161956Z Packages: write
+2026-09-22T05:24:21.0162514Z Pages: write
+2026-09-22T05:24:21.0163125Z PullRequests: write
+2026-09-22T05:24:21.0163746Z RepositoryProjects: write
+2026-09-22T05:24:21.0164407Z SecurityEvents: write
+2026-09-22T05:24:21.0165113Z Statuses: write
+2026-09-22T05:24:21.0165700Z VulnerabilityAlerts: read
+2026-09-22T05:24:21.0166411Z ##[endgroup]
+2026-09-22T05:24:21.0168703Z Secret source: Actions
+2026-09-22T05:24:21.0169699Z Cache mode: write
+2026-09-22T05:24:21.0170423Z Prepare workflow directory
+2026-09-22T05:24:21.0564674Z Prepare all required actions
+2026-09-22T05:24:21.0614631Z Getting action download info
+2026-09-22T05:24:21.4129539Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-22T05:24:21.6417397Z Complete job name: e2e
+2026-09-22T05:24:21.7174773Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-22T05:24:21.7183340Z ##[group]Run actions/checkout@v4
+2026-09-22T05:24:21.7184149Z with:
+2026-09-22T05:24:21.7184605Z   repository: anton-abyzov/specweave
+2026-09-22T05:24:21.7188703Z   token: ***
+2026-09-22T05:24:21.7189147Z   ssh-strict: true
+2026-09-22T05:24:21.7189597Z   ssh-user: git
+2026-09-22T05:24:21.7190047Z   persist-credentials: true
+2026-09-22T05:24:21.7190618Z   clean: true
+2026-09-22T05:24:21.7191094Z   sparse-checkout-cone-mode: true
+2026-09-22T05:24:21.7191749Z   fetch-depth: 1
+2026-09-22T05:24:21.7192190Z   fetch-tags: false
+2026-09-22T05:24:21.7192644Z   show-progress: true
+2026-09-22T05:24:21.7193094Z   lfs: false
+2026-09-22T05:24:21.7193562Z   submodules: false
+2026-09-22T05:24:21.7194020Z   set-safe-directory: true
+2026-09-22T05:24:21.7194543Z   allow-unsafe-pr-checkout: false
+2026-09-22T05:24:21.7195359Z env:
+2026-09-22T05:24:21.7195769Z   PWDEBUG: 0
+2026-09-22T05:24:21.7196249Z   PLAYWRIGHT_HTML_OPEN: never
+2026-09-22T05:24:21.7196749Z ##[endgroup]
+2026-09-22T05:24:21.8219914Z Syncing repository: anton-abyzov/specweave
+2026-09-22T05:24:21.8223282Z ##[group]Getting Git version info
+2026-09-22T05:24:21.8224072Z Working directory is '/home/runner/work/specweave/specweave'
+2026-09-22T05:24:21.8225112Z [command]/usr/bin/git version
+2026-09-22T05:24:21.8295847Z git version 2.55.0
+2026-09-22T05:24:21.8318020Z ##[endgroup]
+2026-09-22T05:24:21.8334618Z Temporarily overriding HOME='/home/runner/work/_temp/36070fa0-9d82-422f-9e2d-3c7cd1c66041' before making global git config changes
+2026-09-22T05:24:21.8337327Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-22T05:24:21.8341505Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/specweave/specweave
+2026-09-22T05:24:21.8392633Z Deleting the contents of '/home/runner/work/specweave/specweave'
+2026-09-22T05:24:21.8397104Z ##[group]Initializing the repository
+2026-09-22T05:24:21.8401029Z [command]/usr/bin/git init /home/runner/work/specweave/specweave
+2026-09-22T05:24:21.8517561Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-22T05:24:21.8519491Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-22T05:24:21.8521153Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-22T05:24:21.8522368Z hint: call:
+2026-09-22T05:24:21.8523015Z hint:
+2026-09-22T05:24:21.8523823Z hint: 	git config --global init.defaultBranch <name>
+2026-09-22T05:24:21.8524508Z hint:
+2026-09-22T05:24:21.8525138Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-22T05:24:21.8526187Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-22T05:24:21.8527617Z hint:
+2026-09-22T05:24:21.8528279Z hint: 	git branch -m <name>
+2026-09-22T05:24:21.8528814Z hint:
+2026-09-22T05:24:21.8529493Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-22T05:24:21.8530626Z Initialized empty Git repository in /home/runner/work/specweave/specweave/.git/
+2026-09-22T05:24:21.8533632Z [command]/usr/bin/git remote add origin https://github.com/anton-abyzov/specweave
+2026-09-22T05:24:21.8581007Z ##[endgroup]
+2026-09-22T05:24:21.8582257Z ##[group]Disabling automatic garbage collection
+2026-09-22T05:24:21.8584733Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-22T05:24:21.8613514Z ##[endgroup]
+2026-09-22T05:24:21.8614656Z ##[group]Setting up auth
+2026-09-22T05:24:21.8620497Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-22T05:24:21.8651649Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-22T05:24:21.9002018Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-22T05:24:21.9032448Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-22T05:24:21.9243669Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-22T05:24:21.9272962Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-22T05:24:21.9488183Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-22T05:24:21.9522399Z ##[endgroup]
+2026-09-22T05:24:21.9523862Z ##[group]Fetching the repository
+2026-09-22T05:24:21.9533502Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e61acfcd3bd2c2ffefb56845781ff1ad8ecd128b:refs/remotes/pull/1953/merge
+2026-09-22T05:24:23.4168304Z From https://github.com/anton-abyzov/specweave
+2026-09-22T05:24:23.4170385Z  * [new ref]         e61acfcd3bd2c2ffefb56845781ff1ad8ecd128b -> pull/1953/merge
+2026-09-22T05:24:23.4180466Z ##[endgroup]
+2026-09-22T05:24:23.4182801Z ##[group]Determining the checkout info
+2026-09-22T05:24:23.4184945Z ##[endgroup]
+2026-09-22T05:24:23.4186540Z [command]/usr/bin/git sparse-checkout disable
+2026-09-22T05:24:23.4228324Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-22T05:24:23.4255476Z ##[group]Checking out the ref
+2026-09-22T05:24:23.4258102Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1953/merge
+2026-09-22T05:24:23.6925755Z Note: switching to 'refs/remotes/pull/1953/merge'.
+2026-09-22T05:24:23.6927338Z 
+2026-09-22T05:24:23.6927817Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-09-22T05:24:23.6928775Z changes and commit them, and you can discard any commits you make in this
+2026-09-22T05:24:23.6929691Z state without impacting any branches by switching back to a branch.
+2026-09-22T05:24:23.6930229Z 
+2026-09-22T05:24:23.6930610Z If you want to create a new branch to retain commits you create, you may
+2026-09-22T05:24:23.6931519Z do so (now or later) by using -c with the switch command. Example:
+2026-09-22T05:24:23.6931871Z 
+2026-09-22T05:24:23.6932019Z   git switch -c <new-branch-name>
+2026-09-22T05:24:23.6932235Z 
+2026-09-22T05:24:23.6932381Z Or undo this operation with:
+2026-09-22T05:24:23.6932586Z 
+2026-09-22T05:24:23.6932699Z   git switch -
+2026-09-22T05:24:23.6932887Z 
+2026-09-22T05:24:23.6933169Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-09-22T05:24:23.6933525Z 
+2026-09-22T05:24:23.6933921Z HEAD is now at e61acfc Merge c8fbd8c16cee0dd6b83fb7353d889fdb73e5eabc into 5728b69a08ca41f10c10f2143f3751a907434e61
+2026-09-22T05:24:23.6942816Z ##[endgroup]
+2026-09-22T05:24:23.6985160Z [command]/usr/bin/git log -1 --format=%H
+2026-09-22T05:24:23.7008169Z e61acfcd3bd2c2ffefb56845781ff1ad8ecd128b
+2026-09-22T05:24:23.7307018Z Prepare all required actions
+2026-09-22T05:24:23.7307736Z Getting action download info
+2026-09-22T05:24:23.8803210Z Download action repository 'actions/setup-node@v6' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+2026-09-22T05:24:23.9869373Z ##[group]Run ./.github/actions/setup-and-build
+2026-09-22T05:24:23.9869755Z with:
+2026-09-22T05:24:23.9869991Z   node-version: 22.x
+2026-09-22T05:24:23.9870250Z   skip-build: false
+2026-09-22T05:24:23.9870519Z env:
+2026-09-22T05:24:23.9870741Z   PWDEBUG: 0
+2026-09-22T05:24:23.9870989Z   PLAYWRIGHT_HTML_OPEN: never
+2026-09-22T05:24:23.9871273Z ##[endgroup]
+2026-09-22T05:24:23.9931739Z ##[start-action display=Setup Node.js;id=__self.__actions_setup-node]
+2026-09-22T05:24:24.0031504Z ##[group]Run actions/setup-node@v6
+2026-09-22T05:24:24.0031864Z with:
+2026-09-22T05:24:24.0032118Z   node-version: 22.x
+2026-09-22T05:24:24.0032382Z   cache: npm
+2026-09-22T05:24:24.0032626Z   check-latest: false
+2026-09-22T05:24:24.0035229Z   token: ***
+2026-09-22T05:24:24.0035562Z   package-manager-cache: true
+2026-09-22T05:24:24.0035852Z env:
+2026-09-22T05:24:24.0036074Z   PWDEBUG: 0
+2026-09-22T05:24:24.0036326Z   PLAYWRIGHT_HTML_OPEN: never
+2026-09-22T05:24:24.0036604Z ##[endgroup]
+2026-09-22T05:24:24.1418643Z Found in cache @ /opt/hostedtoolcache/node/22.23.2/x64
+2026-09-22T05:24:24.1421357Z ##[group]Environment details
+2026-09-22T05:24:24.5452867Z node: v22.23.2
+2026-09-22T05:24:24.5453413Z npm: 10.9.8
+2026-09-22T05:24:24.5453794Z yarn: 1.22.22
+2026-09-22T05:24:24.5454954Z ##[endgroup]
+2026-09-22T05:24:24.5473033Z [command]/opt/hostedtoolcache/node/22.23.2/x64/bin/npm config get cache
+2026-09-22T05:24:24.6573867Z /home/runner/.npm
+2026-09-22T05:24:24.8998803Z Cache hit for: node-cache-Linux-x64-npm-e7b90dd53e2ca65817860eca4818dd273ccf63ab402a60ab264042b4c905462e
+2026-09-22T05:24:26.2066718Z Received 0 of 173029532 (0.0%), 0.0 MBs/sec
+2026-09-22T05:24:27.2098157Z Received 130023424 of 173029532 (75.1%), 62.0 MBs/sec
+2026-09-22T05:24:28.2081411Z Received 168835228 of 173029532 (97.6%), 53.6 MBs/sec
+2026-09-22T05:24:28.4509267Z Received 173029532 of 173029532 (100.0%), 50.9 MBs/sec
+2026-09-22T05:24:28.4510745Z Cache Size: ~165 MB (173029532 B)
+2026-09-22T05:24:28.4546095Z [command]/usr/bin/tar -xf /home/runner/work/_temp/ab34c2d0-ea75-4f56-8cdb-a4b18b165fd7/cache.tzst -P -C /home/runner/work/specweave/specweave --use-compress-program unzstd
+2026-09-22T05:24:29.2038842Z Cache restored successfully
+2026-09-22T05:24:29.2123746Z Cache restored from key: node-cache-Linux-x64-npm-e7b90dd53e2ca65817860eca4818dd273ccf63ab402a60ab264042b4c905462e
+2026-09-22T05:24:29.2262462Z ##[end-action id=__self.__actions_setup-node;outcome=success;conclusion=success;duration_ms=5232]
+2026-09-22T05:24:29.2266492Z ##[start-action display=Install dependencies (no install scripts);id=__self.__run]
+2026-09-22T05:24:29.2308270Z ##[group]Run npm ci --ignore-scripts
+2026-09-22T05:24:29.2308646Z npm ci --ignore-scripts
+2026-09-22T05:24:29.2357732Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-22T05:24:29.2358104Z env:
+2026-09-22T05:24:29.2358299Z   PWDEBUG: 0
+2026-09-22T05:24:29.2358526Z   PLAYWRIGHT_HTML_OPEN: never
+2026-09-22T05:24:29.2358781Z ##[endgroup]
+2026-09-22T05:24:32.7222030Z npm warn deprecated @types/open@6.2.1: This is a stub types definition. open provides its own type definitions, so you do not need this installed.
+2026-09-22T05:24:32.7224397Z npm warn deprecated @types/handlebars@4.1.0: This is a stub types definition. handlebars provides its own type definitions, so you do not need this installed.
+2026-09-22T05:24:34.4736680Z npm warn deprecated puppeteer@23.11.1: < 24.15.0 is no longer supported
+2026-09-22T05:24:39.2497602Z 
+2026-09-22T05:24:39.2508200Z added 706 packages in 10s
+2026-09-22T05:24:39.3492974Z ##[end-action id=__self.__run;outcome=success;conclusion=success;duration_ms=10122]
+2026-09-22T05:24:39.3495614Z ##[start-action display=Rebuild allowlisted native deps;id=__self.__run_2]
+2026-09-22T05:24:39.3514269Z ##[group]Run npm run setup
+2026-09-22T05:24:39.3514777Z npm run setup
+2026-09-22T05:24:39.3554493Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-22T05:24:39.3554869Z env:
+2026-09-22T05:24:39.3555065Z   PWDEBUG: 0
+2026-09-22T05:24:39.3555305Z   PLAYWRIGHT_HTML_OPEN: never
+2026-09-22T05:24:39.3555583Z ##[endgroup]
+2026-09-22T05:24:39.4532325Z 
+2026-09-22T05:24:40.0182909Z > specweave@2.3.0 setup
+2026-09-22T05:24:40.0183578Z > npm rebuild --ignore-scripts=false esbuild
+2026-09-22T05:24:40.0183967Z 
+2026-09-22T05:24:40.0184264Z rebuilt dependencies successfully
+2026-09-22T05:24:40.0412665Z ##[end-action id=__self.__run_2;outcome=success;conclusion=success;duration_ms=691]
+2026-09-22T05:24:40.0416469Z ##[start-action display=Build project;id=__self.__run_3]
+2026-09-22T05:24:40.0449556Z ##[group]Run npm run rebuild
+2026-09-22T05:24:40.0449987Z npm run rebuild
+2026-09-22T05:24:40.0495764Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-22T05:24:40.0496318Z env:
+2026-09-22T05:24:40.0496635Z   PWDEBUG: 0
+2026-09-22T05:24:40.0497466Z   PLAYWRIGHT_HTML_OPEN: never
+2026-09-22T05:24:40.0497881Z ##[endgroup]
+2026-09-22T05:24:40.1883029Z 
+2026-09-22T05:24:40.3866761Z > specweave@2.3.0 rebuild
+2026-09-22T05:24:40.3867672Z > npm run clean && npm run build
+2026-09-22T05:24:40.3868053Z 
+2026-09-22T05:24:40.3868065Z 
+2026-09-22T05:24:40.3868257Z > specweave@2.3.0 clean
+2026-09-22T05:24:40.3868656Z > rm -rf dist/
+2026-09-22T05:24:40.3868861Z 
+2026-09-22T05:24:40.4909479Z 
+2026-09-22T05:24:40.4910278Z > specweave@2.3.0 build
+2026-09-22T05:24:40.4911792Z > tsc && npm run build:dashboard && npm run copy:locales && npm run copy:plugins && npm run copy:hook-deps && npm run copy:adapters && npm run stamp:plugin-version
+2026-09-22T05:24:40.4912784Z 
+2026-09-22T05:24:56.1987193Z 
+2026-09-22T05:24:56.1988065Z > specweave@2.3.0 build:dashboard
+2026-09-22T05:24:56.1988915Z > npx vite build --config src/dashboard/client/vite.config.ts
+2026-09-22T05:24:56.1989319Z 
+2026-09-22T05:24:56.7270688Z vite v7.3.6 building client environment for production...
+2026-09-22T05:24:56.7942013Z transforming...
+2026-09-22T05:24:58.2639518Z ✓ 84 modules transformed.
+2026-09-22T05:24:58.4716580Z rendering chunks...
+2026-09-22T05:24:58.4809397Z computing gzip size...
+2026-09-22T05:24:58.4956717Z ../../../dist/dashboard/index.html                      0.60 kB │ gzip:   0.40 kB
+2026-09-22T05:24:58.4958729Z ../../../dist/dashboard/assets/web-6-CuVUMDWO.woff2     5.54 kB
+2026-09-22T05:24:58.4960440Z ../../../dist/dashboard/assets/web-3-tuJ4lY6O.woff2     9.61 kB
+2026-09-22T05:24:58.4962100Z ../../../dist/dashboard/assets/web-9-CjmLAiqB.woff2    11.85 kB
+2026-09-22T05:24:58.4963836Z ../../../dist/dashboard/assets/web-7-B2O-dwcv.woff2    15.25 kB
+2026-09-22T05:24:58.4965542Z ../../../dist/dashboard/assets/web-2-Cuw1d432.woff2    16.30 kB
+2026-09-22T05:24:58.4968053Z ../../../dist/dashboard/assets/web-0-CXU3YvQl.woff2    19.68 kB
+2026-09-22T05:24:58.4969848Z ../../../dist/dashboard/assets/web-8-b0I-AwbV.woff2    24.41 kB
+2026-09-22T05:24:58.4971522Z ../../../dist/dashboard/assets/web-1-CnEgTPdE.woff2    25.41 kB
+2026-09-22T05:24:58.4973190Z ../../../dist/dashboard/assets/web-4-KUPCjGsn.woff2    25.87 kB
+2026-09-22T05:24:58.4974860Z ../../../dist/dashboard/assets/web-10-ppjp2k5c.woff2   36.33 kB
+2026-09-22T05:24:58.4976642Z ../../../dist/dashboard/assets/web-5-BD64o3ke.woff2    40.24 kB
+2026-09-22T05:24:58.4978964Z ../../../dist/dashboard/assets/web-11-T5L87s1n.woff2   58.15 kB
+2026-09-22T05:24:58.4980911Z ../../../dist/dashboard/assets/index-DS3yH-sX.css      82.61 kB │ gzip:  14.26 kB
+2026-09-22T05:24:58.4982944Z ../../../dist/dashboard/assets/index-DjfDqgzX.js      442.77 kB │ gzip: 122.46 kB
+2026-09-22T05:24:58.4984091Z ✓ built in 1.74s
+2026-09-22T05:24:58.6405251Z 
+2026-09-22T05:24:58.6405900Z > specweave@2.3.0 copy:locales
+2026-09-22T05:24:58.6406485Z > node scripts/build/copy-locales.js
+2026-09-22T05:24:58.6406777Z 
+2026-09-22T05:24:58.6731980Z ✓ Locales copied successfully
+2026-09-22T05:24:58.7746459Z 
+2026-09-22T05:24:58.7747415Z > specweave@2.3.0 copy:plugins
+2026-09-22T05:24:58.7748126Z > node scripts/build/copy-plugin-js.js
+2026-09-22T05:24:58.7748519Z 
+2026-09-22T05:24:58.8131131Z 📦 Transpiling plugin TypeScript files with esbuild...
+2026-09-22T05:25:28.3048701Z ✓ Transpiled 113 plugin files (0 skipped, already up-to-date)
+2026-09-22T05:25:28.4130169Z 
+2026-09-22T05:25:28.4132423Z > specweave@2.3.0 copy:hook-deps
+2026-09-22T05:25:28.4134506Z > node scripts/build/copy-hook-dependencies.js
+2026-09-22T05:25:28.4134812Z 
+2026-09-22T05:25:28.4448714Z 🔧 Copying hook dependencies to plugin vendor directories...
+2026-09-22T05:25:28.4449293Z 
+2026-09-22T05:25:28.4451656Z 
+2026-09-22T05:25:28.4452333Z 📦 Copying dependencies for plugin: specweave
+2026-09-22T05:25:28.4522701Z    ✅ Copied: core/increment/ac-status-manager.js
+2026-09-22T05:25:28.4537883Z    ✅ Copied: core/increment/active-increment-manager.js
+2026-09-22T05:25:28.4549363Z    ✅ Copied: core/increment/auto-transition-manager.js
+2026-09-22T05:25:28.4560419Z    ✅ Copied: core/increment/duplicate-detector.js
+2026-09-22T05:25:28.4574321Z    ✅ Copied: core/increment/metadata-manager.js
+2026-09-22T05:25:28.4586194Z    ✅ Copied: core/increment/status-auto-transition.js
+2026-09-22T05:25:28.4600831Z    ✅ Copied: core/types/increment-metadata.js
+2026-09-22T05:25:28.4682645Z    ✅ Copied: generators/spec/task-parser.js
+2026-09-22T05:25:28.4695620Z    ✅ Copied: core/tasks/task-id.js
+2026-09-22T05:25:28.4706122Z    ✅ Copied: utils/logger.js
+2026-09-22T05:25:28.4718064Z    ✅ Copied: utils/credential-masker.js
+2026-09-22T05:25:28.4730128Z    ✅ Copied: utils/translation.js
+2026-09-22T05:25:28.4742407Z    ✅ Copied: core/ac-test-validator.js
+2026-09-22T05:25:28.4754996Z    ✅ Copied: core/ac-test-validator-cli.js
+2026-09-22T05:25:28.4766716Z    ✅ Copied: utils/fs-native.js
+2026-09-22T05:25:28.4778920Z    ✅ Copied: utils/chalk-fallback.js
+2026-09-22T05:25:28.4791821Z    ✅ Copied: sync/github-reconciler.js
+2026-09-22T05:25:28.4804131Z    ✅ Copied: core/universal-auto-create.js
+2026-09-22T05:25:28.4816848Z    ✅ Copied: utils/feature-id-derivation.js
+2026-09-22T05:25:28.4828436Z    ✅ Copied: sync/provider-router.js
+2026-09-22T05:25:28.4843725Z    ✅ Copied: sync/status-mapper.js
+2026-09-22T05:25:28.4854163Z    ✅ Copied: sync/config.js
+2026-09-22T05:25:28.4863341Z    ✅ Copied: utils/execFileNoThrow.js
+2026-09-22T05:25:28.4873960Z    ✅ Copied: utils/clean-env.js
+2026-09-22T05:25:28.4885107Z    ✅ Copied: utils/auth-helpers.js
+2026-09-22T05:25:28.4885660Z    📊 Copied 25/25 files
+2026-09-22T05:25:28.4885944Z 
+2026-09-22T05:25:28.4886390Z ✅ All hook dependencies copied successfully!
+2026-09-22T05:25:28.5923421Z 
+2026-09-22T05:25:28.5924009Z > specweave@2.3.0 copy:adapters
+2026-09-22T05:25:28.5924499Z > node scripts/build/copy-adapters.js
+2026-09-22T05:25:28.5924740Z 
+2026-09-22T05:25:28.6279140Z ✓ Adapter assets copied successfully
+2026-09-22T05:25:28.7312227Z 
+2026-09-22T05:25:28.7312842Z > specweave@2.3.0 stamp:plugin-version
+2026-09-22T05:25:28.7313566Z > node scripts/build/stamp-plugin-version.cjs
+2026-09-22T05:25:28.7313935Z 
+2026-09-22T05:25:28.7584598Z ✓ plugin/marketplace versions already aligned at 2.3.0
+2026-09-22T05:25:28.7788941Z ##[end-action id=__self.__run_3;outcome=success;conclusion=success;duration_ms=48737]
+2026-09-22T05:25:28.7824769Z ##[group]Run npm link
+2026-09-22T05:25:28.7825040Z npm link
+2026-09-22T05:25:28.7860035Z shell: /usr/bin/bash -e {0}
+2026-09-22T05:25:28.7860290Z env:
+2026-09-22T05:25:28.7860483Z   PWDEBUG: 0
+2026-09-22T05:25:28.7860718Z   PLAYWRIGHT_HTML_OPEN: never
+2026-09-22T05:25:28.7860961Z ##[endgroup]
+2026-09-22T05:25:29.0575682Z 
+2026-09-22T05:25:29.0576038Z added 1 package in 213ms
+2026-09-22T05:25:29.0694973Z ##[group]Run npm run test:e2e
+2026-09-22T05:25:29.0695276Z npm run test:e2e
+2026-09-22T05:25:29.0731742Z shell: /usr/bin/bash -e {0}
+2026-09-22T05:25:29.0732000Z env:
+2026-09-22T05:25:29.0732182Z   PWDEBUG: 0
+2026-09-22T05:25:29.0732389Z   PLAYWRIGHT_HTML_OPEN: never
+2026-09-22T05:25:29.0732631Z ##[endgroup]
+2026-09-22T05:25:29.1756050Z 
+2026-09-22T05:25:29.1757073Z > specweave@2.3.0 test:e2e
+2026-09-22T05:25:29.1757472Z > vitest run tests/e2e
+2026-09-22T05:25:29.1757647Z 
+2026-09-22T05:25:29.4660389Z 
+2026-09-22T05:25:29.4663859Z  RUN  v4.1.11 /home/runner/work/specweave/specweave
+2026-09-22T05:25:29.4664325Z 
+2026-09-22T05:25:29.8771752Z  ↓ tests/e2e/cli/cli-smoke-tests.e2e.ts (47 tests | 47 skipped)
+2026-09-22T05:25:29.9749322Z  ✓ tests/e2e/plugin-activation/skill-matching.test.ts (39 tests | 33 skipped) 61ms
+2026-09-22T05:25:30.0799155Z  ↓ tests/e2e/cli/cli-commands-extended.e2e.ts (17 tests | 17 skipped)
+2026-09-22T05:25:30.3359772Z  ✓ tests/e2e/lsp/claude-lsp-capability-check.test.ts (6 tests) 50ms
+2026-09-22T05:25:33.7249134Z  ✓ tests/e2e/lifecycle/increment-lifecycle-cli.e2e.ts (12 tests) 3527ms
+2026-09-22T05:25:33.7250939Z        ✓ resolves the bare-form `task list` / `task next`  321ms
+2026-09-22T05:25:33.7253032Z        ✓ runs claim → done → verify → complete without touching metadata.json  830ms
+2026-09-22T05:25:33.7255201Z        ✓ does not tell the user their tasks are missing **Satisfies ACs**  437ms
+2026-09-22T05:25:33.7273387Z        ✓ `create-increment --planned` + `start <bare id>` activates it  379ms
+2026-09-22T05:25:33.7274923Z        ✓ `resume <bare id>` accepts the short form  418ms
+2026-09-22T05:25:39.8070157Z 
+2026-09-22T05:25:39.8073663Z ╔═══════════════════════════════════════════════════════════════╗
+2026-09-22T05:25:39.8075111Z ║      LSP (tsserver) vs GREP BENCHMARK RESULTS                 ║
+2026-09-22T05:25:39.8076580Z ╚═══════════════════════════════════════════════════════════════╝
+2026-09-22T05:25:39.8077570Z 
+2026-09-22T05:25:39.8078130Z Timestamp: 2026-09-22T05:25:39.547Z
+2026-09-22T05:25:39.8078487Z 
+2026-09-22T05:25:39.8079065Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-22T05:25:39.8079712Z TEST 1: Find References Speed
+2026-09-22T05:25:39.8080556Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-22T05:25:39.8081335Z   GREP times:     17.6ms, 20.3ms, 19.5ms, 16.9ms, 17.3ms
+2026-09-22T05:25:39.8082083Z   tsserver times: 29.1ms, 17.3ms, 22.2ms, 15.6ms, 13.8ms
+2026-09-22T05:25:39.8082636Z   Average GREP:     18.32 ms
+2026-09-22T05:25:39.8083100Z   Average tsserver: 19.59 ms
+2026-09-22T05:25:39.8083592Z   Speedup:          0.9x slower
+2026-09-22T05:25:39.8083894Z 
+2026-09-22T05:25:39.8084468Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-22T05:25:39.8085155Z TEST 2: Accuracy - "read" symbol
+2026-09-22T05:25:39.8086008Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-22T05:25:39.8086614Z   GREP matches (text):      386 matches
+2026-09-22T05:25:39.8088170Z   tsserver refs (semantic): 38 references
+2026-09-22T05:25:39.8088783Z   False positives avoided:  348
+2026-09-22T05:25:39.8089082Z 
+2026-09-22T05:25:39.8089467Z   Why? Grep matches: read, readFile, readFileSync, readdir, etc.
+2026-09-22T05:25:39.8090273Z   tsserver only matches actual MetadataManager.read() calls.
+2026-09-22T05:25:39.8090746Z 
+2026-09-22T05:25:39.8097628Z  ❯ tests/e2e/lsp/lsp-vs-grep-comparison.test.ts (7 tests | 1 failed | 1 skipped) 9908ms
+2026-09-22T05:25:39.8099626Z        × should show tsserver is faster than grep for find references 369ms
+2026-09-22T05:25:39.8101002Z        ✓ should show tsserver is much faster for hover/type info 110ms
+2026-09-22T05:25:39.8102577Z        ✓ should show tsserver finds SEMANTIC references, not text matches  690ms
+2026-09-22T05:25:39.8104054Z        ✓ should show tsserver provides type information grep cannot 12ms
+2026-09-22T05:25:39.8105581Z        ↓ should show tsserver finds cross-file references accurately
+2026-09-22T05:25:39.8115970Z        ✓ should demonstrate overall advantages of tsserver over grep 1ms
+2026-09-22T05:25:39.8117704Z        ✓ should run full benchmark and write results to file 260ms
+2026-09-22T05:25:40.0138571Z  ↓ tests/e2e/lifecycle/full-lifecycle.e2e.ts (6 tests | 6 skipped)
+2026-09-22T05:25:40.2358408Z  ✓ tests/e2e/sync/umbrella-routing-e2e.test.ts (14 tests) 19ms
+2026-09-22T05:25:40.7739833Z  ✓ tests/e2e/lifecycle/closure-2.0.e2e.ts (8 tests) 6861ms
+2026-09-22T05:25:40.7742136Z      ✓ resolves for task/verify/handoff and writes handoff.md INSIDE the increment  418ms
+2026-09-22T05:25:40.7744698Z      ✓ fails verify and refuses complete while ACs are unchecked, passes once ticked  1040ms
+2026-09-22T05:25:40.7760875Z      ✓ can still be closed without ticked ACs when --reason is given  823ms
+2026-09-22T05:25:40.7763242Z      ✓ does not contradict itself and does not double-print the sync line  744ms
+2026-09-22T05:25:40.7765233Z      ✓ writes no generated docs when livingDocs is false (the 2.0 default)  825ms
+2026-09-22T05:25:40.7767913Z      ✓ writes them when livingDocs is 'onDone'  1040ms
+2026-09-22T05:25:40.7770038Z      ✓ is written by create-increment  1579ms
+2026-09-22T05:25:40.7771973Z      ✓ is stamped by ledger activity, not only by status transitions  342ms
+2026-09-22T05:25:41.0137861Z /bin/sh: 1: claude: not found
+2026-09-22T05:25:41.0250962Z  ✓ tests/e2e/lsp/claude-native-lsp-tool.test.ts (6 tests) 16ms
+2026-09-22T05:25:47.2295823Z  ✓ tests/e2e/cli/update-command.e2e.ts (12 tests) 16626ms
+2026-09-22T05:25:47.2298231Z      ✓ migrates config.json to the 2.0 shape and records a migration note  1479ms
+2026-09-22T05:25:47.2299912Z      ✓ is idempotent: a second update rewrites nothing  2259ms
+2026-09-22T05:25:47.2301548Z      ✓ honours --no-plugins (Commander sets plugins=false, not noPlugins)  1395ms
+2026-09-22T05:25:47.2303316Z      ✓ removes the dropped reflect subsystem instead of enabling it  1265ms
+2026-09-22T05:25:47.2304944Z      ✓ never reports "Fixed:" for a health check it did not fix  1306ms
+2026-09-22T05:25:47.2306542Z      ✓ --check reports the migration without touching the config  1188ms
+2026-09-22T05:25:47.2309475Z      ✓ rewrites the 1.x hook so the first 2.0 commit is not blocked  1225ms
+2026-09-22T05:25:47.2311575Z      ✓ never rewrites a hook the user wrote, and says what to do instead  1388ms
+2026-09-22T05:25:47.2313246Z      ✓ --check reports the stale hook without rewriting it  1376ms
+2026-09-22T05:25:47.2314950Z      ✓ doctor FAILS (exit 1) on a stale hook — a blocked commit is not a warning  1854ms
+2026-09-22T05:25:47.2316658Z      ✓ doctor --fix repairs the hook and then exits 0  1760ms
+2026-09-22T05:25:48.6352998Z  ✓ tests/e2e/lsp/active-increment-manager-lsp.test.ts (5 tests) 8198ms
+2026-09-22T05:25:49.0377380Z  ✓ tests/e2e/lsp/lsp-performance.test.ts (3 tests) 24ms
+2026-09-22T05:25:49.2256217Z  ↓ tests/e2e/auto/stop-hook-reliability.e2e.ts (1 test | 1 skipped)
+2026-09-22T05:25:49.4350661Z  ↓ tests/e2e/auto/full-workflow.e2e.ts (1 test | 1 skipped)
+2026-09-22T05:25:50.3589020Z  ✓ tests/e2e/lifecycle/ledger-evidence-committable.e2e.ts (3 tests) 2948ms
+2026-09-22T05:25:50.3590791Z      ✓ init: the log a done event cites is not ignored and lands in the commit  1212ms
+2026-09-22T05:25:50.3592484Z      ✓ init: reports/artifacts/ IS still ignored (only binaries are excluded)  683ms
+2026-09-22T05:25:50.3594278Z      ✓ update: converges an existing project whose .gitignore still swallows the log  1050ms
+2026-09-22T05:25:50.8429284Z  ✓ tests/e2e/lifecycle/lifecycle-output-honesty.e2e.ts (8 tests) 9641ms
+2026-09-22T05:25:50.8431027Z      ✓ pause / resume / abandon never name a slash command with no skill  1637ms
+2026-09-22T05:25:50.8432981Z      ✓ pause points at the CLI command that really resumes an increment  1061ms
+2026-09-22T05:25:50.8434304Z      ✓ abandon points at a real way back  1028ms
+2026-09-22T05:25:50.8435461Z      ✓ resume points at the real next step  1331ms
+2026-09-22T05:25:50.8437122Z      ✓ resume says nothing about external tools in an unconfigured project  1161ms
+2026-09-22T05:25:50.8438683Z      ✓ start says nothing about external tools in an unconfigured project  1204ms
+2026-09-22T05:25:50.8442618Z      ✓ still reports the sync when a tracker IS configured  1131ms
+2026-09-22T05:25:50.8444694Z      ✓ does not print the verify PASS under the warnings header  1084ms
+2026-09-22T05:25:50.8464154Z 
+2026-09-22T05:25:50.8464840Z ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+2026-09-22T05:25:50.8465326Z 
+2026-09-22T05:25:50.8470037Z  FAIL  tests/e2e/lsp/lsp-vs-grep-comparison.test.ts > LSP (tsserver) vs Grep: Performance & Accuracy > Speed Comparison > should show tsserver is faster than grep for find references
+2026-09-22T05:25:50.8475607Z AssertionError: expected 49.36407320000035 to be less than 45.805802000000405
+2026-09-22T05:25:50.8477117Z  ❯ tests/e2e/lsp/lsp-vs-grep-comparison.test.ts:86:22
+2026-09-22T05:25:50.8570350Z      84|       // tsserver should be faster (or at least comparable) after warm…
+2026-09-22T05:25:50.8571512Z      85|       // For subsequent queries, tsserver is typically 2-10x faster
+2026-09-22T05:25:50.8572720Z      86|       expect(avgLsp).toBeLessThan(avgGrep * 2); // At worst, 2x slower…
+2026-09-22T05:25:50.8573606Z        |                      ^
+2026-09-22T05:25:50.8574636Z      87|     }, 60000);
+2026-09-22T05:25:50.8575260Z      88|
+2026-09-22T05:25:50.8575474Z 
+2026-09-22T05:25:50.8575863Z ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+2026-09-22T05:25:50.8576088Z 
+2026-09-22T05:25:50.8576257Z 
+2026-09-22T05:25:50.8583105Z  Test Files  1 failed | 11 passed | 5 skipped (17)
+2026-09-22T05:25:50.8584783Z       Tests  1 failed | 88 passed | 106 skipped (195)
+2026-09-22T05:25:50.8585810Z    Start at  05:25:29
+2026-09-22T05:25:50.8587195Z    Duration  21.33s (transform 863ms, setup 352ms, import 981ms, tests 57.88s, environment 3ms)
+2026-09-22T05:25:50.8589026Z 
+2026-09-22T05:25:50.8944829Z ##[error]Process completed with exit code 1.
+2026-09-22T05:25:50.9050196Z Post job cleanup.
+2026-09-22T05:25:50.9053671Z ##[start-action display=Setup Node.js;id=__cedaf3f9-a5d2-48b4-982b-4deac4a1daba.__actions_setup-node]
+2026-09-22T05:25:50.9057438Z ##[end-action id=__cedaf3f9-a5d2-48b4-982b-4deac4a1daba.__actions_setup-node;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-22T05:25:50.9144129Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-22T05:25:50.9145381Z Post job cleanup.
+2026-09-22T05:25:51.0002118Z [command]/usr/bin/git version
+2026-09-22T05:25:51.0040126Z git version 2.55.0
+2026-09-22T05:25:51.0079951Z Temporarily overriding HOME='/home/runner/work/_temp/aba192a4-6d20-48b9-912d-b5f72da3c9a6' before making global git config changes
+2026-09-22T05:25:51.0081555Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-22T05:25:51.0086342Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/specweave/specweave
+2026-09-22T05:25:51.0123791Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-22T05:25:51.0158178Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-22T05:25:51.0387208Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-22T05:25:51.0411252Z http.https://github.com/.extraheader
+2026-09-22T05:25:51.0421655Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-22T05:25:51.0452298Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-22T05:25:51.0704612Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-22T05:25:51.0740065Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-22T05:25:51.1188488Z Cleaning up orphan processes
+2026-09-22T05:25:51.1654335Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

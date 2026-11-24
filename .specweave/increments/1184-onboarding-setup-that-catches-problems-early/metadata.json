@@ -1,0 +1,15 @@
+{
+  "id": "1184-onboarding-setup-that-catches-problems-early",
+  "uuid": "94486ade-d5e8-4dd0-9a82-16a99e00dbf7",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T23:00:46.233Z",
+  "updated": "2026-11-03T00:44:36.177Z",
+  "lastActivity": "2026-11-03T00:44:36.177Z",
+  "title": "Onboarding setup that catches problems early",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

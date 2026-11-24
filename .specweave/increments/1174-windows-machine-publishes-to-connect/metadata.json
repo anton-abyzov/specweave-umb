@@ -1,0 +1,15 @@
+{
+  "id": "1174-windows-machine-publishes-to-connect",
+  "uuid": "a0c1d1cd-bc1f-4bfb-9488-c4474d2bdf93",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T16:17:52.201Z",
+  "updated": "2026-11-02T18:17:32.798Z",
+  "lastActivity": "2026-11-02T18:17:32.798Z",
+  "title": "Windows machine publishes to Connect",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "status": "passed",
+  "host": "m4",
+  "mode": "source",
+  "key": "specweave",
+  "projectId": "59f68214-7c68-418b-ae00-8bb8a26e3007",
+  "coordinatorId": "project-coordinator:59f68214-7c68-418b-ae00-8bb8a26e3007",
+  "startedAt": "2026-10-13T15:12:31.252Z",
+  "baseline": [
+    {
+      "path": "/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave",
+      "sha": "48cb231d47bd9339616e3ea7f7a69697c15ef25a",
+      "branch": "codex/0907-handoff-specweave",
+      "origin": "git@github.com:anton-abyzov/specweave-umb.git",
+      "status": "",
+      "readmeSha256": "732a37ae2d8fb6f7187f11152af07aef994e99f7c02e174648044c00f9ef847a"
+    },
+    {
+      "path": "/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave/repositories/anton-abyzov/specweave",
+      "sha": "a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a",
+      "branch": "",
+      "origin": "https://github.com/anton-abyzov/specweave.git",
+      "status": "",
+      "readmeSha256": "d39febdaaa6105bc3d00b79f24c5c9aa2415e2d47c309e86c84085b994c26fab"
+    }
+  ],
+  "marker": "M4-CONTEXT-b7848dd2911a8799",
+  "decision": "Inspect package metadata next; defer installation and deployment.",
+  "outcome": {
+    "workerText": "This checkpoint will use only the eight supplied read-only commands.\nOutcome: M4 read-only source checkpoint complete; all eight commands succeeded.\nRoot: `/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave` | origin `git@github.com:anton-abyzov/specweave-umb.git` | branch `codex/0907-handoff-specweave` | HEAD `48cb231d47bd9339616e3ea7f7a69697c15ef25a`. README states saved receipts do not prove current runtime health.\nNested: `/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave/repositories/anton-abyzov/specweave` | origin `https://github.com/anton-abyzov/specweave.git` | branch detached | HEAD `a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a`. README states SpecWithCode is a desktop app built on SpecWeave.\nContext: M4-CONTEXT-b7848dd2911a8799\nDecision for the next machine: Inspect package metadata next; defer installation and deployment. Inspect nested `package.json` name and available build/test scripts next; this step was not performed on M4.",
+    "relayText": "The worker finished; I\u2019m reading its terminal result once.\n\nM4 checkpoint complete; all eight commands succeeded. Evidence: [specweave M4 handoff proof source proof](studio://thread/thread%3Adelegated-task%3Acommand%253Amcp%253A3ff9eeef-f5e1-433f-a7c6-298b2d8df9aa%253Adelegate-task%253Am4-source-proof-20261013-b7848dd2-fresh-01).\n\nRoot: `/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave`\nOrigin: `git@github.com:anton-abyzov/specweave-umb.git`\nBranch: `codex/0907-handoff-specweave`\nHEAD: `48cb231d47bd9339616e3ea7f7a69697c15ef25a`\nREADME states saved receipts do not prove current runtime health.\n\nNested: `/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave/repositories/anton-abyzov/specweave`\nOrigin: `https://github.com/anton-abyzov/specweave.git`\nBranch: detached\nHEAD: `a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a`\nREADME states SpecWithCode is a desktop app built on SpecWeave.\n\nM4-CONTEXT-b7848dd2911a8799\n\nDecision for the next machine: Inspect package metadata next; defer installation and deployment..\n\nDeferred next step: inspect the nested `package.json` name and available build/test scripts in a fresh destination worker. This was not performed on M4; no M4 process is being resumed.",
+    "workerThreadId": "thread:delegated-task:command%3Amcp%3A3ff9eeef-f5e1-433f-a7c6-298b2d8df9aa%3Adelegate-task%3Am4-source-proof-20261013-b7848dd2-fresh-01",
+    "automaticWakeRunId": "run:thread:project-coordinator%3A59f68214-7c68-418b-ae00-8bb8a26e3007:ordinal:2",
+    "completionState": "acknowledged"
+  },
+  "quiescence": [
+    {
+      "threadId": "project-coordinator:59f68214-7c68-418b-ae00-8bb8a26e3007",
+      "activeRuns": [],
+      "activeProviderTurns": [],
+      "pendingRequests": [],
+      "pendingWork": [],
+      "activeTasks": [],
+      "pendingDeliveries": []
+    },
+    {
+      "threadId": "thread:delegated-task:command%3Amcp%3A3ff9eeef-f5e1-433f-a7c6-298b2d8df9aa%3Adelegate-task%3Am4-source-proof-20261013-b7848dd2-fresh-01",
+      "activeRuns": [],
+      "activeProviderTurns": [],
+      "pendingRequests": [],
+      "pendingWork": [],
+      "activeTasks": [],
+      "pendingDeliveries": []
+    }
+  ],
+  "temporarySessionRevoked": true
+}

@@ -1,0 +1,791 @@
+{
+  "synthetic": true,
+  "purpose": "INVENTED UNIT TEST DATA, NOT OPERATIONAL EVIDENCE",
+  "plan": {
+    "version": 1,
+    "mode": "source",
+    "host": "m4",
+    "environmentId": "environment",
+    "operationId": "12345678-1234-4123-8123-123456789012",
+    "projectId": "source-project",
+    "coordinatorId": "project-coordinator:source-project",
+    "workspaceRoot": "/private/proof/workspace",
+    "nestedRoot": "/private/proof/workspace/repositories/owner/code",
+    "originalShas": {
+      "root": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "nested": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "paths": {
+      "implementation": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs",
+      "test": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs",
+      "readme": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md",
+      "continuation": "/private/proof/workspace/.specweave/increments/proof/product-continuation.md"
+    },
+    "frozen": {
+      "implementation": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a",
+      "test": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a",
+      "readme": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a",
+      "continuation": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+    },
+    "nodePath": "/private/node22/bin/node",
+    "expectedTestCount": 2,
+    "contextRequired": [
+      "SOURCE-MARKER-0907",
+      "Decision: preserve stable ordering"
+    ],
+    "profile": {
+      "coordinator": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol"
+      },
+      "worker": {
+        "instanceId": "codex",
+        "model": "gpt-6.1-sol"
+      }
+    },
+    "branch": "codex/0907-product-jobweave-m1",
+    "commitMessage": "0907: Complete jobweave handoff diagnostic",
+    "receiveReceiptPath": "/private/proof/receive.json",
+    "priorProjectionPath": "/private/proof/prior.json",
+    "startMessageId": "start",
+    "timeoutMs": 1000
+  },
+  "receipt": {
+    "version": 1,
+    "mode": "source",
+    "host": "m4",
+    "projectId": "source-project",
+    "coordinatorId": "project-coordinator:source-project",
+    "operationId": "12345678-1234-4123-8123-123456789012",
+    "status": "passed",
+    "baseline": {
+      "files": {
+        "implementation": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "test": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "readme": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "continuation": {
+          "path": "/private/proof/workspace/.specweave/increments/proof/product-continuation.md",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        }
+      },
+      "repos": {
+        "root": {
+          "path": "/private/proof/workspace",
+          "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "branch": "starting",
+          "status": "",
+          "configSha256": "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2"
+        },
+        "nested": {
+          "path": "/private/proof/workspace/repositories/owner/code",
+          "sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "branch": "starting",
+          "status": "",
+          "configSha256": "233562de1a0288b139c4fa40b7d189f806e906eeb048517aeb67f34ac0e2faf1"
+        }
+      }
+    },
+    "prior": {
+      "thread": {
+        "id": "project-coordinator:source-project",
+        "projectId": "source-project",
+        "runtimeMode": "approval-required",
+        "modelSelection": {
+          "instanceId": "codex",
+          "model": "gpt-6.1-sol"
+        }
+      },
+      "runs": [],
+      "providerTurns": [],
+      "attempts": [],
+      "turnItems": [],
+      "nodes": [],
+      "subagents": [],
+      "runtimeRequests": [],
+      "messages": []
+    },
+    "approvals": [
+      {
+        "threadId": "project-coordinator:source-project",
+        "requestId": "request",
+        "itemId": "delegate",
+        "kind": "mcp",
+        "payloadSha256": "4cbabdd79818940dc1cb0f4fd706655b8e190a73b4195ea69a6010870e517d48",
+        "payload": {
+          "threadId": "project-coordinator:source-project",
+          "request": {
+            "id": "request",
+            "providerTurnId": "turn-1",
+            "kind": "mcp-elicitation",
+            "status": "pending",
+            "responseCapability": {
+              "type": "live",
+              "providerSessionId": "session"
+            },
+            "nativeRequestRef": {
+              "driver": "codex",
+              "strength": "strong",
+              "nativeId": "native"
+            }
+          },
+          "approval": {
+            "id": "approval",
+            "type": "approval_request",
+            "requestId": "request",
+            "requestKind": "mcp-elicitation",
+            "providerTurnId": "turn-1",
+            "runId": "first",
+            "status": "waiting",
+            "appName": "studio-code",
+            "prompt": "Allow the studio-code MCP server to run tool \"delegate_task\"?"
+          },
+          "action": {
+            "id": "delegate",
+            "type": "dynamic_tool",
+            "threadId": "project-coordinator:source-project",
+            "runId": "first",
+            "providerTurnId": "turn-1",
+            "status": "waiting",
+            "toolName": "studio-code.delegate_task",
+            "input": {
+              "task": "/private/proof/workspace/repositories/owner/code\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs\nSOURCE-MARKER-0907\nDecision: preserve stable ordering",
+              "target": {
+                "providerInstanceId": "codex",
+                "model": "gpt-6.1-sol"
+              },
+              "title": "bounded source",
+              "mode": "async",
+              "clientRequestId": "fresh",
+              "runtimeMode": "approval-required",
+              "machine": "local"
+            },
+            "startedAt": "2026-10-13T12:00:00Z"
+          }
+        },
+        "decision": "accept"
+      }
+    ],
+    "outputs": [
+      {
+        "threadId": "worker",
+        "itemId": "cmd-0",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "git-root-head",
+        "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace' 'rev-parse' '--show-toplevel' 'HEAD'",
+        "response": {
+          "id": "cmd-0",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace' 'rev-parse' '--show-toplevel' 'HEAD'",
+          "output": "/private/proof/workspace\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        "sha256": "54fa65568da80dc3cd3ffb9e5d8e3a574c5b59e656aa2be182564cd9d19f42d5"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-1",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "git-nested-head",
+        "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace/repositories/owner/code' 'rev-parse' '--show-toplevel' 'HEAD'",
+        "response": {
+          "id": "cmd-1",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace/repositories/owner/code' 'rev-parse' '--show-toplevel' 'HEAD'",
+          "output": "/private/proof/workspace/repositories/owner/code\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        "sha256": "c22ca4436b684343eed66a7fa2b123c627c20e6912d01a2419111bb0fd3a1d89"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-2",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "read-implementation",
+        "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs'",
+        "response": {
+          "id": "cmd-2",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        "sha256": "732a7cfcafe93c9afc81ec1be7864a1c8babac511627b75af25289a45b410280"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-3",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "read-test",
+        "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+        "response": {
+          "id": "cmd-3",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        "sha256": "e23962e85e6868205fd464da3bdaee00700d037a1eb77a4dbf492dce87de4747"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-4",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "read-readme",
+        "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md'",
+        "response": {
+          "id": "cmd-4",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        "sha256": "f81be35748ca53fa94ecbf8c25ad9c2dbb6e03322476f4a2a0164d427d1d9e47"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-5",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "read-continuation",
+        "input": "'/bin/cat' '/private/proof/workspace/.specweave/increments/proof/product-continuation.md'",
+        "response": {
+          "id": "cmd-5",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/.specweave/increments/proof/product-continuation.md'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        "sha256": "61f546c6bcb2a78dea1fe8506bb7b05fffc678972028b3aaad7b9fc56ec9c217"
+      },
+      {
+        "threadId": "worker",
+        "itemId": "cmd-6",
+        "runId": "child-run",
+        "role": "worker",
+        "kind": "test",
+        "input": "'cd' '/private/proof/workspace/repositories/owner/code' && '/private/node22/bin/node' '--test' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+        "response": {
+          "id": "cmd-6",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'cd' '/private/proof/workspace/repositories/owner/code' && '/private/node22/bin/node' '--test' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+          "output": "TAP version 13\nnot ok 1 - unfinished\n  code: 'ERR_ASSERTION'\nok 2 - invariant\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 1\n",
+          "exitCode": 1,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        "sha256": "3a459ae263661585d47e0d7a9f854122447b6a85ed5cf16551a470cd8626df58"
+      }
+    ],
+    "testRecords": [
+      {
+        "tests": 2,
+        "pass": 1,
+        "fail": 1,
+        "exitCode": 1,
+        "itemId": "cmd-6",
+        "mode": "source",
+        "implementationSha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+      }
+    ],
+    "startedAt": "2026-10-13T16:17:11.323Z",
+    "after": {
+      "files": {
+        "implementation": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "test": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "readme": {
+          "path": "/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        },
+        "continuation": {
+          "path": "/private/proof/workspace/.specweave/increments/proof/product-continuation.md",
+          "sha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+        }
+      },
+      "repos": {
+        "root": {
+          "path": "/private/proof/workspace",
+          "sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "branch": "starting",
+          "status": "",
+          "configSha256": "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2"
+        },
+        "nested": {
+          "path": "/private/proof/workspace/repositories/owner/code",
+          "sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "branch": "starting",
+          "status": "",
+          "configSha256": "233562de1a0288b139c4fa40b7d189f806e906eeb048517aeb67f34ac0e2faf1"
+        }
+      }
+    },
+    "git": {
+      "unfinished": true
+    },
+    "rawParent": {
+      "thread": {
+        "id": "project-coordinator:source-project",
+        "projectId": "source-project",
+        "runtimeMode": "approval-required",
+        "modelSelection": {
+          "instanceId": "codex",
+          "model": "gpt-6.1-sol"
+        }
+      },
+      "runs": [
+        {
+          "id": "first",
+          "status": "completed",
+          "userMessageId": "start"
+        },
+        {
+          "id": "wake",
+          "status": "completed",
+          "userMessageId": "wake-msg"
+        }
+      ],
+      "providerTurns": [],
+      "attempts": [],
+      "turnItems": [
+        {
+          "id": "delegate",
+          "type": "dynamic_tool",
+          "threadId": "project-coordinator:source-project",
+          "runId": "first",
+          "providerTurnId": "turn-1",
+          "status": "completed",
+          "toolName": "studio-code.delegate_task",
+          "input": {
+            "task": "/private/proof/workspace/repositories/owner/code\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs\nSOURCE-MARKER-0907\nDecision: preserve stable ordering",
+            "target": {
+              "providerInstanceId": "codex",
+              "model": "gpt-6.1-sol"
+            },
+            "title": "bounded source",
+            "mode": "async",
+            "clientRequestId": "fresh",
+            "runtimeMode": "approval-required",
+            "machine": "local"
+          },
+          "startedAt": "2026-10-13T12:00:00Z"
+        },
+        {
+          "id": "approval",
+          "type": "approval_request",
+          "requestId": "request",
+          "requestKind": "mcp-elicitation",
+          "providerTurnId": "turn-1",
+          "runId": "first",
+          "status": "completed",
+          "appName": "studio-code",
+          "prompt": "Allow the studio-code MCP server to run tool \"delegate_task\"?"
+        },
+        {
+          "id": "relay",
+          "type": "assistant_message",
+          "runId": "wake",
+          "status": "completed",
+          "text": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb studio://thread/worker"
+        }
+      ],
+      "nodes": [],
+      "subagents": [
+        {
+          "id": "task",
+          "origin": "app_owned",
+          "childThreadId": "worker",
+          "runId": "first",
+          "status": "completed",
+          "completedAt": "2026-10-13T12:01:00Z",
+          "completionDelivery": {
+            "state": "delivered",
+            "observedByRunId": "wake"
+          }
+        }
+      ],
+      "runtimeRequests": [
+        {
+          "id": "request",
+          "providerTurnId": "turn-1",
+          "kind": "mcp-elicitation",
+          "status": "resolved",
+          "responseCapability": {
+            "type": "live",
+            "providerSessionId": "session"
+          },
+          "nativeRequestRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "native"
+          },
+          "decision": "accept"
+        }
+      ],
+      "messages": [
+        {
+          "id": "start",
+          "runId": "first",
+          "text": "Continue handoff 12345678-1234-4123-8123-123456789012. undefined /private/proof/workspace",
+          "createdBy": "user",
+          "creationSource": "server"
+        },
+        {
+          "id": "wake-msg",
+          "runId": "wake",
+          "text": "Completed worker",
+          "createdBy": "agent",
+          "creationSource": "server",
+          "createdAt": "2026-10-13T12:02:00Z",
+          "delegatedCompletion": {
+            "parentRunId": "first",
+            "taskIds": [
+              "task"
+            ]
+          }
+        }
+      ]
+    },
+    "parent": {
+      "thread": {
+        "id": "project-coordinator:source-project",
+        "projectId": "source-project",
+        "runtimeMode": "approval-required",
+        "modelSelection": {
+          "instanceId": "codex",
+          "model": "gpt-6.1-sol"
+        }
+      },
+      "runs": [
+        {
+          "id": "first",
+          "status": "completed",
+          "userMessageId": "start"
+        },
+        {
+          "id": "wake",
+          "status": "completed",
+          "userMessageId": "wake-msg"
+        }
+      ],
+      "providerTurns": [],
+      "attempts": [],
+      "turnItems": [
+        {
+          "id": "delegate",
+          "type": "dynamic_tool",
+          "threadId": "project-coordinator:source-project",
+          "runId": "first",
+          "providerTurnId": "turn-1",
+          "status": "completed",
+          "toolName": "studio-code.delegate_task",
+          "input": {
+            "task": "/private/proof/workspace/repositories/owner/code\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs\n/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs\nSOURCE-MARKER-0907\nDecision: preserve stable ordering",
+            "target": {
+              "providerInstanceId": "codex",
+              "model": "gpt-6.1-sol"
+            },
+            "title": "bounded source",
+            "mode": "async",
+            "clientRequestId": "fresh",
+            "runtimeMode": "approval-required",
+            "machine": "local"
+          },
+          "startedAt": "2026-10-13T12:00:00Z"
+        },
+        {
+          "id": "approval",
+          "type": "approval_request",
+          "requestId": "request",
+          "requestKind": "mcp-elicitation",
+          "providerTurnId": "turn-1",
+          "runId": "first",
+          "status": "completed",
+          "appName": "studio-code",
+          "prompt": "Allow the studio-code MCP server to run tool \"delegate_task\"?"
+        },
+        {
+          "id": "relay",
+          "type": "assistant_message",
+          "runId": "wake",
+          "status": "completed",
+          "text": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb studio://thread/worker"
+        }
+      ],
+      "nodes": [],
+      "subagents": [
+        {
+          "id": "task",
+          "origin": "app_owned",
+          "childThreadId": "worker",
+          "runId": "first",
+          "status": "completed",
+          "completedAt": "2026-10-13T12:01:00Z",
+          "completionDelivery": {
+            "state": "delivered",
+            "observedByRunId": "wake"
+          }
+        }
+      ],
+      "runtimeRequests": [
+        {
+          "id": "request",
+          "providerTurnId": "turn-1",
+          "kind": "mcp-elicitation",
+          "status": "resolved",
+          "responseCapability": {
+            "type": "live",
+            "providerSessionId": "session"
+          },
+          "nativeRequestRef": {
+            "driver": "codex",
+            "strength": "strong",
+            "nativeId": "native"
+          },
+          "decision": "accept"
+        }
+      ],
+      "messages": [
+        {
+          "id": "start",
+          "runId": "first",
+          "text": "Continue handoff 12345678-1234-4123-8123-123456789012. undefined /private/proof/workspace",
+          "createdBy": "user",
+          "creationSource": "server"
+        },
+        {
+          "id": "wake-msg",
+          "runId": "wake",
+          "text": "Completed worker",
+          "createdBy": "agent",
+          "creationSource": "server",
+          "createdAt": "2026-10-13T12:02:00Z",
+          "delegatedCompletion": {
+            "parentRunId": "first",
+            "taskIds": [
+              "task"
+            ]
+          }
+        }
+      ],
+      "plans": [],
+      "checkpointScopes": [],
+      "checkpoints": [],
+      "contextHandoffs": [],
+      "contextTransfers": []
+    },
+    "worker": {
+      "thread": {
+        "id": "worker",
+        "projectId": "source-project",
+        "runtimeMode": "approval-required",
+        "modelSelection": {
+          "instanceId": "codex",
+          "model": "gpt-6.1-sol"
+        }
+      },
+      "runs": [
+        {
+          "id": "child-run",
+          "status": "completed"
+        }
+      ],
+      "providerTurns": [],
+      "attempts": [],
+      "turnItems": [
+        {
+          "id": "cmd-0",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace' 'rev-parse' '--show-toplevel' 'HEAD'",
+          "output": "/private/proof/workspace\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        {
+          "id": "cmd-1",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/Library/Developer/CommandLineTools/usr/bin/git' '--no-optional-locks' '-C' '/private/proof/workspace/repositories/owner/code' 'rev-parse' '--show-toplevel' 'HEAD'",
+          "output": "/private/proof/workspace/repositories/owner/code\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        {
+          "id": "cmd-2",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.mjs'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        {
+          "id": "cmd-3",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        {
+          "id": "cmd-4",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/README.md'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        {
+          "id": "cmd-5",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'/bin/cat' '/private/proof/workspace/.specweave/increments/proof/product-continuation.md'",
+          "output": "frozen fixture body\n",
+          "exitCode": 0,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        {
+          "id": "cmd-6",
+          "threadId": "worker",
+          "runId": "child-run",
+          "providerTurnId": "child-turn",
+          "type": "command_execution",
+          "status": "completed",
+          "input": "'cd' '/private/proof/workspace/repositories/owner/code' && '/private/node22/bin/node' '--test' '/private/proof/workspace/repositories/owner/code/scripts/diagnostics/handoff/proof/case.check.mjs'",
+          "output": "TAP version 13\nnot ok 1 - unfinished\n  code: 'ERR_ASSERTION'\nok 2 - invariant\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 1\n",
+          "exitCode": 1,
+          "updatedAt": "2026-10-13T12:01:00Z"
+        },
+        {
+          "id": "answer",
+          "type": "assistant_message",
+          "runId": "child-run",
+          "status": "completed",
+          "text": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ],
+      "nodes": [],
+      "subagents": [],
+      "runtimeRequests": [],
+      "messages": []
+    },
+    "outcome": {
+      "workerText": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "relayText": "SOURCE-MARKER-0907\nDecision: preserve stable ordering\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb studio://thread/worker",
+      "workerThreadId": "worker",
+      "automaticWakeRunId": "wake",
+      "completionState": "delivered"
+    },
+    "quiescence": [
+      {
+        "threadId": "project-coordinator:source-project",
+        "runs": [],
+        "turns": [],
+        "requests": [],
+        "work": [],
+        "tasks": [],
+        "deliveries": []
+      },
+      {
+        "threadId": "worker",
+        "runs": [],
+        "turns": [],
+        "requests": [],
+        "work": [],
+        "tasks": [],
+        "deliveries": []
+      }
+    ],
+    "verification": {
+      "verified": true,
+      "mode": "source",
+      "operationId": "12345678-1234-4123-8123-123456789012",
+      "projectId": "source-project",
+      "workerThreadId": "worker",
+      "tests": {
+        "tests": 2,
+        "pass": 1,
+        "fail": 1,
+        "exitCode": 1,
+        "itemId": "cmd-6",
+        "mode": "source",
+        "implementationSha256": "673ae43832d2a0258187cb3e87ac6007d835aa008fd01fbac9a1274999af8f5a"
+      },
+      "git": {
+        "unfinished": true
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+$ cd /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-03-aide-proactive/swc/apps/server && npx vp test run src/project/AideBriefingSetup
+# exit 0 — 2026-11-03T06:57:37.388Z
+
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/scratch/2026-11-03-aide-proactive/swc/apps/server
+
+(node:81742) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  01:57:32
+   Duration  4.72s (transform 73%, import 27%)
+
+  Transform  transforming modules took 3.39s · 73% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

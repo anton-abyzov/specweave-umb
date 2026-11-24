@@ -1,0 +1,39 @@
+diff --git a/.specweave/increments/0907-m4-portable-continuation-proof/checkpoint.json b/.specweave/increments/0907-m4-portable-continuation-proof/checkpoint.json
+new file mode 100644
+index 000000000..41402a0fc
+--- /dev/null
++++ b/.specweave/increments/0907-m4-portable-continuation-proof/checkpoint.json
+@@ -0,0 +1,33 @@
++{
++  "version": 1,
++  "project": "specweave",
++  "createdAt": "2026-10-13T15:16:40.855023+00:00",
++  "sourceHost": "m4",
++  "sourceInitialSha": "48cb231d47bd9339616e3ea7f7a69697c15ef25a",
++  "rootCodeBaseSha": "99e16cf4eba879f1b163b894b37ec4cc3908b677",
++  "sourceEvidenceCommit": "3e4665eaa70928241419853f0b779de8c99e01ee",
++  "sourcePaths": {
++    "root": "/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave",
++    "nested": "/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave/repositories/anton-abyzov/specweave"
++  },
++  "sourceInitialShas": {
++    "root": "48cb231d47bd9339616e3ea7f7a69697c15ef25a",
++    "nested": "a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a"
++  },
++  "marker": "M4-CONTEXT-b7848dd2911a8799",
++  "decision": "Inspect package metadata next; defer installation and deployment.",
++  "sourceRelayText": "The worker finished; I\u2019m reading its terminal result once.\n\nM4 checkpoint complete; all eight commands succeeded. Evidence: [specweave M4 handoff proof source proof](studio://thread/thread%3Adelegated-task%3Acommand%253Amcp%253A3ff9eeef-f5e1-433f-a7c6-298b2d8df9aa%253Adelegate-task%253Am4-source-proof-20261013-b7848dd2-fresh-01).\n\nRoot: `/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave`\nOrigin: `git@github.com:anton-abyzov/specweave-umb.git`\nBranch: `codex/0907-handoff-specweave`\nHEAD: `48cb231d47bd9339616e3ea7f7a69697c15ef25a`\nREADME states saved receipts do not prove current runtime health.\n\nNested: `/Users/antonabyzov/.local/share/specweave/fleet/handoff-proof-20261013/source-checkouts/specweave/repositories/anton-abyzov/specweave`\nOrigin: `https://github.com/anton-abyzov/specweave.git`\nBranch: detached\nHEAD: `a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a`\nREADME states SpecWithCode is a desktop app built on SpecWeave.\n\nM4-CONTEXT-b7848dd2911a8799\n\nDecision for the next machine: Inspect package metadata next; defer installation and deployment..\n\nDeferred next step: inspect the nested `package.json` name and available build/test scripts in a fresh destination worker. This was not performed on M4; no M4 process is being resumed.",
++  "nestedPin": {
++    "origin": "https://github.com/anton-abyzov/specweave.git",
++    "sha": "a7bd43cabd0b241cea9a3c7cd8bc22fbe3ba9c9a",
++    "relativePath": "repositories/anton-abyzov/specweave"
++  },
++  "sourceCoordinatorId": "project-coordinator:59f68214-7c68-418b-ae00-8bb8a26e3007",
++  "sourceWorkerThreadId": "thread:delegated-task:command%3Amcp%3A3ff9eeef-f5e1-433f-a7c6-298b2d8df9aa%3Adelegate-task%3Am4-source-proof-20261013-b7848dd2-fresh-01",
++  "sourceAutomaticWakeRunId": "run:thread:project-coordinator%3A59f68214-7c68-418b-ae00-8bb8a26e3007:ordinal:2",
++  "transport": {
++    "branch": "codex/0907-handoff-specweave",
++    "commitNote": "The final transport commit is recorded separately in the operator transport receipt; its only source-baseline differences are this increment documentation."
++  },
++  "nextStep": "Read checkpoint; inspect nested package.json name and available build/test scripts on destination; return exact local SHAs and context marker."
++}

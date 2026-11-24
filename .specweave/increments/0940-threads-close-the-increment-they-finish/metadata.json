@@ -1,0 +1,25 @@
+{
+  "id": "0940-threads-close-the-increment-they-finish",
+  "uuid": "25684564-82a7-465a-96ab-4c48653fff0a",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T06:30:23.777Z",
+  "updated": "2026-10-19T07:34:02.146Z",
+  "lastActivity": "2026-10-19T07:34:02.146Z",
+  "title": "Threads close the increment they finish",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2495",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2495",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-19T07:34:09.038Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-19T07:34:02.144Z",
+  "approvedAt": "2026-10-19T07:34:02.146Z"
+}

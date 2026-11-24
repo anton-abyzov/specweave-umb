@@ -1,0 +1,46 @@
+PASS strict fast hook and successful local checkpoint without quota read
+PASS concurrent sessions and worktrees plus StopFailure
+PASS failed refresh preserves snapshot and retries without consuming a once-only marker
+PASS stalled local Git bounded outside hook with preserved recovery and retry
+PASS no Git network, refs, index, claims, edits or handoff pointer changes
+{
+  "result": "PASS",
+  "hooks": [
+    {
+      "label": "legacy 90% settings; unreadable quota; duplicate active increments",
+      "elapsedMs": 90
+    },
+    {
+      "label": "parallel session",
+      "elapsedMs": 64
+    },
+    {
+      "label": "repeated stop",
+      "elapsedMs": 82
+    },
+    {
+      "label": "StopFailure",
+      "elapsedMs": 83
+    },
+    {
+      "label": "same session in another worktree",
+      "elapsedMs": 104
+    },
+    {
+      "label": "failed background refresh",
+      "elapsedMs": 225
+    },
+    {
+      "label": "retry after failure",
+      "elapsedMs": 135
+    },
+    {
+      "label": "stalled local Git",
+      "elapsedMs": 83
+    },
+    {
+      "label": "retry after local Git stall",
+      "elapsedMs": 136
+    }
+  ]
+}

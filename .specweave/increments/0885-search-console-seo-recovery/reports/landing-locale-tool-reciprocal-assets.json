@@ -1,0 +1,456 @@
+[
+  {
+    "url": "https://easychamp.com/sim",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 398066,
+    "htmlLang": "en",
+    "title": "Soccer match simulator with real squads | EasyChamp",
+    "links": [
+      {
+        "rel": "canonical",
+        "href": "https://easychamp.com/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "x-default",
+        "href": "https://easychamp.com/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ar",
+        "href": "https://easychamp.com/ar/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "de",
+        "href": "https://easychamp.com/de/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "en",
+        "href": "https://easychamp.com/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "en-GB",
+        "href": "https://easychamp.com/en-GB/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "es",
+        "href": "https://easychamp.com/es/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "es-AR",
+        "href": "https://easychamp.com/es-AR/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "fr",
+        "href": "https://easychamp.com/fr/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "he",
+        "href": "https://easychamp.com/he/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "it",
+        "href": "https://easychamp.com/it/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ja",
+        "href": "https://easychamp.com/ja/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ko",
+        "href": "https://easychamp.com/ko/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "nl",
+        "href": "https://easychamp.com/nl/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "pl",
+        "href": "https://easychamp.com/pl/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "pt-BR",
+        "href": "https://easychamp.com/pt-BR/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ru",
+        "href": "https://easychamp.com/ru/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "tr",
+        "href": "https://easychamp.com/tr/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "uk",
+        "href": "https://easychamp.com/uk/sim"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "zh-CN",
+        "href": "https://easychamp.com/zh-CN/sim"
+      }
+    ]
+  },
+  {
+    "url": "https://easychamp.com/coach",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 391381,
+    "htmlLang": "en",
+    "title": "Football manager game with real squads | EasyChamp Coach",
+    "links": [
+      {
+        "rel": "canonical",
+        "href": "https://easychamp.com/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "x-default",
+        "href": "https://easychamp.com/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ar",
+        "href": "https://easychamp.com/ar/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "de",
+        "href": "https://easychamp.com/de/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "en",
+        "href": "https://easychamp.com/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "en-GB",
+        "href": "https://easychamp.com/en-GB/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "es",
+        "href": "https://easychamp.com/es/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "es-AR",
+        "href": "https://easychamp.com/es-AR/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "fr",
+        "href": "https://easychamp.com/fr/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "he",
+        "href": "https://easychamp.com/he/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "it",
+        "href": "https://easychamp.com/it/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ja",
+        "href": "https://easychamp.com/ja/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ko",
+        "href": "https://easychamp.com/ko/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "nl",
+        "href": "https://easychamp.com/nl/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "pl",
+        "href": "https://easychamp.com/pl/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "pt-BR",
+        "href": "https://easychamp.com/pt-BR/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ru",
+        "href": "https://easychamp.com/ru/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "tr",
+        "href": "https://easychamp.com/tr/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "uk",
+        "href": "https://easychamp.com/uk/coach"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "zh-CN",
+        "href": "https://easychamp.com/zh-CN/coach"
+      }
+    ]
+  },
+  {
+    "url": "https://easychamp.com/ko/tools/round-robin-generator",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 601217,
+    "htmlLang": "ko",
+    "title": "리그전 대진표 생성기 (무료 일정표 만들기) | EasyChamp",
+    "links": [
+      {
+        "rel": "canonical",
+        "href": "https://easychamp.com/ko/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "x-default",
+        "href": "https://easychamp.com/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ar",
+        "href": "https://easychamp.com/ar/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "de",
+        "href": "https://easychamp.com/de/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "en",
+        "href": "https://easychamp.com/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "en-GB",
+        "href": "https://easychamp.com/en-GB/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "es",
+        "href": "https://easychamp.com/es/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "es-AR",
+        "href": "https://easychamp.com/es-AR/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "fr",
+        "href": "https://easychamp.com/fr/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "he",
+        "href": "https://easychamp.com/he/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "it",
+        "href": "https://easychamp.com/it/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ja",
+        "href": "https://easychamp.com/ja/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ko",
+        "href": "https://easychamp.com/ko/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "nl",
+        "href": "https://easychamp.com/nl/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "pl",
+        "href": "https://easychamp.com/pl/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "pt-BR",
+        "href": "https://easychamp.com/pt-BR/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ru",
+        "href": "https://easychamp.com/ru/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "tr",
+        "href": "https://easychamp.com/tr/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "uk",
+        "href": "https://easychamp.com/uk/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "zh-CN",
+        "href": "https://easychamp.com/zh-CN/tools/round-robin-generator"
+      }
+    ]
+  },
+  {
+    "url": "https://easychamp.com/tr/tools/round-robin-generator",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 578041,
+    "htmlLang": "tr",
+    "title": "Lig usulü fikstür oluşturucu | EasyChamp",
+    "links": [
+      {
+        "rel": "canonical",
+        "href": "https://easychamp.com/tr/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "x-default",
+        "href": "https://easychamp.com/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ar",
+        "href": "https://easychamp.com/ar/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "de",
+        "href": "https://easychamp.com/de/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "en",
+        "href": "https://easychamp.com/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "en-GB",
+        "href": "https://easychamp.com/en-GB/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "es",
+        "href": "https://easychamp.com/es/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "es-AR",
+        "href": "https://easychamp.com/es-AR/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "fr",
+        "href": "https://easychamp.com/fr/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "he",
+        "href": "https://easychamp.com/he/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "it",
+        "href": "https://easychamp.com/it/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ja",
+        "href": "https://easychamp.com/ja/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ko",
+        "href": "https://easychamp.com/ko/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "nl",
+        "href": "https://easychamp.com/nl/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "pl",
+        "href": "https://easychamp.com/pl/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "pt-BR",
+        "href": "https://easychamp.com/pt-BR/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "ru",
+        "href": "https://easychamp.com/ru/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "tr",
+        "href": "https://easychamp.com/tr/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "uk",
+        "href": "https://easychamp.com/uk/tools/round-robin-generator"
+      },
+      {
+        "rel": "alternate",
+        "hreflang": "zh-CN",
+        "href": "https://easychamp.com/zh-CN/tools/round-robin-generator"
+      }
+    ]
+  },
+  {
+    "url": "https://easychamp.com/og?page=sim",
+    "status": 200,
+    "contentType": "image/png",
+    "bytes": 35740
+  },
+  {
+    "url": "https://easychamp.com/og?page=coach",
+    "status": 200,
+    "contentType": "image/png",
+    "bytes": 33620
+  },
+  {
+    "url": "https://easychamp.com/og?page=round-robin-generator",
+    "status": 200,
+    "contentType": "image/png",
+    "bytes": 36608
+  }
+]

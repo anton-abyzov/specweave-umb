@@ -1,0 +1,17 @@
+$ cd /Users/antonabyzov/Projects/github/studio-muse-fallback && PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH node node_modules/vite-plus/bin/vp test run apps/server/src/provider/muse packages/shared/src/providerFallback.test.ts packages/shared/src/providerFallbackEligibility.test.ts apps/server/src/provider/providerCompatibility.test.ts apps/server/src/provider/CodexProviderWire.test.ts apps/web/src/components/settings/ProviderSettingsForm.test.ts
+# exit 0 — 2026-10-14T13:43:49.808Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/Projects/github/studio-muse-fallback
+
+
+ Test Files  8 passed (8)
+      Tests  82 passed (82)
+   Start at  09:43:47
+   Duration  2.50s (transform 61%, import 32%, tests 6%)
+
+  Transform  transforming modules took 5.65s · 61% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

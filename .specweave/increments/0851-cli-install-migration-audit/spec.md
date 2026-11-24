@@ -1,10 +1,10 @@
 ---
 increment: 0851-cli-install-migration-audit
-title: "CLI install and migration audit"
+title: CLI install and migration audit
 type: feature
 priority: P1
-status: planned
-created: 2026-05-25
+status: completed
+created: 2026-05-25T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

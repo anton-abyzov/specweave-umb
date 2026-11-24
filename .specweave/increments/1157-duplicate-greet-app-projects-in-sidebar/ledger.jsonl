@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-31T21:26:52.890Z","note":"session f19c5c87-da65-43b1-84c8-62821c64546b","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-31T21:26:52.892Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-31T21:26:52.893Z","evidence":"PR #1136 76cfbfd433; addToMachine 14/14, core toolkit, project+fleet MCP 633 pass after presentation fix; tsc clean\nHEAD 6ea3db431","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-31T21:26:53.825Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-31T21:26:53.826Z","evidence":"PR #1136 76cfbfd433; projectOrigin.test 33/33; swift ProjectOriginTests+ShellSummaries 43 pass\nHEAD 6ea3db431","model":"claude-opus-5-5[1m]"}

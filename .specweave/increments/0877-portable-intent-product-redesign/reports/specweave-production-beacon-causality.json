@@ -1,0 +1,243 @@
+{
+  "at": "2026-09-14T18:30:36.222Z",
+  "headless": true,
+  "origin": "https://spec-weave.com",
+  "cases": [
+    {
+      "mode": "baseline",
+      "scripts": [
+        {
+          "source": "manual",
+          "src": "https://static.cloudflareinsights.com/beacon.min.js",
+          "tokenHash": "08de8bd217af",
+          "dataKeys": [
+            "token"
+          ],
+          "removed": false
+        },
+        {
+          "source": "edge",
+          "src": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+          "tokenHash": "08de8bd217af",
+          "dataKeys": [
+            "version",
+            "token",
+            "r",
+            "spa"
+          ],
+          "removed": false
+        }
+      ],
+      "finalScripts": [
+        "https://static.cloudflareinsights.com/beacon.min.js",
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+      ],
+      "consoleErrors": [
+        "Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'https://spec-weave.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "pageErrors": [],
+      "requests": [
+        {
+          "requestId": "79666.120",
+          "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+          "method": "POST",
+          "origin": null,
+          "siteTokenHash": "08de8bd217af",
+          "payloadKeys": [
+            "startTime",
+            "pageloadId",
+            "eventType",
+            "nt",
+            "location",
+            "versions",
+            "bi",
+            "memory",
+            "firstPaint",
+            "firstContentfulPaint",
+            "timingsV2",
+            "siteToken",
+            "st"
+          ]
+        },
+        {
+          "requestId": "60F1A50AA89F9467370C2B1F17AC9939",
+          "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+          "method": "OPTIONS",
+          "origin": "https://spec-weave.com",
+          "siteTokenHash": "e3b0c44298fc",
+          "payloadKeys": []
+        }
+      ],
+      "network": [
+        {
+          "requestId": "79666.120",
+          "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+          "statusCode": 404,
+          "allowOrigin": null,
+          "server": "cloudflare"
+        },
+        {
+          "requestId": "79666.120",
+          "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+          "error": "net::ERR_FAILED",
+          "corsErrorStatus": {
+            "corsError": "MissingAllowOriginHeader",
+            "failedParameter": ""
+          }
+        }
+      ],
+      "status": 200
+    },
+    {
+      "mode": "without-manual",
+      "scripts": [
+        {
+          "source": "manual",
+          "src": "https://static.cloudflareinsights.com/beacon.min.js",
+          "tokenHash": "08de8bd217af",
+          "dataKeys": [
+            "token"
+          ],
+          "removed": true
+        },
+        {
+          "source": "edge",
+          "src": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+          "tokenHash": "08de8bd217af",
+          "dataKeys": [
+            "version",
+            "token",
+            "r",
+            "spa"
+          ],
+          "removed": false
+        }
+      ],
+      "finalScripts": [
+        "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495"
+      ],
+      "consoleErrors": [],
+      "pageErrors": [],
+      "requests": [
+        {
+          "requestId": "79762.118",
+          "url": "https://spec-weave.com/cdn-cgi/rum?",
+          "method": "POST",
+          "origin": null,
+          "siteTokenHash": "08de8bd217af",
+          "payloadKeys": [
+            "startTime",
+            "pageloadId",
+            "eventType",
+            "nt",
+            "location",
+            "versions",
+            "bi",
+            "memory",
+            "firstPaint",
+            "firstContentfulPaint",
+            "timingsV2",
+            "siteToken",
+            "st"
+          ]
+        }
+      ],
+      "network": [
+        {
+          "requestId": "79762.118",
+          "url": "https://spec-weave.com/cdn-cgi/rum?",
+          "statusCode": 204,
+          "allowOrigin": "https://spec-weave.com",
+          "server": "cloudflare"
+        }
+      ],
+      "status": 200
+    },
+    {
+      "mode": "without-edge",
+      "scripts": [
+        {
+          "source": "manual",
+          "src": "https://static.cloudflareinsights.com/beacon.min.js",
+          "tokenHash": "08de8bd217af",
+          "dataKeys": [
+            "token"
+          ],
+          "removed": false
+        },
+        {
+          "source": "edge",
+          "src": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+          "tokenHash": "08de8bd217af",
+          "dataKeys": [
+            "version",
+            "token",
+            "r",
+            "spa"
+          ],
+          "removed": true
+        }
+      ],
+      "finalScripts": [
+        "https://static.cloudflareinsights.com/beacon.min.js"
+      ],
+      "consoleErrors": [
+        "Access to XMLHttpRequest at 'https://cloudflareinsights.com/cdn-cgi/rum' from origin 'https://spec-weave.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "pageErrors": [],
+      "requests": [
+        {
+          "requestId": "79816.118",
+          "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+          "method": "POST",
+          "origin": null,
+          "siteTokenHash": "08de8bd217af",
+          "payloadKeys": [
+            "startTime",
+            "pageloadId",
+            "eventType",
+            "nt",
+            "location",
+            "versions",
+            "bi",
+            "memory",
+            "firstPaint",
+            "firstContentfulPaint",
+            "timingsV2",
+            "siteToken",
+            "st"
+          ]
+        },
+        {
+          "requestId": "109647F93AD1079263F38429AD66128A",
+          "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+          "method": "OPTIONS",
+          "origin": "https://spec-weave.com",
+          "siteTokenHash": "e3b0c44298fc",
+          "payloadKeys": []
+        }
+      ],
+      "network": [
+        {
+          "requestId": "79816.118",
+          "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+          "statusCode": 404,
+          "allowOrigin": null,
+          "server": "cloudflare"
+        },
+        {
+          "requestId": "79816.118",
+          "url": "https://cloudflareinsights.com/cdn-cgi/rum",
+          "error": "net::ERR_FAILED",
+          "corsErrorStatus": {
+            "corsError": "MissingAllowOriginHeader",
+            "failedParameter": ""
+          }
+        }
+      ],
+      "status": 200
+    }
+  ]
+}

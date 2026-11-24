@@ -1,10 +1,10 @@
 {
   "id": "0726-skill-gen-vskill-integration",
-  "status": "planned",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P3",
   "created": "2026-04-25T06:21:05.092Z",
-  "lastActivity": "2026-04-25T06:21:05.092Z",
+  "lastActivity": "2026-10-11T04:36:39.761Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -12,5 +12,8 @@
   "externalLinks": {},
   "planning": {
     "parallel": false
-  }
+  },
+  "updated": "2026-10-11T04:36:39.761Z",
+  "abandonedReason": "Obsolete: sw:skill-gen was removed when SpecWeave 2.0 cut skills to ten",
+  "abandonedAt": "2026-10-11T04:36:39.761Z"
 }

@@ -1,0 +1,15 @@
+{
+  "id": "1150-iphone-duo-adaptation-and-install",
+  "uuid": "d2816978-47d0-4341-a9c1-6dc906878ba8",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-31T06:42:33.187Z",
+  "updated": "2026-11-02T04:11:23.330Z",
+  "lastActivity": "2026-11-02T04:11:23.330Z",
+  "title": "iPhone Duo adaptation and install",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

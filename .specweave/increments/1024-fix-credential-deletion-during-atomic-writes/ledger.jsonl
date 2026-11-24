@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-23T07:11:38.089Z","note":"session 01a16736-481b-72a1-a3da-b849c1e398f0"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T07:11:38.090Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T07:13:38.370Z","evidence":"105 secret-store/server-settings tests pass; deterministic regression fails pre-fix on NotFound chmod and passes post-fix. /Users/antonabyzov/.specwithcode/m4/evidence/pr630-settings-race/suites-after.log\nHEAD 90dbbfc5f"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-23T07:13:45.482Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-23T07:14:47.892Z","evidence":"105 tests and 100 disposal diagnostic cases pass; focused lint passes. Findings and limitations in /Users/antonabyzov/.specwithcode/m4/worktrees/browser-live-1018/docs/research/credential-delete-race-1024.md\nHEAD 90dbbfc5f"}

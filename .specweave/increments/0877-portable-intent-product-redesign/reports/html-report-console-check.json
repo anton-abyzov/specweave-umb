@@ -1,0 +1,71 @@
+{
+  "url": "https://spec-weave.com/releases/2.1/",
+  "headless": true,
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "pageErrors": [],
+  "failedRequests": [
+    {
+      "url": "https://spec-weave.com/cdn-cgi/rum",
+      "method": "POST",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "httpFailures": [],
+  "analyticsResponses": [
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "status": 200,
+      "method": "GET"
+    },
+    {
+      "url": "https://spec-weave.com/cdn-cgi/rum",
+      "status": 204,
+      "method": "POST"
+    }
+  ],
+  "analyticsRequests": [
+    {
+      "url": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "method": "GET",
+      "resourceType": "script"
+    },
+    {
+      "url": "https://spec-weave.com/cdn-cgi/rum",
+      "method": "POST",
+      "resourceType": "xhr"
+    },
+    {
+      "url": "https://spec-weave.com/cdn-cgi/rum",
+      "method": "POST",
+      "resourceType": "ping"
+    }
+  ],
+  "scripts": [
+    {
+      "src": "https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+      "type": "module",
+      "defer": false,
+      "publicSiteIdentifierSha256": "08de8bd217af0a82c4b246e62674e17c4a4d10cf082b60a08128ad2957089b68"
+    }
+  ],
+  "manualConfigBeacon": {
+    "count": 0,
+    "src": "https://static.cloudflareinsights.com/beacon.min.js",
+    "type": "classic (type omitted)",
+    "defer": true,
+    "publicSiteIdentifierSha256": null
+  },
+  "documentStatus": 200,
+  "afterTenSeconds": {
+    "consoleErrors": 0,
+    "failedRequests": 0,
+    "httpFailures": 0,
+    "analyticsResponses": 2
+  },
+  "observationSeconds": 12,
+  "verifiedDeployment": {
+    "run": 34882131675,
+    "source": "5d9a91cb27f49a5ad9414d55dd3f96f6089a189c"
+  }
+}

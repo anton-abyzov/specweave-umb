@@ -1,0 +1,18 @@
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+Warning: Route file "/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/1136-closure-fixes/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/1136-closure-fixes/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+ RUN  v5.0.1 /Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/1136-closure-fixes/apps/web
+
+
+ Test Files  2 passed (2)
+      Tests  27 passed (27)
+   Start at  00:08:58
+   Duration  164.16s (transform 84%, tests 7%, import 7%, environment 2%)

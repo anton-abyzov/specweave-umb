@@ -1,0 +1,109 @@
+
+ RUN  v4.1.11 /private/tmp/specweave-0881-root
+
+ ❯ tests/unit/cli/commands/update.test.ts (68 tests | 1 failed | 67 skipped) 28ms
+       ↓ should print header with version and project path
+       × should show dry run mode when --check is set 27ms
+       ↓ should update instructions for SpecWeave projects
+       ↓ should pass dryRun and verbose to updateInstructionsCommand
+       ↓ should handle updateInstructionsCommand failure gracefully
+       ↓ should refresh all plugins by default
+       ↓ should skip plugins when --no-plugins is set
+       ↓ should pass all/force/verbose to refreshPluginsCommand
+       ↓ should handle refreshPluginsCommand failure gracefully
+       ↓ should set process.exitCode = 1 when errors occur
+       ↓ should not set exitCode when no errors occur
+         ↓ should warn when not a SpecWeave project
+         ↓ should not refresh plugins outside a SpecWeave project
+         ↓ should return early if noPlugins and not SpecWeave project
+         ↓ should skip instructions update for non-SpecWeave projects
+         ↓ should skip self-update when --no-self is set
+         ↓ should check for updates when noSelf is not set
+         ↓ should spawn new CLI process after self-update
+         ↓ should pass flags through to spawned CLI after self-update
+         ↓ should handle self-update npm failure with EACCES
+         ↓ should handle npm not found error
+         ↓ should handle npm timeout
+         ↓ should not update when same version
+         ↓ should not update when current version is newer
+         ↓ should handle --check mode for self-update without installing
+         ↓ should handle spawned process exit code
+         ↓ should re-throw non-status errors from spawned process
+         ↓ should handle version mismatch after install
+         ↓ should handle --version verification failure gracefully
+         ↓ should always use --registry flag to prevent E401 from stale npmrc tokens
+         ↓ should retry npm install with --registry on E401 during self-update
+       ↓ should clean stale auto state files older than 4 hours
+       ↓ should not clean auto state files that are fresh
+       ↓ should report stale files in dry run mode
+       ↓ should show stale file details in verbose/check mode
+       ↓ should handle missing state directory
+       ↓ should clean all known auto state file types
+       ↓ should remove .specweave/memory/ directory
+       ↓ should report memory directory in check mode without deleting
+       ↓ should do nothing if memory directory does not exist
+       ↓ should fill in the missing auto section before health validation
+       ↓ should report missing project.name in config
+       ↓ should report invalid JSON in config.json
+       ↓ should treat .specweave without config.json as non-project
+       ↓ should warn about too many active increments
+       ↓ should count in-progress increments as active
+       ↓ should not warn when 5 or fewer active increments
+       ↓ should not count completed/archived increments
+       ↓ should report OK when no health issues
+       ↓ should skip validation in check mode
+       ↓ should show update summary section
+       ↓ should show config and instructions status for SpecWeave projects
+       ↓ should show plugins status when not skipped
+       ↓ should show plugins skipped message with --no-plugins
+       ↓ should show warnings count in summary
+       ↓ should show errors count in summary
+       ↓ should show next steps with plugin restart hint
+       ↓ should show different next steps with --no-plugins
+       ↓ should register update command with Commander
+       ↓ should register all option flags
+       ↓ should call npm prefix -g to detect writability before install
+       ↓ should skip npm prefix -g check on Windows
+       ↓ should prepend sudo when global npm dir is not writable
+       ↓ should not use sudo when global npm dir is writable
+       ↓ should use stdio inherit when sudo is needed for password prompt
+       ↓ should not attempt sudo on Windows even when EACCES
+       ↓ should suggest "sudo specweave update" in EACCES error message
+       ↓ should suggest Administrator on Windows for EACCES
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/cli/commands/update.test.ts > update command > updateCommand > should show dry run mode when --check is set
+AssertionError: expected "vi.fn()" to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st vi.fn() call:
+
+    Array [
+      Object {
+        "all": true,
+        "force": undefined,
+        "verbose": undefined,
+      },
+    ]
+
+
+Number of calls: 1
+
+ ❯ tests/unit/cli/commands/update.test.ts:231:45
+    229|       const output = consoleLogs.join('\n');
+    230|       expect(output).toContain('DRY RUN');
+    231|       expect(mockRefreshPluginsCommand).not.toHaveBeenCalled();
+       |                                             ^
+    232|       expect(output).toContain('Would refresh (dry run)');
+    233|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 67 skipped (68)
+   Start at  01:17:20
+   Duration  215ms (transform 113ms, setup 27ms, import 90ms, tests 28ms, environment 0ms)
+

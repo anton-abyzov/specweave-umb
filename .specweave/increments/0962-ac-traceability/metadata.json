@@ -1,0 +1,17 @@
+{
+  "id": "0962-ac-traceability",
+  "uuid": "3bf441d8-a51d-42c5-ac81-cd0918c8c2e3",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T17:32:05.000Z",
+  "updated": "2026-10-20T18:14:13.299Z",
+  "lastActivity": "2026-10-20T18:14:13.299Z",
+  "title": "AC traceability with honest verification state",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T18:14:13.298Z",
+  "approvedAt": "2026-10-20T18:14:13.299Z"
+}

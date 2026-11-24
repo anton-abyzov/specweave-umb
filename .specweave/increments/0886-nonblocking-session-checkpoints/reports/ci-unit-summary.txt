@@ -1,0 +1,7 @@
+Run: https://github.com/anton-abyzov/specweave/actions/runs/37707129692
+Head: cee5a538b27e1c7197d87d68277b057bb2e8c231
+unit	Run unit tests	2026-10-08T00:22:22.7353666Z  Test Files  492 passed | 5 skipped (497)
+unit	Run unit tests	2026-10-08T00:22:22.7424763Z       Tests  9928 passed | 77 skipped (10005)
+unit	Run unit tests	2026-10-08T00:22:22.7432303Z    Duration  98.67s (transform 12.88s, setup 8.10s, import 26.49s, tests 144.55s, environment 69ms)
+unit	Run unit tests	2026-10-08T00:22:22.7906001Z File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+unit	Run unit tests	2026-10-08T00:22:22.7926953Z All files          |   70.63 |    63.09 |   72.69 |   71.53 |

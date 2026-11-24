@@ -1,0 +1,17 @@
+{
+  "id": "1035-redesign-report-and-artifact-experience",
+  "uuid": "9e3d64bc-66d0-46c8-a9a2-d7ce7b657d78",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T21:17:57.433Z",
+  "updated": "2026-10-23T21:36:12.530Z",
+  "lastActivity": "2026-10-23T21:36:12.530Z",
+  "title": "Redesign report and artifact experience",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-23T21:36:12.529Z",
+  "approvedAt": "2026-10-23T21:36:12.530Z"
+}

@@ -1,0 +1,15 @@
+
+Running 6 tests using 1 worker
+
+(node:59890) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:59890) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/seo-recovery.spec.ts:5:5 › public canonical metadata, social assets, published media and utility exclusions (25.2s)
+  ✓  2 [chromium] › tests/e2e/seo-recovery.spec.ts:42:5 › sitemap and publisher listing contain real eligible public content (8.8s)
+  ✓  3 [chromium] › tests/e2e/seo-recovery.spec.ts:62:9 › public design at 1440px in light mode (49.8s)
+  ✓  4 [chromium] › tests/e2e/seo-recovery.spec.ts:62:9 › public design at 1440px in dark mode (12.8s)
+  ✓  5 [chromium] › tests/e2e/seo-recovery.spec.ts:62:9 › public design at 390px in light mode (11.2s)
+  ✓  6 [chromium] › tests/e2e/seo-recovery.spec.ts:62:9 › public design at 390px in dark mode (11.8s)
+
+  6 passed (2.0m)

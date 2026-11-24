@@ -1,0 +1,452 @@
+{
+  "recordedAt": "2026-10-07T18:37:06.330Z",
+  "worker": "verified-skill-com",
+  "bindingsCount": 66,
+  "bindings": [
+    {
+      "name": "ADMIN_EMAIL",
+      "type": "secret_text",
+      "signature": "42762dac26965bdf3f175ced068c9212ea0a23c5f0871cf8ea1edb7ce5d7f9e5"
+    },
+    {
+      "name": "ADMIN_GITHUB_USERNAMES",
+      "type": "secret_text",
+      "signature": "7d4d692dd2cf1586822e39cbd8edd709a8a6549802d5c83ae5667262f7ad1f99"
+    },
+    {
+      "name": "ADMIN_REPORT_EMAIL",
+      "type": "secret_text",
+      "signature": "7508dd4bf57db5cf809e0742dc6ac89aad44016863ee5478e24039a7ec75c6e4"
+    },
+    {
+      "name": "AI",
+      "type": "ai",
+      "signature": "7daecfb04e9ba5767cdd07043c6e33445d004802c5a841bd2306ee0585c73b87"
+    },
+    {
+      "name": "ALERTS_KV",
+      "type": "kv_namespace",
+      "signature": "98c6cf8bc84cb9b9ac689336e0e295dde2980ce1a25740ce685660b882cd773a"
+    },
+    {
+      "name": "ALLOW_ALERT_SEED",
+      "type": "secret_text",
+      "signature": "5e66ee3ed3beebd6420721804845a6cd81cfa072d4e8df8062a812a2223437e7"
+    },
+    {
+      "name": "ASSETS",
+      "type": "assets",
+      "signature": "8fcf498813511a591cb5d595bc281fee2d45f7a27a87f124257a319b543d04c6"
+    },
+    {
+      "name": "BUCKET_CACHE_PURGE",
+      "type": "durable_object_namespace",
+      "signature": "535b5a9c3305480ef009f5f2f367c4f5c0ca14aa7990ab2d86ea591b016df4b6"
+    },
+    {
+      "name": "CATALOG_DB_STRICT",
+      "type": "plain_text",
+      "signature": "86cd6f62d355893ed2864293f6e31f458eedc93c6c8d477dc38f96122843c47f"
+    },
+    {
+      "name": "CRAWLER_WORKERS",
+      "type": "secret_text",
+      "signature": "de9b210cf044f11bb7ea1a177b810b56a4e1770af28947dd69ae9d8b4bd3acf4"
+    },
+    {
+      "name": "DATABASE_URL",
+      "type": "secret_text",
+      "signature": "c94867017a9bd3f21b6ee56a0baca725219aa518f57caece58d6fe385fb77e25"
+    },
+    {
+      "name": "DEDUP_STALE_PUBLISHED_HOURS",
+      "type": "secret_text",
+      "signature": "c84c0b78879d57164be38aa5de77ecca8160a847825a4f62367df787595840c3"
+    },
+    {
+      "name": "DISCOVERY_RESOLVE_QUEUE",
+      "type": "queue",
+      "signature": "0439a13c2674a6489cc7aecbe73e7cf954c77fe6139016800ac59bf85e3f1cf9"
+    },
+    {
+      "name": "EVAL_KV",
+      "type": "kv_namespace",
+      "signature": "99827b6fba497c5f992151ae5c5882a4afb9c94e9714735d74702df4aff5f2d9"
+    },
+    {
+      "name": "EVAL_QUEUE",
+      "type": "queue",
+      "signature": "d7541bf710abfef8a95870e9411ae4c87a983ff99359418147af141036b4bb64"
+    },
+    {
+      "name": "EXTERNAL_SCANS_KV",
+      "type": "kv_namespace",
+      "signature": "774364b154cd06d211f8f6ec864d42958aaeb4e6dbae05ea55c5a345d6d81444"
+    },
+    {
+      "name": "FALLBACK_LOG_KV",
+      "type": "kv_namespace",
+      "signature": "3113d8b945b0aad87e72ec4ae06365d7e9890ae0feae42c10519ac9cc0b4693f"
+    },
+    {
+      "name": "GEMINI_API_KEY",
+      "type": "secret_text",
+      "signature": "689f90fb899ee696661100a65b2abbb942e3f8df8e05726964a1b29cfb0d29b3"
+    },
+    {
+      "name": "GITHUB_CALLBACK_URL",
+      "type": "secret_text",
+      "signature": "58dfda465d0358671704440f0b76958169b92a1e589540b3827cc47ea2393dff"
+    },
+    {
+      "name": "GITHUB_CLIENT_ID",
+      "type": "secret_text",
+      "signature": "2959889f19b83c4da5a7585ead2bacf1d9ced92badedf5d6903d7cca3079bf42"
+    },
+    {
+      "name": "GITHUB_CLIENT_SECRET",
+      "type": "secret_text",
+      "signature": "035396fef677e7f0e68d15b531ecb8fff55fe141055e4cac70c9a32eba31f6f8"
+    },
+    {
+      "name": "GITHUB_TOKEN",
+      "type": "secret_text",
+      "signature": "aceb648621522a7bff1810747e88c58b03255aa2a3aaa9c7237ab607ce6e6224"
+    },
+    {
+      "name": "GITHUB_TOKENS",
+      "type": "secret_text",
+      "signature": "8d92d8b3099c2af2dd671be9052f924a160f6c21dbb5a46720e2e6e30856b599"
+    },
+    {
+      "name": "HETZNER_VM_IPS",
+      "type": "plain_text",
+      "signature": "fb8039d875cc9873d471fed6375f20d76dd2b16ff7e150098fa6dbdc33548bfb"
+    },
+    {
+      "name": "HYPERDRIVE",
+      "type": "hyperdrive",
+      "signature": "5e76f96184514e44a73338af436d5347a85593ba25b5f9ea8cc140882e9360da"
+    },
+    {
+      "name": "INTERNAL_BROADCAST_KEY",
+      "type": "secret_text",
+      "signature": "a72136e7b573db7c9811d34fa48126fed95120f78716b2231ddea4f55c583f63"
+    },
+    {
+      "name": "JWT_SECRET",
+      "type": "secret_text",
+      "signature": "9137584657566fb7a7ec4a08e62d3abd3c37311b2f1733bfee39c23f24155c25"
+    },
+    {
+      "name": "OUTBOX_RECONCILER_DO",
+      "type": "durable_object_namespace",
+      "signature": "9e4ca0b8cb8c46ad76ccee43d33c373743f691d1bd9bef98a14e3c63a8ae0250"
+    },
+    {
+      "name": "PENDING_AGE_SECONDS",
+      "type": "secret_text",
+      "signature": "47c9c1773eabc148b2d64de305157212b7c0be8cb3f6e9a14cab86edb730807a"
+    },
+    {
+      "name": "QUEUE_HANDLER",
+      "type": "durable_object_namespace",
+      "signature": "00faf85b008b6091d2f573074b52656966a601a84b089596060af1935cd75f2d"
+    },
+    {
+      "name": "QUEUE_METRICS_KV",
+      "type": "kv_namespace",
+      "signature": "323540a07d186dc871806bd8c69b1ee9e6e993d2057a90d823e68ffc71d8782c"
+    },
+    {
+      "name": "RATE_LIMIT_KV",
+      "type": "kv_namespace",
+      "signature": "a4bede27c51d7e1c25a0f942588ba87eb428226daf344d1ed07d199309b7ddef"
+    },
+    {
+      "name": "REPO_HEALTH_KV",
+      "type": "kv_namespace",
+      "signature": "c092227598ab123f6d1a1eb79de8694a6b4fbbd99b4ed1cd37cdf9915a22fda9"
+    },
+    {
+      "name": "SAST_PULL_MODE",
+      "type": "secret_text",
+      "signature": "d675e01823b7f9d9e014c1aec6ad52f1ce2ae7c61dc6c24a5764b28382c569ab"
+    },
+    {
+      "name": "SCAN_HIGH_QUEUE",
+      "type": "queue",
+      "signature": "1dd71bf2c62f12a4962ea7304aa0da486f8b4301361449b51604ba4151ed8ea0"
+    },
+    {
+      "name": "SCAN_NORMAL_QUEUE",
+      "type": "queue",
+      "signature": "a6e097cf3f286e2175f14b54a9e77eeafb171a8a79c4e982a1731c7d93ef8539"
+    },
+    {
+      "name": "SCANNER_WORKER_SECRET",
+      "type": "secret_text",
+      "signature": "39f57969d45b5e89bbf862217ae4dcce91fd5f9941949d5cd9fd08d946ceae40"
+    },
+    {
+      "name": "SCANNER_WORKERS",
+      "type": "secret_text",
+      "signature": "60727e081675e622231bf3abb64f5a971c11386515a254eb2e7a7060f85ede6a"
+    },
+    {
+      "name": "SEARCH_CACHE_KV",
+      "type": "kv_namespace",
+      "signature": "fe57eb4967a3c6159d22eb0cea70d3e41a7833f02a45b0b121db6f6c4b8a606d"
+    },
+    {
+      "name": "SENDGRID_API_KEY",
+      "type": "secret_text",
+      "signature": "c1c9214d90912842757eb856b4c6266cdb0bcedadc7479f5719f3153751fbca5"
+    },
+    {
+      "name": "SENDGRID_FROM_EMAIL",
+      "type": "secret_text",
+      "signature": "fa827e9dcb3fcbf41641d81893eef9e2350c430efc6e9f6b488db259b2b485ce"
+    },
+    {
+      "name": "SHARDED_TAG_CACHE",
+      "type": "durable_object_namespace",
+      "signature": "b9b9fcc70c80b09adfebecb74f0a38123b4a02cadd9710aa811a830cf9143468"
+    },
+    {
+      "name": "SKIP_QUEUE_ENQUEUE",
+      "type": "secret_text",
+      "signature": "ddc86aa275a0466beb375da675023edcbcd892c0bc9519a8370a5fadddda0161"
+    },
+    {
+      "name": "SOCKET_API_KEY",
+      "type": "secret_text",
+      "signature": "fdd2983c0c9061edc6636aa8280dcb3c5c1a2f726c2dbb98ad544ca53b0c07a5"
+    },
+    {
+      "name": "STRIPE_PRICE_PRO_MONTHLY",
+      "type": "secret_text",
+      "signature": "327f33067b16d4eb8180b3145f151d8ca95a43fe597abfaf89845c0e9cb4a08b"
+    },
+    {
+      "name": "STRIPE_PRICE_PRO_YEARLY",
+      "type": "secret_text",
+      "signature": "3b350b000a899fa8d3e5d0c2f1132aee0b894227e4c4c357dd54507cf47018db"
+    },
+    {
+      "name": "STRIPE_PRICE_TEAM_MONTHLY",
+      "type": "secret_text",
+      "signature": "fb7f6070ec429242afe83e2f7eda9bc1306b9cad1d06f52cda2b8e6412a652a5"
+    },
+    {
+      "name": "STRIPE_PRICE_TEAM_YEARLY",
+      "type": "secret_text",
+      "signature": "1f282996d9e843da8b3df957ab175deec3caf8b58335378c83100ebf114836c0"
+    },
+    {
+      "name": "STRIPE_SECRET_KEY",
+      "type": "secret_text",
+      "signature": "57504b9df787298c8773c4b35be2291721a800ca71c38b7773ee82d1c5b5d6fc"
+    },
+    {
+      "name": "STRIPE_WEBHOOK_SECRET",
+      "type": "secret_text",
+      "signature": "f73495b93a3c8639378089f2667916d69dc5c57250e4d9bbeb8ed1d6d37d5769"
+    },
+    {
+      "name": "STUDIO_LOCKDOWN_AE",
+      "type": "analytics_engine",
+      "signature": "a0f9a518a1b38b6ea943da3e7fa113bcdade3bdf693775d8131636712cbd17ee"
+    },
+    {
+      "name": "STUDIO_SSE_TELEMETRY",
+      "type": "analytics_engine",
+      "signature": "89ea83018dd59c836069cbe0ce3e3e07a24f7ee4b272e4ad1a27e1f074a4bf84"
+    },
+    {
+      "name": "SUBMISSION_QUEUE",
+      "type": "queue",
+      "signature": "a9d8bb68c39688a162458f8daa574f775664d43d0f5def5f55719c51861b8d41"
+    },
+    {
+      "name": "SUBMISSIONS_KV",
+      "type": "kv_namespace",
+      "signature": "cea0d99eca85bd615d3f55951d2b22c5d8eb1780c71f91521c4cd1bf1d65e02b"
+    },
+    {
+      "name": "UPDATE_HUB",
+      "type": "durable_object_namespace",
+      "signature": "fabefa255a9ce27f4205b216fa8fb70983e687bfe6f85881dddac8c292e26ff7"
+    },
+    {
+      "name": "UPDATE_METRICS_AE",
+      "type": "analytics_engine",
+      "signature": "50cd70f213cbbb6532f62f7b3864f234c8699a74a665b7fd278cc83940fece05"
+    },
+    {
+      "name": "VSKILL_AUDIT_ARCHIVE_BUCKET",
+      "type": "r2_bucket",
+      "signature": "10a376d9d0a44637dcafc26830a5ef009d5389e0c4fdefeea5443fc336b4829c"
+    },
+    {
+      "name": "VSKILL_DESKTOP_BUCKET",
+      "type": "r2_bucket",
+      "signature": "c464665a9356f791d617ffdc4d299792eadb38fb86524080d93a9fee1f8886d0"
+    },
+    {
+      "name": "VSKILL_FREE_PRIVATE_SKILL_LIMIT",
+      "type": "plain_text",
+      "signature": "f92a54aa6f99b58f047617e68fd30edcfc7b50dfa59ad6c6f355be7f79ee8650"
+    },
+    {
+      "name": "VSKILL_GITHUB_APP_ID",
+      "type": "secret_text",
+      "signature": "9da823de080962a1212dd6e94a8ba45370ae2cda582d4bfa952f92c2db470314"
+    },
+    {
+      "name": "VSKILL_GITHUB_APP_PRIVATE_KEY",
+      "type": "secret_text",
+      "signature": "3240a875172acd5bc276f7a89e4b02b5890e259eddb7ba358fa32396f6e153f1"
+    },
+    {
+      "name": "VSKILL_GITHUB_APP_SLUG",
+      "type": "secret_text",
+      "signature": "996fd6d184b94f729ac0003dc1ea3d3df57bb4faa30d53434bc50143d1dae340"
+    },
+    {
+      "name": "VSKILL_GITHUB_APP_WEBHOOK_SECRET",
+      "type": "secret_text",
+      "signature": "fbb790b330b0a96ae4779f4bdeb7ec159f86e78086726bb9874c26b02139bec1"
+    },
+    {
+      "name": "WEBHOOK_DEDUP_DO",
+      "type": "durable_object_namespace",
+      "signature": "0b951d501b00aa4ffe9fb6bc90046a10a11118f36726a78f2fb42b1b4ee6885b"
+    },
+    {
+      "name": "WEBHOOK_SECRET",
+      "type": "secret_text",
+      "signature": "d279a02c33f807d5c97088abb3a9ea27f5998ddfddd4ef000343a1a34ddd6a3e"
+    },
+    {
+      "name": "WORKER_SELF_REFERENCE",
+      "type": "service",
+      "signature": "2c1bc984e88a8f08aa9b38546134173c8eb798d9bd5f8d6a2d61bbd4821623f8"
+    }
+  ],
+  "cronSchedules": [
+    "*/10 * * * *",
+    "*/15 * * * *",
+    "0 * * * *",
+    "0 2 * * *",
+    "0 4 * * *",
+    "30 3 * * *",
+    "5,15,25,35,45,55 * * * *"
+  ],
+  "queueInventory": [
+    {
+      "queue": "discovery-resolve",
+      "consumers": [
+        {
+          "type": "worker",
+          "script": "verified-skill-com",
+          "settings": {
+            "batch_size": 10,
+            "max_retries": 2,
+            "max_wait_time_ms": 3000,
+            "max_concurrency": 5,
+            "retry_delay": 60
+          }
+        }
+      ],
+      "producerCount": 1
+    },
+    {
+      "queue": "eval-processing",
+      "consumers": [
+        {
+          "type": "worker",
+          "script": "verified-skill-com",
+          "settings": {
+            "batch_size": 1,
+            "max_retries": 2,
+            "max_wait_time_ms": 0,
+            "max_concurrency": 2,
+            "retry_delay": 120
+          }
+        }
+      ],
+      "producerCount": 1
+    },
+    {
+      "queue": "scan-high",
+      "consumers": [
+        {
+          "type": "worker",
+          "script": "verified-skill-com",
+          "settings": {
+            "batch_size": 1,
+            "max_retries": 3,
+            "max_wait_time_ms": 1000,
+            "max_concurrency": 10,
+            "retry_delay": 30
+          }
+        }
+      ],
+      "producerCount": 1
+    },
+    {
+      "queue": "scan-normal",
+      "consumers": [
+        {
+          "type": "worker",
+          "script": "verified-skill-com",
+          "settings": {
+            "batch_size": 10,
+            "max_retries": 2,
+            "max_wait_time_ms": 5000,
+            "max_concurrency": 5,
+            "retry_delay": 60
+          }
+        }
+      ],
+      "producerCount": 1
+    },
+    {
+      "queue": "submission-dlq",
+      "consumers": [
+        {
+          "type": "worker",
+          "script": "verified-skill-com",
+          "settings": {
+            "batch_size": 1,
+            "max_retries": 3,
+            "max_wait_time_ms": 0,
+            "retry_delay": 0
+          }
+        }
+      ],
+      "producerCount": 0
+    },
+    {
+      "queue": "submission-processing",
+      "consumers": [
+        {
+          "type": "worker",
+          "script": "verified-skill-com",
+          "settings": {
+            "batch_size": 5,
+            "max_retries": 3,
+            "max_wait_time_ms": 30000,
+            "max_concurrency": 10,
+            "retry_delay": 60
+          }
+        }
+      ],
+      "producerCount": 1
+    }
+  ],
+  "consumerCount": 6,
+  "producerCount": 5,
+  "settingsCompatibility": "2025-04-01"
+}

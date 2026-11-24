@@ -1,0 +1,7 @@
+# Review and verification
+
+Fresh-context subagent reviewed source terms, generated notices, packaging and generic templates. Findings corrected: helper source archive, runtime and npm license metadata, npm README, desktop staged metadata, AppStream terms, and public landing/download open-source claims. Existing template size cap preserved; 36 template/writer tests pass. Exact inherited MIT text preserved; generated notices verified intact for server, web, desktop and mobile. 22 license-generator, 8 runtime/npm packaging and 9 helper tests pass.
+
+Full brand audit on unchanged base c42d2cadd4692deb232b8c848afd6b42c07c9650 and changed tree shows the same four failures: reviewed fixture hash mismatch, research references, Swift test-key classification, missing Expo patch. Logs: /tmp/swc-baseline-audit.json, /tmp/swc-brand-audit.json. All four source identity/legal audit checks pass. Production docs build and SEO checks pass. Headless Chrome verifies both landing and download pages, including product JSON-LD without a license grant. Fresh review approved corrected product head 078bb6ee6f after a formatting-sensitive test assertion was fixed; post-commit runtime/npm checks pass 8/8. CLI production build passes. Broader coverage, CI completion and public publication remain pending.
+
+PRs: https://github.com/anton-abyzov/specwithcode-dev/pull/786 and https://github.com/anton-abyzov/specweave/pull/2153. No private history rewrite or contributor removal is needed: GitHub fork=false, parent=null, only Anton as contributor, two stars.

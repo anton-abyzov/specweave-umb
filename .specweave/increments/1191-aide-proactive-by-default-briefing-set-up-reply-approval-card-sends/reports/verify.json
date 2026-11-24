@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "ranAt": "2026-11-04T09:37:25.493Z",
+  "increment": "1191-aide-proactive-by-default-briefing-set-up-reply-approval-card-sends",
+  "commands": [
+    {
+      "cmd": "gh run view 41596644774 -R anton-abyzov/specwithcode-dev --json conclusion --jq .conclusion | grep -qx success && gh pr view 1272 -R anton-abyzov/specwithcode-dev --json state --jq .state | grep -qx MERGED",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 4
+  },
+  "tasks": {
+    "total": 5,
+    "done": 5,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

@@ -1,0 +1,80 @@
+{
+  "checks": [
+    {
+      "name": "rows",
+      "pass": true,
+      "rows": [
+        [
+          "claudeAgent",
+          "install"
+        ],
+        [
+          "codex",
+          null
+        ],
+        [
+          "git",
+          "missing"
+        ]
+      ]
+    },
+    {
+      "name": "install-button",
+      "pass": true
+    },
+    {
+      "name": "git-row",
+      "pass": true
+    },
+    {
+      "name": "install-git-button",
+      "pass": true
+    },
+    {
+      "name": "row-says-installing",
+      "pass": true
+    },
+    {
+      "name": "panel-in-view",
+      "pass": true
+    },
+    {
+      "name": "install-ended",
+      "pass": true,
+      "state": "closed",
+      "after": [
+        [
+          "claudeAgent",
+          "signIn"
+        ],
+        [
+          "codex",
+          null
+        ],
+        [
+          "git",
+          "missing"
+        ]
+      ],
+      "binary": true
+    },
+    {
+      "name": "claude-row-now-sign-in",
+      "pass": true,
+      "after": [
+        [
+          "claudeAgent",
+          "signIn"
+        ],
+        [
+          "codex",
+          null
+        ],
+        [
+          "git",
+          "missing"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "1093-canonical-skill-commands-and-standards-aligned-specweave-skills",
+  "uuid": "460a95f4-f6ed-463b-a68e-c47b6cf7518e",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-27T03:40:39.204Z",
+  "updated": "2026-10-27T17:05:52.345Z",
+  "lastActivity": "2026-10-27T17:05:52.345Z",
+  "title": "Canonical skill commands and standards-aligned SpecWeave skills",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-27T17:05:52.344Z",
+  "approvedAt": "2026-10-27T17:05:52.345Z"
+}

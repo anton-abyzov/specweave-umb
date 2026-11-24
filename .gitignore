@@ -5,11 +5,17 @@
 # They are user-personal and should live globally, not in the umbrella repo.
 # Child repos under repositories/ manage their own AI configs separately.
 .agent/
-.agents/
+.agents/*
+!.agents/skills/
+.agents/skills/*
+# SpecWeave skills are committed so cloud sessions and every tool load them
+!.agents/skills/sw-*/
 .aider/
 .codex/
 .cursor/
 .gemini/
+.grok/
+.asc/
 .kiro/
 .openclaw/
 .opencode/
@@ -24,10 +30,10 @@
 .specweave/logs/
 .specweave/state/
 .specweave/jobs/
-.specweave/memory/
 .specweave/scratch/
 .specweave/config.json
 .specweave/sync-metadata.json
+.specweave/metrics/*.lock
 .specweave/docs/
 .specweave/increments/*/logs/
 .specweave/increments/*/test-results/
@@ -132,7 +138,10 @@ post-history/
 
 # Local dev artifacts
 *.code-workspace
-.claude/
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/sw-*/
 .playwright-mcp/
 
 # AI tool config dirs (personal cross-tool skill replication, not project code)
@@ -141,7 +150,6 @@ post-history/
 # When `npx skills add` is run here it scatters skills/ subdirs into many of these
 # per its supported-agents matrix — pre-ignoring keeps test runs from dirtying git.
 .agent/
-.agents/
 .aider/
 .codex/
 .continue/
@@ -206,26 +214,34 @@ hello_world.py
 .env.*
 scripts/.cf-monitor.env
 
-# Internal security/test reports — never commit to this PUBLIC repo
-# (documents attack vectors + internal infra IDs; keep local or in a private repo)
-ENTERPRISE-PRIVATE-SKILLS-TEST-REPORT.md
-*-TEST-REPORT.md
-
 # SpecWeave (added by specweave update)
 .handoff/
 .specweave/state/handoff-latest.*
 .specweave/backups/
 .specweave/increments/**/reports/artifacts/
 .claude/worktrees/
+.worktrees/
 **/reports/*.mp4
 **/reports/*.png
 **/reports/*.jpg
 **/reports/*.aab
 **/reports/*.ipa
 **/reports/*.dSYM/
+# Internal security/test reports — never commit to this PUBLIC repo
+# (documents attack vectors + internal infra IDs; keep local or in a private repo)
+ENTERPRISE-PRIVATE-SKILLS-TEST-REPORT.md
+*-TEST-REPORT.md
 
-# SpecWeave (added by specweave update)
-.worktrees/
+# Machine-local or personal records; keep out of this PUBLIC repo
+.metadata_never_index
+.specweave/handoffs/
+.specweave/increments/*/handoff.diff
+.specweave/reports/twitter-replies/
+.specweave/reports/seo-measured-data.md
+.specweave/reports/**/*.png
 
-# SpecWeave (added by specweave update)
-/.specweave.backup-*/
+# Thread reports, sheets, designs and system skills written by SpecWithCode stay on the machine (public repo)
+.specweave/reports/threads/
+.specweave/artifacts/
+.specweave/design/
+skills/system/

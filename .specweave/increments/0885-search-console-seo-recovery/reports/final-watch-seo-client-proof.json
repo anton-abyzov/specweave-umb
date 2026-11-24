@@ -1,0 +1,145 @@
+{
+  "checkedAt": "2026-10-07T14:13:43.317247+00:00",
+  "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+  "probeType": "raw SEO client requests; not browser DOM proof",
+  "rows": [
+    {
+      "client": "googlebot",
+      "status": 200,
+      "headers": "final-watch-googlebot-headers.txt",
+      "body": "final-watch-googlebot-body.html",
+      "SportsEvents": [
+        {
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          "@id": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+          "name": "South Africa vs Iraq",
+          "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+          "startDate": "2009-06-14T14:00:00Z",
+          "image": [
+            "https://watch.easychamp.com/api/og?type=match&id=40aff015-26af-40cb-961a-414886763cd1&locale=en"
+          ],
+          "description": "South Africa 0 \u2013 0 Iraq in Confederations Cup 2009.",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "location": {
+            "@type": "Place",
+            "name": "Emirates Airline Park",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "South Africa Johannesburg"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -26.197519,
+              "longitude": 28.060767
+            }
+          },
+          "organizer": {
+            "@type": "SportsOrganization",
+            "name": "International",
+            "url": "https://watch.easychamp.com/league/2e270f59-4dad-4a9b-80b2-934386162dd0"
+          },
+          "homeTeam": {
+            "@type": "SportsTeam",
+            "name": "South Africa"
+          },
+          "awayTeam": {
+            "@type": "SportsTeam",
+            "name": "Iraq"
+          },
+          "competitor": [
+            {
+              "@type": "SportsTeam",
+              "name": "South Africa"
+            },
+            {
+              "@type": "SportsTeam",
+              "name": "Iraq"
+            }
+          ],
+          "performer": [
+            {
+              "@type": "SportsTeam",
+              "name": "South Africa"
+            },
+            {
+              "@type": "SportsTeam",
+              "name": "Iraq"
+            }
+          ]
+        }
+      ],
+      "complete": true
+    },
+    {
+      "client": "inspection",
+      "status": 200,
+      "headers": "final-watch-inspection-headers.txt",
+      "body": "final-watch-inspection-body.html",
+      "SportsEvents": [
+        {
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          "@id": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+          "name": "South Africa vs Iraq",
+          "url": "https://watch.easychamp.com/match/south-africa-vs-iraq-40aff015-26af-40cb-961a-414886763cd1",
+          "startDate": "2009-06-14T14:00:00Z",
+          "image": [
+            "https://watch.easychamp.com/api/og?type=match&id=40aff015-26af-40cb-961a-414886763cd1&locale=en"
+          ],
+          "description": "South Africa 0 \u2013 0 Iraq in Confederations Cup 2009.",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "location": {
+            "@type": "Place",
+            "name": "Emirates Airline Park",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "South Africa Johannesburg"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -26.197519,
+              "longitude": 28.060767
+            }
+          },
+          "organizer": {
+            "@type": "SportsOrganization",
+            "name": "International",
+            "url": "https://watch.easychamp.com/league/2e270f59-4dad-4a9b-80b2-934386162dd0"
+          },
+          "homeTeam": {
+            "@type": "SportsTeam",
+            "name": "South Africa"
+          },
+          "awayTeam": {
+            "@type": "SportsTeam",
+            "name": "Iraq"
+          },
+          "competitor": [
+            {
+              "@type": "SportsTeam",
+              "name": "South Africa"
+            },
+            {
+              "@type": "SportsTeam",
+              "name": "Iraq"
+            }
+          ],
+          "performer": [
+            {
+              "@type": "SportsTeam",
+              "name": "South Africa"
+            },
+            {
+              "@type": "SportsTeam",
+              "name": "Iraq"
+            }
+          ]
+        }
+      ],
+      "complete": true
+    }
+  ]
+}

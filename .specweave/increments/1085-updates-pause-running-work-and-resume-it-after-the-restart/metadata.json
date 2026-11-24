@@ -1,0 +1,15 @@
+{
+  "id": "1085-updates-pause-running-work-and-resume-it-after-the-restart",
+  "uuid": "f5a73b5d-770a-4244-8a9e-6b32d2d46064",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-26T17:17:36.611Z",
+  "updated": "2026-10-26T17:17:36.611Z",
+  "lastActivity": "2026-10-26T17:17:36.611Z",
+  "title": "Updates pause running work and resume it after the restart",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

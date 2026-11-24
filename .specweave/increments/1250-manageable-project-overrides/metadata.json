@@ -1,0 +1,15 @@
+{
+  "id": "1250-manageable-project-overrides",
+  "uuid": "c9c71fb6-66c5-437d-a1cf-e9abf61154e9",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T03:30:07.750Z",
+  "updated": "2026-11-07T08:53:46.731Z",
+  "lastActivity": "2026-11-07T08:53:46.731Z",
+  "title": "Manageable project overrides",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T08:53:46.730Z",
+  "approvedAt": "2026-11-07T08:53:46.731Z"
+}

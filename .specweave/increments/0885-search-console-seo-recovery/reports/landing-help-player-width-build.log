@@ -1,0 +1,172 @@
+
+> ec-landing@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.24
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 6.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+   Generating static pages (0/290) ...
+   Generating static pages (72/290)
+   Generating static pages (144/290)
+   Generating static pages (217/290)
+ ✓ Generating static pages (290/290)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                                  Size  First Load JS
+┌ ƒ /                                                     7.93 kB         323 kB
+├ ƒ /_not-found                                             192 B         103 kB
+├ ƒ /accept-invite                                        3.99 kB         241 kB
+├ ƒ /accessibility                                        1.67 kB         338 kB
+├ ƒ /account                                              40.9 kB         337 kB
+├ ƒ /account/delete                                       1.68 kB         338 kB
+├ ƒ /admin/contract                                         169 B         106 kB
+├ ƒ /admin/profile/paypal-connected                        3.4 kB         222 kB
+├ ƒ /admin/profile/stripe-connected                         192 B         103 kB
+├ ƒ /api/betting/[...path]                                  192 B         103 kB
+├ ƒ /api/coach/[...path]                                    192 B         103 kB
+├ ƒ /api/kc/[...path]                                       192 B         103 kB
+├ ƒ /api/leads                                              192 B         103 kB
+├ ƒ /api/standings/[...path]                                192 B         103 kB
+├ ƒ /api/standings/subscription                             192 B         103 kB
+├ ƒ /api/track                                              192 B         103 kB
+├ ƒ /app/account-delete                                   1.68 kB         338 kB
+├ ƒ /app/pickem-rules                                     1.68 kB         338 kB
+├ ƒ /app/privacy                                          1.68 kB         338 kB
+├ ƒ /app/support                                           1.6 kB         241 kB
+├ ƒ /app/terms                                            1.68 kB         338 kB
+├ ƒ /auth/stripe/callback                                   192 B         103 kB
+├ ƒ /blog                                                   797 B         337 kB
+├ ƒ /blog/[slug]                                            735 B         240 kB
+├ ƒ /blog/rss.xml                                           192 B         103 kB
+├ ƒ /c/[code]                                              4.8 kB         223 kB
+├ ƒ /calculator                                             212 B         262 kB
+├ ƒ /callback                                             2.01 kB         232 kB
+├ ƒ /case-study/dade-county-fc                            5.08 kB         385 kB
+├ ƒ /challonge-alternative                                  733 B         337 kB
+├ ƒ /checkout/managed                                      3.7 kB         155 kB
+├ ƒ /club-app                                             6.03 kB         418 kB
+├ ƒ /club-app/commerce                                      566 B         355 kB
+├ ƒ /coach                                                 1.6 kB         359 kB
+├ ƒ /compare                                                266 B         337 kB
+├ ƒ /esports                                               4.8 kB         365 kB
+├ ƒ /facilities                                           4.22 kB         393 kB
+├ ƒ /faq                                                    192 B         103 kB
+├ ƒ /go/pricing                                             667 B         295 kB
+├ ƒ /help                                                 28.3 kB         365 kB
+├ ● /help/[product]                                       1.97 kB         338 kB
+├   ├ /help/getting-started
+├   ├ /help/club-app
+├   ├ /help/league-console
+├   └ [+6 more paths]
+├ ● /help/[product]/[article]                             1.97 kB         338 kB
+├   ├ /help/getting-started/create-account
+├   ├ /help/getting-started/upgrade-plan
+├   ├ /help/league-console/create-league-or-tournament
+├   └ [+57 more paths]
+├ ● /help/device/[device]                                 1.97 kB         338 kB
+├   ├ /help/device/iphone
+├   ├ /help/device/ipad
+├   ├ /help/device/android
+├   └ /help/device/desktop
+├ ○ /icon.svg                                                 0 B            0 B
+├ ƒ /institutions                                         1.96 kB         357 kB
+├ ƒ /league-management-software                            1.7 kB         413 kB
+├ ƒ /leagueapps-alternative                                 733 B         337 kB
+├ ƒ /leaguelobster-alternative                              733 B         337 kB
+├ ƒ /leaguerepublic-alternative                             733 B         337 kB
+├ ƒ /leagues                                                192 B         103 kB
+├ ƒ /llms-full.txt                                          231 B         240 kB
+├ ƒ /llms.txt                                               231 B         240 kB
+├ ƒ /logout                                                 267 B         127 kB
+├ ƒ /matchcam                                             5.57 kB         365 kB
+├ ƒ /news-sitemap.xml                                       192 B         103 kB
+├ ƒ /news-sitemap/[chunk]                                   192 B         103 kB
+├ ƒ /news/[id]                                              192 B         103 kB
+├ ƒ /og                                                     192 B         103 kB
+├ ƒ /onetime-payment-success                              1.32 kB         127 kB
+├ ƒ /organizers                                           3.83 kB         420 kB
+├ ƒ /payment-canceled                                     1.32 kB         127 kB
+├ ƒ /payment-success                                      1.32 kB         127 kB
+├ ƒ /pickem                                                 576 B         355 kB
+├ ƒ /pickem/rules                                         1.68 kB         338 kB
+├ ƒ /pitchero-alternative                                   733 B         337 kB
+├ ƒ /play                                                 7.67 kB         344 kB
+├ ƒ /playtomic-alternative                                  733 B         337 kB
+├ ƒ /predictions-not-betting                              1.67 kB         338 kB
+├ ƒ /pricing                                              7.62 kB         456 kB
+├ ƒ /privacy                                              1.68 kB         338 kB
+├ ƒ /privacy-policy                                       1.68 kB         338 kB
+├ ƒ /pro-clubs                                            5.03 kB         365 kB
+├ ƒ /registration                                          1.7 kB         413 kB
+├ ƒ /registration-fees-compared                             266 B         337 kB
+├ ƒ /registration-payment-canceled                         1.3 kB         124 kB
+├ ƒ /registration-payment-success                          1.3 kB         124 kB
+├ ○ /robots.txt                                             192 B         103 kB
+├ ƒ /scheduling                                            1.7 kB         413 kB
+├ ƒ /showcase                                               280 B         345 kB
+├ ƒ /showcase/formula-racing                                280 B         345 kB
+├ ƒ /showcase/trivia                                      9.56 kB         346 kB
+├ ƒ /sim                                                  2.34 kB         360 kB
+├ ƒ /sitemap.xml                                            192 B         103 kB
+├ ƒ /snap-to-league                                       2.85 kB         415 kB
+├ ƒ /soccer-league-software                               2.43 kB         339 kB
+├ ƒ /soccer-warm-up                                         436 B         355 kB
+├ ƒ /spond-alternative                                      733 B         337 kB
+├ ƒ /spond-league-tables                                  2.72 kB         357 kB
+├ ƒ /sports                                                 266 B         337 kB
+├ ● /sports/[slug]                                          869 B         355 kB
+├   ├ /sports/football
+├   ├ /sports/futsal
+├   ├ /sports/basketball
+├   └ [+8 more paths]
+├ ƒ /sportsengine-alternative                               733 B         337 kB
+├ ƒ /sportsengine-fees                                    6.09 kB         361 kB
+├ ƒ /stripe/callback                                        192 B         103 kB
+├ ƒ /support                                              1.67 kB         338 kB
+├ ƒ /talk-to-us                                           3.27 kB         358 kB
+├ ƒ /teamsnap-alternative                                  2.8 kB         357 kB
+├ ƒ /terms                                                1.68 kB         338 kB
+├ ƒ /terms-and-conditions                                 1.68 kB         338 kB
+├ ƒ /tools                                                  541 B         342 kB
+├ ƒ /tools/bracket-generator                              2.54 kB         364 kB
+├ ● /tools/bracket-generator/[bracket]                      187 B         374 kB
+├   ├ /tools/bracket-generator/4-team-single-elimination
+├   ├ /tools/bracket-generator/4-team-double-elimination
+├   ├ /tools/bracket-generator/5-team-single-elimination
+├   └ [+55 more paths]
+├ ƒ /tools/league-schedule-generator                        287 B         371 kB
+├ ● /tools/league-schedule-generator/[teams]                187 B         374 kB
+├   ├ /tools/league-schedule-generator/3-teams
+├   ├ /tools/league-schedule-generator/4-teams
+├   ├ /tools/league-schedule-generator/5-teams
+├   └ [+27 more paths]
+├ ƒ /tools/round-robin-generator                          2.72 kB         364 kB
+├ ● /tools/round-robin-generator/[teams]                    187 B         374 kB
+├   ├ /tools/round-robin-generator/3-teams
+├   ├ /tools/round-robin-generator/4-teams
+├   ├ /tools/round-robin-generator/5-teams
+├   └ [+27 more paths]
+├ ƒ /tools/session-planner                                  191 B         665 kB
+├ ƒ /tools/warm-up-generator                                191 B         665 kB
+├ ƒ /tournament-software                                   1.7 kB         413 kB
+├ ƒ /tourney-machine-alternative                            733 B         337 kB
+├ ƒ /training                                             1.05 kB         356 kB
+├ ƒ /u/[handle]                                             737 B         195 kB
+├ ƒ /unsubscribe                                            984 B         105 kB
+└ ƒ /user-profile/[id]                                    1.69 MB        1.96 MB
++ First Load JS shared by all                              103 kB
+  ├ chunks/1255-7b4b5a04291b6a94.js                       46.1 kB
+  ├ chunks/4bd1b696-100b9d70ed4e49c1.js                   54.2 kB
+  └ other shared chunks (total)                           2.28 kB
+
+
+ƒ Middleware                                              38.6 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand

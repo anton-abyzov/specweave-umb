@@ -1,0 +1,18 @@
+{
+  "id": "1062-make-tdd-fully-optional",
+  "uuid": "b83ea54b-eb71-4fb3-affe-8c0cd7b9e3bf",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T22:52:43.891Z",
+  "updated": "2026-10-24T23:19:17.244Z",
+  "lastActivity": "2026-10-24T23:19:17.244Z",
+  "title": "Make TDD fully optional",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T23:19:17.240Z",
+  "closeReason": "Verify FAIL is 5 load timeouts (load avg 39) in save.test.ts and handoff-roundtrip.test.ts, untouched by this change; they pass alone 60/60; full npm run test:unit passed 10379/0; ACs 5/5, tasks 6/6; fresh review findings fixed (reports/review.md)",
+  "approvedAt": "2026-10-24T23:19:17.244Z"
+}

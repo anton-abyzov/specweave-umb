@@ -1,10 +1,10 @@
 ---
 increment: 0814-studio-github-publish-phase0
-title: "GitHub OAuth + Publish-to-GitHub in vskill studio (Phase 0)"
+title: GitHub OAuth + Publish-to-GitHub in vskill studio (Phase 0)
 type: feature
 priority: P1
-status: planned
-created: 2026-04-30
+status: abandoned
+created: 2026-04-30T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

@@ -1,0 +1,18 @@
+{
+  "id": "1403-sleek-popups-one-popup-standard-across-the-desktop-and-iphone-apps",
+  "uuid": "d6e3ed9b-d485-40e1-853e-a90011f88c5b",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T08:16:40.649Z",
+  "updated": "2026-11-18T13:19:31.386Z",
+  "lastActivity": "2026-11-18T13:19:31.386Z",
+  "title": "Sleek popups: one popup standard across the desktop and iPhone apps",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-18T13:19:31.385Z",
+  "approvedAt": "2026-11-18T13:19:31.386Z"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "1390-sync-projects-across-machines-and-hand-off-work",
+  "uuid": "1ab3af08-3a1d-4e1f-8958-eca61f59a8f4",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T06:48:34.227Z",
+  "updated": "2026-11-19T03:53:52.433Z",
+  "lastActivity": "2026-11-19T03:53:52.433Z",
+  "title": "Sync projects across machines and hand off work, without Main and Copy",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

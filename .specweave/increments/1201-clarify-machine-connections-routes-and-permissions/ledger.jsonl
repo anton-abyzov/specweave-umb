@@ -1,0 +1,10 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-03T07:36:05.818Z","note":"session 01a1a052-b608-7b60-970e-ffd653be31dd"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-03T07:36:05.837Z","line":"Explain connection controls and route identity"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-03T07:39:49.130Z","evidence":"Source-linked explanation and HTML design; headless preview at 1280 and 390 px, no horizontal overflow, dark/light captures retained in reports\nHEAD 864664cce","line":"Explained controls and verified M4 proxy reaches M1"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-03T07:41:27.086Z","line":"Clarify machine connection and update controls"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-03T07:45:03.967Z","line":"Verify connection controls and prepare delivery"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-03T07:48:01.365Z","evidence":"d3f710ee8eb6c10e81387646766767645a5b7ae1; 36 focused tests pass; headless fixture light/dark at 390/1000 with action and disconnection assertions\nHEAD 047e42cbe","line":"Separated connection paths, destinations and update permission"}
+{"t":"T-03","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-03T13:06:31.606Z"}
+{"t":"T-03","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-03T13:06:31.607Z","evidence":"PR #1281 merged as 98f738ac47; release v1.0.169 includes merge; native acceptance passed. reports/installed-acceptance.md, reports/verification.md and reports/review.md.\nHEAD 0f512e71d"}
+{"t":"T-04","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-03T13:06:46.262Z"}
+{"t":"T-04","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-03T13:06:46.264Z","evidence":"Acceptance complete; reports/closure.md records the final verify, fresh review and completion sequence.\nHEAD 0f512e71d"}

@@ -1,0 +1,17 @@
+{
+  "id": "1083-design-system-import-brings-components-and-brand-files",
+  "uuid": "0ea56a69-bd71-4065-beac-5dea5d80b3bc",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-26T14:05:30.782Z",
+  "updated": "2026-10-26T17:19:01.130Z",
+  "lastActivity": "2026-10-26T17:19:01.130Z",
+  "title": "Design system import brings components and brand files",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-26T17:19:01.126Z",
+  "approvedAt": "2026-10-26T17:19:01.130Z"
+}

@@ -1,0 +1,22 @@
+
+ RUN  v4.1.10 /private/tmp/easychamp-seo-inventory-uikit-20261007
+      Coverage enabled with v8
+
+
+ Test Files  1 passed (1)
+      Tests  27 passed (27)
+   Start at  09:23:05
+   Duration  412ms (transform 34ms, setup 27ms, import 18ms, tests 5ms, environment 239ms)
+
+ % Coverage report from v8
+----------------|---------|----------|---------|---------|-------------------
+File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+----------------|---------|----------|---------|---------|-------------------
+----------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 44/44 )
+Branches     : 100% ( 42/42 )
+Functions    : 100% ( 4/4 )
+Lines        : 100% ( 33/33 )
+================================================================================

@@ -1,0 +1,27 @@
+{
+  "binary": "/Applications/Skill Studio.app/Contents/MacOS/vskill-server",
+  "headless": true,
+  "personalWritesDenied": true,
+  "credentialsModified": false,
+  "pid": 67008,
+  "localPort": 57463,
+  "healthStatus": 200,
+  "profile": {
+    "sidecarStatus": 200,
+    "directStatus": 200,
+    "identityMatch": true,
+    "githubHandle": "anton-abyzov",
+    "storedTier": "pro"
+  },
+  "tenants": {
+    "sidecarStatus": 200,
+    "directStatus": 200,
+    "identityMatch": true,
+    "count": 0
+  },
+  "runtimeLockWriteBlocked": true,
+  "success": true,
+  "processStopped": true,
+  "keysFileUnchanged": true,
+  "runtimeDirectoryUnchanged": true
+}

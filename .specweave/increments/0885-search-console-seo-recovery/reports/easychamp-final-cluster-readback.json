@@ -1,0 +1,90 @@
+{
+  "checkedAt": "2026-10-07T14:06:23.288526+00:00",
+  "deployments": [
+    {
+      "name": "ec-landing",
+      "generation": 105,
+      "replicas": 2,
+      "ready": 2,
+      "updated": 2,
+      "image": [
+        "ghcr.io/anton-abyzov/ec-landing:develop-f77de0b"
+      ],
+      "argocdSync": "Synced",
+      "argocdRevision": "d411733e4d3586842dab9a1dae09b2007da8aa67",
+      "argocdHealth": "Healthy",
+      "pods": [
+        {
+          "name": "ec-landing-7f86dcc5bf-cfr7m",
+          "phase": "Running",
+          "containers": [
+            {
+              "ready": true,
+              "image": "ghcr.io/anton-abyzov/ec-landing:develop-f77de0b",
+              "imageID": "ghcr.io/anton-abyzov/ec-landing@sha256:ceb0c4e50ce3affb0ab65b5c81dcb7b51a87142c6d6686870f7256b4bba39de4"
+            }
+          ]
+        },
+        {
+          "name": "ec-landing-7f86dcc5bf-ndq97",
+          "phase": "Running",
+          "containers": [
+            {
+              "ready": true,
+              "image": "ghcr.io/anton-abyzov/ec-landing:develop-f77de0b",
+              "imageID": "ghcr.io/anton-abyzov/ec-landing@sha256:ceb0c4e50ce3affb0ab65b5c81dcb7b51a87142c6d6686870f7256b4bba39de4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ec-arena-ui",
+      "generation": 137,
+      "replicas": 3,
+      "ready": 3,
+      "updated": 3,
+      "image": [
+        "ghcr.io/anton-abyzov/ec-arena-ui:develop-7187b74"
+      ],
+      "argocdSync": "Synced",
+      "argocdRevision": "d411733e4d3586842dab9a1dae09b2007da8aa67",
+      "argocdHealth": "Healthy",
+      "pods": [
+        {
+          "name": "ec-arena-ui-cc584dcdb-48vm9",
+          "phase": "Running",
+          "containers": [
+            {
+              "ready": true,
+              "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-7187b74",
+              "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:77ff7d71fd4cf7237babcfdb55d62b283ebd4ec4952513f7868b3d9b186332d4"
+            }
+          ]
+        },
+        {
+          "name": "ec-arena-ui-cc584dcdb-bhw2x",
+          "phase": "Running",
+          "containers": [
+            {
+              "ready": true,
+              "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-7187b74",
+              "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:77ff7d71fd4cf7237babcfdb55d62b283ebd4ec4952513f7868b3d9b186332d4"
+            }
+          ]
+        },
+        {
+          "name": "ec-arena-ui-cc584dcdb-xm9mt",
+          "phase": "Running",
+          "containers": [
+            {
+              "ready": true,
+              "image": "ghcr.io/anton-abyzov/ec-arena-ui:develop-7187b74",
+              "imageID": "ghcr.io/anton-abyzov/ec-arena-ui@sha256:77ff7d71fd4cf7237babcfdb55d62b283ebd4ec4952513f7868b3d9b186332d4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{"t":"T-01","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:12.113Z"}
+{"t":"T-01","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:12.115Z","evidence":"275f58df73 in PR #496\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/496"}
+{"t":"T-02","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:13.623Z"}
+{"t":"T-02","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:13.624Z","evidence":"275f58df73 in PR #496\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/496"}
+{"t":"T-03","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:15.359Z"}
+{"t":"T-03","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:15.361Z","evidence":"275f58df73 in PR #496\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/496"}
+{"t":"T-04","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:16.519Z"}
+{"t":"T-04","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:16.520Z","evidence":"275f58df73 in PR #496\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/496"}
+{"t":"T-05","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:17.858Z"}
+{"t":"T-05","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:17.860Z","evidence":"275f58df73 in PR #496\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/496"}
+{"t":"T-06","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:19.998Z"}
+{"t":"T-06","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T18:39:19.999Z","evidence":"275f58df73 in PR #496\nHEAD 8fac518b9","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/496"}
+{"t":"T-07","e":"claim","by":"cli@antons-macbook-m4max","at":"2026-10-20T19:53:11.686Z"}
+{"t":"T-07","e":"done","by":"cli@antons-macbook-m4max","at":"2026-10-20T19:53:11.688Z","evidence":"fe842153c2 PR #496 merged\nHEAD 0c5bf9c58","link":"https://github.com/anton-abyzov/specwithcode-dev/pull/496"}

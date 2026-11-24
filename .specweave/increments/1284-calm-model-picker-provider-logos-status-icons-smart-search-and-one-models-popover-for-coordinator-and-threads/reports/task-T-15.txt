@@ -1,0 +1,17 @@
+$ cd repositories/anton-abyzov/specwithcode-dev && node node_modules/vite-plus/bin/vp test run apps/web/src/components/usage apps/web/src/components/copilotIcon.test.tsx
+# exit 0 — 2026-11-12T14:59:08.915Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev
+
+
+ Test Files  21 passed (21)
+      Tests  145 passed (145)
+   Start at  09:59:04
+   Duration  4.56s (transform 63%, import 28%, environment 5%, tests 3%, setup 1%)
+
+  Transform  transforming modules took 22.92s · 63% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns
+

@@ -1,0 +1,5 @@
+$ python3 scripts/fleet/verify-handoff-evidence.py --phase product-code && python3 scripts/fleet/verify-handoff-evidence.py --phase product-review
+# exit 0 — 2026-10-13T19:38:07.955Z
+
+product-code: passed
+product-review: passed

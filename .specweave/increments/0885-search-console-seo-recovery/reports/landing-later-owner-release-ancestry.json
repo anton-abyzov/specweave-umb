@@ -1,0 +1,16 @@
+{
+  "base": "f77de0be51be5e967cb262848dba5a4ebebd00de",
+  "currentHead": "07cde1843350a8474fccef2aad86adc6ce3ef768",
+  "commitDate": "2026-10-07T13:58:43Z",
+  "message": "Merge pull request #166 from anton-abyzov/codex/0942-leagues-ai-privacy\n\n0942: clarify AI processing hosts and leagues app inputs",
+  "status": "ahead",
+  "aheadBy": 2,
+  "behindBy": 0,
+  "files": [
+    {
+      "filename": "src/app/privacy/page.tsx",
+      "status": "modified",
+      "changes": 9
+    }
+  ]
+}

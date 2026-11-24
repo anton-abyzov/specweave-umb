@@ -1,0 +1,17 @@
+{
+  "id": "0964-layout-discovery-root-impact",
+  "uuid": "d46fd237-33a2-4558-b97d-4c32de65acdc",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T17:32:05.000Z",
+  "updated": "2026-10-20T18:14:16.301Z",
+  "lastActivity": "2026-10-20T18:14:16.301Z",
+  "title": "Folder layout discovery and guarded root change",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T18:14:16.300Z",
+  "approvedAt": "2026-10-20T18:14:16.301Z"
+}

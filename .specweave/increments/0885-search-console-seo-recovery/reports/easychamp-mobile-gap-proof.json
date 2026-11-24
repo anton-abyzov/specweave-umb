@@ -1,0 +1,850 @@
+{
+  "checkedAt": "2026-10-07T14:30:03.527Z",
+  "headless": true,
+  "rows": [
+    {
+      "url": "https://easychamp.com/",
+      "width": 320,
+      "status": 200,
+      "state": {
+        "title": "League management software, club app & brackets | EasyChamp",
+        "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "width": 320,
+        "scrollWidth": 320,
+        "bodyFont": "16px",
+        "paragraphFonts": [
+          {
+            "size": "16px",
+            "text": "Run competitions. Bring your club together. Train, play and follow the action. F"
+          },
+          {
+            "size": "16px",
+            "text": "Everything an organizer and a club do in a season happens in one place. Scroll t"
+          },
+          {
+            "size": "16px",
+            "text": "Add teams, pick a format and generate the whole schedule. Enter a result and the"
+          },
+          {
+            "size": "16px",
+            "text": "Fixtures, standings, brackets, teams and players at your own easychamp.com addre"
+          },
+          {
+            "size": "16px",
+            "text": "Schedule, training, attendance, team chat and lineups. Players tap Going, and co"
+          },
+          {
+            "size": "16px",
+            "text": "Open registration, set entry fees and collect them online into your own Stripe a"
+          },
+          {
+            "size": "16px",
+            "text": "From the first signup to the final whistle, give your competition and your club "
+          },
+          {
+            "size": "16px",
+            "text": "Build your schedule, manage teams and publish results. Give everyone a competiti"
+          },
+          {
+            "size": "16px",
+            "text": "Keep fixtures, training, team chat and attendance together. One place for your c"
+          },
+          {
+            "size": "14px",
+            "text": "Plan sessions, organize team training and track attendance."
+          },
+          {
+            "size": "14px",
+            "text": "Bring court bookings and open-play sessions together."
+          },
+          {
+            "size": "14px",
+            "text": "Run esports tournaments, from groups to the final bracket."
+          },
+          {
+            "size": "14px",
+            "text": "Explore football filming and the upcoming MatchCam app."
+          },
+          {
+            "size": "16px",
+            "text": "Snap your whiteboard, scoresheet or bracket. Review the extracted results, then "
+          },
+          {
+            "size": "16px",
+            "text": "EasyChamp AI answers questions about your own games, trainings, squads and atten"
+          }
+        ],
+        "videos": []
+      },
+      "menu": "opened and closed",
+      "labInteractions": {
+        "cpuThrottle": 4,
+        "events": [
+          {
+            "name": "pointerdown",
+            "duration": 80,
+            "interactionId": 741
+          },
+          {
+            "name": "pointerup",
+            "duration": 80,
+            "interactionId": 741
+          },
+          {
+            "name": "click",
+            "duration": 80,
+            "interactionId": 741
+          },
+          {
+            "name": "pointerdown",
+            "duration": 56,
+            "interactionId": 748
+          },
+          {
+            "name": "pointerup",
+            "duration": 56,
+            "interactionId": 748
+          },
+          {
+            "name": "click",
+            "duration": 72,
+            "interactionId": 748
+          }
+        ],
+        "maxObservedDuration": 80,
+        "note": "A local lab sample, not field INP or actual mobile p75."
+      },
+      "targetSizeViolations": [],
+      "targetSizeIncomplete": []
+    },
+    {
+      "url": "https://easychamp.com/",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "title": "League management software, club app & brackets | EasyChamp",
+        "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "width": 390,
+        "scrollWidth": 390,
+        "bodyFont": "16px",
+        "paragraphFonts": [
+          {
+            "size": "16px",
+            "text": "Run competitions. Bring your club together. Train, play and follow the action. F"
+          },
+          {
+            "size": "16px",
+            "text": "Everything an organizer and a club do in a season happens in one place. Scroll t"
+          },
+          {
+            "size": "16px",
+            "text": "Add teams, pick a format and generate the whole schedule. Enter a result and the"
+          },
+          {
+            "size": "16px",
+            "text": "Fixtures, standings, brackets, teams and players at your own easychamp.com addre"
+          },
+          {
+            "size": "16px",
+            "text": "Schedule, training, attendance, team chat and lineups. Players tap Going, and co"
+          },
+          {
+            "size": "16px",
+            "text": "Open registration, set entry fees and collect them online into your own Stripe a"
+          },
+          {
+            "size": "16px",
+            "text": "From the first signup to the final whistle, give your competition and your club "
+          },
+          {
+            "size": "16px",
+            "text": "Build your schedule, manage teams and publish results. Give everyone a competiti"
+          },
+          {
+            "size": "16px",
+            "text": "Keep fixtures, training, team chat and attendance together. One place for your c"
+          },
+          {
+            "size": "14px",
+            "text": "Plan sessions, organize team training and track attendance."
+          },
+          {
+            "size": "14px",
+            "text": "Bring court bookings and open-play sessions together."
+          },
+          {
+            "size": "14px",
+            "text": "Run esports tournaments, from groups to the final bracket."
+          },
+          {
+            "size": "14px",
+            "text": "Explore football filming and the upcoming MatchCam app."
+          },
+          {
+            "size": "16px",
+            "text": "Snap your whiteboard, scoresheet or bracket. Review the extracted results, then "
+          },
+          {
+            "size": "16px",
+            "text": "EasyChamp AI answers questions about your own games, trainings, squads and atten"
+          }
+        ],
+        "videos": []
+      },
+      "menu": "opened and closed",
+      "labInteractions": {
+        "cpuThrottle": 4,
+        "events": [
+          {
+            "name": "pointerdown",
+            "duration": 80,
+            "interactionId": 5408
+          },
+          {
+            "name": "pointerup",
+            "duration": 80,
+            "interactionId": 5408
+          },
+          {
+            "name": "click",
+            "duration": 80,
+            "interactionId": 5408
+          },
+          {
+            "name": "pointerdown",
+            "duration": 96,
+            "interactionId": 5415
+          },
+          {
+            "name": "pointerup",
+            "duration": 96,
+            "interactionId": 5415
+          },
+          {
+            "name": "click",
+            "duration": 112,
+            "interactionId": 5415
+          }
+        ],
+        "maxObservedDuration": 112,
+        "note": "A local lab sample, not field INP or actual mobile p75."
+      },
+      "targetSizeViolations": [],
+      "targetSizeIncomplete": []
+    },
+    {
+      "url": "https://easychamp.com/pro-clubs",
+      "width": 320,
+      "status": 200,
+      "state": {
+        "title": "FC 26 Pro Clubs stats & league tracker | EasyChamp",
+        "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "width": 320,
+        "scrollWidth": 320,
+        "bodyFont": "16px",
+        "paragraphFonts": [
+          {
+            "size": "11px",
+            "text": "FC 26 Pro Clubs · a segment of the EasyChamp engine"
+          },
+          {
+            "size": "15px",
+            "text": "Full match-center stat lines for every player, every fixture. Standings and brac"
+          },
+          {
+            "size": "11px",
+            "text": "Free tier: no ads on your table, no subscription. FC 26 referenced nominatively."
+          },
+          {
+            "size": "11px",
+            "text": "The stat line · what the Match Center keeps per player"
+          },
+          {
+            "size": "14px",
+            "text": "Goals and assists are the easy part. The Match Center keeps minutes, rating, pas"
+          },
+          {
+            "size": "14px",
+            "text": "A division table that adds up, a play-off bracket that seeds itself. Round-robin"
+          },
+          {
+            "size": "14px",
+            "text": "Every gamertag gets a page: appearances, goals, form and a career that carries a"
+          },
+          {
+            "size": "14px",
+            "text": "Players own their in-game name across PSN, Xbox and PC. One identity, tracked fr"
+          },
+          {
+            "size": "14px",
+            "text": "This is the live ec-uikit component, not a screenshot. Form, goal difference, ti"
+          },
+          {
+            "size": "10px",
+            "text": "Live component · sample FC 26 club league · clubs fictional"
+          },
+          {
+            "size": "14px",
+            "text": "13 match types: goal, assist, sub, injury, penalty, MOTM"
+          },
+          {
+            "size": "11px",
+            "text": "Shipped in the current organizer console release (increments 0170, 0179)."
+          },
+          {
+            "size": "14px",
+            "text": "Run it as a league in the organizer console, or dress it as an Arena esports eve"
+          },
+          {
+            "size": "13.5px",
+            "text": "Yes. EasyChamp's Free plan is $0, with no card and no trial clock, and runs your"
+          },
+          {
+            "size": "13.5px",
+            "text": "Enter each match's result and its events (goals, assists, subs, cards, MOTM) and"
+          }
+        ],
+        "videos": []
+      },
+      "menu": "opened and closed",
+      "labInteractions": {
+        "cpuThrottle": 4,
+        "events": [
+          {
+            "name": "pointerdown",
+            "duration": 64,
+            "interactionId": 7159
+          },
+          {
+            "name": "pointerup",
+            "duration": 64,
+            "interactionId": 7159
+          },
+          {
+            "name": "click",
+            "duration": 64,
+            "interactionId": 7159
+          },
+          {
+            "name": "pointerdown",
+            "duration": 64,
+            "interactionId": 7166
+          },
+          {
+            "name": "pointerup",
+            "duration": 64,
+            "interactionId": 7166
+          },
+          {
+            "name": "click",
+            "duration": 64,
+            "interactionId": 7166
+          }
+        ],
+        "maxObservedDuration": 64,
+        "note": "A local lab sample, not field INP or actual mobile p75."
+      },
+      "targetSizeViolations": [],
+      "targetSizeIncomplete": []
+    },
+    {
+      "url": "https://easychamp.com/pro-clubs",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "title": "FC 26 Pro Clubs stats & league tracker | EasyChamp",
+        "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "width": 390,
+        "scrollWidth": 390,
+        "bodyFont": "16px",
+        "paragraphFonts": [
+          {
+            "size": "11px",
+            "text": "FC 26 Pro Clubs · a segment of the EasyChamp engine"
+          },
+          {
+            "size": "15px",
+            "text": "Full match-center stat lines for every player, every fixture. Standings and brac"
+          },
+          {
+            "size": "11px",
+            "text": "Free tier: no ads on your table, no subscription. FC 26 referenced nominatively."
+          },
+          {
+            "size": "11px",
+            "text": "The stat line · what the Match Center keeps per player"
+          },
+          {
+            "size": "14px",
+            "text": "Goals and assists are the easy part. The Match Center keeps minutes, rating, pas"
+          },
+          {
+            "size": "14px",
+            "text": "A division table that adds up, a play-off bracket that seeds itself. Round-robin"
+          },
+          {
+            "size": "14px",
+            "text": "Every gamertag gets a page: appearances, goals, form and a career that carries a"
+          },
+          {
+            "size": "14px",
+            "text": "Players own their in-game name across PSN, Xbox and PC. One identity, tracked fr"
+          },
+          {
+            "size": "14px",
+            "text": "This is the live ec-uikit component, not a screenshot. Form, goal difference, ti"
+          },
+          {
+            "size": "10px",
+            "text": "Live component · sample FC 26 club league · clubs fictional"
+          },
+          {
+            "size": "14px",
+            "text": "13 match types: goal, assist, sub, injury, penalty, MOTM"
+          },
+          {
+            "size": "11px",
+            "text": "Shipped in the current organizer console release (increments 0170, 0179)."
+          },
+          {
+            "size": "14px",
+            "text": "Run it as a league in the organizer console, or dress it as an Arena esports eve"
+          },
+          {
+            "size": "13.5px",
+            "text": "Yes. EasyChamp's Free plan is $0, with no card and no trial clock, and runs your"
+          },
+          {
+            "size": "13.5px",
+            "text": "Enter each match's result and its events (goals, assists, subs, cards, MOTM) and"
+          }
+        ],
+        "videos": []
+      },
+      "menu": "opened and closed",
+      "labInteractions": {
+        "cpuThrottle": 4,
+        "events": [
+          {
+            "name": "pointerdown",
+            "duration": 48,
+            "interactionId": 5422
+          },
+          {
+            "name": "pointerup",
+            "duration": 48,
+            "interactionId": 5422
+          },
+          {
+            "name": "click",
+            "duration": 64,
+            "interactionId": 5422
+          },
+          {
+            "name": "pointerdown",
+            "duration": 40,
+            "interactionId": 5429
+          },
+          {
+            "name": "pointerup",
+            "duration": 40,
+            "interactionId": 5429
+          },
+          {
+            "name": "click",
+            "duration": 56,
+            "interactionId": 5429
+          }
+        ],
+        "maxObservedDuration": 64,
+        "note": "A local lab sample, not field INP or actual mobile p75."
+      },
+      "targetSizeViolations": [],
+      "targetSizeIncomplete": []
+    },
+    {
+      "url": "https://easychamp.com/tools/round-robin-generator",
+      "width": 320,
+      "status": 200,
+      "state": {
+        "title": "Round robin generator (free schedule maker) | EasyChamp",
+        "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "width": 320,
+        "scrollWidth": 320,
+        "bodyFont": "16px",
+        "paragraphFonts": [
+          {
+            "size": "15.5px",
+            "text": "Paste your teams and get every round of a round robin: each team plays every oth"
+          },
+          {
+            "size": "14px",
+            "text": "Odd number of teams? One sits out each round. The bye is printed on the round. H"
+          },
+          {
+            "size": "14px",
+            "text": "This is a sample round robin. Put your own teams in the box and hit Generate rou"
+          },
+          {
+            "size": "14px",
+            "text": "One sheet per team. The dark chip marks a home game, the pale one an away game."
+          },
+          {
+            "size": "14px",
+            "text": "One per line. Any number from 2 to 64. Odd numbers get a bye each round."
+          },
+          {
+            "size": "14px",
+            "text": "Tick home & away to play every pairing twice with venues swapped in the return l"
+          },
+          {
+            "size": "14px",
+            "text": "The rounds and each team's own fixture list print on one sheet; the share link r"
+          },
+          {
+            "size": "13.5px",
+            "text": "45. Every team plays the other nine once, and each game involves two teams, so i"
+          },
+          {
+            "size": "13.5px",
+            "text": "N − 1 rounds for an even number of teams (8 teams → 7 rounds, each team playing "
+          },
+          {
+            "size": "13.5px",
+            "text": "A phantom slot is added so the pairing still works, and whoever draws the phanto"
+          },
+          {
+            "size": "13.5px",
+            "text": "Yes. The generator uses the circle method with a balancing rule, so in a single "
+          },
+          {
+            "size": "13.5px",
+            "text": "Both. Print gives you the rounds and the per-team fixture lists on a clean sheet"
+          },
+          {
+            "size": "13.5px",
+            "text": "Free, no account. If you want dates, kick-off slots and pitches as well, the lea"
+          },
+          {
+            "size": "13.5px",
+            "text": "Need registration, live standings and a public site? EasyChamp runs the real thi"
+          },
+          {
+            "size": "14px",
+            "text": "Free plan, no card: round robin, group stages, single and double elimination, a "
+          }
+        ],
+        "videos": []
+      },
+      "menu": "opened and closed",
+      "labInteractions": {
+        "cpuThrottle": 4,
+        "events": [
+          {
+            "name": "pointerdown",
+            "duration": 24,
+            "interactionId": 8750
+          },
+          {
+            "name": "pointerup",
+            "duration": 24,
+            "interactionId": 8750
+          },
+          {
+            "name": "click",
+            "duration": 48,
+            "interactionId": 8750
+          },
+          {
+            "name": "pointerdown",
+            "duration": 16,
+            "interactionId": 8757
+          },
+          {
+            "name": "pointerup",
+            "duration": 16,
+            "interactionId": 8757
+          },
+          {
+            "name": "click",
+            "duration": 32,
+            "interactionId": 8757
+          }
+        ],
+        "maxObservedDuration": 48,
+        "note": "A local lab sample, not field INP or actual mobile p75."
+      },
+      "targetSizeViolations": [],
+      "targetSizeIncomplete": []
+    },
+    {
+      "url": "https://easychamp.com/tools/round-robin-generator",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "title": "Round robin generator (free schedule maker) | EasyChamp",
+        "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "width": 390,
+        "scrollWidth": 390,
+        "bodyFont": "16px",
+        "paragraphFonts": [
+          {
+            "size": "15.5px",
+            "text": "Paste your teams and get every round of a round robin: each team plays every oth"
+          },
+          {
+            "size": "14px",
+            "text": "Odd number of teams? One sits out each round. The bye is printed on the round. H"
+          },
+          {
+            "size": "14px",
+            "text": "This is a sample round robin. Put your own teams in the box and hit Generate rou"
+          },
+          {
+            "size": "14px",
+            "text": "One sheet per team. The dark chip marks a home game, the pale one an away game."
+          },
+          {
+            "size": "14px",
+            "text": "One per line. Any number from 2 to 64. Odd numbers get a bye each round."
+          },
+          {
+            "size": "14px",
+            "text": "Tick home & away to play every pairing twice with venues swapped in the return l"
+          },
+          {
+            "size": "14px",
+            "text": "The rounds and each team's own fixture list print on one sheet; the share link r"
+          },
+          {
+            "size": "13.5px",
+            "text": "45. Every team plays the other nine once, and each game involves two teams, so i"
+          },
+          {
+            "size": "13.5px",
+            "text": "N − 1 rounds for an even number of teams (8 teams → 7 rounds, each team playing "
+          },
+          {
+            "size": "13.5px",
+            "text": "A phantom slot is added so the pairing still works, and whoever draws the phanto"
+          },
+          {
+            "size": "13.5px",
+            "text": "Yes. The generator uses the circle method with a balancing rule, so in a single "
+          },
+          {
+            "size": "13.5px",
+            "text": "Both. Print gives you the rounds and the per-team fixture lists on a clean sheet"
+          },
+          {
+            "size": "13.5px",
+            "text": "Free, no account. If you want dates, kick-off slots and pitches as well, the lea"
+          },
+          {
+            "size": "13.5px",
+            "text": "Need registration, live standings and a public site? EasyChamp runs the real thi"
+          },
+          {
+            "size": "14px",
+            "text": "Free plan, no card: round robin, group stages, single and double elimination, a "
+          }
+        ],
+        "videos": []
+      },
+      "menu": "opened and closed",
+      "labInteractions": {
+        "cpuThrottle": 4,
+        "events": [
+          {
+            "name": "pointerdown",
+            "duration": 24,
+            "interactionId": 8965
+          },
+          {
+            "name": "pointerup",
+            "duration": 24,
+            "interactionId": 8965
+          },
+          {
+            "name": "click",
+            "duration": 48,
+            "interactionId": 8965
+          },
+          {
+            "name": "click",
+            "duration": 16,
+            "interactionId": 8972
+          }
+        ],
+        "maxObservedDuration": 48,
+        "note": "A local lab sample, not field INP or actual mobile p75."
+      },
+      "targetSizeViolations": [],
+      "targetSizeIncomplete": []
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/create-league-or-tournament",
+      "width": 320,
+      "status": 200,
+      "state": {
+        "title": "Create a league or tournament in any sport | EasyChamp",
+        "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "width": 320,
+        "scrollWidth": 320,
+        "bodyFont": "16px",
+        "paragraphFonts": [
+          {
+            "size": "14px",
+            "text": "Create the league first, then add its competition and teams."
+          },
+          {
+            "size": "14px",
+            "text": "A league is the home for your competitions. A season or tournament lives inside "
+          },
+          {
+            "size": "14px",
+            "text": "Include your page link, device and the exact error message. Leave out passwords "
+          }
+        ],
+        "videos": [
+          {
+            "tag": "BUTTON",
+            "src": null,
+            "width": 278,
+            "height": 156.375,
+            "top": 412.171875
+          },
+          {
+            "tag": "BUTTON",
+            "src": null,
+            "width": 278,
+            "height": 156.375,
+            "top": 668.34375
+          }
+        ]
+      },
+      "menu": "opened and closed",
+      "labInteractions": {
+        "cpuThrottle": 4,
+        "events": [
+          {
+            "name": "pointerdown",
+            "duration": 24,
+            "interactionId": 2193
+          },
+          {
+            "name": "pointerup",
+            "duration": 24,
+            "interactionId": 2193
+          },
+          {
+            "name": "click",
+            "duration": 48,
+            "interactionId": 2193
+          },
+          {
+            "name": "pointerdown",
+            "duration": 112,
+            "interactionId": 2200
+          },
+          {
+            "name": "pointerup",
+            "duration": 112,
+            "interactionId": 2200
+          },
+          {
+            "name": "click",
+            "duration": 128,
+            "interactionId": 2200
+          }
+        ],
+        "maxObservedDuration": 128,
+        "note": "A local lab sample, not field INP or actual mobile p75."
+      },
+      "targetSizeViolations": [],
+      "targetSizeIncomplete": []
+    },
+    {
+      "url": "https://easychamp.com/help/league-console/create-league-or-tournament",
+      "width": 390,
+      "status": 200,
+      "state": {
+        "title": "Create a league or tournament in any sport | EasyChamp",
+        "viewport": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "width": 390,
+        "scrollWidth": 390,
+        "bodyFont": "16px",
+        "paragraphFonts": [
+          {
+            "size": "14px",
+            "text": "Create the league first, then add its competition and teams."
+          },
+          {
+            "size": "14px",
+            "text": "A league is the home for your competitions. A season or tournament lives inside "
+          },
+          {
+            "size": "14px",
+            "text": "Include your page link, device and the exact error message. Leave out passwords "
+          }
+        ],
+        "videos": [
+          {
+            "tag": "BUTTON",
+            "src": null,
+            "width": 348,
+            "height": 195.75,
+            "top": 412.171875
+          },
+          {
+            "tag": "BUTTON",
+            "src": null,
+            "width": 348,
+            "height": 195.75,
+            "top": 682.921875
+          }
+        ]
+      },
+      "menu": "opened and closed",
+      "labInteractions": {
+        "cpuThrottle": 4,
+        "events": [
+          {
+            "name": "pointerdown",
+            "duration": 24,
+            "interactionId": 810
+          },
+          {
+            "name": "pointerup",
+            "duration": 24,
+            "interactionId": 810
+          },
+          {
+            "name": "click",
+            "duration": 48,
+            "interactionId": 810
+          },
+          {
+            "name": "pointerdown",
+            "duration": 120,
+            "interactionId": 817
+          },
+          {
+            "name": "pointerup",
+            "duration": 120,
+            "interactionId": 817
+          },
+          {
+            "name": "click",
+            "duration": 128,
+            "interactionId": 817
+          }
+        ],
+        "maxObservedDuration": 128,
+        "note": "A local lab sample, not field INP or actual mobile p75."
+      },
+      "targetSizeViolations": [],
+      "targetSizeIncomplete": []
+    }
+  ]
+}

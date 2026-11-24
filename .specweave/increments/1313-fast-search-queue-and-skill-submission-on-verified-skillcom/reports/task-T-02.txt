@@ -1,0 +1,29 @@
+$ npm --prefix repositories/anton-abyzov/vskill-platform test -- SearchPalette
+# exit 0 — 2026-11-12T22:58:07.107Z
+
+
+> vskill-platform@0.0.2 test
+> vitest run SearchPalette
+
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.7 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform
+
+ ✓ src/app/studio/components/__tests__/StudioSearchPalette.test.tsx (13 tests) 24ms
+ ✓ src/app/components/__tests__/SearchPalette.keyless.test.tsx (6 tests) 164ms
+ ✓ src/app/components/__tests__/SearchPalette.props.test.tsx (14 tests) 391ms
+ ✓ src/app/components/__tests__/SearchPalette.test.tsx (57 tests) 4649ms
+   ✓ SearchPalette — results always land > shows a slow first response that lands after two more keystrokes  545ms
+   ✓ SearchPalette — results always land > caches a response under its own query even when it lands late  524ms
+   ✓ SearchPalette — results always land > a response for an old query never replaces the current rows  317ms
+   ✓ SearchPalette — local prefix filter > filters cached rows of a shorter query at once while the server answers  326ms
+   ✓ SearchPalette — error state > keeps the last good rows when a later query fails  318ms
+   ✓ SearchPalette — Enter and See all > rows of the old query stay unselectable while the new query is in flight or fails  322ms
+   ✓ SearchPalette — accessibility > resets the highlighted row when new results land  381ms
+   ✓ SearchPalette — load more > drops a next page that belongs to an old query  323ms
+
+ Test Files  4 passed (4)
+      Tests  90 passed (90)
+   Start at  17:58:01
+   Duration  5.58s (transform 252ms, setup 412ms, collect 382ms, tests 5.23s, environment 1.95s, prepare 164ms)
+

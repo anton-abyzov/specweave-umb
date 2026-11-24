@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+const reports = path.dirname(fileURLToPath(import.meta.url));
+const project = path.resolve(reports, '../../../..');
+const pkg = process.env.SPECWEAVE_PACKAGE_ROOT;
+assert.ok(pkg, 'SPECWEAVE_PACKAGE_ROOT is required');
+const expected = '2.3.0';
+const manifest = JSON.parse(fs.readFileSync(path.join(pkg, 'package.json'), 'utf8'));
+assert.equal(manifest.version, expected);
+const cliVersion = execFileSync(process.execPath, [path.join(pkg, 'bin/specweave.js'), '--version'], { encoding: 'utf8' }).trim();
+assert.equal(cliVersion, expected);
+const published = JSON.parse(execFileSync('npm', ['view', `specweave@${expected}`, 'version', 'gitHead', 'dist.integrity', '--json'], { encoding: 'utf8' }));
+assert.equal(published.version, expected);
+assert.equal(published.gitHead, '8be01b24e23f18c1a87036e7f6e8ab0d4c98cce3');
+assert.ok(published['dist.integrity']?.startsWith('sha512-'));
+assert.equal(execFileSync('npm', ['view', 'specweave', 'version'], { encoding: 'utf8' }).trim(), expected);
+const before = JSON.parse(fs.readFileSync(path.join(reports, 'stable-install-prestate.json'), 'utf8'));
+for (const [file, hash] of Object.entries(before)) {
+  assert.equal(createHash('sha256').update(fs.readFileSync(path.join(project, file))).digest('hex'), hash, `Existing ${file} changed during installation`);
+}
+const skills = fs.readdirSync(path.join(pkg, 'plugins/specweave/skills')).filter(name => fs.existsSync(path.join(pkg, 'plugins/specweave/skills', name, 'SKILL.md')));
+assert.equal(skills.length, 12);
+for (const skill of skills) assert.match(fs.readFileSync(path.join(project, '.agents/skills', `sw-${skill}`, 'SKILL.md'), 'utf8'), new RegExp(`name: sw-${skill}`));
+for (const license of ['ibmplexsans-OFL.txt', 'newsreader-OFL.txt']) assert.ok(fs.existsSync(path.join(pkg, 'src/styles/fonts', license)), 'Bundled font license missing');
+fs.writeFileSync(path.join(reports, 'stable-install-receipt.json'), JSON.stringify({ checkedAt: new Date().toISOString(), version: expected, packageRoot: pkg, cliVersion, published, preservedFiles: Object.keys(before), nativeSkills: skills.map(name => `sw-${name}`) }, null, 2) + '\n');
+console.log(`PASS: registry latest and installed CLI ${expected}; 12 native Codex skills; existing config, instructions and project hub preserved; bundled font licenses present`);

@@ -1,0 +1,43 @@
+$ bash scripts/release/release.sh verify platform
+# exit 0 — 2026-11-12T22:58:24.949Z
+
+platform : PASS
+  PASS  site: HTTP 200
+  PASS  queue health contract: HTTP 200, schemaVersion=2
+  PASS (info)  latest Workers deployment: latest deployment 62ec90b9-166c-413f-9ca2-faa304884e72 at 2026-11-12T22:54:09.355439Z
+  PASS (info)  unit tests on main: unit-tests.yml on main: success
+{
+  "track": "platform",
+  "version": "",
+  "checks": [
+    {
+      "name": "site",
+      "kind": "http",
+      "blocking": true,
+      "status": "pass",
+      "detail": "HTTP 200"
+    },
+    {
+      "name": "queue health contract",
+      "kind": "http",
+      "blocking": true,
+      "status": "pass",
+      "detail": "HTTP 200, schemaVersion=2"
+    },
+    {
+      "name": "latest Workers deployment",
+      "kind": "wrangler_deployments",
+      "blocking": false,
+      "status": "pass",
+      "detail": "latest deployment 62ec90b9-166c-413f-9ca2-faa304884e72 at 2026-11-12T22:54:09.355439Z"
+    },
+    {
+      "name": "unit tests on main",
+      "kind": "gh_run",
+      "blocking": false,
+      "status": "pass",
+      "detail": "unit-tests.yml on main: success"
+    }
+  ],
+  "result": "pass"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "1180-iphone-always-offers-sign-in-phones-show-their-exact-model",
+  "uuid": "58aa5ed5-4ab8-449a-bcd8-25d6af68f573",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-02T20:42:30.271Z",
+  "updated": "2026-11-02T21:18:27.706Z",
+  "lastActivity": "2026-11-02T21:18:27.706Z",
+  "title": "iPhone always offers sign-in; phones show their exact model",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-02T21:18:27.705Z",
+  "closeReason": "verify suites cover specweave, vskill and vskill-platform, which this change does not touch; the change merged as 1fafa161fc with its own checks passing",
+  "approvedAt": "2026-11-02T21:18:27.706Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-10-07T18:39:23.057Z",
+  "readonlyCatalogOnly": true,
+  "index": {
+    "oid": "199021",
+    "definition": "CREATE INDEX \"Skill_public_author_metrics_idx\" ON public.\"Skill\" USING btree (lower(author), \"normalizedRepoUrl\") INCLUDE (author, \"githubStars\", \"trustScore\", \"isTainted\") WHERE ((\"tenantId\" IS NULL) AND (\"isDeprecated\" = false))",
+    "indisvalid": true,
+    "indisready": true,
+    "indislive": true
+  },
+  "ledger": {
+    "migration_name": "20261007160000_public_publisher_covering_index",
+    "checksum": "91bf3713936a26d24a93efb0b7d42262452b3c6f3ffd65b87bc8e8114385c401",
+    "finished": true,
+    "not_rolled_back": true
+  }
+}

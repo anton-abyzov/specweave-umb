@@ -1,0 +1,29 @@
+{
+  "id": "0882-finish-bounded-cli-filesystem-scans",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-09-22T03:20:20.619Z",
+  "updated": "2026-09-22T03:38:43.668Z",
+  "lastActivity": "2026-09-22T03:38:43.668Z",
+  "testMode": "TDD",
+  "coverageTarget": 60,
+  "feature_id": null,
+  "epic_id": null,
+  "externalLinks": {
+    "ado": {
+      "featureId": "2454",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2454",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-09-22T03:39:24.409Z"
+    }
+  },
+  "planning": {
+    "parallel": false
+  },
+  "project": "specweave-umb",
+  "parent": "0879-refresh-plugins-walks-the-filesystem-from-cwd-when-no-project-is-found",
+  "readyForReviewAt": "2026-09-22T03:38:43.666Z",
+  "approvedAt": "2026-09-22T03:38:43.668Z"
+}

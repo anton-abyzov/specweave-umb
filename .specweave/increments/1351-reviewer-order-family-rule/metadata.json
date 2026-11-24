@@ -1,0 +1,16 @@
+{
+  "id": "1351-reviewer-order-family-rule",
+  "uuid": "3a0a7520-77aa-45de-b12a-955cded1696b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T03:52:34.234Z",
+  "updated": "2026-11-20T21:26:57.635Z",
+  "lastActivity": "2026-11-20T21:26:57.635Z",
+  "title": "Reviewer order shows the family rule and readable routes",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {}
+}

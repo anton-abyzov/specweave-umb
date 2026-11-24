@@ -1,0 +1,15 @@
+{
+  "id": "1246-sign-windows-and-linux-releases-and-attest-build-provenance",
+  "uuid": "3e5fd795-c401-40ae-beb0-c497e55a019a",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-06T22:24:29.296Z",
+  "updated": "2026-11-08T07:29:17.080Z",
+  "lastActivity": "2026-11-08T07:29:17.080Z",
+  "title": "Sign Windows and Linux releases and attest build provenance",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-08T07:29:17.080Z",
+  "approvedAt": "2026-11-08T07:29:17.080Z"
+}

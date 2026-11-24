@@ -1,0 +1,17 @@
+{
+  "id": "1373-coordinator-delegates-real-work-to-threads",
+  "uuid": "f229f7ad-f61e-4458-8819-e095ffc56b0e",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-17T06:03:31.536Z",
+  "updated": "2026-11-17T08:05:36.756Z",
+  "lastActivity": "2026-11-17T08:05:36.756Z",
+  "title": "Coordinator delegates real work to threads",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-17T08:05:36.753Z",
+  "approvedAt": "2026-11-17T08:05:36.756Z"
+}

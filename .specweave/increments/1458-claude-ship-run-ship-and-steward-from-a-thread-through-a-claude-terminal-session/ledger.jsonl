@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@anton-m5max-proled","at":"2026-11-24T08:45:12.561Z","note":"session dfb214f0-a4c0-439a-a8bc-0b53fa13efc1","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-24T08:45:12.562Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-24T08:45:12.563Z","evidence":"PR #859 merged as d884e75a1 (head ad8b0d42e, 26 checks green); 2337 chat tests pass; screenshots in reports/\nHEAD 0d20101e7","link":"https://github.com/anton-abyzov/specwithcode/pull/859","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-24T08:45:12.916Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-24T08:45:12.917Z","evidence":"PR #859 merged as d884e75a1 (head ad8b0d42e, 26 checks green); 2337 chat tests pass; screenshots in reports/\nHEAD 0d20101e7","link":"https://github.com/anton-abyzov/specwithcode/pull/859","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-24T08:45:13.338Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-24T08:45:13.339Z","evidence":"PR #859 merged as d884e75a1 (head ad8b0d42e, 26 checks green); 2337 chat tests pass; screenshots in reports/\nHEAD 0d20101e7","link":"https://github.com/anton-abyzov/specwithcode/pull/859","model":"claude-opus-5-5[1m]"}

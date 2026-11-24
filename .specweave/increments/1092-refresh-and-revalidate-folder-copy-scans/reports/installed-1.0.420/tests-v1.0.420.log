@@ -1,0 +1,10 @@
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.1.0 /Users/anton/.specwithcode/verify/specwithcode
+
+
+ Test Files  7 passed (7)
+      Tests  100 passed (100)
+   Start at  10:28:52
+   Duration  30.07s (tests 89%, transform 6%, import 4%, environment 1%)
+

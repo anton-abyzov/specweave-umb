@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "increment": "0877",
+  "reviewedAt": "2026-09-14T06:22:04.831685+00:00",
+  "mode": "single",
+  "commit": "1489f3891",
+  "base": "v2.0.3",
+  "scope": "T-03 only; independent of author; not own Verified Skills changes",
+  "droppedNits": 0,
+  "resolvedAtCommit": "6c98afff8",
+  "resolvedFindings": [
+    {
+      "severity": "medium",
+      "file": "plugins/specweave/hooks/run.mjs",
+      "line": 21,
+      "summary": "Fast path rejects supported dotted session IDs and skips explicitly active per-session auto mode when global marker is inactive",
+      "confidence": "confirmed"
+    }
+  ],
+  "findings": []
+}

@@ -1,0 +1,754 @@
+{
+  "checkedAt": "2026-10-07T14:35:04.233926+00:00",
+  "scope": "read-only; no owners, claims, code, configuration or deployments changed",
+  "messagesReconciled": 75,
+  "issueOrValidationMessages": 50,
+  "informationalMessages": 25,
+  "distinctIssueCategories": 35,
+  "categoryRows": [
+    {
+      "category": "Missing field \"image\"",
+      "noticeCount": 4,
+      "earliestNotice": "2026-07-18",
+      "latestNotice": "2026-10-06",
+      "messages": [
+        {
+          "date": "Tue, 06 Oct 2026 10:31:46 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a1124581a71f0a8"
+        },
+        {
+          "date": "Tue, 06 Oct 2026 03:56:45 -0700",
+          "subject": "Some fixes failed for Events structured data issues on site easychamp.com",
+          "messageId": "1a110dbd959d7359"
+        },
+        {
+          "date": "Mon, 05 Oct 2026 08:20:03 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10ca68da88a3ca"
+        },
+        {
+          "date": "Sat, 18 Jul 2026 23:19:23 -0700",
+          "subject": "New Events structured data issues detected for easychamp.com",
+          "messageId": "19f790782d78f5a4"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Missing field \"url\" (in \"organizer\")",
+      "noticeCount": 3,
+      "earliestNotice": "2026-07-27",
+      "latestNotice": "2026-10-06",
+      "messages": [
+        {
+          "date": "Tue, 06 Oct 2026 03:56:41 -0700",
+          "subject": "Events structured data issues successfully fixed for site easychamp.com",
+          "messageId": "1a110dbc9adc7486"
+        },
+        {
+          "date": "Mon, 05 Oct 2026 08:30:05 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10cafb8bd4bf6b"
+        },
+        {
+          "date": "Mon, 27 Jul 2026 23:20:27 -0700",
+          "subject": "New Events structured data issues detected for easychamp.com",
+          "messageId": "19fa761bd9b21665"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Missing field \"organizer\"",
+      "noticeCount": 1,
+      "earliestNotice": "2026-10-05",
+      "latestNotice": "2026-10-05",
+      "messages": [
+        {
+          "date": "Mon, 05 Oct 2026 08:25:44 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10cabbf27e3bdc"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Missing field \"eventStatus\"",
+      "noticeCount": 2,
+      "earliestNotice": "2026-07-18",
+      "latestNotice": "2026-10-05",
+      "messages": [
+        {
+          "date": "Mon, 05 Oct 2026 08:23:25 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10ca99f8247cec"
+        },
+        {
+          "date": "Sat, 18 Jul 2026 23:19:23 -0700",
+          "subject": "New Events structured data issues detected for easychamp.com",
+          "messageId": "19f790782d78f5a4"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Missing field \"performer\"",
+      "noticeCount": 1,
+      "earliestNotice": "2026-10-05",
+      "latestNotice": "2026-10-05",
+      "messages": [
+        {
+          "date": "Mon, 05 Oct 2026 08:20:14 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10ca6b9cb977e5"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Missing field \"description\"",
+      "noticeCount": 2,
+      "earliestNotice": "2026-07-18",
+      "latestNotice": "2026-10-05",
+      "messages": [
+        {
+          "date": "Mon, 05 Oct 2026 08:19:44 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10ca642975b44f"
+        },
+        {
+          "date": "Sat, 18 Jul 2026 23:19:23 -0700",
+          "subject": "New Events structured data issues detected for easychamp.com",
+          "messageId": "19f790782d78f5a4"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Missing field \"location\"",
+      "noticeCount": 2,
+      "earliestNotice": "2026-07-18",
+      "latestNotice": "2026-10-05",
+      "messages": [
+        {
+          "date": "Mon, 05 Oct 2026 08:16:27 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10ca34056e6653"
+        },
+        {
+          "date": "Sat, 18 Jul 2026 23:19:23 -0700",
+          "subject": "New Events structured data issues detected for easychamp.com",
+          "messageId": "19f790782d78f5a4"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Missing field \"startDate\"",
+      "noticeCount": 2,
+      "earliestNotice": "2026-07-18",
+      "latestNotice": "2026-10-05",
+      "messages": [
+        {
+          "date": "Mon, 05 Oct 2026 08:15:44 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10ca2982727240"
+        },
+        {
+          "date": "Sat, 18 Jul 2026 23:19:23 -0700",
+          "subject": "New Events structured data issues detected for easychamp.com",
+          "messageId": "19f790782d78f5a4"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Missing field \"address\" (in \"location\")",
+      "noticeCount": 1,
+      "earliestNotice": "2026-10-05",
+      "latestNotice": "2026-10-05",
+      "messages": [
+        {
+          "date": "Mon, 05 Oct 2026 08:15:32 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10ca26ace72887"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Invalid object type for field \"location\"",
+      "noticeCount": 2,
+      "earliestNotice": "2026-10-05",
+      "latestNotice": "2026-10-05",
+      "messages": [
+        {
+          "date": "Mon, 05 Oct 2026 08:15:18 -0700",
+          "subject": "We're validating your Events structured data issue fixes for site easychamp.com",
+          "messageId": "1a10ca23375eda58"
+        },
+        {
+          "date": "Mon, 05 Oct 2026 03:00:27 -0700",
+          "subject": "New Events structured data issues detected for easychamp.com",
+          "messageId": "1a10b81f1a2d7387"
+        }
+      ],
+      "disposition": "Supported Event emitters repaired in 0936/0937; date/location absence downgrades to honest WebPage. Current three public Match samples retain required fields and real images. Organizer URL has an Oct 6 Google success notice. Other validation results await Google.",
+      "evidence": "easychamp-live-samples-inventory.json; final-release-watch-simulated-crawler-headless.json; src/lib/seo-jsonld.ts:262,341",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Datetime property \"uploadDate\" is missing a timezone",
+      "noticeCount": 1,
+      "earliestNotice": "2026-10-04",
+      "latestNotice": "2026-10-04",
+      "messages": [
+        {
+          "date": "Sun, 04 Oct 2026 02:29:57 -0700",
+          "subject": "New Videos structured data issues detected for easychamp.com",
+          "messageId": "1a1063fa6f8c3ee4"
+        }
+      ],
+      "disposition": "UIKit requires verified zoned timestamps; Landing 14 tutorials and one curated blog film have true publication instants. Unknown Arena video dates omit VideoObject and retain players. No article/kickoff/link-row proxy timestamps.",
+      "evidence": "easychamp-final-release-proof.json; help-all-raw-html-video-proof.json; video-source-attribution-audit.md",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Invalid datetime value for \"uploadDate\"",
+      "noticeCount": 1,
+      "earliestNotice": "2026-10-04",
+      "latestNotice": "2026-10-04",
+      "messages": [
+        {
+          "date": "Sun, 04 Oct 2026 02:29:57 -0700",
+          "subject": "New Videos structured data issues detected for easychamp.com",
+          "messageId": "1a1063fa6f8c3ee4"
+        }
+      ],
+      "disposition": "UIKit requires verified zoned timestamps; Landing 14 tutorials and one curated blog film have true publication instants. Unknown Arena video dates omit VideoObject and retain players. No article/kickoff/link-row proxy timestamps.",
+      "evidence": "easychamp-final-release-proof.json; help-all-raw-html-video-proof.json; video-source-attribution-audit.md",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Duplicate without user-selected canonical",
+      "noticeCount": 3,
+      "earliestNotice": "2023-06-10",
+      "latestNotice": "2026-09-06",
+      "messages": [
+        {
+          "date": "Sun, 06 Sep 2026 13:56:33 -0700",
+          "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+          "messageId": "1a078823502484f3"
+        },
+        {
+          "date": "Sun, 22 Jun 2025 05:15:20 -0700",
+          "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+          "messageId": "197979086115d092"
+        },
+        {
+          "date": "Sat, 10 Jun 2023 18:37:47 -0700",
+          "subject": "New Page indexing issues detected in submitted URLs for easychamp.com",
+          "messageId": "188a81a2ec1569be"
+        }
+      ],
+      "disposition": "Marketing registry ties sitemap and self-canonical/hreflang decisions together; Watch uses slug canonical Match URLs and per-tenant hosts. Submitted maps contain canonical forms. Proper alternate pages are expected exclusions; current Google-selected URL needs actual URL Inspection to verify. Legacy tenant boundary remains.",
+      "evidence": "landing-locale-tool-reciprocal-assets.json; easychamp-sitemap-gap-proof.json; src/lib/seo-routes.ts; Arena canonical/sitemap tests in full suite",
+      "status": "supported source/live coherent; Google choice unverified"
+    },
+    {
+      "category": "Duplicate, Google chose different canonical than user",
+      "noticeCount": 2,
+      "earliestNotice": "2022-10-05",
+      "latestNotice": "2026-07-27",
+      "messages": [
+        {
+          "date": "Mon, 27 Jul 2026 17:27:07 -0700",
+          "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+          "messageId": "19fa61e3e1fbef4c"
+        },
+        {
+          "date": "Wed, 05 Oct 2022 00:36:48 -0700",
+          "subject": "New Page indexing issues detected for easychamp.com",
+          "messageId": "183a71360f680915"
+        }
+      ],
+      "disposition": "Marketing registry ties sitemap and self-canonical/hreflang decisions together; Watch uses slug canonical Match URLs and per-tenant hosts. Submitted maps contain canonical forms. Proper alternate pages are expected exclusions; current Google-selected URL needs actual URL Inspection to verify. Legacy tenant boundary remains.",
+      "evidence": "landing-locale-tool-reciprocal-assets.json; easychamp-sitemap-gap-proof.json; src/lib/seo-routes.ts; Arena canonical/sitemap tests in full suite",
+      "status": "supported source/live coherent; Google choice unverified"
+    },
+    {
+      "category": "No thumbnail URL provided",
+      "noticeCount": 1,
+      "earliestNotice": "2026-07-20",
+      "latestNotice": "2026-07-20",
+      "messages": [
+        {
+          "date": "Mon, 20 Jul 2026 14:43:33 -0700",
+          "subject": "New reasons prevent videos from being indexed on site easychamp.com",
+          "messageId": "19f817bf934c3b63"
+        }
+      ],
+      "disposition": "VideoObject builders require a real thumbnail; all 14 tutorial JPEGs are Googlebot-fetchable. Curated EFA thumbnail matches the native player. Unknown incomplete video metadata is omitted.",
+      "evidence": "help-all-14-googlebot-thumbnails.json; final-release-blog-playback.json",
+      "status": "source/public repaired; validation pending"
+    },
+    {
+      "category": "Missing field \"endDate\"",
+      "noticeCount": 1,
+      "earliestNotice": "2026-07-18",
+      "latestNotice": "2026-07-18",
+      "messages": [
+        {
+          "date": "Sat, 18 Jul 2026 23:19:23 -0700",
+          "subject": "New Events structured data issues detected for easychamp.com",
+          "messageId": "19f790782d78f5a4"
+        }
+      ],
+      "disposition": "Match DTO has no authoritative final whistle or duration; omit instead of inventing 90 minutes. Competition/session builders emit endDate when actual endpoint or booked duration exists. Google lists endDate as recommended.",
+      "evidence": "src/lib/seo-jsonld.ts:246-255,367,429; Google Event documentation",
+      "status": "intentional truthful optional omission"
+    },
+    {
+      "category": "Missing field \"offers\"",
+      "noticeCount": 1,
+      "earliestNotice": "2026-07-18",
+      "latestNotice": "2026-07-18",
+      "messages": [
+        {
+          "date": "Sat, 18 Jul 2026 23:19:23 -0700",
+          "subject": "New Events structured data issues detected for easychamp.com",
+          "messageId": "19f790782d78f5a4"
+        }
+      ],
+      "disposition": "Fixture/competition DTOs have no ticket price or ticket offer; do not assert a fake free ticket. Real bookable session offers emit recorded price/currency/availability. Google lists offers as recommended.",
+      "evidence": "src/lib/seo-jsonld.ts:450; Google Event documentation",
+      "status": "intentional truthful optional omission"
+    },
+    {
+      "category": "Excluded by ‘noindex’ tag",
+      "noticeCount": 2,
+      "earliestNotice": "2025-07-20",
+      "latestNotice": "2026-07-18",
+      "messages": [
+        {
+          "date": "Sat, 18 Jul 2026 03:54:37 -0700",
+          "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+          "messageId": "19f74dd23a2be10b"
+        },
+        {
+          "date": "Sun, 20 Jul 2025 04:50:36 -0700",
+          "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+          "messageId": "19827abf3be2775a"
+        }
+      ],
+      "disposition": "Personal/auth pages, empty/thin hubs, QA tenants and imported third-party news are intentionally noindex and excluded from supported sitemaps. Sampled supported marketing pages are indexable. Exact historical affected URLs are absent from the emails.",
+      "evidence": "easychamp-sitemap-gap-proof.json; Arena seo-thin/noindex/sitemap tests; Landing robots.ts",
+      "status": "intentional exclusions; no sampled public conflict"
+    },
+    {
+      "category": "Indexed, though blocked by robots.txt",
+      "noticeCount": 1,
+      "earliestNotice": "2026-04-16",
+      "latestNotice": "2026-04-16",
+      "messages": [
+        {
+          "date": "Thu, 16 Apr 2026 03:21:27 -0700",
+          "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+          "messageId": "19d95cf5ad6d870c"
+        }
+      ],
+      "disposition": "Apr 2026 notice provides no affected URLs. Current robots disallow only private/API/plumbing paths, allow public pages and Watch OG images; personal noindex HTML is fetchable. Neither reviewed sitemap lists a robots-denied route. A blocked URL can remain indexed: clearing a specific historical URL requires URL Inspection, not broad Allow.",
+      "evidence": "easychamp-sitemap-gap-proof.json; Landing robots.ts; Arena robots.ts",
+      "status": "no current sampled public conflict; historic URL unknown"
+    },
+    {
+      "category": "Page with redirect",
+      "noticeCount": 2,
+      "earliestNotice": "2023-08-05",
+      "latestNotice": "2025-07-17",
+      "messages": [
+        {
+          "date": "Thu, 17 Jul 2025 10:24:13 -0700",
+          "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+          "messageId": "198196a4ec129820"
+        },
+        {
+          "date": "Sat, 05 Aug 2023 21:10:02 -0700",
+          "subject": "New Page indexing issues detected in submitted URLs for easychamp.com",
+          "messageId": "189c909af171b676"
+        }
+      ],
+      "disposition": "Aliases/legacy hosts may intentionally redirect; current apex sitemap and Watch canonical Match entries use final route forms. Sampled current indexed pages respond 200 directly, and no alias is advertised in reviewed maps.",
+      "evidence": "easychamp-sitemap-gap-proof.json; easychamp-live-samples-inventory.json; supported sitemap tests",
+      "status": "intended alias redirects omitted from maps"
+    },
+    {
+      "category": "Blocked due to other 4xx issue",
+      "noticeCount": 1,
+      "earliestNotice": "2025-07-02",
+      "latestNotice": "2025-07-02",
+      "messages": [
+        {
+          "date": "Wed, 02 Jul 2025 06:58:40 -0700",
+          "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+          "messageId": "197cb6ebb5860abc"
+        }
+      ],
+      "disposition": "Historical 2022-2025 notices contain no examples. Private/backend paths and cost-blocked non-search crawlers remain intentional. Current Googlebot/Inspection probes are 200; normal headless Watch/curl are deliberately 429 by edge policy, not app failures. No supported sampled search-crawler denial.",
+      "evidence": "final-watch-seo-client-proof.json; final-release-watch-isolated-headless.json; watch-crawler-policy.md; easychamp-sitemap-gap-proof.json",
+      "status": "public SEO clients pass; restricted clients/private paths expected"
+    },
+    {
+      "category": "Soft 404",
+      "noticeCount": 5,
+      "earliestNotice": "2022-08-23",
+      "latestNotice": "2025-06-25",
+      "messages": [
+        {
+          "date": "Wed, 25 Jun 2025 07:02:09 -0700",
+          "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+          "messageId": "197a76565b8e4aef"
+        },
+        {
+          "date": "Tue, 05 Sep 2023 08:41:36 -0700",
+          "subject": "We're validating your Page indexing issue fixes for all submitted pages for site easychamp.com",
+          "messageId": "18a66019cd4fb7d9"
+        },
+        {
+          "date": "Tue, 05 Sep 2023 03:01:56 -0700",
+          "subject": "New Page indexing issues detected in submitted URLs for easychamp.com",
+          "messageId": "18a64caa38ef3390"
+        },
+        {
+          "date": "Tue, 23 May 2023 18:19:24 -0700",
+          "subject": "New Page indexing issues detected for easychamp.com",
+          "messageId": "1884b56e330f31d9"
+        },
+        {
+          "date": "Tue, 23 Aug 2022 17:31:16 -0700",
+          "subject": "New Page indexing issue detected for site easychamp.com",
+          "messageId": "182cd42b2e802f66"
+        }
+      ],
+      "disposition": "Unknown page/entity/host routes return actual 404; empty/thin hubs carry noindex and are omitted from sitemaps. No soft error in current populated Match, competition or marketing samples. Old affected URLs not available; legacy boundary retained.",
+      "evidence": "easychamp-live-samples-inventory.json; easychamp-sitemap-gap-proof.json; Arena sitemap-thin-content tests",
+      "status": "source guards/public samples pass; not an exhaustive entity crawl"
+    },
+    {
+      "category": "Server error (5xx)",
+      "noticeCount": 4,
+      "earliestNotice": "2023-08-26",
+      "latestNotice": "2025-06-15",
+      "messages": [
+        {
+          "date": "Sun, 15 Jun 2025 02:47:47 -0700",
+          "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+          "messageId": "19772fcecd2edece"
+        },
+        {
+          "date": "Tue, 29 Aug 2023 22:33:15 -0700",
+          "subject": "Page indexing issues successfully fixed for all submitted pages on site easychamp.com",
+          "messageId": "18a44ee7ef2ea1ba"
+        },
+        {
+          "date": "Sun, 27 Aug 2023 09:20:24 -0700",
+          "subject": "We're validating your Page indexing issue fixes for all submitted pages for site easychamp.com",
+          "messageId": "18a37cbe674f2f5e"
+        },
+        {
+          "date": "Sat, 26 Aug 2023 22:11:11 -0700",
+          "subject": "New Page indexing issues detected in submitted URLs for easychamp.com",
+          "messageId": "18a3567387db7e4c"
+        }
+      ],
+      "disposition": "Aug 2023 one-page 5xx validation succeeded. Latest Jun 2025 notice has no examples. Both released apps are Synced/Healthy, current page samples and eight sitemap/policy endpoints are 200. Upstream failures deliberately produce retryable 503 rather than cached 200 error/empty map.",
+      "evidence": "easychamp-final-release-cluster-proof.json; easychamp-sitemap-gap-proof.json; source sitemap unavailable branch",
+      "status": "current bounded probes pass; no historical URL attribution"
+    },
+    {
+      "category": "Not found (404)",
+      "noticeCount": 2,
+      "earliestNotice": "2023-06-10",
+      "latestNotice": "2025-06-15",
+      "messages": [
+        {
+          "date": "Sun, 15 Jun 2025 02:47:47 -0700",
+          "subject": "New reasons prevent pages in a sitemap from being indexed on site easychamp.com",
+          "messageId": "19772fcecd2edece"
+        },
+        {
+          "date": "Sat, 10 Jun 2023 18:37:47 -0700",
+          "subject": "New Page indexing issues detected in submitted URLs for easychamp.com",
+          "messageId": "188a81a2ec1569be"
+        }
+      ],
+      "disposition": "Removed/unknown URLs should remain real 404. Neither current reviewed map contains known removed/private/alias paths; present sampled marketing/entity pages are 200. Historical affected URLs were not supplied.",
+      "evidence": "easychamp-live-samples-inventory.json; easychamp-sitemap-gap-proof.json",
+      "status": "real removed-page 404 intentional; no sampled listed 404"
+    },
+    {
+      "category": "Blocked due to access forbidden (403)",
+      "noticeCount": 3,
+      "earliestNotice": "2022-11-13",
+      "latestNotice": "2025-06-15",
+      "messages": [
+        {
+          "date": "Sun, 15 Jun 2025 02:47:37 -0700",
+          "subject": "New reasons prevent pages from being indexed on site easychamp.com",
+          "messageId": "19772fcc6d25778c"
+        },
+        {
+          "date": "Sat, 25 Mar 2023 16:56:11 -0700",
+          "subject": "New Page indexing issues detected for easychamp.com",
+          "messageId": "1871b337a5478a82"
+        },
+        {
+          "date": "Sun, 13 Nov 2022 01:38:02 -0800",
+          "subject": "New Page indexing issues detected for easychamp.com",
+          "messageId": "184705a62dee2fa9"
+        }
+      ],
+      "disposition": "Historical 2022-2025 notices contain no examples. Private/backend paths and cost-blocked non-search crawlers remain intentional. Current Googlebot/Inspection probes are 200; normal headless Watch/curl are deliberately 429 by edge policy, not app failures. No supported sampled search-crawler denial.",
+      "evidence": "final-watch-seo-client-proof.json; final-release-watch-isolated-headless.json; watch-crawler-policy.md; easychamp-sitemap-gap-proof.json",
+      "status": "public SEO clients pass; restricted clients/private paths expected"
+    },
+    {
+      "category": "Video too small",
+      "noticeCount": 1,
+      "earliestNotice": "2023-09-29",
+      "latestNotice": "2023-09-29",
+      "messages": [
+        {
+          "date": "Fri, 29 Sep 2023 01:48:13 -0700",
+          "subject": "New reasons prevent videos from being indexed on site easychamp.com",
+          "messageId": "18ae01fc787917f5"
+        }
+      ],
+      "disposition": "These Aug/Sep 2023 classifications were replaced by video-not-main-content/watch-page rules in Dec 2023. Current Help facade boxes are 278x156 at 320px and 348x196 at 390px, first above fold; EFA native video plays at correct responsive width but is supplementary blog content. Current Help YouTube player is absent until click: a separately confirmed crawlability gap remains. Do not claim a text article is a dedicated watch page.",
+      "evidence": "easychamp-mobile-gap-proof.json; src/components/help/HelpVideo.tsx:17,30-43; final-release-blog-playback.json; Google video docs",
+      "status": "historic label retired; current facade gap identified"
+    },
+    {
+      "category": "Text too small to read",
+      "noticeCount": 4,
+      "earliestNotice": "2022-11-13",
+      "latestNotice": "2023-08-12",
+      "messages": [
+        {
+          "date": "Sat, 12 Aug 2023 12:30:58 -0700",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "189eb3aff1cc29cf"
+        },
+        {
+          "date": "Tue, 23 May 2023 14:02:21 -0700",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "1884a6b8aab9829b"
+        },
+        {
+          "date": "Fri, 30 Dec 2022 12:55:44 -0800",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "18564d1ba952e808"
+        },
+        {
+          "date": "Sun, 13 Nov 2022 12:39:16 -0800",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "18472b7c26fb95f6"
+        }
+      ],
+      "disposition": "All mobile notices are 2022-2023 and the Google Mobile Usability report retired Dec 2023. Current 320/390px home, pro-clubs, round-robin and Help checks have proper viewport, 16px body/14px Help paragraphs, no horizontal overflow and zero axe target-size violations. This is bounded current proof, not historical URL revalidation.",
+      "evidence": "easychamp-mobile-gap-proof.json; Google mobile retirement announcement",
+      "status": "current supported mobile sample passes"
+    },
+    {
+      "category": "Clickable elements too close together",
+      "noticeCount": 4,
+      "earliestNotice": "2022-11-13",
+      "latestNotice": "2023-08-12",
+      "messages": [
+        {
+          "date": "Sat, 12 Aug 2023 12:30:58 -0700",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "189eb3aff1cc29cf"
+        },
+        {
+          "date": "Tue, 23 May 2023 14:02:21 -0700",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "1884a6b8aab9829b"
+        },
+        {
+          "date": "Fri, 30 Dec 2022 12:55:44 -0800",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "18564d1ba952e808"
+        },
+        {
+          "date": "Sun, 13 Nov 2022 12:39:16 -0800",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "18472b7c26fb95f6"
+        }
+      ],
+      "disposition": "All mobile notices are 2022-2023 and the Google Mobile Usability report retired Dec 2023. Current 320/390px home, pro-clubs, round-robin and Help checks have proper viewport, 16px body/14px Help paragraphs, no horizontal overflow and zero axe target-size violations. This is bounded current proof, not historical URL revalidation.",
+      "evidence": "easychamp-mobile-gap-proof.json; Google mobile retirement announcement",
+      "status": "current supported mobile sample passes"
+    },
+    {
+      "category": "Video not found on host service",
+      "noticeCount": 1,
+      "earliestNotice": "2023-08-03",
+      "latestNotice": "2023-08-03",
+      "messages": [
+        {
+          "date": "Thu, 03 Aug 2023 18:51:14 -0700",
+          "subject": "New Video page indexing issues detected for easychamp.com",
+          "messageId": "189be3de4995da61"
+        }
+      ],
+      "disposition": "Aug 2023 notice gives no video IDs. Current 14 official YouTube IDs yield precise public upload metadata, posters are available, and curated EFA native file plays. Legacy missing/deleted videos cannot be attributed from mail alone.",
+      "evidence": "youtube-help-publication-times.json; help-all-14-googlebot-thumbnails.json; final-release-blog-playback.json",
+      "status": "current curated asset proof passes; old video IDs unknown"
+    },
+    {
+      "category": "Video outside the viewport",
+      "noticeCount": 1,
+      "earliestNotice": "2023-08-03",
+      "latestNotice": "2023-08-03",
+      "messages": [
+        {
+          "date": "Thu, 03 Aug 2023 18:51:14 -0700",
+          "subject": "New Video page indexing issues detected for easychamp.com",
+          "messageId": "189be3de4995da61"
+        }
+      ],
+      "disposition": "These Aug/Sep 2023 classifications were replaced by video-not-main-content/watch-page rules in Dec 2023. Current Help facade boxes are 278x156 at 320px and 348x196 at 390px, first above fold; EFA native video plays at correct responsive width but is supplementary blog content. Current Help YouTube player is absent until click: a separately confirmed crawlability gap remains. Do not claim a text article is a dedicated watch page.",
+      "evidence": "easychamp-mobile-gap-proof.json; src/components/help/HelpVideo.tsx:17,30-43; final-release-blog-playback.json; Google video docs",
+      "status": "historic label retired; current facade gap identified"
+    },
+    {
+      "category": "INP issue: longer than 200ms (mobile)",
+      "noticeCount": 1,
+      "earliestNotice": "2023-07-11",
+      "latestNotice": "2023-07-11",
+      "messages": [
+        {
+          "date": "Tue, 11 Jul 2023 08:25:06 -0700",
+          "subject": "Core Web Vitals INP issue detected on your website easychamp.com",
+          "messageId": "189458e60f257d25"
+        }
+      ],
+      "disposition": "Jul 2023 field metric cannot be cleared by a load/screenshot. 4x CPU mobile menu interactions in eight current cases observe 48-128ms Event Timing latency. Public PageSpeed field read is quota-blocked (429); no current mobile p75 CrUX/Search Console receipt. Do not call field INP fixed.",
+      "evidence": "easychamp-mobile-gap-proof.json; inp-pagespeed-api.json; Google INP guidance",
+      "status": "field validation gap; lab sample good, no confirmed current regression"
+    },
+    {
+      "category": "Content wider than screen",
+      "noticeCount": 1,
+      "earliestNotice": "2023-05-23",
+      "latestNotice": "2023-05-23",
+      "messages": [
+        {
+          "date": "Tue, 23 May 2023 14:02:21 -0700",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "1884a6b8aab9829b"
+        }
+      ],
+      "disposition": "All mobile notices are 2022-2023 and the Google Mobile Usability report retired Dec 2023. Current 320/390px home, pro-clubs, round-robin and Help checks have proper viewport, 16px body/14px Help paragraphs, no horizontal overflow and zero axe target-size violations. This is bounded current proof, not historical URL revalidation.",
+      "evidence": "easychamp-mobile-gap-proof.json; Google mobile retirement announcement",
+      "status": "current supported mobile sample passes"
+    },
+    {
+      "category": "Blocked by robots.txt",
+      "noticeCount": 2,
+      "earliestNotice": "2022-10-05",
+      "latestNotice": "2023-04-26",
+      "messages": [
+        {
+          "date": "Wed, 26 Apr 2023 04:18:30 -0700",
+          "subject": "New Page indexing issues detected for easychamp.com",
+          "messageId": "187bd494e4e5a19a"
+        },
+        {
+          "date": "Wed, 05 Oct 2022 00:36:48 -0700",
+          "subject": "New Page indexing issues detected for easychamp.com",
+          "messageId": "183a71360f680915"
+        }
+      ],
+      "disposition": "Oct 2022/Apr 2023 notices provide no affected URLs. Current public content and shared images are crawlable; private/API disallows are intentional. Every policy file is readable even by blocked automated clients.",
+      "evidence": "easychamp-sitemap-gap-proof.json; watch-crawler-policy.md; googlebot-assets-inventory.json",
+      "status": "intentional limited policy; no public conflict found"
+    },
+    {
+      "category": "Viewport not set",
+      "noticeCount": 1,
+      "earliestNotice": "2023-01-18",
+      "latestNotice": "2023-01-18",
+      "messages": [
+        {
+          "date": "Wed, 18 Jan 2023 12:39:43 -0800",
+          "subject": "New Mobile Usability issues detected for easychamp.com",
+          "messageId": "185c69be50c6e9ce"
+        }
+      ],
+      "disposition": "All mobile notices are 2022-2023 and the Google Mobile Usability report retired Dec 2023. Current 320/390px home, pro-clubs, round-robin and Help checks have proper viewport, 16px body/14px Help paragraphs, no horizontal overflow and zero axe target-size violations. This is bounded current proof, not historical URL revalidation.",
+      "evidence": "easychamp-mobile-gap-proof.json; Google mobile retirement announcement",
+      "status": "current supported mobile sample passes"
+    },
+    {
+      "category": "Alternate page with proper canonical tag",
+      "noticeCount": 1,
+      "earliestNotice": "2022-10-05",
+      "latestNotice": "2022-10-05",
+      "messages": [
+        {
+          "date": "Wed, 05 Oct 2022 00:36:48 -0700",
+          "subject": "New Page indexing issues detected for easychamp.com",
+          "messageId": "183a71360f680915"
+        }
+      ],
+      "disposition": "Marketing registry ties sitemap and self-canonical/hreflang decisions together; Watch uses slug canonical Match URLs and per-tenant hosts. Submitted maps contain canonical forms. Proper alternate pages are expected exclusions; current Google-selected URL needs actual URL Inspection to verify. Legacy tenant boundary remains.",
+      "evidence": "landing-locale-tool-reciprocal-assets.json; easychamp-sitemap-gap-proof.json; src/lib/seo-routes.ts; Arena canonical/sitemap tests in full suite",
+      "status": "supported source/live coherent; Google choice unverified"
+    }
+  ],
+  "currentConcreteGap": {
+    "path": "/tmp/easychamp-seo-inventory-landing-20261007/src/components/help/HelpVideo.tsx",
+    "lines": "17,30-43",
+    "routes": "14 YouTube tutorial videos across 12 Help articles",
+    "behavior": "No iframe/video player before user click, despite accurate server-rendered VideoObject. Facade is correctly sized/visible, but cannot substitute for rendered player position/size.",
+    "classification": "Concrete supported-source/live behavior; inferred Google crawlability risk, not actual URL Inspection verdict.",
+    "source": "https://support.google.com/webmasters/answer/9012289?hl=en"
+  },
+  "fieldMetricsGap": "No current mobile INP p75 receipt; Google PageSpeed API shared quota exceeded.",
+  "sitemapProof": "easychamp-sitemap-gap-proof.json",
+  "mobileProof": "easychamp-mobile-gap-proof.json",
+  "limits": [
+    "Historical issue emails name categories but omit example URLs/video IDs. They cannot independently prove those URLs are fixed or still broken.",
+    "Google validation/index selection and field p75 are external evidence, distinct from source and bounded probes.",
+    "Legacy routes remain read-only."
+  ],
+  "primaryReferences": [
+    "https://developers.google.com/search/docs/appearance/structured-data/event",
+    "https://developers.google.com/search/blog/2023/04/page-experience-in-search",
+    "https://web.dev/articles/inp",
+    "https://developers.google.com/search/blog/2023/12/video-is-the-main-content",
+    "https://developers.google.com/search/docs/appearance/video",
+    "https://support.google.com/webmasters/answer/9012289?hl=en"
+  ]
+}

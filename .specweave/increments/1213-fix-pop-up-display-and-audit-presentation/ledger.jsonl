@@ -1,0 +1,4 @@
+{"t":"*","e":"session","by":"popup-1213","at":"2026-11-03T17:11:53.916Z","note":"session 01a1a261-d8d5-70b2-ba7e-f54c9d830f40"}
+{"t":"T-01","e":"claim","by":"popup-1213","at":"2026-11-03T17:11:53.917Z"}
+{"t":"T-02","e":"claim","by":"popup-1213","at":"2026-11-03T17:14:32.699Z"}
+{"t":"T-02","e":"done","by":"popup-1213","at":"2026-11-03T17:25:57.757Z","evidence":"ec2b2c5c29: 14 popup tests, 36 headless browser cases, web typecheck and production build passed. Evidence /Users/antonabyzov/.specwithcode/m4/evidence/1213-popup/web/results.json\nHEAD 0c12b3ca9"}

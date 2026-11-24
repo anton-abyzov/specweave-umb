@@ -1,0 +1,55 @@
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SpecWeave Update
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Version: 2.3.0
+  Project: /Users/antonabyzov/Projects/github/specweave-umb
+
+  Mode: DRY RUN (no changes will be made)
+
+- Updating instructions...
+
+📄 Updating Instruction Files
+   Version: 2.3.0
+   Project: /Users/antonabyzov/Projects/github/specweave-umb
+
+  ⊘ CLAUDE.md: already up to date
+  ⊘ AGENTS.md: already up to date
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Summary
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  CLAUDE.md: up to date
+    Preserved 1 user section(s)
+  AGENTS.md: up to date
+    Preserved 1 user section(s)
+
+  ⚠ Dry run - no files were modified
+
+✔ Instructions updated
+  ⚠️  custom pre-commit hook left untouched — if it came from SpecWeave 1.x, delete it and run `specweave init` (or `specweave doctor --fix`) to install the 2.0 hook
+  ⚠️  Stale .specweave/ found at /Users/antonabyzov/Projects/.specweave (will be removed)
+  ⚠️  Stale .specweave/ found at /Users/antonabyzov/.specweave (will be removed)
+  ⚠️  Lockfile integrity: 1 vskill-managed skill(s) not installed — Run: npx vskill install appstore
+  ⚠️  Update health: outdated: v2.3.0 (latest: v2.2.2) — Run: specweave update
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Update Summary
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Config:       Already 2.0 shape
+  Instructions: ✓ Updated
+  State cleanup: No stale files
+  Git hook:     Custom hook left untouched
+  Plugins:      Would refresh (dry run)
+
+  Warnings: 3
+    - custom pre-commit hook left untouched — if it came from SpecWeave 1.x, delete it and run `specweave init` (or `specweave doctor --fix`) to install the 2.0 hook
+    - Lockfile integrity: 1 vskill-managed skill(s) not installed
+    - Update health: outdated: v2.3.0 (latest: v2.2.2)
+
+  Next steps:
+    1. Run specweave update without --check to apply changes
+

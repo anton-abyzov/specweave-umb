@@ -2,7 +2,7 @@
   "id": "0853-verify-runtime-vskill",
   "name": "verify-runtime-vskill",
   "title": "Verify-runtime pattern for vskill install + create (Anthropic phase-3-verify port)",
-  "status": "active",
+  "status": "completed",
   "created": "2026-05-25",
   "owner": "anton",
   "repo": "specweave-umb",
@@ -15,10 +15,22 @@
     "upstream": "https://github.com/anthropics/cwc-workshops/tree/main/how-we-claude-code/phase-3-verify",
     "video": "https://www.youtube.com/watch?v=IlqJqcl8ONE"
   },
-  "externalLinks": {},
+  "externalLinks": {
+    "ado": {
+      "featureId": "2463",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2463",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-10T22:51:32.223Z"
+    }
+  },
   "priority": "medium",
-  "lastActivity": "2026-05-25",
+  "lastActivity": "2026-10-10T22:51:29.247Z",
   "testMode": "test-after",
   "coverageTarget": 80,
-  "type": "feature"
+  "type": "feature",
+  "updated": "2026-10-10T22:51:29.247Z",
+  "readyForReviewAt": "2026-10-10T22:51:29.246Z",
+  "closeReason": "All tasks were checked off by 2026-06-01 and nothing changed since; closed in the 2026-10-10 sweep without a fresh verify run",
+  "approvedAt": "2026-10-10T22:51:29.247Z"
 }

@@ -1,0 +1,18 @@
+{
+  "id": "1063-recover-iphone-deployment-and-release",
+  "uuid": "c3d63434-df99-47de-8bf7-4e6c318eb66e",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-24T23:24:45.743Z",
+  "updated": "2026-10-25T05:41:37.864Z",
+  "lastActivity": "2026-10-25T05:41:37.864Z",
+  "title": "Recover iPhone deployment and release",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-25T05:41:04.002Z",
+  "closeReason": "Only failures are unrelated repo suites: specweave test:unit:fast (timeouts in handoff-roundtrip and save tests), vskill test and vskill-platform test (timing-bound scanner regex tests), on a disk at 100% (7.1 GiB free). 1063 changed no code in specweave, vskill or vskill-platform; ACs 5/5 hand-verified against evidence.",
+  "approvedAt": "2026-10-25T05:41:04.004Z"
+}

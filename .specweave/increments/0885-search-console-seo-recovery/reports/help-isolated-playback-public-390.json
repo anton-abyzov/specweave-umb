@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-10-07T15:07:53.170Z",
+  "headless": true,
+  "width": 390,
+  "base": "https://easychamp.com",
+  "errors": [],
+  "requests": [
+    {
+      "url": "https://www.youtube-nocookie.com/api/timedtext",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/api/stats/qoe",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/api/stats/playback",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/ptracking",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    },
+    {
+      "url": "https://www.youtube-nocookie.com/embed/establish_zw",
+      "failure": {
+        "errorText": "net::ERR_ABORTED"
+      }
+    }
+  ],
+  "responses": [],
+  "before": {
+    "time": 0,
+    "paused": true,
+    "readyState": 0
+  },
+  "after": {
+    "time": 1.018667,
+    "paused": false,
+    "readyState": 4,
+    "duration": 65.481
+  },
+  "status": "passed"
+}

@@ -1,0 +1,355 @@
+{
+  "origin": "https://spec-weave.com",
+  "expectedSource": "5d9a91cb27f49a5ad9414d55dd3f96f6089a189c",
+  "startedAt": "2026-09-14T18:42:39.684Z",
+  "headless": true,
+  "status": "passed",
+  "asset": {
+    "url": "https://spec-weave.com/img/product/continuity.webp",
+    "sha256": "3f84480b6f3b4b3d4e7e53c83ee4982b5e9047a67fe1a08ab87833e06ea13c5d",
+    "matchesExpected": true
+  },
+  "routes": [
+    {
+      "device": "desktop",
+      "route": "/",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions",
+        "Artwork decoded and matches shipped generated asset; clipboard; mouse and keyboard board interaction"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/desktop-home.png",
+      "passed": true
+    },
+    {
+      "device": "desktop",
+      "route": "/product",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/desktop-product.png",
+      "passed": true
+    },
+    {
+      "device": "desktop",
+      "route": "/integrations",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions",
+        "Integration disclosure opens with explicit local-state boundary"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/desktop-integrations.png",
+      "passed": true
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/guides/model-selection",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/desktop-docs-guides-model-selection.png",
+      "passed": true
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/guides/analytics-dashboard",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/desktop-docs-guides-analytics-dashboard.png",
+      "passed": true
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/reference/cost-tracking",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/desktop-docs-reference-cost-tracking.png",
+      "passed": true
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/guides/dashboard/hooks",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/desktop-docs-guides-dashboard-hooks.png",
+      "passed": true
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/academy/specweave-essentials/08-ai-model-selection",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/desktop-docs-academy-specweave-essentials-08-ai-model-selection.png",
+      "passed": true
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/desktop-docs-glossary-terms-intelligent-model-selection.png",
+      "passed": true
+    },
+    {
+      "device": "mobile",
+      "route": "/",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions",
+        "Artwork decoded and matches shipped generated asset; clipboard; mouse and keyboard board interaction",
+        "Mobile navigation opens and closes"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/mobile-home.png",
+      "passed": true
+    },
+    {
+      "device": "mobile",
+      "route": "/product",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/mobile-product.png",
+      "passed": true
+    },
+    {
+      "device": "mobile",
+      "route": "/integrations",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions",
+        "Integration disclosure opens with explicit local-state boundary"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/mobile-integrations.png",
+      "passed": true
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/guides/model-selection",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/mobile-docs-guides-model-selection.png",
+      "passed": true
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/guides/analytics-dashboard",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/mobile-docs-guides-analytics-dashboard.png",
+      "passed": true
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/reference/cost-tracking",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/mobile-docs-reference-cost-tracking.png",
+      "passed": true
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/guides/dashboard/hooks",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/mobile-docs-guides-dashboard-hooks.png",
+      "passed": true
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/academy/specweave-essentials/08-ai-model-selection",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/mobile-docs-academy-specweave-essentials-08-ai-model-selection.png",
+      "passed": true
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "status": 200,
+      "assertions": [
+        "Expected deployed heading and current semantic copy",
+        "No viewport overflow; Issues support replaces disabled Discussions"
+      ],
+      "screenshot": "/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/0877-portable-intent-product-redesign/reports/artifacts/production-specweave/mobile-docs-glossary-terms-intelligent-model-selection.png",
+      "passed": true
+    }
+  ],
+  "runtimeErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [
+    {
+      "device": "desktop",
+      "route": "/product",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/integrations",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/guides/model-selection",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/guides/analytics-dashboard",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/reference/cost-tracking",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/guides/dashboard/hooks",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/academy/specweave-essentials/08-ai-model-selection",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "url": "https://spec-weave.com/assets/js/567855b3.35253184.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "url": "https://spec-weave.com/assets/js/3be4dd56.f95537f1.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "url": "https://spec-weave.com/assets/js/7230f103.50bd8247.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "url": "https://spec-weave.com/assets/js/16e07f11.2d7e36e1.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "url": "https://spec-weave.com/assets/js/05a08fb4.7a3a5eec.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "desktop",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "url": "https://spec-weave.com/assets/js/22c41873.26e229c8.js",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "mobile",
+      "route": "/product",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "mobile",
+      "route": "/integrations",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/guides/model-selection",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/guides/analytics-dashboard",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/reference/cost-tracking",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/guides/dashboard/hooks",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/academy/specweave-essentials/08-ai-model-selection",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "device": "mobile",
+      "route": "/docs/glossary/terms/intelligent-model-selection",
+      "url": "https://spec-weave.com/cdn-cgi/rum?",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "failures": [],
+  "finishedAt": "2026-09-14T18:42:45.161Z"
+}

@@ -1,0 +1,10 @@
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.0.1 /private/tmp/swc-independent-umbrella/repositories/anton-abyzov/specweave-studio
+
+
+ Test Files  1 passed (1)
+      Tests  22 passed (22)
+   Start at  00:22:34
+   Duration  626ms (tests 80%, transform 14%, setup 3%, import 3%, worker 1%)
+

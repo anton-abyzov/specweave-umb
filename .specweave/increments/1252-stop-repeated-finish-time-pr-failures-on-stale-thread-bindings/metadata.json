@@ -1,0 +1,15 @@
+{
+  "id": "1252-stop-repeated-finish-time-pr-failures-on-stale-thread-bindings",
+  "uuid": "3219ab44-2747-45d4-9c6b-c068726d6e40",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-07T04:45:52.914Z",
+  "updated": "2026-11-07T06:04:42.148Z",
+  "lastActivity": "2026-11-07T06:04:42.148Z",
+  "title": "Stop repeated finish-time PR failures on stale thread bindings",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-07T06:04:42.146Z",
+  "approvedAt": "2026-11-07T06:04:42.148Z"
+}

@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "commit": "d57c4c48588edd8addcc51df67a648a472253f8c",
+  "verdict": "SHIP",
+  "findings": [],
+  "scope": "Integration delta against reviewed checkpoint parent and published 3.0.5; runtime unchanged, upstream provider and publication guard preserved",
+  "reviewer": "fresh_review"
+}

@@ -1,0 +1,22 @@
+$ env PATH="/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH" SPECWEAVE_DOCS_ROOT=/Users/antonabyzov/.codex/worktrees/usage-checkpoint-panel/specweave PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never node .specweave/increments/0886-nonblocking-session-checkpoints/reports/verify-public-docs.mjs --public
+# exit 0 — 2026-10-08T06:53:02.728Z
+
+{
+  "ok": true,
+  "base": "https://spec-weave.com",
+  "cases": 32,
+  "pricingCases": 6,
+  "pageErrors": [],
+  "screenshots": [
+    "/tmp/specweave-0886-docs-panel/public/landing-1440-light-no-preference.png",
+    "/tmp/specweave-0886-docs-panel/public/pricing-1440-light.png",
+    "/tmp/specweave-0886-docs-panel/public/landing-1440-dark-no-preference.png",
+    "/tmp/specweave-0886-docs-panel/public/pricing-1440-dark.png",
+    "/tmp/specweave-0886-docs-panel/public/landing-390-light-no-preference.png",
+    "/tmp/specweave-0886-docs-panel/public/pricing-390-light.png",
+    "/tmp/specweave-0886-docs-panel/public/landing-390-dark-no-preference.png",
+    "/tmp/specweave-0886-docs-panel/public/pricing-390-dark.png",
+    "/tmp/specweave-0886-docs-panel/public/landing-1440-light-reduce.png",
+    "/tmp/specweave-0886-docs-panel/public/landing-1440-dark-reduce.png"
+  ]
+}

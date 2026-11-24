@@ -1,0 +1,62 @@
+{
+  "headless": true,
+  "scope": "Actual command dialog, scrollable form, project choices, folder chooser and preview; simulated filesystem APIs, no live project creation",
+  "cases": [
+    {
+      "width": 1280,
+      "height": 960,
+      "theme": "light",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "height": 960,
+      "theme": "light",
+      "mode": "clone",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "mode": "clone",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "height": 960,
+      "theme": "dark",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "height": 960,
+      "theme": "dark",
+      "mode": "clone",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "mode": "clone",
+      "passed": true
+    },
+    {
+      "reducedMotion": true,
+      "passed": true
+    }
+  ]
+}

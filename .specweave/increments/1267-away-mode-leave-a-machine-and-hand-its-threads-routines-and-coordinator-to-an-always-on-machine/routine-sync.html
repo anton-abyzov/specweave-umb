@@ -1,0 +1,146 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font:15px/1.55 var(--font-sans);color:var(--foreground);background:var(--background);margin:0;padding:20px 18px 32px;max-width:780px}
+h1{font-size:26px;line-height:1.2;margin:0 0 6px;letter-spacing:-.01em}
+.lead{color:var(--muted-foreground);margin:0 0 18px;max-width:64ch}
+h2{font-size:17px;margin:30px 0 10px}
+h3{font-size:14.5px;margin:0 0 6px}
+p{margin:0 0 10px}
+.small{font-size:13px;color:var(--muted-foreground)}
+code{font:12.5px var(--font-mono);background:var(--code-background);color:var(--code-foreground);padding:1px 4px;border-radius:4px}
+.card{border:1px solid var(--border);border-radius:var(--radius);background:var(--card);padding:14px;margin:10px 0}
+.verdict{border-color:var(--success)}
+svg{width:100%;height:auto;display:block}
+svg text{font-family:var(--font-sans);fill:var(--foreground)}
+svg .muted{fill:var(--muted-foreground)}
+svg .box{fill:var(--card);stroke:var(--border)}
+svg .good{stroke:var(--success)} svg .bad{stroke:var(--destructive)} svg .acc{stroke:var(--accent)}
+svg .line{stroke:var(--muted-foreground);fill:none}
+svg .redline{stroke:var(--destructive);fill:none}
+svg .greenline{stroke:var(--success);fill:none}
+svg .accline{stroke:var(--accent);fill:none}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:7px 7px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-size:12px;color:var(--muted-foreground);font-weight:600}
+.wrap{overflow-x:auto}
+.opt{display:grid;grid-template-columns:22px 1fr;gap:4px 8px;padding:7px 0;border-top:1px solid var(--border);font-size:14px}
+.opt .k{font:600 12px var(--font-mono);color:var(--muted-foreground);padding-top:2px}
+.opt.rec .k{color:var(--success)}
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--success);color:var(--success-foreground);margin-left:6px;vertical-align:1px}
+.opt small{display:block;color:var(--muted-foreground);font-size:12.5px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.grid3 .card{margin:0}
+.tag{font:600 11px var(--font-mono);color:var(--muted-foreground)}
+ul{margin:4px 0 8px;padding-left:18px}li{margin:3px 0}
+a{color:var(--accent)}
+</style></head><body>
+<h1>Routines across machines: how others do it, and what we should do</h1>
+<p class="lead">Recommendation: keep routines on your machines, replicate each definition to all of your own machines, and let exactly one machine run it. A machine that is yours can edit a routine on another machine that is yours. That alone ends the hand editing of the IG routine. No sync server, no routine files in Git, and umbrella projects are not required.</p>
+
+<h2>Why the IG routine is stuck both ways</h2>
+<div class="card">
+<svg viewBox="0 0 720 210" role="img" aria-label="M4 and Ministorm each refuse the other's routine changes at two checks">
+ <rect class="box" x="10" y="60" width="150" height="70" rx="8"/><text x="85" y="92" text-anchor="middle" font-weight="600">M4</text><text x="85" y="112" text-anchor="middle" class="muted" font-size="12">routine lives here</text>
+ <rect class="box" x="560" y="60" width="150" height="70" rx="8"/><text x="635" y="92" text-anchor="middle" font-weight="600">Ministorm</text><text x="635" y="112" text-anchor="middle" class="muted" font-size="12">routine lives here</text>
+ <path class="redline" d="M160 80 H560" stroke-width="2" marker-end="url(#ar)"/><path class="redline" d="M560 112 H160" stroke-width="2" marker-end="url(#ar)"/>
+ <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="var(--destructive)"/></marker></defs>
+ <rect class="box bad" x="250" y="10" width="220" height="40" rx="6"/><text x="360" y="35" text-anchor="middle" font-size="12.5">1. Grant has routines off</text>
+ <rect class="box bad" x="250" y="150" width="220" height="40" rx="6"/><text x="360" y="167" text-anchor="middle" font-size="12.5">2. Routine "set up on this machine",</text><text x="360" y="183" text-anchor="middle" font-size="12.5">so no other machine may touch it</text>
+</svg>
+<p class="small">Each machine treats the other as a stranger holding a grant. Check 1 is <code>refuseGrantRoutineChange</code> (<code>workGrantAccess.ts:453</code>): new grants get <code>routines: false</code>. Check 2 is <code>refuseOthersRoutine</code> (<code>routineOwnership.ts:17</code>): it only lets through routines the caller's own grant created, so a routine you made by hand is off limits even with routines on. Nothing in the app knows both machines are yours.</p>
+</div>
+
+<h2>How Claude and Codex do it</h2>
+<p class="small">Reverse engineered from the installed apps on this Mac (Claude Code 2.1.302, Claude Desktop 4.23118, Codex 26.1103), plus public docs.</p>
+<div class="grid3">
+ <div class="card"><h3>Claude Code</h3><span class="tag">server is the truth</span>
+ <ul><li>Routines (<code>/schedule</code>) live on Anthropic's server (<code>/v1/code/triggers</code>) and run in the cloud. The Mac may sleep.</li><li>Local cron (<code>/loop</code>, durable tasks) sits in <code>.claude/scheduled_tasks.json</code>, is git-excluded, and runs only while a session is open. A copied file is ignored.</li><li>Settings and memory are local files; only <code>.claude/</code> in the repo travels, by Git.</li></ul></div>
+ <div class="card"><h3>Claude Desktop</h3><span class="tag">local, moving to cloud</span>
+ <ul><li>Projects (knowledge, instructions) live on the server; the app keeps a read-only cache.</li><li>Local scheduled tasks: <code>scheduled-tasks.json</code> plus one <code>SKILL.md</code> each. They run on a 60-second tick while the app is open and awake, and never sync.</li><li>A migration moves them to cloud tasks, which show on every device.</li></ul></div>
+ <div class="card"><h3>Codex</h3><span class="tag">runs where it was made</span>
+ <ul><li>Routines are <code>~/.codex/automations/&lt;id&gt;/automation.toml</code>, mirrored into a local database, and run in the app on that Mac.</li><li>An optional account mirror (gated, off here) shows them on every device, but only the installation that owns a routine runs it.</li><li>An owner check refuses another installation.</li></ul></div>
+</div>
+<div class="card">
+<svg viewBox="0 0 720 170" role="img" aria-label="Claude: server holds and runs routines. Codex: account mirror, owner machine runs.">
+ <text x="170" y="18" text-anchor="middle" font-weight="600" font-size="13">Claude</text>
+ <rect class="box acc" x="70" y="28" width="200" height="44" rx="6"/><text x="170" y="48" text-anchor="middle" font-size="12.5">Anthropic server</text><text x="170" y="63" text-anchor="middle" class="muted" font-size="11.5">stores and runs routines</text>
+ <rect class="box" x="40" y="115" width="110" height="36" rx="6"/><text x="95" y="138" text-anchor="middle" font-size="12">Mac A edits</text>
+ <rect class="box" x="190" y="115" width="110" height="36" rx="6"/><text x="245" y="138" text-anchor="middle" font-size="12">Mac B edits</text>
+ <path class="accline" d="M95 115 V72 M245 115 V72" stroke-width="1.5"/>
+ <text x="540" y="18" text-anchor="middle" font-weight="600" font-size="13">Codex</text>
+ <rect class="box" x="440" y="28" width="200" height="44" rx="6"/><text x="540" y="48" text-anchor="middle" font-size="12.5">Account mirror</text><text x="540" y="63" text-anchor="middle" class="muted" font-size="11.5">copy only, optional</text>
+ <rect class="box good" x="410" y="115" width="120" height="36" rx="6"/><text x="470" y="138" text-anchor="middle" font-size="12">Owner Mac runs</text>
+ <rect class="box" x="560" y="115" width="120" height="36" rx="6"/><text x="620" y="138" text-anchor="middle" font-size="12">Other Mac sees</text>
+ <path class="line" d="M470 115 V72 M620 115 V72" stroke-width="1.5"/>
+</svg>
+<p class="small">Claude needs its own servers to run your routines. Codex keeps execution on one machine and only mirrors the definition. That second shape is the one SpecWithCode can do without hosting anything, because our machines already talk to each other directly.</p>
+</div>
+
+<h2>Proposed flow</h2>
+<div class="card verdict">
+<svg viewBox="0 0 720 230" role="img" aria-label="Both machines hold the same signed routine; only the runner fires; Away moves the runner lease">
+ <rect class="box" x="10" y="40" width="200" height="120" rx="8"/><text x="110" y="64" text-anchor="middle" font-weight="600">M4</text>
+ <text x="110" y="88" text-anchor="middle" font-size="12">IG routine rev 7</text><text x="110" y="106" text-anchor="middle" class="muted" font-size="11.5">owner Anton, signed</text><text x="110" y="128" text-anchor="middle" class="muted" font-size="11.5">resting: not the runner</text>
+ <rect class="box good" x="510" y="40" width="200" height="120" rx="8"/><text x="610" y="64" text-anchor="middle" font-weight="600">Ministorm</text>
+ <text x="610" y="88" text-anchor="middle" font-size="12">IG routine rev 7</text><text x="610" y="106" text-anchor="middle" class="muted" font-size="11.5">owner Anton, signed</text><text x="610" y="128" text-anchor="middle" font-size="11.5" style="fill:var(--success)">runner, epoch 3: fires</text>
+ <path class="accline" d="M210 80 H510" stroke-width="2"/><text x="360" y="72" text-anchor="middle" font-size="12">edits replicate both ways</text>
+ <path class="greenline" d="M210 130 H510" stroke-width="2" stroke-dasharray="6 4"/><text x="360" y="122" text-anchor="middle" font-size="12">runner lease + run state move at epoch+1</text>
+ <text x="360" y="190" text-anchor="middle" font-size="12.5">Away, Bring back and "Run here" only move the lease.</text>
+ <text x="360" y="210" text-anchor="middle" class="muted" font-size="12">Over the existing peer route (Tailscale or Connect). No server stores anything.</text>
+</svg>
+<ul>
+<li><b>Yours means yours.</b> Pairing records whether the other machine is your own or a teammate's. Between your own machines, routine management is on, and routines you made by hand count as yours.</li>
+<li><b>One definition everywhere.</b> Each edit is signed by the machine that made it and sent to your other machines. The newer revision wins and the losing one is kept as a conflict copy. A copied database row or an unsigned copy never runs.</li>
+<li><b>One runner.</b> Exactly one machine holds the runner lease; only it fires. That replaces today's copy-and-delete moves.</li>
+<li><b>Runner offline.</b> Other machines show "Runner offline: M4" with one-click Run here.</li>
+</ul>
+</div>
+
+<h2>The three options compared</h2>
+<div class="wrap"><table>
+<thead><tr><th>Option</th><th>Runs while every Mac sleeps</th><th>New hosted service</th><th>Fits local-first and no token resale</th><th>Effort</th><th>Main risk</th></tr></thead>
+<tbody>
+<tr><td><b>A.</b> Sync server holds routines</td><td>Only if the server also runs them</td><td>Yes</td><td>Poor: prompts and runs on our servers</td><td>High</td><td>Outage blocks edits; we hold your prompts</td></tr>
+<tr><td><b>B.</b> Signed copies peer-to-peer, one runner <span class="badge">Recommended</span></td><td>Yes, when the runner is an always-on machine</td><td>No</td><td>Good</td><td>Medium; first fix is small</td><td>Runner offline needs a click</td></tr>
+<tr><td><b>C.</b> Routine files in Git</td><td>Same as B</td><td>No</td><td>Weak: prompts land in public repos</td><td>Medium to high</td><td>Still needs B for run state and runner choice; stale clones fire old routines</td></tr>
+</tbody></table></div>
+<p class="small">Git stays the way code moves between machines. It is a poor fit for routines: run state changes every few minutes, many routines have no repository at all, and Claude Code itself keeps its schedule file out of Git.</p>
+
+<h2>Umbrella project: required?</h2>
+<div class="card">
+<p>No. SpecWithCode detects four layouts: single repo, umbrella, nested and plain folder (<code>project.ts:319</code>).</p>
+<div class="wrap"><table>
+<thead><tr><th>What</th><th>Single repo</th><th>Umbrella or nested</th><th>Plain folder</th></tr></thead>
+<tbody>
+<tr><td>Routines and their sync</td><td>Yes</td><td>Yes</td><td>Yes (no repo needed)</td></tr>
+<tr><td>Thread handoff</td><td>Yes</td><td>Yes, when the thread works in one repo; worktree sets across repos are refused</td><td>No (needs Git)</td></tr>
+<tr><td>Project linking</td><td>Same remote, or same HEAD</td><td>At least one repo at the same relative path</td><td>Not linkable</td></tr>
+</tbody></table></div>
+</div>
+
+<h2>Decisions for you</h2>
+<div class="card">
+<h3>D-08 How routines sync</h3>
+<div class="opt rec"><div class="k">B</div><div><b>Signed copies peer-to-peer, one runner</b><span class="badge">Recommended</span><small>No new service; Away becomes a lease move.</small></div></div>
+<div class="opt"><div class="k">A</div><div><b>A sync server</b><small>Routines run while all machines sleep, but we host your prompts.</small></div></div>
+<div class="opt"><div class="k">C</div><div><b>Files in Git</b><small>Reviewable, but leaks prompts and still needs B.</small></div></div>
+</div>
+<div class="card">
+<h3>D-09 Routine permission between your own machines</h3>
+<div class="opt rec"><div class="k">b</div><div><b>On for new pairings, and upgrade existing ones once</b><span class="badge">Recommended</span><small>Fixes the IG routine with no clicks; each upgrade is logged.</small></div></div>
+<div class="opt"><div class="k">a</div><div><b>On for new pairings only</b><small>You flip it once per existing pair in Settings.</small></div></div>
+<div class="opt"><div class="k">c</div><div><b>Always manual</b><small>Today's behavior.</small></div></div>
+</div>
+<div class="card">
+<h3>D-10 When the runner machine is offline</h3>
+<div class="opt rec"><div class="k">a</div><div><b>Show it and offer one-click Run here</b><span class="badge">Recommended</span><small>Plus an opt-in per routine for automatic takeover after a grace period.</small></div></div>
+<div class="opt"><div class="k">c</div><div><b>Automatic for every routine</b><small>Risks a double post if the two machines can't see each other.</small></div></div>
+</div>
+<div class="card">
+<h3>D-11 Git export of routines</h3>
+<div class="opt rec"><div class="k">·</div><div><b>Not in this increment</b><span class="badge">Recommended</span><small>Could come later as an opt-in, read-only export.</small></div></div>
+</div>
+
+<p class="small">Spec additions are in 1267 as AC-11 to AC-17 and T-09 to T-13. T-09 and T-10 come first and alone end the hand editing. Research notes: <code>/tmp/rea-routines/</code>.</p>
+</body></html>

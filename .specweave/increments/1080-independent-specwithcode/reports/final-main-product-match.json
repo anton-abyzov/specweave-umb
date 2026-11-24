@@ -1,0 +1,31 @@
+{
+  "head": "952b28e51d8bda25b3e7d79cade3a78a25775770",
+  "release": "8200bcd798e2ebe1a961a4d0eedec5e03fd560a0",
+  "productAncestor": "76bfbac921491b8dfd0f47a7cbd4b8c52c757e7b",
+  "allProductFilesExact": true,
+  "matchedFiles": [
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CLAUDE.md",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "UPSTREAM.md",
+    "apps/desktop/resources/linux/com.specweave.studio.metainfo.xml",
+    "apps/server/package.json",
+    "docs/studio/fleet.md",
+    "docs/studio/getting-started.md",
+    "docs/studio/naming.md",
+    "scripts/build-desktop-artifact.ts",
+    "scripts/public-mirror/publish.mjs",
+    "scripts/studio-brand-audit.mjs",
+    "scripts/studio-fleet/bundle.mjs",
+    "scripts/studio-fleet/make_helpers.py",
+    "scripts/studio-fleet/npm-package.mjs",
+    "scripts/studio-fleet/npm-package.test.mjs",
+    "scripts/studio-fleet/runtime-package.mjs",
+    "scripts/studio-fleet/runtime-package.test.mjs",
+    "scripts/studio-fleet/test-update-agent-refresh.py",
+    "third-party-licenses.config.json"
+  ],
+  "canonicalFixtureVerifiedSeparately": true
+}

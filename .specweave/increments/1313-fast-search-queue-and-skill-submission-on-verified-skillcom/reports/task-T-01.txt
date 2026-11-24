@@ -1,0 +1,73 @@
+$ npm --prefix repositories/anton-abyzov/vskill-platform test -- src/app/api/v1/skills/search src/lib/__tests__/search
+# exit 0 — 2026-11-12T22:57:59.575Z
+
+
+> vskill-platform@0.0.2 test
+> vitest run src/app/api/v1/skills/search src/lib/__tests__/search
+
+ DEPRECATED  "environmentMatchGlobs" is deprecated. Use `test.projects` to define different configurations instead.
+
+ RUN  v3.2.7 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform
+
+ ✓ src/app/api/v1/skills/search/__tests__/dedup.test.ts (7 tests) 3ms
+ ✓ src/lib/__tests__/search-ssr-edge.test.ts (3 tests) 3ms
+ ✓ src/app/api/v1/skills/search/__tests__/route-bwc-vskill-find.test.ts (3 tests) 9ms
+ ✓ src/lib/__tests__/search-slug.test.ts (10 tests) 8ms
+ ✓ src/app/api/v1/skills/search/__tests__/route-publisher.test.ts (7 tests) 21ms
+stderr | src/app/api/v1/skills/search/__tests__/route.test.ts > GET /api/v1/skills/search > falls back to Postgres when edge throws
+search_edge_failed: { err: [32m'KV down'[39m }
+
+stderr | src/app/api/v1/skills/search/__tests__/route.test.ts > GET /api/v1/skills/search > returns edge results even if Postgres backfill fails
+search_pg_failed_edge_fallback: { err: [32m'DB down'[39m, edgeRows: [33m1[39m }
+
+stderr | src/app/api/v1/skills/search/__tests__/route.test.ts > GET /api/v1/skills/search > does not cache a response built while Postgres was failing
+search_pg_failed_edge_fallback: { err: [32m'DB operation timed out after 8000ms'[39m, edgeRows: [33m1[39m }
+
+stderr | src/app/api/v1/skills/search/__tests__/route.test.ts > GET /api/v1/skills/search > does not cache a response built while the edge index was failing
+search_edge_failed: { err: [32m'KV down'[39m }
+
+ ✓ src/lib/__tests__/search-index.test.ts (43 tests) 67ms
+stderr | src/app/api/v1/skills/search/__tests__/route.test.ts > GET /api/v1/skills/search > does not retry Postgres on transient failure (single attempt)
+GET /api/v1/skills/search error: Error: transient
+    at [90m/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39msrc/app/api/v1/skills/search/__tests__/route.test.ts:449:40
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1574:12[90m)[39m
+    at runSuite [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1729:8[90m)[39m
+    at runSuite [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1729:8[90m)[39m
+    at runFiles [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1787:3[90m)[39m
+
+ ✓ src/app/api/v1/skills/search/__tests__/route-publisher-degrade.test.ts (3 tests) 64ms
+ ✓ src/app/api/v1/skills/search/__tests__/route-cache-refresh.test.ts (11 tests) 84ms
+stderr | src/app/api/v1/skills/search/__tests__/route.test.ts > GET /api/v1/skills/search > returns 500 on internal error
+search_edge_failed: { err: [32m'KV down'[39m }
+
+stderr | src/app/api/v1/skills/search/__tests__/route.test.ts > GET /api/v1/skills/search > returns 500 on internal error
+GET /api/v1/skills/search error: Error: DB down
+    at [90m/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39msrc/app/api/v1/skills/search/__tests__/route.test.ts:795:40
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:155:11
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:752:26
+    at [90mfile:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1897:20
+    at new Promise (<anonymous>)
+    at runWithTimeout [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1863:10[90m)[39m
+    at runTest [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1574:12[90m)[39m
+    at runSuite [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1729:8[90m)[39m
+    at runSuite [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1729:8[90m)[39m
+    at runFiles [90m(file:///Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/vskill-platform/[39mnode_modules/[4m@vitest/runner[24m/dist/chunk-hooks.js:1787:3[90m)[39m
+
+ ✓ src/app/api/v1/skills/search/__tests__/route.test.ts (58 tests) 137ms
+ ✓ src/lib/__tests__/search-enrichment-sets.test.ts (10 tests) 174ms
+ ✓ src/app/api/v1/skills/search/__tests__/route-edge-hedge.test.ts (5 tests) 2118ms
+   ✓ GET /api/v1/skills/search: slow edge index falls back to Postgres > answers from Postgres when the edge read is still running after the hedge delay  308ms
+   ✓ GET /api/v1/skills/search: slow edge index falls back to Postgres > caches the full merged answer in the background after a hedged response  904ms
+   ✓ GET /api/v1/skills/search: slow edge index falls back to Postgres > uses the edge rows when it answers before a slow Postgres  402ms
+   ✓ GET /api/v1/skills/search: slow edge index falls back to Postgres > waits for the edge rows when the hedged Postgres query fails  502ms
+
+ Test Files  11 passed (11)
+      Tests  160 passed (160)
+   Start at  17:57:56
+   Duration  2.70s (transform 547ms, setup 228ms, collect 1.76s, tests 2.69s, environment 1ms, prepare 740ms)
+

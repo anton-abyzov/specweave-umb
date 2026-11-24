@@ -1,0 +1,16 @@
+{
+  "id": "1265-download-page-animated-how-it-works-explainer",
+  "uuid": "3ecc216d-b64b-4999-ab97-c36f95e7b7b8",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-08T21:00:33.581Z",
+  "updated": "2026-11-08T22:49:08.020Z",
+  "lastActivity": "2026-11-08T22:49:08.020Z",
+  "title": "Download page animated how-it-works explainer",
+  "project": "specweave",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-08T22:49:08.018Z",
+  "closeReason": "test:unit:fast failed only under parallel verify load; rerun alone: 544 files, 10532 tests passed; docs-only change, CI green on PR #2261",
+  "approvedAt": "2026-11-08T22:49:08.020Z"
+}

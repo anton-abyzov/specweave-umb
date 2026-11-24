@@ -1,49 +1,29 @@
-<!-- SW:META template="agents" version="3.1.24" sections="header" -->
+# specweave umbrella
 
-<!-- SW:SECTION:header version="3.1.24" -->
-# specweave
+Work is planned as SpecWeave increments in `.specweave/increments/NNNN-slug/` (`spec.md`, `ledger.jsonl`). `specweave pickup` prints the next task; the sw-* skills carry the loop (plan, do, review, done, handoff).
 
-This project plans work with SpecWeave: `specweave pickup` prints the open increment, the next task and its acceptance criteria. The sw-* skills in `.agents/skills/` and `.claude/skills/` carry the rest (plan, do, review, done, handoff).
-<!-- SW:END:header -->
+## Rules
+
+- Nested repos live under `repositories/anton-abyzov/<repo>/`. Commit inside the nested repo, then the umbrella. Task `Files` are written from the umbrella root (`repositories/anton-abyzov/specwithcode/apps/server/...`).
+- The app has one repository and one checkout: `repositories/anton-abyzov/specwithcode`. `specwithcode-dev` is retired; never recreate it.
+- Nothing new goes directly in `~/Projects/github`. Scratch and logs: `~/.specwithcode/m4/scratch/<date>-<task>/`. Evidence: the increment's `reports/`, else `~/.specwithcode/m4/evidence/<topic>/`. Old evidence: `/Volumes/SanDisk APFS/Archive/specwithcode/`.
+- A scratch copy of a repository is yours to remove once its PR merges or closes. Before removing any folder, check no thread is bound to it (`specweave-studio db query`). Never symlink another checkout's `node_modules`.
+- Usage readings never stop work here: no handoff at any threshold (owner's rule, October 10, 2026).
+- Merge green PRs, release, deploy and verify without asking. Ask before discarding work that exists nowhere else, and for data migrations, auth changes and payment flows. `claude-review` and `E2E Live (nightly)` never block.
+- Releases: `bash scripts/release/release.sh status|ship|verify|cleanup <track>`; runbook `.specweave/release/README.md`. App releases: `bash scripts/release/request-release.sh --by "<thread>"` in the app repository; never pick or dispatch a version.
+- Waits: never hold a call on CI or a registry for more than 540s; use `bash scripts/release/ci-wait.sh` (exit 2 means call again).
+- SpecWithCode is an independent product: never market it as a fork, keep third-party notices and existing license grants, add no project-wide license grant.
+- Files stay under 1,500 lines. Use Node 22 and SpecWeave 3.1.21 or newer.
 
 ## Commands
 
 | Action | Command |
 |---|---|
-| Build | TODO: not detected — fill in the build command |
-| Test | TODO: not detected — fill in the test command |
-| Lint | TODO: not detected — fill in the lint command |
+| Build | `npm --prefix repositories/anton-abyzov/specweave run build && npm --prefix repositories/anton-abyzov/vskill run build && npm --prefix repositories/anton-abyzov/vskill-platform run build` |
+| Test | `npm --prefix repositories/anton-abyzov/specweave run test:unit:fast && npm --prefix repositories/anton-abyzov/vskill test && npm --prefix repositories/anton-abyzov/vskill-platform test` |
+| Lint | `npm --prefix repositories/anton-abyzov/specweave run lint:skills && npm --prefix repositories/anton-abyzov/specweave run lint:docs-refs && npm --prefix repositories/anton-abyzov/vskill run lint:skills-spec` |
+| Fleet checkout safety | `python3 scripts/fleet-project-sync.py --self-test` |
+| Handoff verifier | `python3 -m unittest discover -s tests -p test_handoff_evidence.py` |
+| Release tooling | `python3 scripts/release/timing.py --self-test && bash scripts/release/release-self-test.sh` |
 
-If a cell still says TODO, fill it in from `package.json`/`Makefile` and commit; `specweave verify` runs these rows.
-
-## Project notes
-
-(architecture map, things agents get wrong here, recurring mistakes — keep it short)
-
-## Available Subagent Types
-
-SpecWeave uses specialized subagents for different phases of the increment workflow. These run in isolated contexts to keep the main agent's context clean.
-
-| Subagent | Purpose | When to Use |
-|----------|---------|-------------|
-| `sw:sw-closer` | Runs full `sw:done` closure pipeline in fresh context | After team-lead/team-merge completes, prevents context overflow |
-| `sw:sw-pm` | Writes spec.md with user stories and acceptance criteria | During `sw:increment` planning phase |
-| `sw:sw-architect` | Writes plan.md with architecture decisions | During `sw:increment` planning phase |
-| `sw:sw-planner` | Writes tasks.md with BDD test plans | During `sw:increment` planning phase |
-
-Agent definitions live in `plugins/specweave/agents/`. The team-lead orchestrator spawns these automatically when needed.
-
-## Project Overview
-
-Umbrella repo containing SpecWeave and related repositories under `repositories/anton-abyzov/`.
-
-## Project-Specific Gates
-
-### Closing Increment (additional steps)
-Before `sw:done`, also run:
-- Coverage check: `npx vitest run --coverage` (must meet targets in config.json)
-- Ask user for manual acceptance: new UI, auth, payments, data migrations
-
-### File Limits
-- Max 1500 lines per file — extract before adding
-- Check ADRs at `.specweave/docs/internal/architecture/adr/` before implementing changes
+The platform has no ESLint command; never claim a clean platform lint run.

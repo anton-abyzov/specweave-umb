@@ -1,0 +1,369 @@
+{
+  "conclusion": "success",
+  "headSha": "396874efc4859e9cc15cd4af28706c488c30fb33",
+  "jobs": [
+    {
+      "completedAt": "2026-10-07T15:01:32Z",
+      "conclusion": "success",
+      "databaseId": 112859255263,
+      "name": "build",
+      "startedAt": "2026-10-07T14:56:28Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-07T14:56:31Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-07T14:56:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:34Z",
+          "conclusion": "success",
+          "name": "Checkout repository",
+          "number": 2,
+          "startedAt": "2026-10-07T14:56:31Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:37Z",
+          "conclusion": "success",
+          "name": "Restore built ec-uikit for this pin",
+          "number": 3,
+          "startedAt": "2026-10-07T14:56:34Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:37Z",
+          "conclusion": "skipped",
+          "name": "Vendor ec-uikit dependency",
+          "number": 4,
+          "startedAt": "2026-10-07T14:56:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:37Z",
+          "conclusion": "success",
+          "name": "Build vendored ec-uikit + retarget dependency",
+          "number": 5,
+          "startedAt": "2026-10-07T14:56:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:37Z",
+          "conclusion": "skipped",
+          "name": "Save built ec-uikit for this pin",
+          "number": 6,
+          "startedAt": "2026-10-07T14:56:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:58Z",
+          "conclusion": "success",
+          "name": "Sync lockfile with the vendored dependency specs",
+          "number": 7,
+          "startedAt": "2026-10-07T14:56:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:57:04Z",
+          "conclusion": "success",
+          "name": "Set up Docker Buildx",
+          "number": 8,
+          "startedAt": "2026-10-07T14:56:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:57:05Z",
+          "conclusion": "success",
+          "name": "Log in to GitHub Container Registry",
+          "number": 9,
+          "startedAt": "2026-10-07T14:57:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:57:05Z",
+          "conclusion": "success",
+          "name": "Define image metadata",
+          "number": 10,
+          "startedAt": "2026-10-07T14:57:05Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:00:59Z",
+          "conclusion": "success",
+          "name": "Build and push Docker image",
+          "number": 11,
+          "startedAt": "2026-10-07T14:57:05Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:01:16Z",
+          "conclusion": "success",
+          "name": "Generate SBOM",
+          "number": 12,
+          "startedAt": "2026-10-07T15:00:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:01:17Z",
+          "conclusion": "success",
+          "name": "Upload SBOM",
+          "number": 13,
+          "startedAt": "2026-10-07T15:01:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:01:17Z",
+          "conclusion": "success",
+          "name": "Post Build and push Docker image",
+          "number": 23,
+          "startedAt": "2026-10-07T15:01:17Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:01:18Z",
+          "conclusion": "success",
+          "name": "Post Log in to GitHub Container Registry",
+          "number": 24,
+          "startedAt": "2026-10-07T15:01:17Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:01:30Z",
+          "conclusion": "success",
+          "name": "Post Set up Docker Buildx",
+          "number": 25,
+          "startedAt": "2026-10-07T15:01:18Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:01:31Z",
+          "conclusion": "success",
+          "name": "Post Checkout repository",
+          "number": 26,
+          "startedAt": "2026-10-07T15:01:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:01:31Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 27,
+          "startedAt": "2026-10-07T15:01:31Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/anton-abyzov/ec-landing/actions/runs/37640893666/job/112859255263"
+    },
+    {
+      "completedAt": "2026-10-07T15:02:41Z",
+      "conclusion": "success",
+      "databaseId": 112859255767,
+      "name": "validate",
+      "startedAt": "2026-10-07T14:56:28Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-07T14:56:31Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-07T14:56:29Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:35Z",
+          "conclusion": "success",
+          "name": "Checkout repository",
+          "number": 2,
+          "startedAt": "2026-10-07T14:56:31Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:46Z",
+          "conclusion": "success",
+          "name": "Setup Node.js",
+          "number": 3,
+          "startedAt": "2026-10-07T14:56:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:48Z",
+          "conclusion": "success",
+          "name": "ec-uikit pin is on ec-uikit/develop",
+          "number": 4,
+          "startedAt": "2026-10-07T14:56:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:50Z",
+          "conclusion": "success",
+          "name": "Restore built ec-uikit for this pin",
+          "number": 5,
+          "startedAt": "2026-10-07T14:56:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:50Z",
+          "conclusion": "skipped",
+          "name": "Vendor ec-uikit dependency",
+          "number": 6,
+          "startedAt": "2026-10-07T14:56:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:51Z",
+          "conclusion": "success",
+          "name": "Build vendored ec-uikit + retarget dependency",
+          "number": 7,
+          "startedAt": "2026-10-07T14:56:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:56:51Z",
+          "conclusion": "skipped",
+          "name": "Save built ec-uikit for this pin",
+          "number": 8,
+          "startedAt": "2026-10-07T14:56:51Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:57:31Z",
+          "conclusion": "success",
+          "name": "Install dependencies",
+          "number": 9,
+          "startedAt": "2026-10-07T14:56:51Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:57:32Z",
+          "conclusion": "success",
+          "name": "Lint code",
+          "number": 10,
+          "startedAt": "2026-10-07T14:57:31Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T14:57:47Z",
+          "conclusion": "success",
+          "name": "Type check",
+          "number": 11,
+          "startedAt": "2026-10-07T14:57:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:35Z",
+          "conclusion": "success",
+          "name": "Unit tests",
+          "number": 12,
+          "startedAt": "2026-10-07T14:57:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:35Z",
+          "conclusion": "success",
+          "name": "CSS purity report (warn)",
+          "number": 13,
+          "startedAt": "2026-10-07T15:02:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:35Z",
+          "conclusion": "success",
+          "name": "Post Setup Node.js",
+          "number": 25,
+          "startedAt": "2026-10-07T15:02:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:35Z",
+          "conclusion": "success",
+          "name": "Post Checkout repository",
+          "number": 26,
+          "startedAt": "2026-10-07T15:02:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:35Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 27,
+          "startedAt": "2026-10-07T15:02:35Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/anton-abyzov/ec-landing/actions/runs/37640893666/job/112859255767"
+    },
+    {
+      "completedAt": "2026-10-07T15:02:54Z",
+      "conclusion": "success",
+      "databaseId": 112862270257,
+      "name": "update-gitops",
+      "startedAt": "2026-10-07T15:02:45Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-07T15:02:47Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-07T15:02:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:48Z",
+          "conclusion": "success",
+          "name": "Checkout GitOps repository",
+          "number": 2,
+          "startedAt": "2026-10-07T15:02:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:49Z",
+          "conclusion": "success",
+          "name": "Update image tag in GitOps",
+          "number": 3,
+          "startedAt": "2026-10-07T15:02:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:50Z",
+          "conclusion": "success",
+          "name": "Commit and push changes",
+          "number": 4,
+          "startedAt": "2026-10-07T15:02:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:50Z",
+          "conclusion": "success",
+          "name": "Trigger ArgoCD Sync",
+          "number": 5,
+          "startedAt": "2026-10-07T15:02:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:50Z",
+          "conclusion": "success",
+          "name": "Post Checkout GitOps repository",
+          "number": 10,
+          "startedAt": "2026-10-07T15:02:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T15:02:51Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 11,
+          "startedAt": "2026-10-07T15:02:50Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/anton-abyzov/ec-landing/actions/runs/37640893666/job/112862270257"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/anton-abyzov/ec-landing/actions/runs/37640893666"
+}

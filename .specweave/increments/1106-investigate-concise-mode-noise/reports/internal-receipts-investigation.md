@@ -1,0 +1,11 @@
+# Internal receipts in concise timelines
+
+October 28, 2026. PR: https://github.com/anton-abyzov/specwithcode-dev/pull/959 . Owned worktree: `/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-studio/fix-1106-concise-noise`.
+
+Concise agent response style and timeline display detail are separate persisted controls. Response instructions propagate to providers and fallback, but cannot remove already retained worker receipts. Earlier relay presentation kept a prose preview in folded modes, exposing internal CI hashes/paths and carry-forward coordination. Coordinator empty acknowledgements additionally rendered Worked for/model/time/copy chrome. Installed app 1.0.109 does not contain the previously local 1106 fixes; source and installed acceptance are separate.
+
+Non-verbose internal relays now fold through the shared RelayedMessage path in coordinator and worker views. Disclosure, Find, copy and Everything retain the original bytes. Candidate direct questions, decisions and user-action failures remain inline. Matching ignores operational transport vocabulary, fenced code and JSON, while recognizing Markdown headings, bold and numbered direct requests. Structured approvals/questions and substantive assistant results are unchanged. Empty settled coordinator turns keep compact activity access through the shared content gate; failed activity stays labeled.
+
+Supported API receipt positions 8532/8536/8539 and empty acknowledgements 8534/8537/8540 supplied the screenshot fixture. The 0957 p101 agent carry-forward supplied a verbatim relay regression; p99/p108 actual assistant results remain substantive content. Filtering does not prevent the lifecycle wake caused by that carry-forward. 1130 owns accepted assignment versus outstanding goal guard changes in separate files; 1095 owns attention classification. Cancelled historical concise work was inspected only. Current/native catalog inventory is evidence, not authority to take over sessions.
+
+Evidence directory: `/Users/antonabyzov/.specwithcode/m4/evidence/1106-internal-receipts`. Source history, native cwd inventory, initial red logs, focused tests, browser receipts, traces and baseline pointer limitation are retained there. No app/service restart, provider turn, release dispatch, Stop release or direct live SQLite access was performed.

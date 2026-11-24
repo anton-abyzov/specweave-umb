@@ -1,0 +1,1547 @@
+#!/bin/bash
+# release.sh: one entrypoint for every release track in this umbrella.
+#
+#   release.sh status [--fetch] [--run]        audit every repo: branch, ahead/behind, open PRs,
+#                                               default-branch CI, latest tag vs published version
+#   release.sh ship <track|group> [--dry-run] [--plan] [-- <track script args>]
+#                                               run the track's release script, then verify,
+#                                               then cleanup for that track only
+#   release.sh verify <track|group> [--version X]   deterministic post-release checks (no agent)
+#   release.sh cleanup <track> [--apply]        remove fully merged worktrees of the track's repo,
+#                                               only after verify passes (dry run without --apply)
+#   release.sh timing [<timing.py args>]        defaults to `timing.py check`
+#   release.sh tracks                           list tracks and groups
+#
+# Tracks, repos, commands and policy come from .specweave/release/manifest.json.
+# status prints JSON on stdout and a table on stderr. Exit codes: 0 ok, 1 failure,
+# 2 pending (ship/verify/cleanup: something is still rolling out; run verify again).
+# ship --dry-run refuses a track script that has no dry-run option.
+# Progress for long runs is written to .specweave/state/release-run.json.
+set -euo pipefail
+. "$(dirname "$0")/lib.sh"
+
+usage() { sed -n '2,19p' "$0" | sed 's/^# \{0,1\}//'; }
+
+WORK="$(mktemp -d "${TMPDIR:-/tmp}/release-sh.XXXXXX")"
+cleanup_work() { rm -rf "$WORK"; }
+trap cleanup_work EXIT
+
+with_timeout() {
+  local seconds="$1"
+  shift
+  if command -v timeout >/dev/null 2>&1; then
+    timeout "$seconds" "$@"
+  else
+    perl -e 'alarm shift @ARGV; exec @ARGV or die "exec failed\n"' "$seconds" "$@"
+  fi
+}
+
+# ---------------------------------------------------------------- verify checks
+
+# emit <name> <kind> <blocking> <status> <detail>: one JSON check result.
+emit() {
+  jq -cn --arg name "$1" --arg kind "$2" --argjson blocking "$3" --arg status "$4" --arg detail "$5" \
+    '{name: $name, kind: $kind, blocking: $blocking, status: $status, detail: $detail}'
+}
+
+expand() { printf '%s\n' "${1//\{version\}/$2}"; }
+
+check_npm_version() {
+  local pkg latest exact slug wf wait_rc=0
+  pkg="$(jq -r '.package' <<<"$CHECK")"
+  latest="$(npm view "$pkg" dist-tags.latest --prefer-online 2>/dev/null)" || latest=""
+  if [ -z "$VERSION" ]; then
+    C_STATUS=pass; C_DETAIL="latest $latest"; return
+  fi
+  if [ "$latest" = "$VERSION" ]; then
+    C_STATUS=pass; C_DETAIL="$pkg@$latest is latest"; return
+  fi
+  exact="$(npm view "$pkg@$VERSION" version --prefer-online 2>/dev/null)" || exact=""
+  if [ "$exact" != "$VERSION" ]; then
+    C_STATUS=pending; C_DETAIL="$pkg@$VERSION not on the registry yet (latest ${latest:-unknown})"; return
+  fi
+  # Published, but the dist-tag has not moved yet. That is the publish
+  # workflow still finishing, not a failure: wait for its run (ci-wait tag)
+  # and only fail when the run is over and latest still has not moved.
+  slug="$(jq -r '.repo // empty' <<<"$CHECK")"
+  wf="$(jq -r '.workflow // empty' <<<"$CHECK")"
+  if [ -z "$slug" ] || [ -z "$wf" ]; then
+    C_STATUS=fail; C_DETAIL="$pkg@$VERSION is published but latest is ${latest:-unknown}"; return
+  fi
+  "${RELEASE_CI_WAIT:-$RELEASE_LIB_DIR/ci-wait.sh}" tag "$slug" "v$VERSION" "$wf" \
+    --budget "${RELEASE_NPM_WAIT_SECONDS:-120}" >/dev/null 2>&1 || wait_rc=$?
+  case "$wait_rc" in
+    0)
+      latest="$(npm view "$pkg" dist-tags.latest --prefer-online 2>/dev/null)" || latest=""
+      if [ "$latest" = "$VERSION" ]; then
+        C_STATUS=pass; C_DETAIL="$pkg@$latest is latest"
+      else
+        C_STATUS=fail; C_DETAIL="$pkg@$VERSION is published but latest is ${latest:-unknown}"
+      fi ;;
+    1) C_STATUS=fail; C_DETAIL="$pkg@$VERSION publish run failed ($wf on v$VERSION)" ;;
+    *) C_STATUS=pending; C_DETAIL="$pkg@$VERSION publish run still running ($wf on v$VERSION); latest is ${latest:-unknown}" ;;
+  esac
+}
+
+check_gh_release() {
+  local slug tag body glob missing="" name found
+  slug="$(jq -r '.repo' <<<"$CHECK")"
+  tag="$(expand "$(jq -r '.tag' <<<"$CHECK")" "$VERSION")"
+  if ! body="$(gh release view "$tag" -R "$slug" --json tagName,isDraft,isPrerelease,assets 2>/dev/null)"; then
+    C_STATUS=fail; C_DETAIL="no release $tag in $slug"; return
+  fi
+  if [ "$(jq -r '.isDraft' <<<"$body")" = "true" ]; then
+    C_STATUS=pending; C_DETAIL="$tag is still a draft"; return
+  fi
+  while IFS= read -r glob; do
+    [ -n "$glob" ] || continue
+    found=0
+    while IFS= read -r name; do
+      # shellcheck disable=SC2254
+      case "$name" in $glob) found=1; break ;; esac
+    done < <(jq -r '.assets[].name' <<<"$body")
+    [ "$found" -eq 1 ] || missing="$missing $glob"
+  done < <(jq -r '.assets // [] | .[]' <<<"$CHECK")
+  if [ -n "$missing" ]; then
+    C_STATUS=fail; C_DETAIL="$tag lacks assets:$missing"
+  else
+    C_STATUS=pass; C_DETAIL="$tag published with $(jq '.assets | length' <<<"$body") assets"
+  fi
+}
+
+check_http() {
+  local url want field equals contains code body
+  body="$(mktemp "$WORK/http.XXXXXX")"
+  url="$(expand "$(jq -r '.url' <<<"$CHECK")" "$VERSION")"
+  want="$(jq -r '.status // 200' <<<"$CHECK")"
+  field="$(jq -r '.json_field // empty' <<<"$CHECK")"
+  equals="$(jq -r '.equals // empty' <<<"$CHECK")"
+  contains="$(jq -r '.contains // empty' <<<"$CHECK")"
+  code="$(curl -s -m 20 -o "$body" -w '%{http_code}' "$url")" || code="000"
+  if [ "$code" != "$want" ]; then
+    C_STATUS=fail; C_DETAIL="$url answered HTTP $code, want $want"; return
+  fi
+  if [ -n "$field" ]; then
+    local got
+    got="$(jq -r --arg f "$field" '.[$f] // empty | tostring' "$body" 2>/dev/null)" || got=""
+    if [ "$got" != "$equals" ]; then
+      C_STATUS=fail; C_DETAIL="$field is '${got}', want '$equals'"; return
+    fi
+  fi
+  if [ -n "$contains" ] && ! grep -qF -- "$contains" "$body"; then
+    C_STATUS=fail; C_DETAIL="body lacks '$contains'"; return
+  fi
+  C_STATUS=pass; C_DETAIL="HTTP $code${field:+, $field=$equals}"
+}
+
+check_latest_json() {
+  local url header code got hdr body
+  hdr="$(mktemp "$WORK/lj-hdr.XXXXXX")"
+  body="$(mktemp "$WORK/lj-body.XXXXXX")"
+  url="$(jq -r '.url' <<<"$CHECK")"
+  header="$(jq -r '.header // empty' <<<"$CHECK")"
+  code="$(curl -s -m 20 -D "$hdr" -o "$body" -w '%{http_code}' "$url?ts=$(now_epoch)")" || code="000"
+  if [ "$code" != "200" ]; then
+    C_STATUS=fail; C_DETAIL="$url answered HTTP $code"; return
+  fi
+  got="$(jq -r '.version // empty' "$body" 2>/dev/null)" || got=""
+  tr -d '\r' <"$hdr" >"$hdr.lf"
+  if [ -n "$header" ] && ! grep -qiF -- "$header" "$hdr.lf"; then
+    C_STATUS=fail; C_DETAIL="missing header '$header' (version $got)"; return
+  fi
+  if [ -n "$VERSION" ] && [ "$got" != "$VERSION" ]; then
+    C_STATUS=fail; C_DETAIL="manifest serves $got, want $VERSION"; return
+  fi
+  C_STATUS=pass; C_DETAIL="serves $got${header:+ with $header}"
+}
+
+# version_older <a> <b>: true when release version a is older than b.
+version_older() {
+  [ "$1" != "$2" ] && [ "$(printf '%s\n%s\n' "$1" "$2" | sort -V | head -1)" = "$1" ]
+}
+
+# iso_epoch <2026-11-12T16:16:51Z>: seconds since the epoch, empty when it is not such a time.
+iso_epoch() {
+  python3 -c 'import sys,datetime
+try: print(int(datetime.datetime.strptime(sys.argv[1],"%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=datetime.timezone.utc).timestamp()))
+except ValueError: pass' "${1:-}" 2>/dev/null
+}
+
+# download_latest: the public version-free installer link (the README and the website's Mac
+# button) must redirect to this release. GitHub answers it with a 302 to the Latest release's
+# file, so a release that is published but not Latest fails here. GitHub sends that 302 even
+# when the Latest release has no such file, so the file itself is asked for too (headers only).
+# A newer release that became Latest in the meantime passes: the link serves the newest one.
+check_download_latest() {
+  local url slug asset hdr code loc got
+  hdr="$(mktemp "$WORK/dl-hdr.XXXXXX")"
+  url="$(jq -r '.url' <<<"$CHECK")"
+  slug="$(jq -r '.repo' <<<"$CHECK")"
+  asset="$(jq -r '.asset' <<<"$CHECK")"
+  code="$(curl -s -I -m 20 -D "$hdr" -o /dev/null -w '%{http_code}' "$url")" || code="000"
+  if [ "$code" != "302" ]; then
+    C_STATUS=fail; C_DETAIL="$url answered HTTP $code, want a 302 to the release"; return
+  fi
+  loc="$(tr -d '\r' <"$hdr" | sed -n 's/^[Ll]ocation: *//p' | head -1)"
+  got="${loc#"https://github.com/$slug/releases/download/v"}"
+  if [ "$got" = "$loc" ] || [ "${got#*/}" != "$asset" ] || ! [[ "${got%%/*}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    C_STATUS=fail; C_DETAIL="redirects to '${loc:-nothing}', not to $asset of a $slug release"; return
+  fi
+  got="${got%%/*}"
+  if [ -z "$VERSION" ] || [ "$got" = "$VERSION" ]; then
+    C_STATUS=pass; C_DETAIL="serves v$got"
+  elif version_older "$got" "$VERSION"; then
+    C_STATUS=fail; C_DETAIL="serves v$got, want v$VERSION: is v$VERSION published and marked Latest?"
+  else
+    C_STATUS=pass; C_DETAIL="serves v$got, a later release than v$VERSION"
+  fi
+  [ "$C_STATUS" = pass ] || return 0
+  code="$(curl -s -I -m 20 -o /dev/null -w '%{http_code}' "$loc")" || code="000"
+  case "$code" in
+    200|302) ;;
+    *) C_STATUS=fail; C_DETAIL="the Latest release v$got has no $asset to download (HTTP $code)" ;;
+  esac
+}
+
+# fetch_site_pages: downloads every page in the check's `urls` (cache-busted) into
+# $SITE_PAGES/<n>.html. Returns 1 with C_STATUS/C_DETAIL set when one cannot be read.
+fetch_site_pages() {
+  local url code n=0
+  SITE_PAGES="$(mktemp -d "$WORK/site.XXXXXX")"
+  while IFS= read -r url; do
+    [ -n "$url" ] || continue
+    n=$((n + 1))
+    code="$(curl -s -L -m 30 -o "$SITE_PAGES/$n.html" -w '%{http_code}' "$url?ts=$(now_epoch)")" || code="000"
+    if [ "$code" != "200" ]; then
+      C_STATUS=fail; C_DETAIL="$url answered HTTP $code"; return 1
+    fi
+    printf '%s\n' "$url" >"$SITE_PAGES/$n.url"
+  done < <(jq -r '.urls // [] | .[]' <<<"$CHECK")
+  if [ "$n" -eq 0 ]; then
+    C_STATUS=fail; C_DETAIL="the check lists no urls"; return 1
+  fi
+  SITE_PAGE_COUNT="$n"
+}
+
+# site_latest_link: every listed page must offer the installer through the version-free latest
+# link and never through a link that names a release. A pinned link is what served an old build
+# from the website for days: it is only as new as the page's last build.
+check_site_latest_link() {
+  local slug asset n page pinned
+  slug="$(jq -r '.repo' <<<"$CHECK")"
+  asset="$(jq -r '.asset' <<<"$CHECK")"
+  fetch_site_pages || return 0
+  n=1
+  while [ "$n" -le "$SITE_PAGE_COUNT" ]; do
+    page="$(cat "$SITE_PAGES/$n.url")"
+    pinned="$(grep -oE "github\.com/$slug/releases/download/v[0-9.]+/$asset" "$SITE_PAGES/$n.html" | head -1 || true)"
+    if [ -n "$pinned" ]; then
+      C_STATUS=fail; C_DETAIL="$page pins the installer to a release ($pinned)"; return
+    fi
+    if ! grep -qF "github.com/$slug/releases/latest/download/$asset" "$SITE_PAGES/$n.html"; then
+      C_STATUS=fail; C_DETAIL="$page has no latest link to $asset"; return
+    fi
+    n=$((n + 1))
+  done
+  C_STATUS=pass; C_DETAIL="$SITE_PAGE_COUNT pages link $asset through releases/latest"
+}
+
+# site_release: what the listed pages have baked in (the version shown, and the Windows and Linux
+# links a visitor without JavaScript gets) must reach this release. The pages are rebuilt after
+# each release, and the Windows and Linux installers are attached to it later, so both get time:
+# pending inside `grace_minutes` of the files being ready (`desktop_grace_minutes` for the
+# installers to appear at all), fail after.
+check_site_release() {
+  local slug grace desktop_grace body published attached now age shown_mac="" shown_desktop="" n v page
+  if [ -z "$VERSION" ]; then
+    C_STATUS=skip; C_DETAIL="no release version"; return
+  fi
+  slug="$(jq -r '.repo' <<<"$CHECK")"
+  grace="$(jq -r '.grace_minutes // 30' <<<"$CHECK")"
+  desktop_grace="$(jq -r '.desktop_grace_minutes // 90' <<<"$CHECK")"
+  body="$(gh release view "v$VERSION" -R "$slug" --json publishedAt,assets 2>/dev/null)" || body=""
+  published="$(iso_epoch "$(jq -r '.publishedAt // empty' <<<"${body:-null}" 2>/dev/null)")"
+  if [ -z "$published" ]; then
+    C_STATUS=fail; C_DETAIL="cannot read release v$VERSION of $slug"; return
+  fi
+  attached="$(iso_epoch "$(jq -r --arg name "SpecWithCode-$VERSION-x64.exe" \
+    '[.assets[]? | select(.name == $name) | (.updatedAt // .createdAt // empty)] | first // empty' <<<"$body" 2>/dev/null)")"
+  fetch_site_pages || return 0
+  n=1
+  while [ "$n" -le "$SITE_PAGE_COUNT" ]; do
+    page="$(cat "$SITE_PAGES/$n.url")"
+    v="$(grep -oE '"softwareVersion": *"[0-9]+\.[0-9]+\.[0-9]+"' "$SITE_PAGES/$n.html" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | sort -V | head -1 || true)"
+    if [ -z "$v" ]; then
+      C_STATUS=fail; C_DETAIL="$page states no softwareVersion"; return
+    fi
+    if [ -z "$shown_mac" ] || version_older "$v" "$shown_mac"; then shown_mac="$v"; fi
+    v="$(grep -oE "github\.com/$slug/releases/download/v[0-9.]+/SpecWithCode-[0-9.]+-x64\.exe" "$SITE_PAGES/$n.html" \
+      | sed -E 's|.*/download/v([0-9.]+)/.*|\1|' | sort -V | head -1 || true)"
+    if [ -z "$v" ]; then
+      C_STATUS=fail; C_DETAIL="$page has no Windows installer link"; return
+    fi
+    if [ -z "$shown_desktop" ] || version_older "$v" "$shown_desktop"; then shown_desktop="$v"; fi
+    n=$((n + 1))
+  done
+  now="$(now_epoch)"
+  if version_older "$shown_mac" "$VERSION"; then
+    age=$(( (now - published) / 60 ))
+    if [ "$age" -lt "$grace" ]; then C_STATUS=pending; else C_STATUS=fail; fi
+    C_DETAIL="pages show Mac v$shown_mac, v$VERSION was published ${age} min ago (rebuild allowed ${grace} min)"; return
+  fi
+  if [ -z "$attached" ]; then
+    age=$(( (now - published) / 60 ))
+    if [ "$age" -lt "$desktop_grace" ]; then C_STATUS=pending; else C_STATUS=fail; fi
+    C_DETAIL="v$VERSION has no Windows and Linux installers ${age} min after publishing (allowed ${desktop_grace} min); pages link v$shown_desktop"; return
+  fi
+  if version_older "$shown_desktop" "$VERSION"; then
+    age=$(( (now - attached) / 60 ))
+    if [ "$age" -lt "$grace" ]; then C_STATUS=pending; else C_STATUS=fail; fi
+    C_DETAIL="pages link Windows and Linux v$shown_desktop, v$VERSION installers were attached ${age} min ago (rebuild allowed ${grace} min)"; return
+  fi
+  C_STATUS=pass; C_DETAIL="pages show Mac v$shown_mac and link Windows and Linux v$shown_desktop"
+}
+
+check_gh_run() {
+  local slug wf branch body status conclusion url
+  slug="$(jq -r '.repo' <<<"$CHECK")"
+  wf="$(jq -r '.workflow' <<<"$CHECK")"
+  branch="$(expand "$(jq -r '.branch' <<<"$CHECK")" "$VERSION")"
+  if ! body="$(gh run list -R "$slug" -w "$wf" -b "$branch" -L 1 --json status,conclusion,url 2>/dev/null)"; then
+    C_STATUS=fail; C_DETAIL="cannot list $wf runs in $slug"; return
+  fi
+  if [ "$(jq 'length' <<<"$body")" -eq 0 ]; then
+    C_STATUS=skip; C_DETAIL="no $wf run on $branch"; return
+  fi
+  status="$(jq -r '.[0].status' <<<"$body")"
+  conclusion="$(jq -r '.[0].conclusion // ""' <<<"$body")"
+  url="$(jq -r '.[0].url' <<<"$body")"
+  if [ "$status" != "completed" ]; then
+    C_STATUS=pending; C_DETAIL="$wf on $branch is $status: $url"
+  elif [ "$conclusion" = "success" ]; then
+    C_STATUS=pass; C_DETAIL="$wf on $branch: success"
+  else
+    C_STATUS=fail; C_DETAIL="$wf on $branch: $conclusion $url"
+  fi
+}
+
+check_wrangler_deployments() {
+  local worker bin out
+  worker="$(jq -r '.worker' <<<"$CHECK")"
+  bin="$(repo_abs_path "$(track_field "$TRACK" repo)")/node_modules/.bin/wrangler"
+  if [ ! -x "$bin" ]; then
+    C_STATUS=skip; C_DETAIL="wrangler not installed in the platform checkout"; return
+  fi
+  mkdir -p "$WORK/wrangler"
+  # Run outside the checkout so wrangler writes no cache files into it.
+  if ! out="$(cd "$WORK/wrangler" && with_timeout 90 "$bin" deployments list --name "$worker" --json 2>/dev/null)"; then
+    C_STATUS=fail; C_DETAIL="wrangler deployments list failed (login?)"; return
+  fi
+  C_STATUS=pass
+  C_DETAIL="$(jq -r 'if type == "array" and length > 0 then (max_by(.created_on)) | "latest deployment \(.id // "?") at \(.created_on // "?")" else "no deployments listed" end' <<<"$out" 2>/dev/null)" ||
+    C_DETAIL="deployments listed"
+}
+
+check_fleet_endpoint() {
+  local url state got st_status st_down st_msg body code
+  url="$(jq -r '.url' <<<"$CHECK")"
+  state="$(expand_home "$(jq -r '.state_file // empty' <<<"$CHECK")")"
+  body="$(mktemp "$WORK/fleet.XXXXXX")"
+  code="$(curl -s -m 5 -o "$body" -w '%{http_code}' "$url")" || code="000"
+  got=""
+  if [ "$code" = "200" ]; then
+    got="$(jq -r '.serverVersion // empty' "$body" 2>/dev/null)" || got=""
+  fi
+  if [ -n "$got" ] && { [ -z "$VERSION" ] || [ "$got" = "$VERSION" ]; }; then
+    C_STATUS=pass; C_DETAIL="serverVersion $got"; return
+  fi
+  if [ -n "$state" ] && [ -f "$state" ]; then
+    st_status="$(jq -r '.status // ""' "$state" 2>/dev/null)" || st_status=""
+    st_down="$(jq -r '.downloadedVersion // ""' "$state" 2>/dev/null)" || st_down=""
+    st_msg="$(jq -r '.message // ""' "$state" 2>/dev/null | cut -c1-120)" || st_msg=""
+    if [ -n "$VERSION" ] && [ "$st_down" = "$VERSION" ]; then
+      C_STATUS=pending; C_DETAIL="serverVersion ${got:-unreachable}; updater $st_status with $VERSION downloaded: $st_msg"; return
+    fi
+  fi
+  if [ "$code" != "200" ]; then
+    C_STATUS=fail; C_DETAIL="$url answered HTTP $code, want 200"
+  elif [ -z "$got" ]; then
+    C_STATUS=fail; C_DETAIL="$url unreachable"
+  else
+    C_STATUS=fail; C_DETAIL="serverVersion $got, want $VERSION"
+  fi
+}
+
+# check_fleet_connect: a fleet worker's service, read over SpecWithCode Connect with M4's
+# installed CLI (`fleet update <machine> --status --connect-only --json`), not over an SSH
+# tunnel. Pass when the route is attested as connect and the machine reports the released
+# version installed (and served, when it says); pending while that version is downloaded or
+# requested and the updater is still busy; fail otherwise, naming why. A machine whose own
+# "Pause running work for updates" is off is left for later while it is busy: that is pending
+# with the reason, never a failure, also when its boot service gave up waiting as busy.
+check_fleet_connect() {
+  local machine cli out rc=0 last reply transport installed served status phase down asked err reason later=""
+  machine="$(jq -r '.machine // empty' <<<"$CHECK")"
+  if ! [[ $machine =~ ^[a-z0-9][a-z0-9_-]{0,63}$ ]]; then
+    C_STATUS=fail; C_DETAIL="machine must be a fleet name such as m3, not '$machine'"; return
+  fi
+  cli="${RELEASE_STUDIO_CLI:-specweave-studio}"
+  if ! command -v "$cli" >/dev/null 2>&1; then
+    C_STATUS=fail; C_DETAIL="$cli not found, so $machine cannot be read over SpecWithCode Connect"; return
+  fi
+  # `status` (quick mode) keeps its short budget; a ship's verify waits for a slow round trip.
+  local budget="${RELEASE_CONNECT_TIMEOUT:-90}"
+  [ "${V_QUICK:-0}" -ne 1 ] || budget="${RELEASE_CONNECT_QUICK_TIMEOUT:-15}"
+  out="$(with_timeout "$budget" "$cli" fleet update "$machine" --status --connect-only --json \
+    </dev/null 2>/dev/null)" || rc=$?
+  # The whole output as one JSON document (compact or pretty-printed), else its last non-empty line
+  # (progress lines before a compact reply).
+  reply="$(jq -cs 'if length == 1 and (.[0] | type) == "object" then .[0] else empty end' <<<"$out" 2>/dev/null)" || reply=""
+  if [ -z "$reply" ]; then
+    last="$( { grep -v '^[[:space:]]*$' <<<"$out" || true; } | tail -1)"
+    reply="$(jq -c 'select(type == "object")' <<<"$last" 2>/dev/null)" || reply=""
+  fi
+  if [ -z "$reply" ]; then
+    C_STATUS=fail; C_DETAIL="$machine gave no SpecWithCode Connect status (exit $rc)"; return
+  fi
+  err="$(jq -r '.error // empty | tostring' <<<"$reply" | cut -c1-120)"
+  reason="$(jq -r '.reason // empty | tostring' <<<"$reply" | cut -c1-60)"
+  if [ "$rc" -ne 0 ] || [ -n "$err" ]; then
+    C_STATUS=fail; C_DETAIL="$machine unreachable over SpecWithCode Connect: ${err:-exit $rc}${reason:+ ($reason)}"; return
+  fi
+  transport="$(jq -r '.transport // empty | tostring' <<<"$reply")"
+  if [ "$transport" != connect ]; then
+    C_STATUS=fail; C_DETAIL="$machine status did not attest the SpecWithCode Connect route (transport ${transport:-none})"; return
+  fi
+  installed="$(jq -r '.installedVersion // empty | tostring' <<<"$reply")"
+  served="$(jq -r '.serverVersion // empty | tostring' <<<"$reply")"
+  status="$(jq -r '.status // empty | tostring' <<<"$reply" | cut -c1-40)"
+  phase="$(jq -r '.phase // empty | tostring' <<<"$reply" | cut -c1-40)"
+  down="$(jq -r '.downloadedVersion // empty | tostring' <<<"$reply")"
+  asked="$(jq -r '.installRequest.version // empty | tostring' <<<"$reply")"
+  if [ -z "$VERSION" ]; then
+    if [ -n "$installed" ]; then C_STATUS=pass; C_DETAIL="transport connect, installedVersion $installed, $status"
+    else C_STATUS=fail; C_DETAIL="$machine reports no installed version"; fi
+    return
+  fi
+  if [ "$installed" = "$VERSION" ] && { [ -z "$served" ] || [ "$served" = "$VERSION" ]; }; then
+    C_STATUS=pass; C_DETAIL="transport connect, installedVersion $installed, ${status:-status unknown}"; return
+  fi
+  [ "$(jq -r '.pauseWorkForUpdates | tostring' <<<"$reply")" != false ] ||
+    later="left for later: \"Pause running work for updates\" is off on $machine"
+  # Pending only while the updater is busy with this version; idle, failed or no phase is a result.
+  if { [ "$down" = "$VERSION" ] || [ "$asked" = "$VERSION" ] || [ "$installed" = "$VERSION" ]; } &&
+    [ -n "$phase" ] && ! [[ $phase =~ ^(idle|failed|error|cancelled)$ ]]; then
+    C_STATUS=pending; C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}; updater $phase with $VERSION${later:+; $later}"; return
+  fi
+  # Its owner's setting kept it on its version while it was busy: it installs once it is quiet.
+  if [ -n "$later" ] && [ "$phase" = failed ] && [ "$(jq -r '.lastErrorReason // empty | tostring' <<<"$reply")" = busy ]; then
+    C_STATUS=pending; C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}; $later"; return
+  fi
+  C_STATUS=fail
+  C_DETAIL="transport connect, installedVersion ${installed:-none}, served ${served:-unknown}, want $VERSION (${status:-status unknown}, ${phase:-phase unknown})"
+}
+
+# check_tag_drift: fail when the default branch has commits under the check's
+# paths after the tag <tag_prefix><version>, so a build that was never tagged
+# again shows as stale instead of passing on the last tag. Paths are git
+# pathspecs; ":(exclude)..." entries drop files that never ship (tests).
+# It fetches both refs into private refs of the track's checkout (no
+# remote-tracking ref, tag or FETCH_HEAD changes, so a parallel
+# `status --fetch` cannot collide) and deletes them after.
+# - When the fetch fails it counts on the local refs, which can be behind
+#   GitHub: commits found there still fail, but none found is pending, not pass.
+# - `status` without --fetch (quick mode) never fetches: it reads the local refs
+#   and labels the row.
+# - Right after a ship (DRIFT_SHIP_HEAD, set by ship_track to origin/<default>
+#   as it was when the release script started) it counts up to that commit, so
+#   a PR merged while the signed build ran does not fail the release that just
+#   shipped; it is named in the detail instead, and a standalone verify fails.
+check_tag_drift() {
+  local prefix fix path def tag ns head base src="origin" total n newest later=0 upto shown paths=()
+  prefix="$(jq -r '.tag_prefix // empty' <<<"$CHECK")"
+  fix="$(jq -r '.fix // "ship a new build"' <<<"$CHECK")"
+  path="$(repo_abs_path "$(track_field "$TRACK" repo)")"
+  def="$(repo_field "$(track_field "$TRACK" repo)" default_branch)"
+  def="${def:-main}"
+  while IFS= read -r n; do [ -z "$n" ] || paths+=("$n"); done < <(jq -r '.paths // [] | .[]' <<<"$CHECK")
+  shown="$(jq -r '[.paths // [] | .[] | select(startswith(":(exclude)") | not)] | join(" ")' <<<"$CHECK")"
+  if [ "$(jq -r '[.paths // [] | .[] | select(startswith(":(exclude)"))] | length' <<<"$CHECK")" -gt 0 ]; then
+    shown="$shown (tests excluded)"
+  fi
+  if [ -z "$VERSION" ]; then
+    C_STATUS=fail; C_DETAIL="no $prefix release found to compare origin/$def with"; return
+  fi
+  if [ -z "$shown" ]; then
+    C_STATUS=fail; C_DETAIL="tag_drift check lists no paths"; return
+  fi
+  if [ ! -e "$path/.git" ]; then
+    C_STATUS=skip; C_DETAIL="no local checkout at $path"; return
+  fi
+  tag="$prefix$VERSION"
+  ns="refs/release-drift/$(basename "$(mktemp -d "$WORK/drift.XXXXXX")")"
+  if [ "${V_QUICK:-0}" -eq 1 ] && [ "${FETCH:-0}" -ne 1 ]; then
+    head="refs/remotes/origin/$def"; base="refs/tags/$tag"; src="local refs; status --fetch to refresh"
+  elif with_timeout 60 git -C "$path" fetch -q --no-tags --no-write-fetch-head --refmap= origin \
+    "+refs/heads/$def:$ns/head" "+refs/tags/$tag:$ns/base" 2>/dev/null; then
+    head="$ns/head"; base="$ns/base"
+  else
+    head="refs/remotes/origin/$def"; base="refs/tags/$tag"; src="local refs (fetch failed)"
+  fi
+  drift_cleanup() {
+    git -C "$path" update-ref -d "$ns/head" 2>/dev/null || true
+    git -C "$path" update-ref -d "$ns/base" 2>/dev/null || true
+  }
+  if ! git -C "$path" rev-parse -q --verify "$base^{commit}" >/dev/null 2>&1 ||
+    ! git -C "$path" rev-parse -q --verify "$head^{commit}" >/dev/null 2>&1; then
+    drift_cleanup
+    if [ "${V_QUICK:-0}" -eq 1 ] && [ "${FETCH:-0}" -ne 1 ]; then
+      C_STATUS=skip; C_DETAIL="$tag or origin/$def is not in $path yet; run status --fetch"; return
+    fi
+    C_STATUS=fail; C_DETAIL="cannot read $tag or origin/$def in $path ($src)"; return
+  fi
+  upto="$head"
+  if [ -n "${DRIFT_SHIP_HEAD:-}" ] && [ "$src" = origin ] &&
+    git -C "$path" merge-base --is-ancestor "$DRIFT_SHIP_HEAD" "$head" 2>/dev/null; then
+    upto="$DRIFT_SHIP_HEAD"
+    later="$(git -C "$path" rev-list --count "$upto..$head" -- "${paths[@]}" 2>/dev/null)" || later=0
+  fi
+  total="$(git -C "$path" rev-list --count "$base..$upto" 2>/dev/null)" || total="?"
+  n="$(git -C "$path" rev-list --count "$base..$upto" -- "${paths[@]}" 2>/dev/null)" || n=""
+  newest="$(git -C "$path" log -1 --format='%h %cs %s' "$base..$upto" -- "${paths[@]}" 2>/dev/null | cut -c1-80)" || newest=""
+  drift_cleanup
+  if [ -z "$n" ]; then
+    C_STATUS=fail; C_DETAIL="git rev-list failed for $tag..origin/$def in $path"
+  elif [ "$n" -gt 0 ]; then
+    C_STATUS=fail
+    C_DETAIL="stale: $n of $total commits on origin/$def since tag $tag touch $shown (newest $newest); $fix"
+  elif [ "$src" != origin ] && [ "${V_QUICK:-0}" -ne 1 ]; then
+    C_STATUS=pending
+    C_DETAIL="unconfirmed: the local origin/$def has no commits under $shown since tag $tag, but it may be behind GitHub; verify again"
+  else
+    C_STATUS=pass
+    C_DETAIL="current: $tag; $total commits on origin/$def since, none under $shown"
+  fi
+  if [ "$upto" != "$head" ]; then
+    C_DETAIL="$C_DETAIL; counted up to $(git -C "$path" rev-parse --short "$upto" 2>/dev/null), origin/$def when this ship started"
+    [ "$later" -eq 0 ] || C_DETAIL="$C_DETAIL; $later commit(s) under these paths merged since, not in this build: $fix"
+  fi
+  [ "$src" = origin ] || C_DETAIL="$C_DETAIL [$src]"
+}
+
+# desktop_app_probe <app> <plistbuddy> <codesign> <spctl> <requirement>: the program /bin/bash -s
+# runs on the Mac, here or over ssh. It prints "missing", or "version=<v>", "signature=ok|bad <why>"
+# (codesign --verify --deep --strict), "designated=<the app's designated requirement>",
+# "requirement=ok|bad <why>" (codesign --verify against <requirement>) and "gatekeeper=ok|bad <why>"
+# (spctl -a -t exec).
+desktop_app_probe() {
+  printf 'app=%q plistbuddy=%q codesign=%q spctl=%q requirement=%q\n' "$1" "$2" "$3" "$4" "$5"
+  cat <<'SH'
+if [ ! -d "$app" ]; then echo missing; exit 0; fi
+printf 'version=%s\n' "$("$plistbuddy" -c 'Print :CFBundleShortVersionString' "$app/Contents/Info.plist" 2>/dev/null)"
+if out="$("$codesign" --verify --deep --strict "$app" 2>&1)"; then echo signature=ok; else read -r first <<<"$out"; echo "signature=bad $first"; fi
+printf 'designated=%s\n' "$("$codesign" -d -r- "$app" 2>&1 | sed -n 's/^designated => //p')"
+if out="$("$codesign" --verify -R="$requirement" "$app" 2>&1)"; then echo requirement=ok; else read -r first <<<"$out"; echo "requirement=bad $first"; fi
+if out="$("$spctl" -a -t exec "$app" 2>&1)"; then echo gatekeeper=ok; else read -r first <<<"$out"; echo "gatekeeper=bad $first"; fi
+SH
+}
+
+# check_desktop_app: /Applications/SpecWithCode.app on one Mac is the released version and is the
+# release's build: it passes codesign --verify --deep --strict, carries and satisfies the designated
+# requirement the track's desktop_app.requirement names (only the release team's Developer ID
+# signature does; an ad hoc or other team's build of the same version does not), and Gatekeeper
+# accepts it (spctl -a -t exec). The same checks the desktop stage and the worker app update make.
+# "host" is "local" (this Mac, M4) or a fleet id such as m1, looked up in the inventory the track's
+# fleet section names ($STUDIO_FLEET_HOSTS or ~/.local/share/specweave/fleet/hosts.json:
+# {id: {host, user, home}}) and read over the pinned fleet ssh. The self-test overrides
+# RELEASE_DESKTOP_APP (the app's path on every Mac), RELEASE_SSH, RELEASE_PLISTBUDDY,
+# RELEASE_CODESIGN and RELEASE_SPCTL.
+# rollout_app_skip <host>: the reason this release's fleet rollout recorded for skipping <host>'s
+# desktop app step (a Connect-only rollout cannot reach the app; its own updater installs the
+# version when the app quits), or nothing. It reads fleet_rollout.py's last result line for
+# $VERSION from this ship's log (SHIP_LOG) or the track's last recorded log.
+rollout_app_skip() {
+  local id="$1" log_path="${SHIP_LOG:-}"
+  if [ -z "$log_path" ] && [ -s "$RELEASE_STATE" ]; then
+    log_path="$(jq -r --arg t "$TRACK" '.tracks[$t].log // empty' "$RELEASE_STATE" 2>/dev/null)" || log_path=""
+  fi
+  [ -n "$log_path" ] && [ -f "$log_path" ] || return 0
+  { grep -E '^\{"version": ?"' "$log_path" || true; } | jq -Rr --arg v "$VERSION" --arg id "$id" '
+    fromjson? | select(type == "object" and .version == $v and (.hosts | type) == "object" and (.hosts | has($id)))
+    | .hosts[$id].desktopApp // {} | if .result == "skipped" then (.reason // "skipped" | tostring) else "" end' 2>/dev/null |
+    tail -1 | cut -c1-120
+}
+
+check_desktop_app() {
+  local id app where inventory key known entry user host out rc=0 line last missing=0 version="" signature=""
+  local requirement designated="" satisfies="" gatekeeper=""
+  id="$(jq -r '.host // empty' <<<"$CHECK")"
+  app="${RELEASE_DESKTOP_APP:-/Applications/SpecWithCode.app}"
+  if [ -z "$VERSION" ]; then
+    C_STATUS=fail; C_DETAIL="no released version to compare $id's app with (give --version)"; return
+  fi
+  requirement="$(track_field "$TRACK" desktop_app | jq -r '.requirement // empty' 2>/dev/null)" || requirement=""
+  if [ -z "$requirement" ]; then
+    C_STATUS=fail; C_DETAIL="track $TRACK names no desktop_app.requirement, the designated requirement its app is signed with"; return
+  fi
+  local probe
+  probe="$(desktop_app_probe "$app" "${RELEASE_PLISTBUDDY:-/usr/libexec/PlistBuddy}" "${RELEASE_CODESIGN:-/usr/bin/codesign}" \
+    "${RELEASE_SPCTL:-/usr/sbin/spctl}" "$requirement")"
+  if [ "$id" = local ]; then
+    where="this Mac"
+    out="$(with_timeout 60 /bin/bash -s <<<"$probe" 2>&1)" || rc=$?
+  else
+    where="$id"
+    if ! [[ $id =~ ^[a-z0-9][a-z0-9_-]{0,31}$ ]]; then
+      C_STATUS=fail; C_DETAIL="host must be local or a fleet id such as m1, not '$id'"; return
+    fi
+    inventory="$(expand_home "${STUDIO_FLEET_HOSTS:-~/.local/share/specweave/fleet/hosts.json}")"
+    key="$(expand_home "$(track_field "$TRACK" fleet | jq -r '.ssh_key // empty' 2>/dev/null)")"
+    key="${key:-$HOME/.local/share/specweave/fleet/id_ed25519}"
+    known="$(dirname "$key")/known_hosts"
+    if [ ! -f "$inventory" ]; then
+      C_STATUS=fail; C_DETAIL="fleet inventory $inventory not found, so $id cannot be reached"; return
+    fi
+    entry="$(jq -r --arg id "$id" '.[$id] | select(type == "object") | "\(.user // "")\t\(.host // "")"' "$inventory" 2>/dev/null)" || entry=""
+    user="${entry%%$'\t'*}"
+    host="${entry#*$'\t'}"
+    if [ -z "$entry" ] || [ -z "$user" ] || [ -z "$host" ]; then
+      C_STATUS=fail; C_DETAIL="$id has no host and user in the fleet inventory $inventory"; return
+    fi
+    if ! [[ $user =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]*$ && $host =~ ^[A-Za-z0-9][A-Za-z0-9.:-]*$ ]]; then
+      C_STATUS=fail; C_DETAIL="$id's host or user in the fleet inventory is not a plain name"; return
+    fi
+    out="$(with_timeout 60 "${RELEASE_SSH:-/usr/bin/ssh}" -F /dev/null -i "$key" -o IdentitiesOnly=yes -o BatchMode=yes \
+      -o StrictHostKeyChecking=yes -o "UserKnownHostsFile=$known" -o ConnectTimeout=10 "$user@$host" /bin/bash -s \
+      <<<"$probe" 2>&1)" || rc=$?
+  fi
+  last="${out%$'\n'}"
+  last="${last##*$'\n'}"
+  local skipped=""
+  [ "$id" = local ] || skipped="$(rollout_app_skip "$id")"
+  if [ "$rc" -eq 255 ] && [ "$id" != local ]; then
+    if [ -n "$skipped" ]; then
+      C_STATUS=pending; C_DETAIL="pending: updates on quit (the rollout skipped $id's app: $skipped; not reachable over ssh to confirm)"; return
+    fi
+    C_STATUS=fail; C_DETAIL="$id unreachable over ssh: ${last:0:160}"; return
+  fi
+  if [ "$rc" -ne 0 ]; then
+    C_STATUS=fail; C_DETAIL="could not read the app on $where (exit $rc): ${last:0:160}"; return
+  fi
+  while IFS= read -r line; do
+    case "$line" in
+      missing) missing=1 ;;
+      version=*) version="${line#version=}" ;;
+      signature=*) signature="${line#signature=}" ;;
+      designated=*) designated="${line#designated=}" ;;
+      requirement=*) satisfies="${line#requirement=}" ;;
+      gatekeeper=*) gatekeeper="${line#gatekeeper=}" ;;
+    esac
+  done <<<"$out"
+  if [ "$missing" -eq 1 ]; then
+    C_STATUS=fail; C_DETAIL="no $app on $where"; return
+  fi
+  local older=0  # Only an app behind the release waits for its updater; a newer or odd version fails.
+  [ -z "$version" ] || [ "$version" = "$VERSION" ] ||
+    [ "$(printf '%s\n%s\n' "$version" "$VERSION" | sort -V | head -1)" != "$version" ] || older=1
+  if [ "$older" -eq 1 ] && [ -n "$skipped" ] && [ "$signature" = ok ]; then
+    C_STATUS=pending; C_DETAIL="pending: updates on quit (SpecWithCode.app on $where is $version; the rollout skipped its app: $skipped)"
+  elif [ "$version" != "$VERSION" ]; then
+    C_STATUS=fail; C_DETAIL="SpecWithCode.app on $where is ${version:-unreadable}, want $VERSION"
+  elif [ "$signature" != ok ]; then
+    C_STATUS=fail; C_DETAIL="SpecWithCode.app $version on $where fails codesign --verify --deep --strict: ${signature#bad }"
+  elif [ "$designated" != "$requirement" ] || [ "$satisfies" != ok ]; then
+    C_STATUS=fail
+    C_DETAIL="SpecWithCode.app $version on $where is not signed with the release's designated requirement (it has: ${designated:-none})"
+  elif [ "$gatekeeper" != ok ]; then
+    C_STATUS=fail; C_DETAIL="SpecWithCode.app $version on $where is not accepted by Gatekeeper (spctl -a -t exec): ${gatekeeper#bad }"
+  else
+    C_STATUS=pass; C_DETAIL="SpecWithCode.app $version, signed with the release's designated requirement, accepted by Gatekeeper"
+  fi
+}
+
+# resolve_version <track>: the version verify should expect.
+resolve_version() {
+  local track="$1" how repo slug def file
+  how="$(track_field "$track" expect_version)"
+  repo="$(track_field "$track" repo)"
+  slug="$(repo_field "$repo" slug)"
+  def="$(repo_field "$repo" default_branch)"
+  case "$how" in
+    default_branch_version)
+      file="$(repo_field "$repo" version_file)"
+      default_branch_version "$slug" "$def" "${file:-package.json}" ;;
+    latest_tag:*) latest_release_version "$slug" "${how#latest_tag:}" ;;
+    *) printf '\n' ;;
+  esac
+}
+
+# verify_track <track> <version or ''> <quick 0|1>: prints a JSON result.
+verify_track() {
+  TRACK="$1"
+  VERSION="$2"
+  local quick="$3" kind blocking results="$WORK/verify-$1.jsonl"
+  V_QUICK="$quick"
+  [ -n "$VERSION" ] || VERSION="$(resolve_version "$TRACK")"
+  : >"$results"
+  while IFS= read -r CHECK <&3; do
+    kind="$(jq -r '.kind' <<<"$CHECK")"
+    blocking="$(jq -r 'if .blocking == false then "false" else "true" end' <<<"$CHECK")"
+    C_STATUS=skip
+    C_DETAIL=""
+    if [ "$quick" -eq 1 ]; then
+      case "$kind" in gh_run|gh_release|wrangler_deployments|site_release) continue ;; esac
+    fi
+    case "$kind" in
+      npm_version) check_npm_version ;;
+      gh_release) check_gh_release ;;
+      http) check_http ;;
+      latest_json) check_latest_json ;;
+      download_latest) check_download_latest ;;
+      site_latest_link) check_site_latest_link ;;
+      site_release) check_site_release ;;
+      gh_run) check_gh_run ;;
+      wrangler_deployments) check_wrangler_deployments ;;
+      fleet_endpoint) check_fleet_endpoint ;;
+      fleet_connect) check_fleet_connect ;;
+      tag_drift) check_tag_drift ;;
+      desktop_app) check_desktop_app ;;
+      *) C_STATUS=fail; C_DETAIL="unknown check kind $kind" ;;
+    esac
+    emit "$(jq -r '.name' <<<"$CHECK")" "$kind" "$blocking" "$C_STATUS" "$C_DETAIL" >>"$results"
+  done 3< <(mf '.tracks[$t].verify // [] | .[] | tojson' --arg t "$TRACK")
+  jq -s --arg track "$TRACK" --arg version "$VERSION" '
+    {track: $track, version: $version, checks: .,
+     result: (if any(.[]; .blocking and .status == "fail") then "fail"
+              elif any(.[]; .blocking and .status == "pending") then "pending"
+              else "pass" end)}' "$results"
+}
+
+print_verify_table() {
+  jq -r '"\(.track) \(if .version == "" then "" else .version end): \(.result | ascii_upcase)",
+         (.checks[] | "  \(.status | ascii_upcase | .[0:4])\(if .blocking then "" else " (info)" end)  \(.name): \(.detail)")' "$1" >&2
+}
+
+result_code() {
+  case "$(jq -r '.result' "$1")" in pass) return 0 ;; pending) return 2 ;; *) return 1 ;; esac
+}
+
+cmd_verify() {
+  local target="" version="" track rc=0 one
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --version) version="${2:?}"; shift 2 ;;
+      -*) die "unknown option: $1" ;;
+      *) target="$1"; shift ;;
+    esac
+  done
+  [ -n "$target" ] || die "usage: release.sh verify <track|group> [--version X]"
+  local tracks
+  tracks="$(expand_tracks "$target")"
+  if [ -n "$version" ] && [ "$(printf '%s\n' "$tracks" | wc -l | tr -d ' ')" -gt 1 ]; then
+    die "--version applies to one track; $target has several"
+  fi
+  for track in $tracks; do
+    verify_track "$track" "$version" 0 >"$WORK/v-$track.json"
+    print_verify_table "$WORK/v-$track.json"
+    cat "$WORK/v-$track.json"
+    one=0
+    result_code "$WORK/v-$track.json" || one=$?
+    if [ "$one" -eq 1 ]; then rc=1; elif [ "$one" -eq 2 ] && [ "$rc" -eq 0 ]; then rc=2; fi
+  done
+  return "$rc"
+}
+
+# ---------------------------------------------------------------- status
+
+# unique_commits <repo path> <upstream> <branch>: how many commits of <branch>
+# have no patch-equivalent in <upstream>. Fails when git cherry fails (missing
+# ref, bad branch), so callers never mistake an error for "fully merged".
+# No `| grep -q` here: under pipefail an early grep exit can SIGPIPE git and
+# flip the result.
+unique_commits() {
+  local out
+  out="$(git -C "$1" cherry "$2" "$3" 2>/dev/null)" || return 1
+  printf '%s\n' "$out" | awk '/^\+/ { n++ } END { print n + 0 }'
+}
+
+# idle_minutes <worktree>: minutes since its HEAD, index or reflog last changed.
+idle_minutes() {
+  local gitdir
+  gitdir="$(git -C "$1" rev-parse --absolute-git-dir 2>/dev/null)" || return 1
+  python3 - "$1" "$gitdir" <<'PY'
+import os, sys, time
+wt, gitdir = sys.argv[1], sys.argv[2]
+paths = [wt] + [os.path.join(gitdir, name) for name in ('HEAD', 'index', os.path.join('logs', 'HEAD'))]
+times = [os.path.getmtime(path) for path in paths if os.path.exists(path)]
+if not times:
+    sys.exit(1)
+print(max(0, int((time.time() - max(times)) // 60)))
+PY
+}
+
+# worktree_rows <repo path>: "path|head|branch|locked" per worktree, main checkout first.
+worktree_rows() {
+  git -C "$1" worktree list --porcelain 2>/dev/null | awk '
+    /^worktree / { if (w != "") print w "|" h "|" b "|" l; w = substr($0, 10); h = ""; b = ""; l = "" }
+    /^HEAD / { h = $2 } /^branch / { b = substr($2, 12) } /^locked/ { l = "locked" }
+    END { if (w != "") print w "|" h "|" b "|" l }'
+}
+
+status_repo() {
+  local name="$1" out="$2" slug def path prefix vfile pkg
+  slug="$(repo_field "$name" slug)"
+  def="$(repo_field "$name" default_branch)"
+  path="$(repo_abs_path "$name")"
+  prefix="$(repo_field "$name" tag_prefix)"
+  vfile="$(repo_field "$name" version_file)"
+  pkg="$(repo_field "$name" npm_package)"
+  local branch="" dirty=0 ahead=0 behind=0 local_def="" wt_total=0 wt_merged=0 present=false
+  if [ -e "$path/.git" ]; then
+    present=true
+    if [ "$FETCH" -eq 1 ]; then
+      if ! git -C "$path" fetch -q origin "$def" 2>/dev/null; then log "warning: fetch failed in $path"; fi
+    fi
+    branch="$(git -C "$path" symbolic-ref --short -q HEAD 2>/dev/null)" || branch="(detached)"
+    dirty="$(GIT_OPTIONAL_LOCKS=0 git -C "$path" status --porcelain 2>/dev/null | wc -l | tr -d ' ')"
+    local_def="$(git -C "$path" rev-parse -q --verify "refs/remotes/origin/$def" 2>/dev/null)" || local_def=""
+    if [ -n "$local_def" ]; then
+      local counts
+      counts="$(git -C "$path" rev-list --left-right --count "origin/$def...HEAD" 2>/dev/null)" || counts="0 0"
+      behind="$(printf '%s\n' "$counts" | awk '{print $1}')"
+      ahead="$(printf '%s\n' "$counts" | awk '{print $2}')"
+      local wt_path wt_head wt_branch wt_locked wt_n=0 wt_unique
+      while IFS='|' read -r wt_path wt_head wt_branch wt_locked <&3; do
+        wt_n=$((wt_n + 1))
+        [ "$wt_n" -gt 1 ] || continue
+        wt_total=$((wt_total + 1))
+        if [ -n "$wt_branch" ] && wt_unique="$(unique_commits "$path" "origin/$def" "$wt_branch")" && [ "$wt_unique" -eq 0 ]; then
+          wt_merged=$((wt_merged + 1))
+        fi
+      done 3< <(worktree_rows "$path")
+    fi
+  fi
+  local remote_def prs ci latest="" unreleased="" pkg_version="" published=""
+  remote_def="$(gh api "repos/$slug/branches/$def" --jq '.commit.sha' 2>/dev/null)" || remote_def=""
+  prs="$(gh pr list -R "$slug" --state open -L 50 --json number,title,isDraft,headRefName,statusCheckRollup 2>/dev/null)" || prs="[]"
+  ci="$(gh run list -R "$slug" -b "$def" -L 40 --json workflowName,status,conclusion,databaseId,createdAt 2>/dev/null)" || ci="[]"
+  if [ -n "$prefix" ]; then
+    latest="$(latest_release_version "$slug" "$prefix")"
+    if [ -n "$latest" ]; then
+      unreleased="$(gh api "repos/$slug/compare/$prefix$latest...$def" --jq '.ahead_by' 2>/dev/null)" || unreleased=""
+    fi
+  fi
+  [ -z "$vfile" ] || pkg_version="$(default_branch_version "$slug" "$def" "$vfile")"
+  [ -z "$pkg" ] || published="$(npm view "$pkg" dist-tags.latest 2>/dev/null)" || published=""
+  local actions
+  actions="$(mf '.repos[] | select(.name == $n) | if .actions_enabled == false then "false" else "true" end' --arg n "$name")"
+  jq -n --arg name "$name" --argjson actions "$actions" --arg slug "$slug" --arg defbranch "$def" --arg path "$path" --argjson present "$present" \
+    --arg branch "$branch" --argjson dirty "${dirty:-0}" --argjson ahead "${ahead:-0}" --argjson behind "${behind:-0}" \
+    --arg local_def "$local_def" --arg remote_def "$remote_def" --argjson wt_total "$wt_total" --argjson wt_merged "$wt_merged" \
+    --argjson prs "$prs" --argjson ci "$ci" --argjson noise "$NOISE" --arg latest "$latest" --arg prefix "$prefix" \
+    --arg unreleased "$unreleased" --arg pkg_version "$pkg_version" --arg published "$published" '
+    def noisy: ascii_downcase as $n | ($noise | index($n)) != null;
+    def red: [.statusCheckRollup[]? | select(((.name // .context // "") | noisy) | not)
+              | select((.conclusion // .state // "") | IN("FAILURE", "ERROR", "TIMED_OUT", "CANCELLED", "STARTUP_FAILURE"))] | length > 0;
+    def pending: [.statusCheckRollup[]? | select((.status // "COMPLETED") != "COMPLETED" or (.state // "") == "PENDING")] | length > 0;
+    ($ci | group_by(.workflowName) | map(max_by(.createdAt))) as $latest_runs
+    | {name: $name, slug: $slug, default_branch: $defbranch, path: $path, local_checkout: $present, actions_enabled: $actions,
+       local: {branch: $branch, dirty_files: $dirty, ahead: $ahead, behind: $behind,
+               origin_ref_stale: ($local_def != "" and $remote_def != "" and $local_def != $remote_def),
+               worktrees: $wt_total, worktrees_merged_by_patch: $wt_merged},
+       open_prs: [$prs[] | {number, title, draft: .isDraft, branch: .headRefName,
+                            checks: (if red then "red" elif pending then "pending" else "green" end)}],
+       default_branch_ci: [$latest_runs[] | {workflow: .workflowName, status, conclusion, run_id: .databaseId,
+                                             noise: (.workflowName | noisy)}],
+       latest_tag: (if $latest == "" then null else $prefix + $latest end),
+       unreleased_commits: (if $unreleased == "" then null else ($unreleased | tonumber) end),
+       version_on_default_branch: (if $pkg_version == "" then null else $pkg_version end),
+       npm_latest: (if $published == "" then null else $published end)}' >"$out"
+}
+
+print_status_table() {
+  local file="$1"
+  {
+    printf '%-17s %-30s %-9s %-5s %-12s %-26s %-14s %-6s %-9s %-8s %s\n' REPO LOCAL-BRANCH BEHIND/AH DIRTY "PRS open/red" "DEFAULT-BRANCH CI" TAG UNREL VERSION NPM "WORKTREES merged/all"
+    jq -r '.repos[] |
+      [ .name,
+        (if .local_checkout then (.local.branch | .[0:30]) else "(no checkout)" end),
+        "\(.local.behind)/\(.local.ahead)\(if .local.origin_ref_stale then "*" else "" end)",
+        (.local.dirty_files | tostring),
+        "\(.open_prs | length)/\([.open_prs[] | select(.checks == "red")] | length)",
+        ([.default_branch_ci[] | select(.status == "completed" and .conclusion != "success" and .conclusion != "skipped" and (.noise | not))] as $bad
+          | [.default_branch_ci[] | select(.status != "completed")] as $run
+          | if (.actions_enabled | not) then "Actions disabled"
+            elif ($bad | length) > 0 then "red: " + ($bad | map(.workflow) | join(",")) | .[0:26]
+            elif ($run | length) > 0 then "running: \($run | length)"
+            else "ok (\(.default_branch_ci | length) workflows)" end),
+        (.latest_tag // "-"), ((.unreleased_commits // "-") | tostring), (.version_on_default_branch // "-"),
+        (.npm_latest // "-"), "\(.local.worktrees_merged_by_patch)/\(.local.worktrees)"
+      ] | @tsv' "$file" | awk -F'\t' '{ printf "%-17s %-30s %-9s %-5s %-12s %-26s %-14s %-6s %-9s %-8s %s\n", $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11 }'
+    printf '\n%-16s %-9s %-8s %s\n' TRACK EXPECTED LIVE DETAIL
+    jq -r '.tracks[] | [.track, (if .version == "" then "-" else .version end), .result,
+      ([.checks[] | select(.status != "pass")] | if length == 0 then "all live checks pass"
+       else map("\(.name): \(.detail)") | join("; ") end)] | @tsv' "$file" |
+      awk -F'\t' '{ printf "%-16s %-9s %-8s %s\n", $1, $2, $3, substr($4, 1, 160) }'
+    jq -r '.tracks[] | .track as $t | .checks[] | select(.kind == "tag_drift")
+      | "drift \($t): \(.status | ascii_upcase) \(.detail)"' "$file"
+    printf '(* local origin ref is behind GitHub; run status --fetch for exact counts. Without --fetch the drift rows read local refs)\n'
+  } >&2
+}
+
+render_run_state() {
+  if [ ! -s "$RELEASE_STATE" ]; then
+    log "no release run recorded in $RELEASE_STATE"
+    return 0
+  fi
+  jq -r '"release run started \(.started_at), updated \(.updated_at)",
+         (.tracks | to_entries[] | "  \(.key): \(.value.phase) since \(.value.phase_started_at)\(if (.value.waiting_on // "") != "" then ", waiting on \(.value.waiting_on)" else "" end)\(if .value.result then ", result \(.value.result)" else "" end)\(if .value.log then " (log \(.value.log))" else "" end)")' "$RELEASE_STATE" >&2
+  cat "$RELEASE_STATE"
+}
+
+cmd_status() {
+  FETCH=0
+  local run=0 name track pids=""
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --fetch) FETCH=1; shift ;;
+      --run) run=1; shift ;;
+      *) die "unknown option: $1" ;;
+    esac
+  done
+  if [ "$run" -eq 1 ]; then
+    render_run_state
+    return 0
+  fi
+  require_tools gh jq git npm curl
+  NOISE="$(noise_checks | jq -R 'ascii_downcase' | jq -s .)"
+  mkdir -p "$WORK/status"
+  for name in $(mf '.repos[].name'); do
+    status_repo "$name" "$WORK/status/repo-$name.json" &
+    pids="$pids $!"
+  done
+  for track in $(mf '.groups.all[]'); do
+    verify_track "$track" "" 1 >"$WORK/status/track-$track.json" &
+    pids="$pids $!"
+  done
+  local pid failed=0
+  for pid in $pids; do
+    wait "$pid" || failed=1
+  done
+  [ "$failed" -eq 0 ] || log "warning: some status probes failed; their entries may be missing"
+  jq -n --arg at "$(now_iso)" \
+    --slurpfile repos <(for n in $(mf '.repos[].name'); do cat "$WORK/status/repo-$n.json" 2>/dev/null; done) \
+    --slurpfile tracks <(for t in $(mf '.groups.all[]'); do cat "$WORK/status/track-$t.json" 2>/dev/null; done) \
+    '{generated_at: $at, repos: $repos, tracks: $tracks}' >"$WORK/status.json"
+  print_status_table "$WORK/status.json"
+  cat "$WORK/status.json"
+}
+
+# ---------------------------------------------------------------- cleanup
+
+# Finder can write .DS_Store into folders while `git worktree remove` deletes them.
+# Git has then checked the worktree clean, deleted part of it and deregistered it
+# anyway ("no going back from here" in git's remove_worktree), and the next
+# release's trees stage refuses the leftover as "not a git work tree".
+# Finish only when git can list worktrees and no longer lists this one, and either
+# git reported that it failed while deleting this very folder (so it had passed
+# its clean check and was deleting everything in it), or only .DS_Store files are
+# left. Any doubt keeps the folder.
+finish_worktree_removal() {
+  local path="$1" wt="$2" err="${3:-}" i listed left trash
+  FINISH_REMOVAL_NOTE=""
+  # Read the list whole (not piped into grep -q, which pipefail turns into a skip).
+  listed="$(git -C "$path" worktree list --porcelain 2>/dev/null)" || return 1
+  grep -qxF "worktree $wt" <<<"$listed" && return 1
+  [ -e "$wt" ] || return 0
+  if [ -n "$err" ] && [ -f "$err" ] && grep -qF "failed to delete '$wt'" "$err"; then
+    # Move what git left out of the way first, so the retries below can only
+    # delete that and never a worktree or folder made at this path meanwhile.
+    trash="$(dirname "$wt")/.$(basename "$wt").removing-$$"
+    [ -e "$trash" ] && return 1
+    mv "$wt" "$trash" 2>/dev/null || return 1
+    for i in 1 2 3 4 5; do
+      rm -rf "$trash" 2>/dev/null || true
+      [ -e "$trash" ] || return 0
+      sleep 1
+    done
+    FINISH_REMOVAL_NOTE="git's leftover could not be deleted and is at $trash; remove it by hand"
+    return 1
+  fi
+  for i in 1 2 3; do
+    [ -e "$wt" ] || return 0
+    # A find that cannot read part of the folder fails, and the folder is kept.
+    left="$(find "$wt" -mindepth 1 ! -type d ! -name .DS_Store -print -quit 2>/dev/null)" || return 1
+    [ -z "$left" ] || return 1
+    find "$wt" -mindepth 1 -type f -name .DS_Store -delete 2>/dev/null || return 1
+    find "$wt" -depth -type d -empty -delete 2>/dev/null || true
+    [ -e "$wt" ] || return 0
+    sleep 1
+  done
+  return 1
+}
+
+real_path() { python3 -c 'import os, sys; print(os.path.realpath(os.path.expanduser(sys.argv[1])))' "$1"; }
+
+# studio_has_owners_cmd: true when this specweave-studio has `worktree owners`.
+# An unknown subcommand is taken as the server's <cwd> argument and would start
+# a server, so read the help text instead of trying the command. No `grep -q`
+# under pipefail (see unique_commits).
+studio_has_owners_cmd() {
+  local help
+  help="$(with_timeout 30 specweave-studio --help 2>/dev/null)" || return 1
+  printf '%s\n' "$help" | awk '/^ +worktree( |$)/ { f = 1 } END { exit !f }' || return 1
+  help="$(with_timeout 30 specweave-studio worktree --help 2>/dev/null)" || return 1
+  printf '%s\n' "$help" | awk '/^ +owners( |$)/ { f = 1 } END { exit !f }'
+}
+
+# What cleanup must not remove, as one read-only query per SpecWithCode home:
+# thread folders and branches (k=thread), project roots (k=project) and the
+# folders of agent sessions that are not stopped (k=session). This matches the
+# app's own removal guard (apps/server/src/git/worktreeRemovalSafety.ts).
+THREAD_BINDINGS_SQL="SELECT 'thread' AS k, json_extract(payload_json,'\$.worktreePath') AS p, json_extract(payload_json,'\$.branch') AS b, archived_at IS NOT NULL AS archived FROM orchestration_v2_projection_threads WHERE deleted_at IS NULL AND (json_extract(payload_json,'\$.worktreePath') IS NOT NULL OR json_extract(payload_json,'\$.branch') IS NOT NULL) UNION ALL SELECT 'project', workspace_root, NULL, 0 FROM projection_projects WHERE deleted_at IS NULL UNION ALL SELECT 'session', json_extract(payload_json,'\$.cwd'), NULL, 0 FROM orchestration_v2_projection_provider_sessions WHERE status != 'stopped' AND json_extract(payload_json,'\$.cwd') IS NOT NULL"
+
+# studio_homes: the SpecWithCode homes on this machine that have a database:
+# ~/.specwithcode itself, each ~/.specwithcode/<id>, and $STUDIO_HOME. It only
+# checks that the database file exists; it never opens it.
+studio_homes() {
+  local home
+  {
+    for home in "$SW_HOME_REAL" "$SW_HOME_REAL"/*/ ${STUDIO_HOME:+"$STUDIO_HOME"}; do
+      if [ -e "$home/userdata/statev2.sqlite" ]; then real_path "$home"; fi
+    done
+  } | awk '!seen[$0]++'
+}
+
+# load_thread_bindings: read what SpecWithCode still uses, through the read-only
+# specweave-studio CLI (never the database file), into fresh files:
+# $BOUND_PATHS     real paths of folders that non-deleted, non-archived threads use;
+# $HELD_PATHS      project roots and the folders of running agent sessions;
+# $BOUND_BRANCHES  branches that any non-deleted thread records.
+# $QUERIED_HOMES lists the homes that were read. Sets BINDINGS_OK=1 only when
+# every home was read; otherwise cleanup keeps what it cannot check. Each call
+# uses its own folder, since `ship` runs one cleanup per repo in parallel.
+load_thread_bindings() {
+  BINDINGS_OK=0
+  BINDINGS_SOURCE=""
+  QUERIED_HOMES=""
+  local dir
+  dir="$(mktemp -d "$WORK/bindings.XXXXXX")"
+  BOUND_PATHS="$dir/bound-paths"
+  HELD_PATHS="$dir/held-paths"
+  BOUND_BRANCHES="$dir/bound-branches"
+  : >"$BOUND_PATHS"
+  : >"$HELD_PATHS"
+  : >"$BOUND_BRANCHES"
+  command -v specweave-studio >/dev/null 2>&1 || return 0
+  local homes home n=0
+  homes="$(studio_homes)"
+  if [ -z "$homes" ]; then
+    # No home with a database: ask the CLI's default home.
+    with_timeout 60 specweave-studio db query "$THREAD_BINDINGS_SQL" >"$dir/db.raw" 2>/dev/null &&
+      parse_thread_bindings db "$dir/db.raw" || return 0
+  else
+    while IFS= read -r home <&4; do
+      n=$((n + 1))
+      with_timeout 60 specweave-studio db query --base-dir "$home" "$THREAD_BINDINGS_SQL" </dev/null >"$dir/db-$n.raw" 2>/dev/null &&
+        parse_thread_bindings db "$dir/db-$n.raw" || return 0
+      QUERIED_HOMES="$QUERIED_HOMES$home"$'\n'
+    done 4<<<"$homes"
+  fi
+  BINDINGS_SOURCE="db query ($([ "$n" -gt 0 ] && printf '%s homes' "$n" || printf 'default home'))"
+  # `worktree owners` (when this CLI has it) only adds folders; branches,
+  # projects and sessions always come from the db query above.
+  if studio_has_owners_cmd; then
+    if with_timeout 60 specweave-studio worktree owners --json >"$dir/owners.raw" 2>/dev/null &&
+      parse_thread_bindings owners "$dir/owners.raw"; then
+      BINDINGS_SOURCE="$BINDINGS_SOURCE and worktree owners"
+    else
+      log "cleanup: warning: specweave-studio worktree owners gave output cleanup cannot read; using the db query only"
+    fi
+  fi
+  BINDINGS_OK=1
+}
+
+# parse_thread_bindings db|owners <raw file>: add the rows of one read to
+# $BOUND_PATHS, $HELD_PATHS and $BOUND_BRANCHES. db: JSON lines with the columns
+# k, p, b, archived of THREAD_BINDINGS_SQL. owners: a JSON array (or {"owners": [...]})
+# of rows that each name a folder. Fails, adding nothing, on any row it does not
+# understand, and on an owners list with no rows.
+parse_thread_bindings() {
+  python3 - "$1" "$2" "$BOUND_PATHS" "$HELD_PATHS" "$BOUND_BRANCHES" <<'PY'
+import json, os, sys
+mode, raw, bound_out, held_out, branches_out = sys.argv[1:6]
+text = open(raw, encoding='utf-8').read().strip()
+try:
+    if mode == 'db':
+        rows = [json.loads(line) for line in text.splitlines() if line.strip()]
+    else:
+        doc = json.loads(text) if text else None
+        rows = doc.get('owners') if isinstance(doc, dict) else doc
+except ValueError:
+    sys.exit(1)
+if not isinstance(rows, list) or (mode == 'owners' and not rows):
+    sys.exit(1)
+def flag(row, *keys):
+    return any(row.get(k) not in (None, False, 0, '', '0', 'false') for k in keys)
+def canon(path):
+    if not isinstance(path, str) or not path:
+        return None
+    path = os.path.expanduser(path)
+    return os.path.realpath(path) if os.path.isabs(path) else None
+def branch_name(b):
+    if b is None:
+        return None
+    if not isinstance(b, str):
+        sys.exit(1)
+    return b[len('refs/heads/'):] if b.startswith('refs/heads/') else b or None
+bound, held, branches = [], [], []
+for row in rows:
+    if not isinstance(row, dict):
+        sys.exit(1)
+    if mode == 'db':
+        if not {'k', 'p', 'b', 'archived'} <= row.keys() or row['k'] not in ('thread', 'project', 'session'):
+            sys.exit(1)
+        path = canon(row['p'])
+        if row['k'] == 'thread':
+            if path and not flag(row, 'archived'):
+                bound.append(path)
+            branch = branch_name(row['b'])
+            if branch:
+                branches.append(branch)
+        elif path:
+            held.append(path)
+        elif row['p'] is not None:
+            sys.exit(1)
+    else:
+        key = next((k for k in ('worktreePath', 'realPath', 'path') if k in row), None)
+        if key is None:
+            sys.exit(1)
+        if flag(row, 'deleted', 'deletedAt', 'deleted_at', 'archived', 'archivedAt', 'archived_at'):
+            continue
+        path = canon(row[key])
+        if path is None:
+            sys.exit(1)
+        bound.append(path)
+        branch = branch_name(row.get('branch'))
+        if branch:
+            branches.append(branch)
+for out, items in ((bound_out, bound), (held_out, held), (branches_out, branches)):
+    with open(out, 'a', encoding='utf-8') as f:
+        f.writelines(i + '\n' for i in items)
+PY
+}
+
+# path_bound <real path>: true when it equals, sits inside, or contains a folder
+# an open thread uses. The path goes through the environment, since awk -v
+# would rewrite backslashes in it.
+path_bound() {
+  W="$1" awk '
+    function under(a, b) { return a == b || index(a, (b == "/" ? "" : b) "/") == 1 }
+    BEGIN { w = ENVIRON["W"] }
+    $0 == "" { next }
+    under(w, $0) || under($0, w) { found = 1; exit }
+    END { exit !found }' "$BOUND_PATHS"
+}
+
+# path_holds <real path>: true when a project root or a running agent session's
+# folder equals it or sits inside it.
+path_holds() {
+  W="$1" awk '
+    function under(a, b) { return a == b || index(a, (b == "/" ? "" : b) "/") == 1 }
+    BEGIN { w = ENVIRON["W"] }
+    $0 == "" { next }
+    under($0, w) { found = 1; exit }
+    END { exit !found }' "$HELD_PATHS"
+}
+
+# managed_home <real path>: the SpecWithCode home whose worktrees or scratch
+# folder holds this path (~/.specwithcode or ~/.specwithcode/<id>), if any.
+managed_home() {
+  local rest="${1#"$SW_HOME_REAL"/}" first second
+  [ "$rest" != "$1" ] || return 1
+  first="${rest%%/*}"
+  rest="${rest#*/}"
+  [ "$rest" != "$first" ] && [ -n "$rest" ] || return 1
+  case "$first" in worktrees|scratch) printf '%s' "$SW_HOME_REAL"; return 0 ;; esac
+  second="${rest%%/*}"
+  rest="${rest#*/}"
+  [ "$rest" != "$second" ] && [ -n "$rest" ] || return 1
+  case "$second" in worktrees|scratch) printf '%s/%s' "$SW_HOME_REAL" "$first"; return 0 ;; esac
+  return 1
+}
+
+# folder_keep_reason <real path>: why cleanup must keep this worktree folder, or
+# fail when nothing SpecWithCode records stops its removal.
+folder_keep_reason() {
+  local home
+  if [ "$BINDINGS_OK" -eq 1 ] && path_bound "$1"; then printf 'bound to a SpecWithCode thread'
+  elif [ "$BINDINGS_OK" -eq 1 ] && path_holds "$1"; then printf 'a SpecWithCode project or running agent session uses it'
+  elif home="$(managed_home "$1")" && { [ "$BINDINGS_OK" -ne 1 ] || ! printf '%s' "$QUERIED_HOMES" | H="$home" awk '$0 == ENVIRON["H"] { f = 1 } END { exit !f }'; }; then
+    printf 'thread bindings unavailable'
+  else
+    return 1
+  fi
+}
+
+# branch_keep_reason <branch>: why cleanup must keep this branch, or nothing.
+branch_keep_reason() {
+  if [ "$BINDINGS_OK" -ne 1 ]; then printf 'thread bindings unavailable'
+  elif B="$1" awk '$0 == ENVIRON["B"] { f = 1 } END { exit !f }' "$BOUND_BRANCHES"; then printf 'a SpecWithCode thread records it'
+  fi
+}
+
+# cmd_cleanup also keeps any worktree a SpecWithCode thread uses and any branch a
+# thread records, so the app can still open or restore that thread. Branches go
+# only through `git branch -d`, which refuses one that is not merged.
+cmd_cleanup() {
+  local track="" apply=0
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --apply) apply=1; shift ;;
+      -*) die "unknown option: $1" ;;
+      *) track="$1"; shift ;;
+    esac
+  done
+  [ -n "$track" ] && track_exists "$track" || die "usage: release.sh cleanup <track> [--apply] (a single track)"
+  local gate_file="$WORK/gate-$track.json"
+  verify_track "$track" "" 0 >"$gate_file"
+  print_verify_table "$gate_file"
+  local gate=0
+  result_code "$gate_file" || gate=$?
+  if [ "$gate" -ne 0 ]; then
+    log "cleanup $track: refused, verify is $(jq -r .result "$gate_file"); nothing was touched"
+    return "$gate"
+  fi
+  local repo path slug def
+  repo="$(track_field "$track" repo)"
+  path="$(repo_abs_path "$repo")"
+  slug="$(repo_field "$repo" slug)"
+  def="$(repo_field "$repo" default_branch)"
+  [ -e "$path/.git" ] || die "no checkout at $path"
+  git -C "$path" rev-parse -q --verify "refs/remotes/origin/$def" >/dev/null ||
+    die "no origin/$def ref in $path; fetch it first (cleanup compares every branch against it)"
+  local globs idle_min
+  globs="$(mf '.cleanup.protected_globs[]')"
+  [ -n "$globs" ] || die "manifest has no cleanup.protected_globs"
+  idle_min="$(mf '.cleanup.min_idle_minutes // 30')"
+  case "$idle_min" in ''|*[!0-9]*) die "cleanup.min_idle_minutes must be whole minutes" ;; esac
+  local out="$WORK/cleanup-$track.jsonl" err="$WORK/wt-$track.err"
+  : >"$out"
+  SW_HOME_REAL="$(real_path "$HOME/.specwithcode")"
+  load_thread_bindings
+  if [ "$BINDINGS_OK" -eq 1 ]; then
+    log "cleanup $track: thread bindings from specweave-studio $BINDINGS_SOURCE ($(sort -u "$BOUND_PATHS" | wc -l | tr -d ' ') thread folders, $(sort -u "$HELD_PATHS" | wc -l | tr -d ' ') project and session folders, $(sort -u "$BOUND_BRANCHES" | wc -l | tr -d ' ') branches)"
+  else
+    log "cleanup $track: warning: thread bindings unavailable; keeping SpecWithCode worktree and scratch folders and every branch"
+  fi
+  local wt head branch locked n=0 rc=0
+  while IFS='|' read -r wt head branch locked <&3; do
+    n=$((n + 1))
+    [ "$n" -gt 1 ] || continue
+    local action=keep reason="" base glob protected=0 wt_status="" idle="" unique="" wt_real branch_keep="" folder_keep=""
+    base="$(basename "$wt")"
+    wt_real="$(real_path "$wt")"
+    while IFS= read -r glob; do
+      # shellcheck disable=SC2254
+      case "$base" in $glob) protected=1 ;; esac
+    done <<<"$globs"
+    if [ "$protected" -eq 1 ]; then reason="protected (in-flight release pattern)"
+    elif [ -n "$locked" ]; then reason="locked"
+    elif [ -z "$branch" ]; then reason="detached HEAD"
+    elif [ ! -d "$wt" ]; then reason="missing directory (git worktree prune handles it)"
+    elif folder_keep="$(folder_keep_reason "$wt_real")"; then reason="$folder_keep"
+    elif ! wt_status="$(GIT_OPTIONAL_LOCKS=0 git -C "$wt" status --porcelain 2>/dev/null)"; then reason="git status failed"
+    elif [ -n "$wt_status" ]; then reason="uncommitted changes"
+    elif ! idle="$(idle_minutes "$wt")"; then reason="cannot read worktree activity"
+    elif [ "$idle" -lt "$idle_min" ]; then reason="active ${idle} min ago (kept under ${idle_min} min idle)"
+    elif ! unique="$(unique_commits "$path" "origin/$def" "$branch")"; then reason="git cherry failed"
+    elif [ "$unique" -eq 0 ]; then
+      action=remove; reason="no commits outside origin/$def"
+    else
+      local merged_tip
+      merged_tip="$(gh pr list -R "$slug" --head "$branch" --state merged -L 5 --json headRefOid --jq '.[].headRefOid' 2>/dev/null | grep -x "$head" | head -1)" || merged_tip=""
+      if [ -n "$merged_tip" ]; then action=remove; reason="PR merged at this exact tip"
+      else reason="unmerged commits"
+      fi
+    fi
+    # The checks above can take minutes (git cherry, gh), so read the bindings
+    # again right before removing: a thread may have opened this folder since.
+    if [ "$action" = remove ] && [ "$apply" -eq 1 ] && [ "$BINDINGS_OK" -eq 1 ]; then
+      load_thread_bindings
+      if [ "$BINDINGS_OK" -ne 1 ]; then
+        action=keep; reason="thread bindings unavailable on the second read"
+      elif folder_keep="$(folder_keep_reason "$wt_real")"; then
+        action=keep; reason="$folder_keep"
+      fi
+    fi
+    if [ "$action" = remove ]; then
+      branch_keep="$(branch_keep_reason "$branch")"
+      [ "$apply" -eq 1 ] || [ -z "$branch_keep" ] || reason="$reason; branch $branch will be kept: $branch_keep"
+    fi
+    if [ "$action" = remove ] && [ "$apply" -eq 1 ]; then
+      # LC_ALL=C: finish_worktree_removal reads git's English "failed to delete" message.
+      if LC_ALL=C git -C "$path" worktree remove "$wt" 2>"$err" || finish_worktree_removal "$path" "$wt" "$err"; then
+        if [ -n "$branch_keep" ]; then
+          action=removed-worktree; reason="$reason; branch $branch kept: $branch_keep"
+        elif git -C "$path" branch -d "$branch" >/dev/null 2>&1; then
+          action=removed
+        else
+          action=removed-worktree; reason="$reason; branch $branch kept: git branch -d refused (not merged locally)"
+        fi
+      else
+        action=keep; reason="git worktree remove refused: $(tail -1 "$err")${FINISH_REMOVAL_NOTE:+; $FINISH_REMOVAL_NOTE}"; rc=1
+      fi
+    fi
+    jq -cn --arg path "$wt" --arg branch "$branch" --arg action "$action" --arg reason "$reason" \
+      '{path: $path, branch: $branch, action: $action, reason: $reason}' >>"$out"
+  done 3< <(worktree_rows "$path")
+  jq -r '"\(.action)\t\(.branch)\t\(.path)\t\(.reason)"' "$out" |
+    awk -F'\t' '{ printf "%-16s %-40s %s (%s)\n", $1, substr($2, 1, 40), $3, $4 }' >&2
+  log "cleanup $track: $(jq -s '[.[] | select(.action | startswith("remov"))] | length' "$out") to remove of $((n - 1)) worktrees$([ "$apply" -eq 1 ] || printf ' (dry run; pass --apply)')"
+  jq -s --arg track "$track" --argjson applied "$([ "$apply" -eq 1 ] && echo true || echo false)" \
+    '{track: $track, applied: $applied, worktrees: .}' "$out"
+  return "$rc"
+}
+
+# ---------------------------------------------------------------- ship
+
+# script_tree <repo> <checkout>: where a track whose manifest says "run_script_from": "origin" runs
+# its release script. The local checkout can sit hundreds of commits off origin (studio's did on
+# 2026-10-19), and a stale release.sh published 1.0.52 in the old stage order: the fleet waited on a
+# release only the private feed had, so no host updated. This keeps one detached tree per repo at
+# origin/<default>, synced before every run; the checkout itself is never touched.
+script_tree() {
+  local repo="$1" checkout="$2" def tree
+  def="$(repo_field "$repo" default_branch)"
+  def="${def:-main}"
+  tree="${RELEASE_SCRIPT_TREES:-$HOME/.specwithcode/release-scripts.noindex}/release-script-$repo"
+  git -C "$checkout" fetch --quiet origin "$def" >&2 || die "$repo: cannot fetch origin/$def for its release script"
+  if [ -e "$tree/.git" ]; then
+    git -C "$tree" checkout --quiet --detach --force "origin/$def" >&2 ||
+      die "$repo: cannot move $tree to origin/$def"
+  else
+    mkdir -p "$(dirname "$tree")"
+    git -C "$checkout" worktree add --quiet --detach --force "$tree" "origin/$def" >&2 ||
+      die "$repo: cannot create the release script tree $tree"
+  fi
+  log "[$repo] release script from origin/$def at $(git -C "$tree" rev-parse --short HEAD) ($tree)"
+  printf '%s\n' "$tree"
+}
+
+ship_track() {
+  local track="$1" dry="$2" plan="$3"
+  shift 3
+  local repo path script_rel log_dir log_file start rc=0 arg
+  repo="$(track_field "$track" repo)"
+  path="$(repo_abs_path "$repo")"
+  if [ "$(track_field "$track" run_script_from)" = origin ] && [ "$plan" -eq 0 ]; then
+    path="$(script_tree "$repo" "$path")" || exit 1
+  fi
+  local cmd=()
+  while IFS= read -r arg; do cmd+=("$arg"); done < <(mf '.tracks[$t].release[]' --arg t "$track")
+  [ ${#cmd[@]} -ge 2 ] || die "track $track has no release command"
+  script_rel="${cmd[1]}"
+  local args=()
+  if [ $# -gt 0 ]; then
+    args=("$@")
+  else
+    while IFS= read -r arg; do
+      if [ "$arg" = "{next_patch}" ]; then
+        local prefix latest
+        prefix="$(repo_field "$repo" tag_prefix)"
+        latest="$(latest_release_version "$(repo_field "$repo" slug)" "$prefix")"
+        [ -n "$latest" ] || die "$track: cannot find the latest $prefix tag to compute the next version; pass it after --"
+        arg="$(next_patch "$latest")"
+      fi
+      args+=("$arg")
+    done < <(mf '.tracks[$t].default_args // [] | .[]' --arg t "$track")
+  fi
+  local dry_flag="" no_dry=0
+  if [ "$dry" -eq 1 ]; then
+    dry_flag="$(track_field "$track" dry_run_flag)"
+    [ -n "$dry_flag" ] || die "$track: the manifest names no dry_run_flag, so it cannot be dry-run"
+    args+=("$dry_flag")
+    # An older script that does not parse the flag would take it as a positional
+    # argument and run for real, so refuse unless the script mentions it.
+    if [ -f "$path/$script_rel" ] && ! grep -qF -- "$dry_flag" "$path/$script_rel"; then no_dry=1; fi
+  fi
+  local shown="${cmd[*]}${args[*]+ ${args[*]}}"
+  if [ "$plan" -eq 1 ]; then
+    if [ ! -f "$path/$script_rel" ]; then
+      printf '[%s] would run: (cd %s && %s), but %s is missing there: merge its 0925 branch first\n' "$track" "$path" "$shown" "$script_rel"
+    elif [ "$no_dry" -eq 1 ]; then
+      printf '[%s] would refuse: %s in %s has no %s option, so a dry run would run for real\n' "$track" "$script_rel" "$path" "$dry_flag"
+    elif [ "$dry" -eq 1 ]; then
+      printf '[%s] would run: (cd %s && %s); a dry run skips verify and cleanup\n' "$track" "$path" "$shown"
+    else
+      printf '[%s] would run: (cd %s && %s), then verify %s and cleanup %s --apply\n' "$track" "$path" "$shown" "$track" "$track"
+    fi
+    return 0
+  fi
+  [ -f "$path/$script_rel" ] || die "$track: $path/$script_rel does not exist; merge the branch that adds it first"
+  [ "$no_dry" -eq 0 ] || die "$track: $script_rel has no $dry_flag option; refusing a dry run that would run for real (merge its 0925 branch first)"
+  log_dir="$(dirname "$RELEASE_STATE")/release-logs"
+  mkdir -p "$log_dir"
+  log_file="$log_dir/$track-$(date -u +%Y%m%dT%H%M%SZ).log"
+  # The tag_drift check of this ship's verify (and of its cleanup gate) counts
+  # up to origin/<default> as it is now, before the release script tags it, so
+  # a PR merged during the build does not fail this release (dynamic scope).
+  local DRIFT_SHIP_HEAD=""
+  local SHIP_LOG="$log_file"  # verify's desktop_app checks read the rollout's app-step results here.
+  if [ "$dry" -eq 0 ] && [ "$(mf '[.tracks[$t].verify // [] | .[] | select(.kind == "tag_drift")] | length' --arg t "$track")" -gt 0 ]; then
+    local def0 src0
+    def0="$(repo_field "$repo" default_branch)"
+    src0="$(repo_abs_path "$repo")"
+    DRIFT_SHIP_HEAD="$(with_timeout 60 git -C "$src0" ls-remote origin "refs/heads/${def0:-main}" 2>/dev/null | awk 'NR == 1 { print $1 }')" || DRIFT_SHIP_HEAD=""
+    [ -n "$DRIFT_SHIP_HEAD" ] || log "[$track] warning: cannot read origin/${def0:-main}; the drift check after this ship compares with the live branch"
+  fi
+  state_set "$track" ship "" "$log_file"
+  log "[$track] $shown (log $log_file)"
+  start="$(now_epoch)"
+  (cd "$path" && RELEASE_TRACK="$track" "${cmd[@]}" ${args[@]+"${args[@]}"}) 2>&1 | tee -a "$log_file" | sed "s/^/[$track] /" || rc=$?
+  local seconds=$(( $(now_epoch) - start ))
+  if [ "$dry" -eq 0 ]; then
+    if ! python3 "$TIMING_PY" record --repo "$(repo_field "$repo" slug)" --workflow "release.sh" --step "ship $track" \
+      --seconds "$seconds" --kind phase --conclusion "$([ "$rc" -eq 0 ] && echo success || echo failure)" >/dev/null; then
+      log "warning: timing record for ship $track failed"
+    fi
+  fi
+  if [ "$rc" -ne 0 ]; then
+    state_set "$track" failed "" "" "release script exited $rc after ${seconds}s"
+    log "[$track] FAILED after ${seconds}s; see $log_file"
+    local gate
+    while IFS= read -r gate; do [ -z "$gate" ] || log "[$track] manual gate: $gate"; done < <(mf '.tracks[$t].manual_gates // [] | .[]' --arg t "$track")
+    return 1
+  fi
+  if [ "$dry" -eq 1 ]; then
+    state_set "$track" done "" "" "dry run ok in ${seconds}s"
+    return 0
+  fi
+  state_set "$track" verify
+  verify_track "$track" "" 0 >"$WORK/ship-verify-$track.json"
+  print_verify_table "$WORK/ship-verify-$track.json" 2>&1 | tee -a "$log_file" >&2
+  local vr=0
+  result_code "$WORK/ship-verify-$track.json" || vr=$?
+  if [ "$vr" -eq 2 ]; then
+    state_set "$track" verify-pending "" "" "shipped; verify pending"
+    log "[$track] shipped; verify still pending. Re-run: release.sh verify $track, then release.sh cleanup $track --apply"
+    return 2
+  elif [ "$vr" -ne 0 ]; then
+    state_set "$track" failed "" "" "shipped but verify failed"
+    return 1
+  fi
+  state_set "$track" cleanup
+  # A subshell, so a cleanup that dies cannot turn a shipped, verified track
+  # into a failed one.
+  local cleaned="cleaned up"
+  if ! (cmd_cleanup "$track" --apply) >"$WORK/ship-cleanup-$track.json"; then
+    cleaned="cleanup reported a problem (release.sh cleanup $track)"
+    log "[$track] cleanup reported a problem; see release.sh cleanup $track"
+  fi
+  state_set "$track" done "" "" "shipped and verified, $cleaned, in $(( $(now_epoch) - start ))s"
+  return 0
+}
+
+cmd_ship() {
+  local target="" dry=0 plan=0 extra=()
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --dry-run) dry=1; shift ;;
+      --plan) plan=1; shift ;;
+      --) shift; extra=("$@"); break ;;
+      -*) die "unknown option: $1" ;;
+      *) [ -z "$target" ] || die "one track or group at a time"; target="$1"; shift ;;
+    esac
+  done
+  [ -n "$target" ] || die "usage: release.sh ship <track|group> [--dry-run] [--plan] [-- args]"
+  [ "$(mf '.policy.release')" = "true" ] || die "manifest policy.release is not true"
+  local tracks
+  tracks="$(expand_tracks "$target")"
+  if [ ${#extra[@]} -gt 0 ] && [ "$(printf '%s\n' "$tracks" | wc -l | tr -d ' ')" -gt 1 ]; then
+    die "track script args after -- need a single track"
+  fi
+  if [ "$target" = "all" ] && [ "$plan" -eq 0 ]; then
+    cmd_status >"$WORK/pre-status.json"
+  fi
+  # One pipeline per repo, run in parallel; tracks sharing a repo run in order.
+  # A track whose verify is still pending (exit 2) does not stop the next one.
+  # After a failure the rest of that repo's tracks are skipped, except a track
+  # whose manifest entry says "after_failure": "run" (vskill-desktop builds
+  # from source, not from the npm package). The repo still reports failure.
+  local repos repo pids="" names="" track
+  repos="$(for track in $tracks; do track_field "$track" repo; done | awk '!seen[$0]++')"
+  for repo in $repos; do
+    (
+      local_rc=0
+      failed_track=""
+      for track in $tracks; do
+        [ "$(track_field "$track" repo)" = "$repo" ] || continue
+        if [ -n "$failed_track" ]; then
+          if [ "$(track_field "$track" after_failure)" != run ]; then
+            log "[$track] skipped: $failed_track failed earlier in this run"
+            continue
+          fi
+          log "[$track] running although $failed_track failed: it does not depend on it"
+        fi
+        one=0
+        # A subshell, so a track that dies (die exits) cannot stop the ones after it.
+        (ship_track "$track" "$dry" "$plan" ${extra[@]+"${extra[@]}"}) || one=$?
+        if [ "$one" -eq 2 ]; then
+          [ "$local_rc" -eq 1 ] || local_rc=2
+        elif [ "$one" -ne 0 ]; then
+          local_rc=1
+          failed_track="${failed_track:+$failed_track, }$track"
+        fi
+      done
+      exit "$local_rc"
+    ) &
+    pids="$pids $!"
+    names="$names $repo"
+  done
+  local pid rc=0 i=1 failed="" pending="" w
+  for pid in $pids; do
+    w=0
+    wait "$pid" || w=$?
+    if [ "$w" -eq 2 ]; then
+      pending="$pending $(printf '%s\n' $names | sed -n "${i}p")"
+    elif [ "$w" -ne 0 ]; then
+      rc=1
+      failed="$failed $(printf '%s\n' $names | sed -n "${i}p")"
+    fi
+    i=$((i + 1))
+  done
+  if [ "$rc" -eq 0 ] && [ -n "$pending" ]; then rc=2; fi
+  if [ "$plan" -eq 0 ] && [ "$dry" -eq 0 ]; then
+    local tc=0
+    python3 "$TIMING_PY" check >&2 || tc=$?
+    [ "$tc" -ne 2 ] || log "timing: regressions flagged above (report only)"
+  fi
+  [ -z "$pending" ] || log "ship: verify still pending for:$pending (call release.sh verify, then cleanup --apply)"
+  if [ "$rc" -eq 1 ]; then
+    log "ship: failed for:$failed (state: release.sh status --run)"
+  else
+    log "ship: $target finished"
+  fi
+  return "$rc"
+}
+
+cmd_tracks() {
+  mf '.tracks | to_entries[] | "\(.key)\t\(.value.repo)\t\(.value.release | join(" ")) \(.value.args_help // "")"' |
+    awk -F'\t' '{ printf "%-16s %-18s %s\n", $1, $2, $3 }'
+  mf '.groups | to_entries[] | "group \(.key): \(.value | join(", "))"'
+}
+
+[ $# -ge 1 ] || { usage >&2; exit 64; }
+SUB="$1"
+shift
+case "$SUB" in
+  status) cmd_status "$@" ;;
+  ship) require_tools gh jq git; cmd_ship "$@" ;;
+  verify) require_tools gh jq curl npm; cmd_verify "$@" ;;
+  cleanup) require_tools gh jq git; cmd_cleanup "$@" ;;
+  timing) if [ $# -eq 0 ]; then python3 "$TIMING_PY" check; else python3 "$TIMING_PY" "$@"; fi ;;
+  tracks) cmd_tracks ;;
+  -h|--help|help) usage ;;
+  *) usage >&2; exit 64 ;;
+esac

@@ -1,0 +1,16 @@
+{
+  "repository": "anton-abyzov/specweave",
+  "pullRequest": 2157,
+  "head": "a8865c9be4602459ec3a9129173b6b8cc87f8513",
+  "run": 40293036470,
+  "job": 121472372715,
+  "passingFiles": 535,
+  "passingTests": 10447,
+  "existingSkippedTests": 78,
+  "statements": 72.69,
+  "branches": 65.92,
+  "functions": 75.11,
+  "lines": 73.44,
+  "configuredUnitTarget": 60,
+  "unitCoveragePassed": true
+}

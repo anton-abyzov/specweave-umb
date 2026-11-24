@@ -1,0 +1,15 @@
+{
+  "id": "1333-one-coordinator-action-per-machine-in-the-project-machine-menu",
+  "uuid": "ebde5e04-3532-4178-93c0-d86efc6a9043",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-14T07:21:22.302Z",
+  "updated": "2026-11-15T03:37:34.917Z",
+  "lastActivity": "2026-11-15T03:37:34.917Z",
+  "title": "One coordinator action per machine in the project machine menu",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-14T21:08:11.780Z",
+  "approvedAt": "2026-11-14T21:08:11.780Z"
+}

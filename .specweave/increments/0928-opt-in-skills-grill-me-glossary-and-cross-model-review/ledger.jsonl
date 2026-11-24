@@ -1,0 +1,13 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-17T06:08:54.821Z","note":"session 64735b4b-fc3f-413d-9eff-3b693e883d54"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-17T06:08:54.823Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:50.575Z","evidence":"PR #2078 (b964e5d0a, 58920368f, 3c71fca5f); tests/unit/core/skills and cli/commands/skills.test.ts pass; full suite 10205 passed\nHEAD 4457ca1c1"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:50.868Z"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:50.869Z","evidence":"PR #2078 (b964e5d0a and follow-up message fixes); lint:skills, generate-skills --check and lint-docs-refs pass\nHEAD 4457ca1c1"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:51.179Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:51.180Z","evidence":"PR #2078 (a12d00c71, 3c71fca5f); tests/unit/glossary pass\nHEAD 4457ca1c1"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:51.498Z"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:51.499Z","evidence":"PR #2078 (a12d00c71, 23aee3dc4, 3c71fca5f); tests/unit/review pass incl. Ctrl-C and timeout tree kill\nHEAD 4457ca1c1"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:51.800Z"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:51.801Z","evidence":"PR #2079 (52b8514bd, 1bd3b5cd1); docs-site build passes; lint-docs-refs passes with both branches merged\nHEAD 4457ca1c1"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:52.096Z"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-17T07:32:52.097Z","evidence":"GPT-6.1-Sol rounds 1-4 via Codex; round 4 verdict ship, risk low; PRs #2078 and #2079 open\nHEAD 4457ca1c1"}

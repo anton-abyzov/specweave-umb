@@ -1,0 +1,16 @@
+{
+  "id": "1440-choose-user-or-this-project-when-installing-a-skill-on-this-machine",
+  "uuid": "1eec664f-ab2a-4eb1-a59c-23cbbfb4fd00",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T20:13:23.351Z",
+  "updated": "2026-11-20T20:13:23.351Z",
+  "lastActivity": "2026-11-20T20:13:23.351Z",
+  "title": "Skill install: scope, machines and any agent (including custom agents)",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode",
+    "repositories/anton-abyzov/vskill"
+  ]
+}

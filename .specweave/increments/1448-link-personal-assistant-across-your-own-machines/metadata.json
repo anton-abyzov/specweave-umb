@@ -1,0 +1,15 @@
+{
+  "id": "1448-link-personal-assistant-across-your-own-machines",
+  "uuid": "9a2b57e8-fcf8-4cdd-bf2d-2966cf17c350",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T07:00:05.652Z",
+  "updated": "2026-11-24T05:46:06.125Z",
+  "lastActivity": "2026-11-24T05:46:06.125Z",
+  "title": "Link personal assistant across your own machines",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

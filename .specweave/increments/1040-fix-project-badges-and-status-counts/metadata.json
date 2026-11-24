@@ -1,0 +1,17 @@
+{
+  "id": "1040-fix-project-badges-and-status-counts",
+  "uuid": "b2ea4b3a-2d1e-455d-b574-66840aa20714",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-23T23:21:07.063Z",
+  "updated": "2026-10-24T04:55:35.506Z",
+  "lastActivity": "2026-10-24T04:55:35.506Z",
+  "title": "Fix project badges and status counts",
+  "project": "specweave",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-24T04:55:35.503Z",
+  "approvedAt": "2026-10-24T04:55:35.506Z"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "1266-workers-honor-the-project-worker-model-before-lanes-auto-and-parent-model",
+  "uuid": "8988d524-f334-4423-b862-cd728b38d25a",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-09T05:14:20.720Z",
+  "updated": "2026-11-09T06:15:22.456Z",
+  "lastActivity": "2026-11-09T06:15:22.456Z",
+  "title": "Workers honor the project worker model before lanes, Auto and parent model",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-09T06:15:22.455Z",
+  "approvedAt": "2026-11-09T06:15:22.456Z"
+}

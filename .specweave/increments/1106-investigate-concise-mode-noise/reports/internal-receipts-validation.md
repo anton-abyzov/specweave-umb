@@ -1,0 +1,5 @@
+# Internal receipt validation
+
+The initial changed-behavior test run failed five cases and passed 62. At source e0e579ed986e57c441f11c531eb3808c9eeca7c2, nine focused suites passed 443 tests and actual-bundle checks passed 14. Real coordinator and worker fixtures passed 12 combinations of normal/concise/verbose detail at desktop/light and narrow/dark; full-original disclosure and byte-exact copy passed. Evidence: `/Users/antonabyzov/.specwithcode/m4/evidence/1106-internal-receipts/headless-final/receipt.json`, 12 PNGs, four traces. Candidate auth requests remain visible, three coordinator empty acknowledgements become compact activity links, and worker command activity remains accessible.
+
+Fresh receipt review was SHIP at e0e579ed98. Timing/0957 changes were added subsequently; see timing-validation.md and timing-review.md for those gates. PR959 is source delivery, not installed acceptance. Native pointer automation timed out on both candidate and origin/main baseline; DOM interaction proof is not native input acceptance.

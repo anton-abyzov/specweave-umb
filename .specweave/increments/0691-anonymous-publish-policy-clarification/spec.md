@@ -1,10 +1,10 @@
 ---
 increment: 0691-anonymous-publish-policy-clarification
-title: "Clarify anonymous publish attribution policy (publishedBy null vs reject)"
+title: Clarify anonymous publish attribution policy (publishedBy null vs reject)
 type: change-request
 priority: P3
-status: planned
-created: 2026-04-23
+status: abandoned
+created: 2026-04-23T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

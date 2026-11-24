@@ -1,0 +1,36 @@
+{
+  "source": "2bb52069a33603a4c53cc866024458110b26702b",
+  "startedAt": "2026-10-13T19:42:30.705179+00:00",
+  "steps": [
+    {
+      "name": "web",
+      "command": [
+        "/Users/antonabyzov/.local/share/specweave-studio/toolchains/node-v24.13.1-darwin-arm64/bin/node",
+        "/Users/antonabyzov/.codex/worktrees/project-names-release/specweave-umb/repositories/anton-abyzov/specweave-studio/node_modules/vite-plus/bin/vp",
+        "build"
+      ],
+      "cwd": "/Users/antonabyzov/.codex/worktrees/project-names-release/specweave-umb/repositories/anton-abyzov/specweave-studio/apps/web",
+      "runtime": "v24.13.1",
+      "exitCode": 0,
+      "log": "/Users/antonabyzov/Projects/research/studio-project-names-update-feedback-2026-10-13/web-build.log",
+      "sha256": "518f8422707b86388ec4372a3151853cb394911c5a7c445ab70b804015744e4c"
+    },
+    {
+      "name": "server",
+      "command": [
+        "/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node",
+        "apps/server/scripts/cli.ts",
+        "build"
+      ],
+      "cwd": "/Users/antonabyzov/.codex/worktrees/project-names-release/specweave-umb/repositories/anton-abyzov/specweave-studio",
+      "runtime": "v22.20.0",
+      "exitCode": 0,
+      "log": "/Users/antonabyzov/Projects/research/studio-project-names-update-feedback-2026-10-13/server-build.log",
+      "sha256": "d6c1c041b99cceace8ea3b11e1aaf4f6d9dd68bd27139032b5b8cf12952d1e44"
+    }
+  ],
+  "proof": "production web and integrated server builds; no live store or providers",
+  "sourceUnchanged": true,
+  "clientIntegrated": true,
+  "completedAt": "2026-10-13T19:43:27.604460+00:00"
+}

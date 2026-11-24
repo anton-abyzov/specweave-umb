@@ -1,0 +1,164 @@
+{
+  "ok": true,
+  "ranAt": "2026-10-29T05:31:02.916Z",
+  "increment": "1136-skills-control-center-in-specwithcode",
+  "commands": [
+    {
+      "cmd": "bash scripts/release/release.sh verify studio --version 1.0.115",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/.specwithcode/release.noindex/test/apps/server && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/project/ProjectSkillsActions.test.ts src/project/ProjectSkillsToggles.test.ts src/project/ClaudeSettingsWrite.test.ts src/project/ProjectSkillsFleet.test.ts src/provider/Drivers/ClaudeSkills.test.ts",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/.specwithcode/release.noindex/test/apps/web && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/components/settings/ProjectSkillActions.logic.test.ts src/components/settings/ProjectSkillsSettings.test.tsx",
+      "exit": 0
+    },
+    {
+      "cmd": "cd /Users/antonabyzov/.specwithcode/release.noindex/test/packages/contracts && /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node ../../node_modules/vite-plus/bin/vp test run src/projectSkillsActions.test.ts",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 4,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-08",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          },
+          {
+            "id": "T-08",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-03",
+            "status": "done"
+          },
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          },
+          {
+            "id": "T-08",
+            "status": "done"
+          },
+          {
+            "id": "T-09",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-04",
+            "status": "done"
+          },
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-08",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 9,
+    "done": 9,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

@@ -1,0 +1,94 @@
+$ cd /tmp/specweave-0881-root && export PATH=/Users/antonabyzov/.nvm/versions/node/v22.20.0/bin:$PATH PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never && npm run build && node scripts/e2e/project-hub-e2e.mjs --browser && node scripts/e2e/brand-parity.mjs
+# exit 0 — 2026-09-22T05:07:58.311Z
+
+
+> specweave@2.3.0 build
+> tsc && npm run build:dashboard && npm run copy:locales && npm run copy:plugins && npm run copy:hook-deps && npm run copy:adapters && npm run stamp:plugin-version
+
+
+> specweave@2.3.0 build:dashboard
+> npx vite build --config src/dashboard/client/vite.config.ts
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 84 modules transformed.
+rendering chunks...
+computing gzip size...
+../../../dist/dashboard/index.html                      0.60 kB │ gzip:   0.40 kB
+../../../dist/dashboard/assets/web-6-CuVUMDWO.woff2     5.54 kB
+../../../dist/dashboard/assets/web-3-tuJ4lY6O.woff2     9.61 kB
+../../../dist/dashboard/assets/web-9-CjmLAiqB.woff2    11.85 kB
+../../../dist/dashboard/assets/web-7-B2O-dwcv.woff2    15.25 kB
+../../../dist/dashboard/assets/web-2-Cuw1d432.woff2    16.30 kB
+../../../dist/dashboard/assets/web-0-CXU3YvQl.woff2    19.68 kB
+../../../dist/dashboard/assets/web-8-b0I-AwbV.woff2    24.41 kB
+../../../dist/dashboard/assets/web-1-CnEgTPdE.woff2    25.41 kB
+../../../dist/dashboard/assets/web-4-KUPCjGsn.woff2    25.87 kB
+../../../dist/dashboard/assets/web-10-ppjp2k5c.woff2   36.33 kB
+../../../dist/dashboard/assets/web-5-BD64o3ke.woff2    40.24 kB
+../../../dist/dashboard/assets/web-11-T5L87s1n.woff2   58.15 kB
+../../../dist/dashboard/assets/index-DS3yH-sX.css      82.61 kB │ gzip:  14.26 kB
+../../../dist/dashboard/assets/index-DjfDqgzX.js      442.77 kB │ gzip: 122.46 kB
+✓ built in 591ms
+
+> specweave@2.3.0 copy:locales
+> node scripts/build/copy-locales.js
+
+✓ Locales copied successfully
+
+> specweave@2.3.0 copy:plugins
+> node scripts/build/copy-plugin-js.js
+
+📦 Transpiling plugin TypeScript files with esbuild...
+✓ Transpiled 25 plugin files (88 skipped, already up-to-date)
+
+> specweave@2.3.0 copy:hook-deps
+> node scripts/build/copy-hook-dependencies.js
+
+🔧 Copying hook dependencies to plugin vendor directories...
+
+
+📦 Copying dependencies for plugin: specweave
+   ✅ Copied: core/increment/ac-status-manager.js
+   ✅ Copied: core/increment/active-increment-manager.js
+   ✅ Copied: core/increment/auto-transition-manager.js
+   ✅ Copied: core/increment/duplicate-detector.js
+   ✅ Copied: core/increment/metadata-manager.js
+   ✅ Copied: core/increment/status-auto-transition.js
+   ✅ Copied: core/types/increment-metadata.js
+   ✅ Copied: generators/spec/task-parser.js
+   ✅ Copied: core/tasks/task-id.js
+   ✅ Copied: utils/logger.js
+   ✅ Copied: utils/credential-masker.js
+   ✅ Copied: utils/translation.js
+   ✅ Copied: core/ac-test-validator.js
+   ✅ Copied: core/ac-test-validator-cli.js
+   ✅ Copied: utils/fs-native.js
+   ✅ Copied: utils/chalk-fallback.js
+   ✅ Copied: sync/github-reconciler.js
+   ✅ Copied: core/universal-auto-create.js
+   ✅ Copied: utils/feature-id-derivation.js
+   ✅ Copied: sync/provider-router.js
+   ✅ Copied: sync/status-mapper.js
+   ✅ Copied: sync/config.js
+   ✅ Copied: utils/execFileNoThrow.js
+   ✅ Copied: utils/clean-env.js
+   ✅ Copied: utils/auth-helpers.js
+   📊 Copied 25/25 files
+
+✅ All hook dependencies copied successfully!
+
+> specweave@2.3.0 copy:adapters
+> node scripts/build/copy-adapters.js
+
+✓ Adapter assets copied successfully
+
+> specweave@2.3.0 stamp:plugin-version
+> node scripts/build/stamp-plugin-version.cjs
+
+✓ plugin/marketplace versions already aligned at 2.3.0
+PASS: real CLI init, preservation, stale writes, work lifecycle, artifact/routine library and three harness briefs
+[LogParser] logDir=/Users/antonabyzov/.claude/projects/-var-folders-js-x0hbrvjj2rl7hsgjy5955_r40000gn-T-sw-project-e2e-uNdwPf files=0
+PASS: headless desktop/tablet/mobile, profile/work/artifact/routine flows, brief, download, persistence and zero runtime errors
+[LogParser] logDir=/Users/antonabyzov/.claude/projects/-var-folders-js-x0hbrvjj2rl7hsgjy5955_r40000gn-T-sw-brand-project-jyHWJA files=0
+PASS: live website/dashboard colors, type, buttons and panels match; fonts load locally; desktop/tablet/mobile and eight adjacent routes pass with selected-control and primary-action assertions

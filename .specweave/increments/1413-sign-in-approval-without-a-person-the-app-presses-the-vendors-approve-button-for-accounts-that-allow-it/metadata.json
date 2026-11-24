@@ -1,0 +1,13 @@
+{
+  "id": "1413-sign-in-approval-without-a-person-the-app-presses-the-vendors-approve-button-for-accounts-that-allow-it",
+  "uuid": "b58856e1-2e4c-4fd4-9f35-a5b1b6ecd110",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T15:23:33.817Z",
+  "updated": "2026-11-19T06:27:18.375Z",
+  "lastActivity": "2026-11-19T06:27:18.375Z",
+  "title": "Sign-in approval without a person: the app presses the vendor's approve button for accounts that allow it",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

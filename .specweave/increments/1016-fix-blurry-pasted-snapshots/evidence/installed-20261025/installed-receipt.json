@@ -1,0 +1,85 @@
+{
+  "appVersion": "1.0.76",
+  "mainSha256": "a151c7b67dedad76a6cf386e57a8f756542497545fb0ace92c4d783ee8195402",
+  "preloadSha256": "9c0ca7c7637536431130dbca92ac7c09f004ae0a24623e0e663b832e9dea24ce",
+  "headless": true,
+  "show": false,
+  "offscreen": true,
+  "cases": [
+    {
+      "zoom": 0.75,
+      "rect": {
+        "x": 220,
+        "y": 280,
+        "width": 420,
+        "height": 120
+      },
+      "actualRect": {
+        "x": 165,
+        "y": 210,
+        "width": 315,
+        "height": 90
+      },
+      "beforeBytes": 544,
+      "afterBytes": 6966,
+      "green": 13715,
+      "comment": "Keep installed annotation text",
+      "html": "<h1 id=\"selected\">\n  SELECTED CONTEXT TEXT\n</h1>",
+      "sha256": "e5170f924f98a83604474a30a1e202e41c04e012e60122c05d3359af9d95ab7d"
+    },
+    {
+      "zoom": 1,
+      "rect": {
+        "x": 220,
+        "y": 280,
+        "width": 420,
+        "height": 120
+      },
+      "actualRect": {
+        "x": 220,
+        "y": 280,
+        "width": 420,
+        "height": 120
+      },
+      "beforeBytes": 9214,
+      "afterBytes": 9214,
+      "green": 24232,
+      "comment": "Keep installed annotation text",
+      "html": "<h1 id=\"selected\">\n  SELECTED CONTEXT TEXT\n</h1>",
+      "sha256": "9d44b40db4c02f74872c37d45c2e7221959d96abc8430c5677efaf332cd963a2"
+    },
+    {
+      "zoom": 1.5,
+      "rect": {
+        "x": 220,
+        "y": 280,
+        "width": 420,
+        "height": 120
+      },
+      "actualRect": {
+        "x": 330,
+        "y": 420,
+        "width": 630,
+        "height": 180
+      },
+      "beforeBytes": 480,
+      "afterBytes": 14188,
+      "green": 54837,
+      "comment": "Keep installed annotation text",
+      "html": "<h1 id=\"selected\">\n  SELECTED CONTEXT TEXT\n</h1>",
+      "sha256": "3e261273dd2647d29024a3b49c6842c55c6063ca87a85a850e3b57f9015314e4"
+    }
+  ],
+  "offscreenFrame": {
+    "width": 1000,
+    "height": 800
+  },
+  "retina": {
+    "width": 3024,
+    "height": 1964,
+    "sourceSha256": "d08ca073c9cee3d827d6e07813ec103772af2d84a1605f57b03408d79eb410dd",
+    "outputSha256": "d08ca073c9cee3d827d6e07813ec103772af2d84a1605f57b03408d79eb410dd"
+  },
+  "scope": "Unchanged installed picker preload and exact installed main capture helpers, run under isolated Electron44.4.2 headless harness. Synthetic3024x1964 source. Not installed live desktop renderer or foreground OS capture shortcut.",
+  "harnessExecutable": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave-studio/node_modules/.pnpm/electron@44.4.2/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron"
+}

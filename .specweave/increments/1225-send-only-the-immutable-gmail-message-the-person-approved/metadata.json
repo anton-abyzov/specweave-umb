@@ -1,0 +1,17 @@
+{
+  "id": "1225-send-only-the-immutable-gmail-message-the-person-approved",
+  "uuid": "fdf9ad33-2dd5-44ef-b8df-1c44366f4726",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-03T23:37:44.745Z",
+  "updated": "2026-11-04T06:46:29.157Z",
+  "lastActivity": "2026-11-04T06:46:29.157Z",
+  "title": "Send only the immutable Gmail message the person approved",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-04T06:46:29.156Z",
+  "approvedAt": "2026-11-04T06:46:29.157Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

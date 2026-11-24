@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "ranAt": "2026-09-22T03:38:36.461Z",
+  "increment": "0882-finish-bounded-cli-filesystem-scans",
+  "commands": [
+    {
+      "cmd": "cd repositories/anton-abyzov/0882-codex && npm run build && npm run lint:skills && npm run lint:docs-refs",
+      "exit": 0
+    },
+    {
+      "cmd": "cd repositories/anton-abyzov/0882-codex && npx vitest run tests/unit/cli/commands/scan-root-guards.test.ts tests/unit/cli/commands/lsp-setup.test.ts tests/unit/core/lsp/lsp-symlinks.test.ts tests/unit/cli/completions-sync.test.ts --config vitest.unit.config.ts --maxWorkers=1 && node scripts/e2e/bounded-scans.mjs",
+      "exit": 0
+    }
+  ],
+  "acs": {
+    "total": 4,
+    "done": 4
+  },
+  "tasks": {
+    "total": 2,
+    "done": 2,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "ledgerMalformed": 0
+}

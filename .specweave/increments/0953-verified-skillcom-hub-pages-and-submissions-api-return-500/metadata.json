@@ -1,0 +1,26 @@
+{
+  "id": "0953-verified-skillcom-hub-pages-and-submissions-api-return-500",
+  "uuid": "0c25306b-34c7-48c0-9a02-2b3c8945dd7c",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-19T23:33:48.478Z",
+  "updated": "2026-10-20T00:37:58.850Z",
+  "lastActivity": "2026-10-20T00:37:58.850Z",
+  "title": "verified-skill.com hub pages and submissions API return 500",
+  "project": "specweave-umb",
+  "externalLinks": {
+    "ado": {
+      "featureId": "2501",
+      "featureUrl": "https://dev.azure.com/easychamp/99023ebb-7d44-42c8-b27f-09378c47172b/_workitems/edit/2501",
+      "organization": "EasyChamp",
+      "project": "SpecWeaveSync",
+      "syncedAt": "2026-10-20T00:38:04.806Z"
+    }
+  },
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T00:37:58.848Z",
+  "closeReason": "All 4 ACs met and live-verified (16 hubs 200 under 5s, submissions API 200). Only remaining verify failures are 5s timeouts in untouched specweave/vskill suites at load avg 405; they pass in isolation (see reports/review.md).",
+  "approvedAt": "2026-10-20T00:37:58.850Z"
+}

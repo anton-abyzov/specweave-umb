@@ -1,0 +1,4 @@
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-09-06T05:35:49.585Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-09-06T05:35:50.963Z","evidence":"62d6e3c1c; 145 focused tests; 95% changed-code line coverage; macOS/Linux/Windows hook CI pass; independent review cleared\nHEAD e812bd9c"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-09-06T05:35:51.899Z"}
+{"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-09-06T05:42:35.287Z","evidence":"bb154f489; npm latest 2.0.3; OIDC run 34014524877 success; registry tarball exact code verified; PR1937 awaits required approval\nHEAD e812bd9c"}

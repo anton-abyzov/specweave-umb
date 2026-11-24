@@ -1,0 +1,3 @@
+$ test -s .specweave/increments/1325-one-copy-to-another-machine-flow-secrets-included-by-default-one-coordinator-question/reports/mockups.png
+# exit 0 — 2026-11-13T22:52:24.284Z
+

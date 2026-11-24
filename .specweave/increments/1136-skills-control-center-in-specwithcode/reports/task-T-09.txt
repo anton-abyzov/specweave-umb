@@ -1,0 +1,4 @@
+$ PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never /Users/antonabyzov/.nvm/versions/node/v22.20.0/bin/node /Users/antonabyzov/.specwithcode/m4/scratch/20261029-1136-ui/verify.mjs
+# exit 0 — 2026-10-29T04:21:32.210Z
+
+{"ok":true,"headless":true,"liveSettingsWrites":false,"checks":["disabled plugin remains actionable","unsupported individual plugin switches are disabled","whole-plugin actions select correct enable/disable","light and dark controls render"],"calls":[{"kind":"toggle-plugin","provider":"claudeAgent","instanceId":"claudeAgent","pluginId":"sw@mkt","enabled":true,"scope":"user"},{"kind":"toggle-plugin","provider":"claudeAgent","instanceId":"claudeAgent","pluginId":"sw@mkt","enabled":false,"scope":"user"}]}

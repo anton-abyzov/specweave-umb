@@ -1,0 +1,17 @@
+src/components/chat/FailureDetail.test.tsx(2,38): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+src/components/chat/explicitCreditSend.test.ts(1,30): error TS377057: This module reference uses the `fs` module, the corresponding Effect API is `FileSystem` from `effect`. effect(nodeBuiltinImport)
+src/components/studio/CapacityFleet.test.tsx(88,21): suggestion TS377112: This input is already assignable to the schema's Encoded type. Use `decodeSync` to preserve compile-time type checking instead of discarding the input type through `decodeUnknownSync`. effect(preferTypedSchemaDecoder)
+src/components/studio/ProjectPlan.test.tsx(102,46): error TS377078: This code uses `crypto.randomUUID()`, prefer the Effect `Crypto` module instead. effect(cryptoRandomUUID)
+src/components/studio/ProjectWorkspace.test.tsx(2,25): error TS377057: This module reference uses the `fs` module, the corresponding Effect API is `FileSystem` from `effect`. effect(nodeBuiltinImport)
+src/components/studio/ProjectWorkspace.test.tsx(3,27): error TS377057: This module reference uses the `path` module, the corresponding Effect API is `Path` from `effect`. effect(nodeBuiltinImport)
+src/lib/displayDates.test.ts(1,38): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+src/lib/displayDates.test.ts(62,52): error TS7006: Parameter 'value' implicitly has an 'any' type.
+src/lib/displayDates.test.ts(80,47): error TS7006: Parameter 'text' implicitly has an 'any' type.
+src/lib/newThreadWorkspaceDefault.test.ts(97,9): error TS377030: This has unknown in the error channel which is not recommended.
+Having an unknown or any error type is not useful. Consider instead using specific error types baked by Data.TaggedError for example. effect(anyUnknownInErrorContext)
+src/lib/newThreadWorkspaceDefault.test.ts(97,9): error TS377075: This type assertion unsafely narrows the error or requirements channels. effect(unsafeEffectTypeAssertion)
+src/lib/newThreadWorkspaceDefault.test.ts(111,9): error TS377030: This has unknown in the error channel which is not recommended.
+Having an unknown or any error type is not useful. Consider instead using specific error types baked by Data.TaggedError for example. effect(anyUnknownInErrorContext)
+src/lib/newThreadWorkspaceDefault.test.ts(111,9): error TS377075: This type assertion unsafely narrows the error or requirements channels. effect(unsafeEffectTypeAssertion)
+src/lib/newThreadWorkspaceDefault.ts(56,11): error TS377030: This has unknown in the error channel which is not recommended.
+Having an unknown or any error type is not useful. Consider instead using specific error types baked by Data.TaggedError for example. effect(anyUnknownInErrorContext)

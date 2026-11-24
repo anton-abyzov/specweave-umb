@@ -1,0 +1,18 @@
+{
+  "id": "0976-task-aware-model-routing",
+  "uuid": "17820ce4-f10e-4f95-a91a-2bf1e84ac216",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-10-20T19:44:07.167Z",
+  "updated": "2026-10-20T21:16:25.072Z",
+  "lastActivity": "2026-10-20T21:16:25.072Z",
+  "title": "Task-aware Auto model routing",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-10-20T21:16:25.070Z",
+  "closeReason": "Umbrella-wide verify commands outside this repo fail for unrelated reasons: specweave save.test/handoff-roundtrip time out under a machine load near 300, and scripts/release/timing.py lacks the python yaml module. 0976 lives in specwithcode-dev; its suites pass (13 files/289 tests, 5 Orchestrator files/57 tests), typecheck clean, headless proof ok, fresh-context review has no open blockers (reports/review.md).",
+  "approvedAt": "2026-10-20T21:16:25.072Z"
+}
