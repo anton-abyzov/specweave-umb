@@ -1,16 +1,18 @@
 {
   "id": "1455-acp-registry-usage-by-agent-and-model-and-a-working-effectiveness-view",
   "uuid": "645ad635-0199-41a5-90fe-686b0700da22",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-24T04:48:51.908Z",
-  "updated": "2026-11-24T05:33:23.973Z",
-  "lastActivity": "2026-11-24T05:33:23.973Z",
+  "updated": "2026-11-24T07:21:24.983Z",
+  "lastActivity": "2026-11-24T07:21:24.983Z",
   "title": "ACP Registry usage by agent and model, and a working Effectiveness view",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
   ],
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-24T07:21:24.982Z",
+  "approvedAt": "2026-11-24T07:21:24.983Z"
 }
