@@ -5,8 +5,11 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-24T04:39:46.670Z",
-  "updated": "2026-11-24T04:39:46.670Z",
-  "lastActivity": "2026-11-24T04:39:46.670Z",
+  "updated": "2026-11-24T05:57:31.043Z",
+  "lastActivity": "2026-11-24T05:57:31.043Z",
   "title": "Board increment panel: Reports lists the real reports and Spec file opens on every machine",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
