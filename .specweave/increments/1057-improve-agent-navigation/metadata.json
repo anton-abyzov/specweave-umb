@@ -1,15 +1,17 @@
 {
   "id": "1057-improve-agent-navigation",
   "uuid": "eccb1d44-c005-4ab9-9f70-fc53b9ee40ed",
-  "status": "active",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-24T19:18:11.182Z",
-  "updated": "2026-10-24T19:18:11.182Z",
-  "lastActivity": "2026-10-24T19:18:11.182Z",
+  "updated": "2026-11-24T16:30:11.926Z",
+  "lastActivity": "2026-11-24T16:30:11.926Z",
   "title": "Improve agent navigation",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "abandonedReason": "Superseded by 1095 T-07/AC-09 (subagent popup prioritises live work, collapses history; v1.0.110). Unbuilt parts dropped. Owner approved November 24, 2026 (\"do recommended, yes!\"), board triage b-m5-02.",
+  "abandonedAt": "2026-11-24T16:30:11.926Z"
 }
