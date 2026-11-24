@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-20T15:05:40.241Z",
-  "updated": "2026-11-20T17:58:02.661Z",
-  "lastActivity": "2026-11-20T17:58:02.661Z",
+  "updated": "2026-11-24T17:05:43.155Z",
+  "lastActivity": "2026-11-24T17:05:43.155Z",
   "title": "Switching the Connect account on a machine drops the previous account's machines and chats",
   "project": "specweave-umb",
   "repositories": [
