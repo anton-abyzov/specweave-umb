@@ -52,7 +52,13 @@ The tests that still cover this behaviour are in `FleetEngineTests.swift` at `29
 
 ## Fresh test run (November 24, 2026)
 
-RESULTS_PLACEHOLDER
+`specweave verify` passed (`reports/verify.json` `ok: true`, run at 4:00 PM EST on November 24, 2026) against the app checks copy at commit `29d788d8cc51b30ec619acdb626ad31bebc10460`, run under the heavy-check gate on m4:
+
+- `swift test --no-parallel --package-path apps/ios/SWCKit --filter 'FleetEngineTests|FleetSummariesTests|FleetFixtureTests'`: 40 tests in 5 suites passed, among them `FleetEngineTests` (including the three tests named above) and `FleetSummariesTests`.
+- `vp test run src/fleet/phoneLinks.test.ts` in `apps/server`: 23 of 23 tests passed.
+- The umbrella's three self-tests (`fleet-project-sync.py --self-test`, `test_handoff_evidence.py`, `timing.py --self-test`) passed, and a check confirmed the copy was at the commit above.
+
+The swift run was limited to the fleet suites with the owner's approval on November 24, 2026 ("yes, do what's recommended"). The full SWCKit suite at the same commit ran 940 tests: every fleet suite passed, and 5 issues failed in two suites outside 0970's code. `AccessRequestMappingTests.accessRequestCardOutcomeText` expects "Allowed on this machine" and "Always on this machine" but gets "the agent's machine". `ReplyStyleTests` (`theLiveEngineSendsAPerKeyChangeAndShowsTheSavedValue`, `theLiveEngineRefusesAServerWithoutPerKeyChanges`) gets "This computer was paired without permission to make changes." These are regressions on app main from later iPhone wording and pairing-permission work and need their own fix. Full log: `~/.specwithcode/m4/scratch/2026-11-24-0970-close/swift-full.log`.
 
 These are unit and in-process tests on the merged code. They do not repeat the October live two-server run, and they do not make AC-06 Verified.
 
