@@ -16,11 +16,11 @@ Out: the org agents and their settings; the CLI's own gh and git checks (Claude 
 
 ## Acceptance Criteria
 
-- [ ] AC-01: In a direct Claude thread, a sent draft that is only `/ship` or `/steward`, with or without their documented arguments (`low`…`max`, a PR number or URL, `+bot`, `stop`, `terms`), opens the Claude Ship card. No model turn starts and the draft stays in the composer. Other drafts (`/shipit`, `/ship` with attachments, the same text in a Codex or other thread, a coordinator-routed draft) are sent as before.
-- [ ] AC-02: The card says the command runs in a Claude Code terminal session and why. It shows the exact line to type with a copy button. When it knows, it also shows: Claude Code older than 2.1.330 (blocking, with how to update), the thread in plan mode, or the thread on full access (the terminal session uses auto mode, because a watch does not start under bypass permissions). Windows says no watch starts there.
-- [ ] AC-03: Open terminal opens a new terminal in the thread's drawer, in the thread's folder (worktree when it has one), with the thread's Claude provider instance environment (so the same account and `CLAUDE_CONFIG_DIR` apply). It runs the configured Claude binary with an explicit `--permission-mode`, and `--resume <session> --fork-session` when the thread has a Claude session. It clears the variables that mark a child or SDK session (`CLAUDECODE`, `CLAUDE_CODE_CHILD_SESSION`, `CLAUDE_CODE_ENTRYPOINT`, `CLAUDE_CODE_SESSION_ID`, `CLAUDE_AGENT_SDK_VERSION` and the other markers listed in Approach). The line is never typed into the terminal for the person.
-- [ ] AC-04: The command line is safe for the shell: every value is single-quoted, and a session id or binary path that is not plain characters is refused, with a message, rather than run.
-- [ ] AC-05: Headless screenshots of the card (fork, new session, outdated CLI) are saved in `reports/`, and focused unit tests cover parsing, the card's notes and the command builder.
+- [x] AC-01: In a direct Claude thread, a sent draft that is only `/ship` or `/steward`, with or without their documented arguments (`low`…`max`, a PR number or URL, `+bot`, `stop`, `terms`), opens the Claude Ship card. No model turn starts and the draft stays in the composer. Other drafts (`/shipit`, `/ship` with attachments, the same text in a Codex or other thread, a coordinator-routed draft) are sent as before.
+- [x] AC-02: The card says the command runs in a Claude Code terminal session and why. It shows the exact line to type with a copy button. When it knows, it also shows: Claude Code older than 2.1.330 (blocking, with how to update), the thread in plan mode, or the thread on full access (the terminal session uses auto mode, because a watch does not start under bypass permissions). Windows says no watch starts there.
+- [x] AC-03: Open terminal opens a new terminal in the thread's drawer, in the thread's folder (worktree when it has one), with the thread's Claude provider instance environment (so the same account and `CLAUDE_CONFIG_DIR` apply). It runs the configured Claude binary with an explicit `--permission-mode`, and `--resume <session> --fork-session` when the thread has a Claude session. It clears the variables that mark a child or SDK session (`CLAUDECODE`, `CLAUDE_CODE_CHILD_SESSION`, `CLAUDE_CODE_ENTRYPOINT`, `CLAUDE_CODE_SESSION_ID`, `CLAUDE_AGENT_SDK_VERSION` and the other markers listed in Approach). The line is never typed into the terminal for the person.
+- [x] AC-04: The command line is safe for the shell: every value is single-quoted, and a session id or binary path that is not plain characters is refused, with a message, rather than run.
+- [x] AC-05: Headless screenshots of the card (fork, new session, outdated CLI) are saved in `reports/`, and focused unit tests cover parsing, the card's notes and the command builder.
 
 ## Approach
 
@@ -55,3 +55,11 @@ Risks: a fresh folder shows Claude Code's folder-trust prompt first, which the p
 
 ### T-03 Headless screenshots and build
 - AC: AC-05 | Files: .specweave/increments/1458-claude-ship-run-ship-and-steward-from-a-thread-through-a-claude-terminal-session/reports/ | Test: web build from apps/web plus web typecheck
+
+## Review
+
+- Round 1, Claude Opus on M4 (Gemini 4 Neon failed after 5 seconds there): eight findings fixed in the PR; the version shown comes from the app's provider probe and can differ from the login shell's `claude` (accepted).
+- Round 2, Codex gpt-6-astra (GPT-6.2 Sol runs through the app failed twice on stream disconnects; Gemini 4 Neon usage full on Copilot and Copilot Enterprise): "Send to Claude instead" lost a queued send's mode, and the timed bypass could let a later `/ship` skip the card. Both fixed in `bbac5812c`: the resend replays the original dispatch with an explicit skip.
+- Round 3, Codex gpt-6-astra on the fix: "Verdict: ship". Report: `reports/review-rounds-2-3.md`.
+
+Delivered in https://github.com/anton-abyzov/specwithcode/pull/859, merged November 24, 2026. Proof limit: `/ship`'s push, review and watch against a real pull request were not exercised; the pty probe shows the command starts.

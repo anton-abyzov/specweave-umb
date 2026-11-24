@@ -5,8 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-24T07:26:35.027Z",
-  "updated": "2026-11-24T07:26:35.027Z",
-  "lastActivity": "2026-11-24T07:26:35.027Z",
+  "updated": "2026-11-24T08:45:13.339Z",
+  "lastActivity": "2026-11-24T08:45:13.339Z",
   "title": "Claude Ship: run /ship and /steward from a thread through a Claude terminal session",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {}
 }
