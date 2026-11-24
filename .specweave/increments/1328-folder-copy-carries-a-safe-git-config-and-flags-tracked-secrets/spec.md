@@ -41,3 +41,13 @@ Why a hint and not a gate for tracked secrets: the file is in the Git objects an
 
 ### T-03 Verify and close 1328
 - AC: AC-01, AC-02 | Files: .specweave/increments/1328-folder-copy-carries-a-safe-git-config-and-flags-tracked-secrets/ | Test: specweave verify 1328
+
+## Closure triage (November 24, 2026)
+
+Shipped in PR #354 (squash `b89033665`, v1.0.321). Closing review by GPT-6.2 Sol (Codex) at main `f3ce25682`: **fix**, so not verified or closed.
+- High, AC-01: a stripped local-path origin can still force the move review (manifest keeps source origin and identity). `sourceDrift.ts:137-147`, `:374-415`; `folderTransfer/sourceService.ts:984`
+- High, AC-02: tracked files matching only the project's own Secret files patterns get no Git hint. `sourceSummary.ts:22-28`; `classify.ts:93-100`
+- Medium, AC-01: ssh and scp-style URLs keep their user name (deliberate, `safeGitConfig.ts:94-108`); the AC says user info is stripped.
+- Medium, AC-01: the standard Git LFS filter is carried (deliberate `LFS_FILTER`, `safeGitConfig.ts:61-67`); the AC says filter drivers are not carried.
+- Medium: the preview heads tracked-secret rows "Not copied" while their hint says the file travels with history. `HandoffSecretsStep.tsx:209-223`
+Open for the owner: amend AC-01 to allow `git@` user names and the LFS filter, or strip them.

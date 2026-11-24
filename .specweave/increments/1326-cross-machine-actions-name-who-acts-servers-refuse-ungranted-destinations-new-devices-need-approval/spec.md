@@ -75,3 +75,7 @@ Risks: the update changes files on the destination, so it runs only clean, idle 
 
 ### T-07 Verify and close 1326
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: .specweave/increments/1326-cross-machine-actions-name-who-acts-servers-refuse-ungranted-destinations-new-devices-need-approval/ | Test: specweave verify 1326
+
+## Closure triage (November 24, 2026)
+
+Class d, superseded. Shipped in PRs #356 (`180cda944`, v1.0.292), #360, #363, #366, #386 (all in v1.0.322). AC-01 no longer holds on main: "Send to another machine…" is listed in `apps/web/src/i18n/retiredPhrases.ts` as Phase 2 phrases that "became Sync and Add" (1390 Phase 2, PR #653). Proposed: close as superseded by 1390; owner's call.

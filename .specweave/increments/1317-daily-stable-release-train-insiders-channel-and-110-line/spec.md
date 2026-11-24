@@ -79,3 +79,7 @@ Risks: agents already installed (1.0.276 and older) ignore the prerelease flag a
 
 ### T-07 Cut 1.1.0 after Anton's go
 - AC: AC-08 | Files: none (dispatch) | Test: gh release view v1.1.0 -R anton-abyzov/specwithcode --json isPrerelease,isLatest
+
+## Closure triage (November 24, 2026)
+
+Class c, waits on the owner. T-01 to T-06 shipped in PR #314 (anton-abyzov/specwithcode, squash `9168bfae3`, first in v1.0.278). T-07 / AC-08 is open: no `v1.1*` tag exists. Scope says "Out: cutting 1.1.0 (waits for Anton's go)". D-01 (November 13, 2026) set the cut for November 16, which did not happen; on November 19, 2026 the owner wrote "I suggest moving to 1.1 soon and just getting rid of all 1.0 versions at some point" (draft increment 1429). Not verified or closed.
