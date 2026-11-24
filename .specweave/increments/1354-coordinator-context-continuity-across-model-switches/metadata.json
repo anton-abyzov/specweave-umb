@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-17T06:01:00.409Z",
-  "updated": "2026-11-24T15:53:44.304Z",
-  "lastActivity": "2026-11-24T15:53:44.304Z",
+  "updated": "2026-11-24T19:01:13.681Z",
+  "lastActivity": "2026-11-24T19:01:13.681Z",
   "title": "Coordinator context continuity across model switches",
   "project": "specweave",
   "externalLinks": {}
