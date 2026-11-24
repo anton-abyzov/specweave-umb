@@ -1,0 +1,15 @@
+{
+  "id": "1323-use-worktrees-just-works-repositories-picked-from-the-task-and-shown-before-the-thread-starts",
+  "uuid": "cf4b72f7-2e6d-4485-a875-297d521f8a5a",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-13T20:00:01.290Z",
+  "updated": "2026-11-13T23:00:27.895Z",
+  "lastActivity": "2026-11-13T23:00:27.895Z",
+  "title": "Use worktrees just works: repositories picked from the task and shown before the thread starts",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-13T23:00:27.893Z",
+  "approvedAt": "2026-11-13T23:00:27.895Z"
+}

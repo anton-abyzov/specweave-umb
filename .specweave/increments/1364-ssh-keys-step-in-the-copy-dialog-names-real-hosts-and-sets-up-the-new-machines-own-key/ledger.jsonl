@@ -1,0 +1,14 @@
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-16T07:04:14.604Z","note":"review by muse-wonder-1.0 (meta) at 8478088e33db: fix first · reports/reviews/review-muse-wonder-1.0-1.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-16T07:16:41.922Z","note":"review by muse-wonder-1.0 (meta) at 7ab4b82fa5: fix first · reports/reviews/review-muse-wonder-1.0-2.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-16T07:30:31.854Z","note":"review by muse-wonder-1.0 (meta) at b0ab48cd7a: fix first · reports/reviews/review-muse-wonder-1.0-3.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-16T07:44:49.722Z","note":"review by muse-wonder-1.0 (meta) at 18755b47a1: fix first · reports/reviews/review-muse-wonder-1.0-4.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-16T07:45:54.485Z","note":"review by muse-wonder-1.0 (meta) at 18755b47a137: fix first · reports/reviews/review-muse-wonder-1.0-4.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-16T08:05:19.218Z","note":"review by muse-wonder-1.0 (meta) at bccf23f563e6: fix first · reports/reviews/review-muse-wonder-1.0-6.md"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-16T08:22:45.844Z","note":"review by muse-wonder-1.0 (meta) at d60d0010580d: ship · reports/reviews/review-muse-wonder-1.0-8.md"}
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-16T08:36:32.253Z","note":"session 03503f40-f949-4b5b-b5ad-6c026c2551f0","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T08:36:32.255Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T08:36:32.256Z","evidence":"specwithcode PR 495 merged as 6e069ab5c5 at reviewed head d60d001058; 26 checks green; review-muse-wonder-1.0-8.md SHIP\nHEAD 0a9b479927","model":"claude-fable-5-2[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T08:36:33.339Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T08:36:33.341Z","evidence":"specwithcode PR 495 merged as 6e069ab5c5 at reviewed head d60d001058; 26 checks green; review-muse-wonder-1.0-8.md SHIP\nHEAD 0a9b479927","model":"claude-fable-5-2[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T08:36:34.421Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T08:36:34.423Z","evidence":"specwithcode PR 495 merged as 6e069ab5c5 at reviewed head d60d001058; 26 checks green; review-muse-wonder-1.0-8.md SHIP\nHEAD 0a9b479927","model":"claude-fable-5-2[1m]"}

@@ -44,19 +44,19 @@ In: automatic installs wait at most a grace period, then pause running work and 
 ## Tasks
 
 ### T-01 Agent pauses work after the grace and installs
-- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/update_agent.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/update_agent_pause.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/update_request.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/fleet_rollout.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/test-update-agent-pause.py | Test: python3 -B scripts/studio-fleet/test-update-agent-pause.py
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update_agent.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update_agent_pause.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update_request.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/fleet_rollout.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-agent-pause.py | Test: python3 -B scripts/studio-fleet/test-update-agent-pause.py
 
 ### T-02 Desktop carries the pause settings and time
-- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/updates/studioServiceUpdates.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/ipc/methods/serviceUpdates.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/*.ts | Test: pnpm --filter @specweave-studio/desktop exec vp test run src/updates/studioServiceUpdates.test.ts
+- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/desktop/src/updates/studioServiceUpdates.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/ipc/methods/serviceUpdates.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/*.ts | Test: pnpm --filter @specweave-studio/desktop exec vp test run src/updates/studioServiceUpdates.test.ts
 
 ### T-03 Sidebar countdown with Install now and Later
-- AC: AC-02 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/serviceUpdateRunView.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/sidebar/SidebarRestartToUpdate.tsx | Test: pnpm --filter @specweave-studio/web exec vp test run src/components/serviceUpdateRunView.test.ts
+- AC: AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/serviceUpdateRunView.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.tsx | Test: pnpm --filter @specweave-studio/web exec vp test run src/components/serviceUpdateRunView.test.ts
 
 ### T-04 Paused turns continue after an automatic install
-- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/orchestration-v2/UpdateContinuation.integration.test.ts | Test: pnpm --filter specweave-studio exec vp test run src/orchestration-v2/UpdateContinuation.integration.test.ts
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/UpdateContinuation.integration.test.ts | Test: pnpm --filter specweave-studio exec vp test run src/orchestration-v2/UpdateContinuation.integration.test.ts
 
 ### T-05 Deleted database log restarts on request
-- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/update.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/service_handles.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/database_restart.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/update_agent.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/test-database-restart.py | Test: python3 -B scripts/studio-fleet/test-database-restart.py
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/service_handles.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/database_restart.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update_agent.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-database-restart.py | Test: python3 -B scripts/studio-fleet/test-database-restart.py
 
 ### T-06 Nothing opens the live database directly
-- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/cli/db.ts, AGENTS.md, repositories/anton-abyzov/specwithcode-dev/docs/operations/live-database.md | Test: pnpm --filter specweave-studio exec vp test run src/cli/db.test.ts
+- AC: AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/cli/db.ts, AGENTS.md, repositories/anton-abyzov/specwithcode/docs/operations/live-database.md | Test: pnpm --filter specweave-studio exec vp test run src/cli/db.test.ts

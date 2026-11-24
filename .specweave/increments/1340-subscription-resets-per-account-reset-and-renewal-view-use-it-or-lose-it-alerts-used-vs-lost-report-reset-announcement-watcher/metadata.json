@@ -1,0 +1,15 @@
+{
+  "id": "1340-subscription-resets-per-account-reset-and-renewal-view-use-it-or-lose-it-alerts-used-vs-lost-report-reset-announcement-watcher",
+  "uuid": "1daf3110-e085-4e6c-96b3-9c3a2487e484",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T01:23:38.972Z",
+  "updated": "2026-11-15T16:34:29.832Z",
+  "lastActivity": "2026-11-15T16:34:29.832Z",
+  "title": "Subscription resets: per-account reset and renewal view, use-it-or-lose-it alerts, used-vs-lost report, reset-announcement watcher",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-15T16:34:29.830Z",
+  "approvedAt": "2026-11-15T16:34:29.832Z"
+}

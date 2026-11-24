@@ -1,0 +1,12 @@
+{
+  "id": "1439-recognize-existing-project-copies-before-adding-to-another-machine",
+  "uuid": "f8ea7a5f-2983-4efb-9493-b40662cb8e88",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T19:31:08.162Z",
+  "updated": "2026-11-20T19:31:08.162Z",
+  "lastActivity": "2026-11-20T19:31:08.162Z",
+  "title": "Recognize existing project copies before adding to another machine",
+  "project": "specweave-umb"
+}

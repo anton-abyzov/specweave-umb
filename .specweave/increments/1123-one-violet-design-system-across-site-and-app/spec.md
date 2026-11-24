@@ -38,7 +38,7 @@ Weave (docs-site/src/css/weave.css) already defines the system; the fix is remov
 - AC: AC-03 | Files: docs-site/src/components/**, docs-site/src/css/tokens.css, docs-site/static/site.webmanifest, docs-site/docs/** | Test: cd repositories/anton-abyzov/specweave/docs-site && npx playwright test e2e/design-system.spec.ts
 
 ### T-03 Desktop app default theme to iris
-- AC: AC-04 | Files: specweave-studio apps/web/src/index.css, apps/web/src/components/studio/shell/shell.css, apps/web/src/styles/base.css, apps/web/index.html | Test: cd repositories/anton-abyzov/specweave-studio/apps/web && npx vitest run src/components/studio/shell
+- AC: AC-04 | Files: specweave-studio apps/web/src/index.css, apps/web/src/components/studio/shell/shell.css, apps/web/src/styles/base.css, apps/web/index.html | Test: cd repositories/anton-abyzov/specwithcode/apps/web && npx vitest run src/components/studio/shell
 
 ### T-04 Verify and close 1123
 - AC: AC-01, AC-02, AC-03, AC-04 | Files: none | Test: specweave verify 1123

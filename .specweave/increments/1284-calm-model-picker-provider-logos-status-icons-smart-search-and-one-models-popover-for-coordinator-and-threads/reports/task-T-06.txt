@@ -1,0 +1,26 @@
+$ cd repositories/anton-abyzov/specwithcode-dev/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/chat/DraftMachinePicker.test.tsx src/studio/machineIdentity.test.ts src/components/chat/threadMachine.test.ts src/components/studio/ProjectWorkspace.question.test.tsx
+# exit 0 — 2026-11-11T18:50:06.628Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+Warning: Route file "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.1 [39m[90m/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev/apps/web[39m
+
+ [32m✓[39m [30m[42m unit [49m[39m src/studio/machineIdentity.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m [30m[42m unit [49m[39m src/components/chat/threadMachine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m [30m[42m unit [49m[39m src/components/chat/DraftMachinePicker.test.tsx [2m([22m[2m27 tests[22m[2m)[22m[33m 1610[2mms[22m[39m
+ [32m✓[39m [30m[42m unit [49m[39m src/components/studio/ProjectWorkspace.question.test.tsx [2m([22m[2m12 tests[22m[2m)[22m[33m 611[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m      Tests [22m [1m[32m50 passed[39m[22m[90m (50)[39m
+[2m   Start at [22m 13:49:32
+[2m   Duration [22m 33.77s[2m (transform 86%, import 8%, tests 4%, environment 2%)[22m
+

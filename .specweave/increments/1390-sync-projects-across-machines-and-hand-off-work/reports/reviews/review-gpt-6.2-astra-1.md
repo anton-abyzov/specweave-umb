@@ -1,0 +1,83 @@
+<!-- specweave review: reviewer=gpt-6.2-astra model=gpt-6.2-astra family=openai author=claude depth=standard repo=repositories/anton-abyzov/specwithcode base=8ad73fe68f10f3d4afcfd76b3a6948ca4944a0f8 head=2bd8b455f05cbc5ab2bada598aa57217bc7d1afa at=2026-11-19T03:53:52.433Z -->
+# Adversarial code review: PR #658 Project sync: marked clone staging, offline fast-forward (1390 Phase 2), round 1, head `2bd8b455f05cbc5ab2bada598aa57217bc7d1afa`
+Verdict: fix first
+
+Reviewed both commits and all ten changed files against `5fd289f7c8e198384173d6fd7c7e3e9e5ab62441`, including the tests, the Git runner, section C of the spec and the previous findings. The fetch provenance and result reporting are not reliable enough to merge. This is a source review: no checkout, repository copy, install, build, test suite, browser or live database. Line references below are relative to `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode` at the reviewed head.
+
+## P2-22: offline fast-forward. Partly holds.
+
+The move-time ask gets 30 seconds. A missing branch refuses; an unavailable origin permits a move only when the map entry has the exact ref name derived from the tracking ref and the same full commit hash. The map belongs to the service instance and disappears on restart (`apps/server/src/fleet/ProjectSync.ts:509-519`, `:595-621`, `:1120-1127`). Losing contact after a genuine fetch necessarily means later remote changes cannot always be known. That is different from ignoring newer information the server already has.
+
+The positive and negative offline sentences, absent record, second fetch changing the ref, and actual HEAD movement are asserted on real Git repositories (`apps/server/src/fleet/ProjectSync.test.ts:1251-1317`). The offline success and refusal detail distinguish the patch from the base; the online control already passed. The fixture simulates an outage by **changing the origin URL**, not by taking the same remote offline. It consequently requires reuse across a change of remote. It does not test a different ref with the same hash, a force-push retaining the branch name, a replaced checkout, or a retry after a confirmed deletion. See P2-28, P2-30 and P2-33.
+
+## P2-23: ownership of staging folders. Holds for stable ordinary paths, not for every inventory or live sweep.
+
+The writer exclusively creates the marker immediately after `mkdtemp`, creates `clone` next, then runs Git there. Creation failure attempts to remove the staging directory and only the empty parents it created (`apps/server/src/fleet/ProjectSync.ts:702-706`, `:727-755`). The reader checks the full basename, `lstat` directory type, `lstat` regular-file type, byte length and exact text (`apps/server/src/fleet/cloneStaging.ts:17-44`). A symlink in place of the folder or marker, a directory marker, and wrong text all fail recognition. With nested candidates it uses the first **marked** ancestor, not the first matching name (`:54-65`). Old unmarked staging is treated as the person's folder. The sweep also checks that the real path equals the candidate before removing it (`apps/server/src/fleet/ProjectSync.ts:195-212`).
+
+Repository listing and uncommitted counts use the marker (`apps/server/src/fleet/ProjectSync.ts:271-283`, `:329-357`). A marked directory with a real nested Git fixture, an unmarked lookalike and a wrong-text marker are covered at `apps/server/src/fleet/ProjectSync.test.ts:1093-1145` and `:1224-1248`. The unmarked assertions would fail on the base; merely excluding an ordinary marked lookalike would not. The positive inventory and active-clone tests cover ordinary names and an already-running Git process (`apps/server/src/fleet/ProjectSync.service.test.ts:471-498`, `:744-759`). They do not cover the initialization window, quoted paths or ignored secrets. See P2-34 and P2-35.
+
+## P2-24: snapshot contents, including thread checkpoints. Holds for the tested ownership rule.
+
+`apps/server/src/handoff/checkpointGit.ts:149-176` filters untracked paths before building either checkpoint's candidates. Tracked changes remain candidates. A thread still gets its existing name check, not the Sync content check (`:193-202`, `:220-232`). The real snapshot test reads the resulting tree in both modes: the marked fixture without `.git` is absent, the nested clone is absent, and the unmarked person's file is present (`apps/server/src/handoff/snapshotSecrets.test.ts:387-408`). The base would carry the marker and ordinary files of the `.git`-less fixture. A byte-for-byte copy of the marker into a matching personal fixture is indistinguishable from staging by design; this is not authenticated ownership. Also distinguish checkpoint **contents** from its list of required secrets (P2-34).
+
+## P2-25: per-repository failures. Isolation holds at run time; reported outcomes do not.
+
+`apps/server/src/fleet/ProjectSync.ts:897-930` catches each step independently. The three-repository test injects a rejection *before* the second merge and checks the first and third actual HEADs (`apps/server/src/fleet/ProjectSync.results.test.ts:38-79`). The clone test injects faults on opposite sides of publication (`:82-115`). Either uncaught rejection would abort on the base. Both tests exercise real repositories; neither failure is a real process timeout. The `Git did not finish: …` result applies only to exceptions escaping the step. An ordinary nonzero merge still follows `fetch/refused` (`apps/server/src/fleet/ProjectSync.ts:634-648`); clone command failures use `gitReason` or the cancellation detail (`:775-784`). The batch continues in each case.
+
+Project lookup, admission, root/discovery errors outside the root-only fallback, and interruption remain call-level, outside the per-step catch (`apps/server/src/fleet/ProjectSync.ts:1038-1069`, `:1152-1168`). Run holds the project lock across its steps, waits out each merge, and aborts and waits for an interrupted clone before releasing (`:993-1029`, `:1186-1209`). That does not make a post-write read failure a refused write (P2-29). The separate parallel **fetch** error path is P2-32.
+
+## P2-26: unread checkout state. Safe for the tested nonzero exit; not for every unread state.
+
+When status exits nonzero and the checkout is otherwise eligible to move, facts contain `stateUnread: true`, count zero, and the new planner returns `fetch/uncommitted` with the specified detail. The server reads facts again and applies its own planner even to an old window's explicit move request (`apps/server/src/fleet/ProjectSync.ts:299-305`, `:479-484`, `:584-586`; `packages/contracts/src/projectSync.ts:247-255`). The test injects exit 128 into a real checkout, asserts no movement, then restores status and verifies the move (`apps/server/src/fleet/ProjectSync.results.test.ts:121-159`); the base invented a count of one. It does not exercise rejection (P2-32). A level branch takes the earlier `up-to-date` return and the step drops the unread flag, so the exact unread sentence is not universal.
+
+## P2-27: deleted upstreams, including level branches. Detection holds; the extras claim does not.
+
+The post-fetch ask now applies whether behind or not. A definite absence sets `upstreamGone` and, on matching branches, wins over `behind === 0` (`apps/server/src/fleet/ProjectSync.ts:454-476`; `packages/contracts/src/projectSync.ts:236-251`). The fixture really deletes the remote feature branch. Its level plan would be `up-to-date` on the base; the live-branch control already passed (`apps/server/src/fleet/ProjectSync.results.test.ts:163-185`, `:198-203`). The extras test adds a local commit before inspecting inventory, so it tests an **ahead** branch, not its stated level case (P2-31). The extra remote request is not subject to the 30-second move-time budget (P2-36).
+
+## Contract and Git safety
+
+The wire change is additive: `stateUnread` is optional, the detail strings are values of the existing bounded string, and no action or reason enum changed (`packages/contracts/src/projectSync.ts:32-45`, `:123-145`, `:166-199`, `:310-320`). A new reader of old facts retains the old nonzero-count guard; an old reader ignoring the new key can propose a move, but the new server replans as described above. This is a schema and control-flow conclusion, not a two-version RPC test.
+
+Sync explicitly fetches `origin` with an empty `--refmap=`, its own heads-to-tracking-refs rule, no pruning and no recursive submodule fetch (`apps/server/src/fleet/ProjectSync.ts:90-107`, `:421-433`). The sole merge uses `--ff-only --no-overwrite-ignore` and a validated hash (`:513-519`, `:634-641`). The direct command allowlist and fetch/merge argument checks are real (`apps/server/src/fleet/ProjectSync.test.ts:1320-1378`). No direct reset, rebase, merge-commit creation, stash, switch, push or commit was added to checkout reconciliation. A hash prevents the target ref drifting *during the Git command*; it does not prove origin advertised that hash or that the branch being moved is still the planned branch.
+
+## New findings
+
+### P2-28 (medium): the fetch record is not proof of the fetched commit
+
+`apps/server/src/fleet/ProjectSync.ts:421-435`, `:465-467`, `:535-542`: after the fetch, Sync rereads a mutable local tracking ref and uses only the *name* in the advertisement as confirmation. If another fetch changes that ref in between, the cached object need not be the one Sync fetched. Online, a force-push from B to C passes the same name check and Sync still moves to B. Offline, the map key is just the checkout path (`:608-612`, `:1120-1125`): two project IDs pointing at the same live checkout share one record, and a different origin or re-clone at the same path can inherit it if ref and hash match. Conversely, a link lost immediately after a successful fetch leaves no record because the second ask failed. Record the exact ref and object ID from the fetch itself, bind them to checkout and origin identity, and compare the advertised object ID when online. Test outages without changing the configured origin.
+
+### P2-29 (medium): a completed clone or fast-forward can be reported as refused
+
+`apps/server/src/fleet/ProjectSync.ts:791-815` reads the branch after the clone has been renamed into place. If that read throws, `apps/server/src/fleet/ProjectSync.ts:924-955` returns `none/refused`. The second clone in `apps/server/src/fleet/ProjectSync.results.test.ts:95-114` explicitly expects this false result. An analogous read at `apps/server/src/fleet/ProjectSync.ts:634-648` can throw after a successful merge. Make clone metadata best-effort after publication. Separate a failed command from failed verification: reread the target HEAD before claiming zero movement; if the outcome cannot be verified, say that instead of “refused.” Assert both the result and the installed checkout or moved HEAD.
+
+### P2-30 (medium): a known deletion does not revoke offline permission
+
+`apps/server/src/fleet/ProjectSync.ts:595-612`: a successful fetch records a tip. A later online `run` sees the branch has been deleted and refuses. A retry while disconnected still finds the original record and moves to that deleted branch's tip. This is different from a deletion the machine never learned about. Invalidate the record on a definite missing branch or an observed tip mismatch, before returning.
+
+### P2-31 (medium): extras omit the branch that just disappeared
+
+`apps/server/src/fleet/ProjectSyncExtras.ts:171-186` counts against the stale tracking ref even after Sync knows the remote branch is gone. For a feature branch with a unique commit, exactly level at deletion, the count is zero: neither `onlyHere` nor `notPushed` offers it. `apps/server/src/fleet/ProjectSync.results.test.ts:188-195` first makes another commit and verifies only that one. Use the absence learned by the fetch in inventory, disregarding the stale ref when computing unique commits against live origin refs. Assert the level-at-deletion case without the extra commit.
+
+### P2-32 (medium): a status timeout aborts the whole fetch instead of returning unread facts
+
+`apps/server/src/fleet/ProjectSync.ts:299-305` handles a nonzero exit, not a rejected status promise. A timeout or spawn failure rejects even with `allowFailure` (`apps/server/src/fleet/folderTransfer/git.ts:78-93`). In a multi-repository fetch, this escapes through `Promise.all` at `apps/server/src/fleet/ProjectSync.ts:857-867`; the caller gets no facts, and the rejected aggregate no longer waits for sibling workers before the project lock is released. During `run` the catch instead reports `none/refused`, not `fetch/uncommitted`. Treat an unsuccessful status read, including a rejected process call, as unknown; test a rejection as well as an exit code. Keep whole-operation cancellation distinct and join any started workers on failure.
+
+### P2-33 (medium): the branch and clean state are checked before the network wait
+
+`apps/server/src/fleet/ProjectSync.ts:584-595`, `:622-646`: while the offline ask waits, a person can switch from `main` to a different clean branch at the same old commit. Only thread occupancy is rechecked. The merge then advances the **new** branch to `main`'s target and the post-check compares only HEAD, not branch. An unrelated local edit during the wait can likewise survive a normal fast-forward even though Sync promises not to move a dirty checkout. The online ordering existed before; the new offline path makes a timeout another route to this write. Revalidate branch, HEAD, upstream and clean state after the network wait, immediately before merging; decline if any changed. Explicitly disable merge autostash rather than relying on the absence of a `stash` command in the trace.
+
+### P2-34 (low): two extras inputs bypass the staging path filter
+
+`apps/server/src/fleet/ProjectSyncExtras.ts:188-196` feeds newline-separated, possibly C-quoted `git status` paths directly to the marker lookup. With default Git path quoting, a non-ASCII clone target can leave a quoted marker path that does not resolve; the parent inventory offers untracked work that the snapshot excludes. Separately, an ignored `.env` under a marked, not-yet-Git `clone` directory can be listed by the ignored-files pass, which never calls the filter (`:111-117`; also `apps/server/src/handoff/checkpointGit.ts:153-167`, `:286-289`). This is a false inventory or required-secret entry, not evidence that the file's contents travel. Parse `status -z` with rename/copy handling and apply the same marker check to ignored entries.
+
+### P2-35 (low): a same-process sweep can discard a live clone during initialization
+
+`apps/server/src/fleet/ProjectSync.ts:727-747` installs the live-set entry **after** awaiting marker creation and child-directory creation. Two overlapping project registrations have distinct locks (`:1152-1166`). A concurrent sibling scan for a clone can see the exact marker in the gap, pass the live-set check and remove the new staging directory (`:204-212`, `:223-229`). The clone fails unnecessarily. Register the staging path immediately after `mkdtemp`, before publishing its marker, with a `finally` covering initialization and fill. That fixes this process's gap; protecting another server process needs a shared lease. The existing active-clone test starts its sweep only after the network connection opens.
+
+### P2-36 (low): thirty level repositories can spend forty minutes on redundant origin probes
+
+`apps/server/src/fleet/ProjectSync.ts:54-58`, `:457-460`, `:528-538`, `:857-865`: with thirty successful fetches and a tracked branch in each checkout, one machine starts thirty extra `ls-remote` processes. Four workers need eight waves. If the fetches are quick but the follow-up requests time out, those requests alone budget up to 40 minutes under the fetch lock. This is a calculated delay, not a measured hang; fetch is cancellable. Thirty later fast-forwards can separately spend 15 minutes on serial 30-second rechecks. Derive branch presence and tip from the same complete fetch advertisement; if a second probe is unavoidable, give it a short batch deadline.
+
+## Not proven
+
+No CI state, timing benchmark, Windows filesystem behavior, mixed-version RPC exchange or two-machine handoff was verified. The accepted static-marker rule cannot distinguish a copied marker from an original. The sweep's real-path check is not atomic with removal; a concurrent replacement at the same name remains a filesystem race. The live set does not protect another server process's clone. No race, cross-process deletion or secret transfer was executed. These limits are distinct from the ordinary marked/unmarked cases covered by source-level tests above.

@@ -1,0 +1,19 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-16T17:32:09.298Z","note":"session 4a4a5ad7-a73c-4d40-8232-64829d951487","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T17:32:09.300Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T17:32:10.345Z","evidence":"app repo commit 49d65aa61; vp test run packages/contracts/src/settings.test.ts packages/shared/src/serverSettings.test.ts: 2 files, 235 tests passed\nHEAD a5ab29b4fd","model":"claude-fable-5-2[1m]"}
+{"t":"T-09","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T17:35:09.520Z","model":"claude-fable-5-2[1m]"}
+{"t":"T-09","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T17:35:10.488Z","evidence":"app repo commit 98b66ec51; vp test run apps/server/src/mergedCloneSweep.test.ts: 27 passed\nHEAD a5ab29b4fd","model":"claude-fable-5-2[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:33:08.580Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:33:22.684Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:33:40.458Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:33:53.812Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:34:04.628Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:34:14.421Z","evidence":"app commits 13aca2abe 12ef71983 269e64bee on PR #514; worktreeOwnership.test.ts and cli/worktree.test.ts pass (392 focused server tests after merge)\nHEAD dd82369e2d","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:34:21.920Z","evidence":"app commits 1df1aeb5d b80283997 12ef71983 aa3cedc84 d2a6a94a4 56bfd8c44; finishedWorktrees, worktreeCleanupSweep, worktreeCleanupSweep.safety tests pass (82 sweep+service tests at 56bfd8c44)\nHEAD dd82369e2d","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:34:29.341Z","evidence":"app commit bbbfa4316 bb24d14cf; staleGitPacks.test.ts and storageCleanup.test.ts pass\nHEAD dd82369e2d","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:34:37.223Z","evidence":"app commits 30737aad1 bb24d14cf 56bfd8c44; storageCleanup.test.ts 37+ pass, storageCleanupRpc tests pass\nHEAD dd82369e2d","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-16T20:34:43.122Z","evidence":"app commits 91b147fa4 a72050fbf 56bfd8c44; storageCleanupPlan, StorageCleanupPlanSection, i18n tests 337 pass; web typecheck 0 errors; web build passes\nHEAD dd82369e2d","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-17T04:37:49.888Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-08","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-17T04:37:51.408Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-17T04:37:52.715Z","evidence":"PR #514 merged as 83e811eb9 after Muse round 4 SHIP and green CI on 064d72030; request-release run 44018372095; 83e811eb9 is released in v1.0.328\nHEAD 8eed059bf1","model":"claude-opus-5-5[1m]"}
+{"t":"T-08","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-17T04:37:53.831Z","evidence":"reports/one-off-cleanup-2026-11-16.md: app sweep on v1.0.329 removed 3 folders, kept ios-machine-color-status (uncommitted); df 94 GiB free; launchd job disabled\nHEAD 8eed059bf1","model":"claude-opus-5-5[1m]"}

@@ -1,0 +1,4 @@
+$ python3 -c "import json,sys;d=json.load(open('.specweave/increments/1316-first-run-agent-install-claude-code-and-codex-one-click-visible-log-missing-developer-tools/reports/results.json'));print(d);sys.exit(0 if all(c['pass'] for c in d['checks']) else 1)"
+# exit 0 — 2026-11-13T01:12:27.198Z
+
+{'checks': [{'name': 'rows', 'pass': True, 'rows': [['claudeAgent', 'install'], ['codex', None], ['git', 'missing']]}, {'name': 'install-button', 'pass': True}, {'name': 'git-row', 'pass': True}, {'name': 'install-git-button', 'pass': True}, {'name': 'row-says-installing', 'pass': True}, {'name': 'panel-in-view', 'pass': True}, {'name': 'install-ended', 'pass': True, 'state': 'closed', 'after': [['claudeAgent', 'signIn'], ['codex', None], ['git', 'missing']], 'binary': True}, {'name': 'claude-row-now-sign-in', 'pass': True, 'after': [['claudeAgent', 'signIn'], ['codex', None], ['git', 'missing']]}]}

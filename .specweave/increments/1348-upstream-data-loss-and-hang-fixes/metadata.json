@@ -1,0 +1,16 @@
+{
+  "id": "1348-upstream-data-loss-and-hang-fixes",
+  "uuid": "c97288ae-def2-44f1-bbb6-a0b1cf317594",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T03:43:30.001Z",
+  "updated": "2026-11-21T14:08:17.408Z",
+  "lastActivity": "2026-11-21T14:08:17.408Z",
+  "title": "Data loss and hang fixes from the upstream review",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

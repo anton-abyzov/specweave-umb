@@ -1,0 +1,19 @@
+{
+  "id": "1324-cross-family-review-policy",
+  "uuid": "f061d218-a213-467c-a8d8-8d037cce4e5f",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-13T21:14:34.969Z",
+  "updated": "2026-11-14T03:01:19.027Z",
+  "lastActivity": "2026-11-14T03:01:19.027Z",
+  "title": "Cross-family review policy: set in spec.md, enforced at closure, shown on the plan card",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specweave",
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-14T03:01:19.027Z",
+  "approvedAt": "2026-11-14T03:01:19.027Z"
+}

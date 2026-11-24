@@ -46,19 +46,19 @@ Critique: avoid a new card around every field and decorative badges. Keep separa
 ## Tasks
 
 ### T-01 Verify Cursor requirements and discovery presentation
-- AC: AC-01 | Files: repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/providerDriverMeta.ts, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ProviderInstanceCard.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/settings/ProviderInstanceCard.test.ts apps/server/src/provider/CursorProvider.test.ts apps/server/src/provider/CursorSdkCatalog.test.ts
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/providerDriverMeta.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/ProviderInstanceCard.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/settings/ProviderInstanceCard.test.ts apps/server/src/provider/CursorProvider.test.ts apps/server/src/provider/CursorSdkCatalog.test.ts
 
 ### T-02 Unify settings hierarchy and provider presentation
-- AC: AC-02, AC-03 | Files: repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/settingsLayout.tsx, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/SettingsGroup.tsx, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ProviderSettingsPanel.tsx, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ProviderInstanceCard.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/settings/settingsLayout.test.tsx apps/web/src/components/settings/ProviderSettingsPanel.environment.test.tsx
+- AC: AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/settingsLayout.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/SettingsGroup.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/ProviderSettingsPanel.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/ProviderInstanceCard.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/settings/settingsLayout.test.tsx apps/web/src/components/settings/ProviderSettingsPanel.environment.test.tsx
 
 ### T-03 Capture responsive evidence and deliver reviewed change
-- AC: AC-04, AC-05 | Files: repositories/anton-abyzov/specweave-studio/apps/web/tests/settings-design, repositories/anton-abyzov/specweave-studio/scripts/studio-verify/settings-design.mjs | Test: PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never node scripts/studio-verify/settings-design.mjs
+- AC: AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/tests/settings-design, repositories/anton-abyzov/specwithcode/scripts/studio-verify/settings-design.mjs | Test: PWDEBUG=0 PLAYWRIGHT_HTML_OPEN=never node scripts/studio-verify/settings-design.mjs
 
 ### T-04 Verify and close 1009
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: .specweave/increments/1009-cursor-support-and-settings-design/spec.md | Test: specweave verify 1009-cursor-support-and-settings-design
 
 
 ### T-05 Align presentation with final 1031 reach contract
-- AC: AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/settingsLayout.tsx, repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ProviderSettingsPanel.tsx, repositories/anton-abyzov/specweave-studio/apps/web/tests/settings-design | Test: node node_modules/vite-plus/bin/vp test run apps/web/tests/settings-design/reach.test.tsx apps/web/src/components/settings/ProviderSettingsPanel.environment.test.tsx
+- AC: AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/settingsLayout.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/ProviderSettingsPanel.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/settings-design | Test: node node_modules/vite-plus/bin/vp test run apps/web/tests/settings-design/reach.test.tsx apps/web/src/components/settings/ProviderSettingsPanel.environment.test.tsx
 
 Use settingsScopeEnvironmentLabel for selected-machine names. Leave unknown machine reach unlabeled. Keep SettingsScopeSentence and settingsScopeAxis unchanged; note their vocabulary mismatch for S1. Verify and close 1009 after delivery and installed gates.

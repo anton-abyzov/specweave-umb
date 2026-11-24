@@ -1,0 +1,6 @@
+DESIGN OK
+Verdict: ship
+
+**HIGH #3: closed.** At `/Users/antonabyzov/Projects/github/specweave-umb/.specweave/increments/1334-direct-lan-path-for-copy-to-another-machine-with-connect-fallback/spec.md:312`, the sticky exception relaxes writability, not ownership. The sticky ancestor must belong to root or the app's user, and the next component must already be a directory belonging to the app's user. Another non-root local user therefore owns neither the sticky directory nor the protected entry and cannot rename that entry under sticky-directory rules. An ancestor owned by that other user fails before the affected write; closure does not depend on detecting a change afterward.
+
+**Verified:** Compared the two changed bullets from `4c99fd30` to `37d60e6de5bb950cfa57d83c43c95ea0d83cbe22` against the round 3 report in Git. Line 321 retains the implementation gates for LAN, direct Connect and forced fallback: refuse before each affected mutation, leave outside files byte-for-byte unchanged, and copy a safe private tree. Missing Add targets, effective ACLs including permission-change rights, and links or reparse points remain platform checks. No new design finding in this delta; earlier dispositions are unchanged. Static review only, with no listener or runtime tests.

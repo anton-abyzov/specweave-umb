@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-11T20:49:14.833Z",
-  "updated": "2026-11-12T09:17:33.977Z",
-  "lastActivity": "2026-11-12T09:17:33.977Z",
+  "updated": "2026-11-13T19:12:25.919Z",
+  "lastActivity": "2026-11-13T19:12:25.919Z",
   "title": "Stale limit blocker: a subscription change or the user's answer unblocks the coordinator on any machine",
   "project": "specweave-umb",
   "externalLinks": {}

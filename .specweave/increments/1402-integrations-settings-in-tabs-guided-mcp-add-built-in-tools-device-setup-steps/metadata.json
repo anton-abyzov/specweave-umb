@@ -1,0 +1,16 @@
+{
+  "id": "1402-integrations-settings-in-tabs-guided-mcp-add-built-in-tools-device-setup-steps",
+  "uuid": "091fadc3-2273-4ea2-9828-ab5793906ce2",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T08:14:03.601Z",
+  "updated": "2026-11-22T19:47:18.509Z",
+  "lastActivity": "2026-11-22T19:47:18.509Z",
+  "title": "Integrations settings in tabs: guided MCP add, built-in tools, device setup steps",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

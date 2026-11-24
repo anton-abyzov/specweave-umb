@@ -5,12 +5,15 @@
   "type": "bug",
   "priority": "P2",
   "created": "2026-10-25T19:01:01.999Z",
-  "updated": "2026-10-25T19:47:20.453Z",
-  "lastActivity": "2026-10-25T19:47:20.453Z",
+  "updated": "2026-11-21T00:12:11.858Z",
+  "lastActivity": "2026-11-21T00:12:11.858Z",
   "title": "Open file links in thread-less Library documents",
   "project": "specweave-umb",
   "parent": "1049-files-and-report-polish-with-claude-code-artifact-proof",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

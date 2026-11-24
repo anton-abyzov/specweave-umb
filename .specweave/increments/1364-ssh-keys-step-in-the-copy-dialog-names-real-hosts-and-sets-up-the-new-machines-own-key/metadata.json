@@ -1,0 +1,15 @@
+{
+  "id": "1364-ssh-keys-step-in-the-copy-dialog-names-real-hosts-and-sets-up-the-new-machines-own-key",
+  "uuid": "516d976d-f346-4fbe-a32b-6b6e41115ffe",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-16T07:01:34.724Z",
+  "updated": "2026-11-16T10:44:47.604Z",
+  "lastActivity": "2026-11-16T10:44:47.604Z",
+  "title": "SSH keys step in the copy dialog names real hosts and sets up the new machine's own key",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-16T10:44:47.602Z",
+  "approvedAt": "2026-11-16T10:44:47.604Z"
+}

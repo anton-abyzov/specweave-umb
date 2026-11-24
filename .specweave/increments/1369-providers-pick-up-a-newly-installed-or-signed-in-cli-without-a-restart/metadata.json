@@ -1,0 +1,15 @@
+{
+  "id": "1369-providers-pick-up-a-newly-installed-or-signed-in-cli-without-a-restart",
+  "uuid": "9781307e-97db-4518-9379-f003291b9174",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-16T16:47:56.223Z",
+  "updated": "2026-11-16T22:12:22.954Z",
+  "lastActivity": "2026-11-16T22:12:22.954Z",
+  "title": "Providers pick up a newly installed or signed-in CLI without a restart",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-16T22:12:22.954Z",
+  "approvedAt": "2026-11-16T22:12:22.954Z"
+}

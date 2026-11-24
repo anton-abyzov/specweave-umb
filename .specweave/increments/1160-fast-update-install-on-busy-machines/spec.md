@@ -40,16 +40,16 @@ The proofs are unchanged: page mode is the design reviewed under 0957, and it fa
 ## Tasks
 
 ### T-01 Page mode survives large auth tables and records refusals
-- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/update_apply.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/update.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/test-update-page-mode.py | Test: python3 scripts/studio-fleet/test-update-page-mode.py
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update_apply.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-page-mode.py | Test: python3 scripts/studio-fleet/test-update-page-mode.py
 
 ### T-02 Connect mints wait for the restart
-- AC: AC-02 | Files: repositories/anton-abyzov/specwithcode-dev/apps/server/src/cloud/CloudLink.ts, repositories/anton-abyzov/specwithcode-dev/apps/server/src/cloud/CloudLink.lifecycle.test.ts | Test: bun run --cwd apps/server test src/cloud/CloudLink.lifecycle.test.ts
+- AC: AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/cloud/CloudLink.ts, repositories/anton-abyzov/specwithcode/apps/server/src/cloud/CloudLink.lifecycle.test.ts | Test: bun run --cwd apps/server test src/cloud/CloudLink.lifecycle.test.ts
 
 ### T-03 Helper publishes live phase estimates
-- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/install_progress.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/update.py, repositories/anton-abyzov/specwithcode-dev/scripts/studio-fleet/test-install-progress.py | Test: python3 scripts/studio-fleet/test-install-progress.py
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/install_progress.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/update.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-install-progress.py | Test: python3 scripts/studio-fleet/test-install-progress.py
 
 ### T-04 One progress bar and live estimate
-- AC: AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/serviceUpdateRun.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/updates/updateRun.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/serviceUpdateRunView.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/serviceUpdateRunFlow.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/sidebar/SidebarRestartToUpdate.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/ui/toast.tsx | Test: bun run --cwd apps/web test src/components/serviceUpdateRunView.test.ts
+- AC: AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/serviceUpdateRun.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/updates/updateRun.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/serviceUpdateRunView.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/serviceUpdateRunFlow.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ui/toast.tsx | Test: bun run --cwd apps/web test src/components/serviceUpdateRunView.test.ts
 
 ### T-05 Merge, release and timed M4 update
 - AC: AC-06 | Files: none | Test: receipt timings on M4

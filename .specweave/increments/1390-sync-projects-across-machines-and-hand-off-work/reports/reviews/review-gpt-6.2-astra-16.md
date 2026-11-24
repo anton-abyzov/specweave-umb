@@ -1,0 +1,35 @@
+FIX FIRST
+Verdict: fix first
+
+# Round 8: Project Sync offline move and temporary-ref cleanup
+
+Reviewed `anton-abyzov/specwithcode#658` at `4a6728cfa666d25b9567086d7fb1199c9bc1aaf1` against `15f738f1145766a7042466c6bd15094041f85131`. **1 high blocker, 0 critical, 2 non-blocking follow-ups.** All five new tests failed on the baseline and passed at the reviewed head. The remaining blocker is an uncovered case of R7-02, not a new regression: the identity check and the deletion can operate on different repositories.
+
+## Round 7 dispositions
+
+Source and test citations are relative to `/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode` at the reviewed commit.
+
+| Item | Decision and evidence at this head | Would the new tests fail without the fix? |
+|---|---|---|
+| R7-01: an offline move can reach origin | **Original config mismatch fixed.** `apps/server/src/fleet/projectSyncGit.ts:38-67` and `apps/server/src/fleet/folderTransfer/git.ts:61-72` remove inherited `GIT_CONFIG`. The bound probe runs before the first object read; the tree writer, readback and separate ref transaction get the move environment (`apps/server/src/fleet/projectSyncMove.ts:294-305,342-344,395-424`). The explicit fetch stays separate. The stronger claim that *every child* has an *empty* transport allow-list is not literally true; see follow-up 1. | **Yes, both.** `apps/server/src/fleet/ProjectSync.admission.test.ts:291-341`: the hidden-promisor case failed on the refusal reason, not the packet trace. The independent missing-blob read with lazy fetch enabled actually succeeded on the baseline; at head it fails, leaves the blob missing and produces no packet traffic. Neither test runs Git 2.45.0 specifically. |
+| R7-02: cleanup follows a repository replaced at the same path | **Partly fixed.** The send now records the device and inode of the Git directory and common `refs` directory, checks them immediately before snapshot readback, and checks them again on entry to cleanup (`apps/server/src/fleet/ProjectSyncExtras.ts:419-435,483-487,597-605,653-667`). Both requested checks exist. They catch a replacement already in place, but do not bind the deleting Git process to the checked directory. | **Yes, both.** `apps/server/src/fleet/ProjectSyncExtras.round6.test.ts:138-175`: the replacement lost its direct ref on the baseline for both a branch and a snapshot. Both survive at head. Replacement happens during peer negotiation, not between snapshot publication and readback, or between the last cleanup check and deletion. |
+| Follow-up 2: confirmed absence vs. unconfirmed ownership | **Fixed for the reported case.** An empty listing is followed by `symbolic-ref -q`; only its empty exit-1 result is treated as absence. A changed store, an unread result, or a nonmatching ref does not authorize deletion and takes the warning path (`apps/server/src/fleet/ProjectSyncExtras.ts:597-612,628-646`). | **Yes.** `apps/server/src/fleet/ProjectSyncExtras.round6.test.ts:179-191` removes the ref during the peer wait. Both versions leave it absent; only the baseline incorrectly says it was left behind. |
+
+## R8-01 [high]: Cleanup can delete a restored repository's snapshot ref
+
+**AC-11 promise 6: Sync deletes only refs it wrote in this call.** At `apps/server/src/fleet/ProjectSyncExtras.ts:597-604`, `sameStore()` checks the directories, `refState()` reads the direct ref, and a separate `update-ref` process deletes it. That last process receives `GIT_DIR` as an absolute **pathname**, not an open handle to the directory that passed the check (`apps/server/src/fleet/ProjectSyncExtras.ts:421,661-667`; `apps/server/src/fleet/folderTransfer/git.ts:103-113`).
+
+Suppose cleanup reads the original direct ref, then a restore puts a copy at the same path before the deleting Git process opens it. The copy has the same ref name and OID, as in the two new fixtures. The expected-OID check succeeds **in the copy**. Sync removes a ref it never created there, potentially the restored repository's only ref to an uncommitted-work snapshot. Different inodes do not protect this case: they were measured before the replacement. This is Sync's own deletion, not a demand that Sync prevent another program from restoring a directory. The call sequence was verified in source; CI does not exercise this ordering.
+
+**Fix:** Bind the cleanup operation itself to the original ref store, or keep these temporary refs in storage private to the send. Where that cannot be guaranteed, retain the ref and report that cleanup could not confirm ownership. Another pathname check immediately before deletion only narrows the interval. Acceptance should cover a replacement after the last successful ownership read, not only one already present when cleanup starts.
+
+## Follow-up (non-blocking)
+
+1. **Make the offline transport policy literal.** `apps/server/src/fleet/projectSyncGit.ts:52-67` uses `GIT_ALLOW_PROTOCOL="none"`. Git treats that as a list containing the protocol named `none`, not an empty list; it checks membership before `protocol.allow` ([Git's allow-list parser](https://github.com/git/git/blob/v2.45.0/transport.c#L990-L1006), [precedence](https://github.com/git/git/blob/v2.45.0/transport.c#L1067-L1074)). Also, the unbound directory probes at `apps/server/src/fleet/projectSyncMove.ts:281-287,519` do not receive `MOVE_ENV`. Those probes only ask `rev-parse` for paths; no ordinary origin request was found through them. Use a present, empty allow-list for the move from entry, independently of when `GIT_DIR` is bound. Keep the explicit fetch outside it.
+2. **Preserve unrelated inherited Git configuration.** `apps/server/src/fleet/projectSyncGit.ts:54-57` resets `GIT_CONFIG_COUNT` to `1` and replaces entry zero. The explicit fetch still inherits the original list (`apps/server/src/fleet/ProjectSync.ts:518-520`). For example, a shared checkout trusted only through an inherited `safe.directory` entry can fetch successfully, then be refused as unread when the bound move loses that setting. This is a new conservative refusal, not an unsafe write. Avoid replacing the list, or append the policy without discarding existing entries.
+
+## Verification
+
+Compared the five production files and two regression files by content. The rebased pre-test commit `01868f427` matches the previous head for these files, and the two test files did not change between test-first commit `fe98891c7` and the reviewed head. Unrelated rebase changes were excluded.
+
+The five baseline failures are in `/Users/antonabyzov/.specwithcode/m4/scratch/2026-11-18-1390-phase-2/red/round7.txt`. The [exact-head Checks run](https://github.com/anton-abyzov/specwithcode/actions/runs/44508485329) passed. Its [server test artifact](https://github.com/anton-abyzov/specwithcode/actions/runs/44508485329/artifacts/14520379508) records **23/23 admission tests and 6/6 extras tests passed**, including all five named regressions. No local suite, install, build or change to the reviewed checkout was needed.

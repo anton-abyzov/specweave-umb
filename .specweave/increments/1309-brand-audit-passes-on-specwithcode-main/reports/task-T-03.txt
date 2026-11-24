@@ -1,0 +1,443 @@
+$ cd repositories/anton-abyzov/specwithcode-dev && node --test scripts/studio-toolchain/preservation-audit.test.mjs && node scripts/studio-brand-audit.mjs
+# exit 0 — 2026-11-12T13:19:55.578Z
+
+TAP version 13
+# Subtest: accepts the actual lock: identity map, exact SDK promotion and reviewed changes only
+ok 1 - accepts the actual lock: identity map, exact SDK promotion and reviewed changes only
+  ---
+  duration_ms: 70.647375
+  type: 'test'
+  ...
+# Subtest: ignores registry deprecation notes, which pnpm adds and drops on a refresh
+ok 2 - ignores registry deprecation notes, which pnpm adds and drops on a refresh
+  ---
+  duration_ms: 100.02575
+  type: 'test'
+  ...
+# Subtest: compares a dependency, snapshot edge or override named deprecated
+ok 3 - compares a dependency, snapshot edge or override named deprecated
+  ---
+  duration_ms: 155.801875
+  type: 'test'
+  ...
+# Subtest: compares registry data with the reviewed f0b6d13fb lock without trusting the identity map
+ok 4 - compares registry data with the reviewed f0b6d13fb lock without trusting the identity map
+  ---
+  duration_ms: 48.083333
+  type: 'test'
+  ...
+# Subtest: without the reviewed record the merged lock changes are refused and named
+ok 5 - without the reviewed record the merged lock changes are refused and named
+  ---
+  duration_ms: 62.748666
+  type: 'test'
+  ...
+# Subtest: accepts pnpm re-sorting sibling blocks, but not moving a block to another parent
+ok 6 - accepts pnpm re-sorting sibling blocks, but not moving a block to another parent
+  ---
+  duration_ms: 90.455458
+  type: 'test'
+  ...
+# Subtest: rejects changed SDK requested version
+ok 7 - rejects changed SDK requested version
+  ---
+  duration_ms: 39.911042
+  type: 'test'
+  ...
+# Subtest: rejects changed SDK resolved version
+ok 8 - rejects changed SDK resolved version
+  ---
+  duration_ms: 38.495083
+  type: 'test'
+  ...
+# Subtest: rejects changed SDK peer resolution
+ok 9 - rejects changed SDK peer resolution
+  ---
+  duration_ms: 39.527167
+  type: 'test'
+  ...
+# Subtest: rejects changed registry integrity
+ok 10 - rejects changed registry integrity
+  ---
+  duration_ms: 37.024
+  type: 'test'
+  ...
+# Subtest: rejects changed reviewed registry integrity
+ok 11 - rejects changed reviewed registry integrity
+  ---
+  duration_ms: 39.371583
+  type: 'test'
+  ...
+# Subtest: rejects changed reviewed package version
+ok 12 - rejects changed reviewed package version
+  ---
+  duration_ms: 36.401167
+  type: 'test'
+  ...
+# Subtest: rejects changed other importer dependency
+ok 13 - rejects changed other importer dependency
+  ---
+  duration_ms: 37.412875
+  type: 'test'
+  ...
+# Subtest: rejects changed upstream snapshot resolution
+ok 14 - rejects changed upstream snapshot resolution
+  ---
+  duration_ms: 36.511458
+  type: 'test'
+  ...
+# Subtest: rejects changed half-reverted reviewed patch reference
+ok 15 - rejects changed half-reverted reviewed patch reference
+  ---
+  duration_ms: 39.355875
+  type: 'test'
+  ...
+# Subtest: rejects changed extra importer
+ok 16 - rejects changed extra importer
+  ---
+  duration_ms: 36.716166
+  type: 'test'
+  ...
+# Subtest: rejects changed extra registry data
+ok 17 - rejects changed extra registry data
+  ---
+  duration_ms: 37.497334
+  type: 'test'
+  ...
+# Subtest: rejects changed omitted SDK runtime record
+ok 18 - rejects changed omitted SDK runtime record
+  ---
+  duration_ms: 38.6565
+  type: 'test'
+  ...
+# Subtest: rejects changed duplicate SDK runtime record
+ok 19 - rejects changed duplicate SDK runtime record
+  ---
+  duration_ms: 36.144708
+  type: 'test'
+  ...
+# Subtest: rejects changed SDK promotion to a different importer
+ok 20 - rejects changed SDK promotion to a different importer
+  ---
+  duration_ms: 36.576458
+  type: 'test'
+  ...
+# Subtest: rejects changed block layout
+ok 21 - rejects changed block layout
+  ---
+  duration_ms: 18.19375
+  type: 'test'
+  ...
+# Subtest: rejects an unreviewed new package, even with a complete registry record
+ok 22 - rejects an unreviewed new package, even with a complete registry record
+  ---
+  duration_ms: 118.438167
+  type: 'test'
+  ...
+# Subtest: rejects retaining the SDK in server devDependencies, even with the runtime copy
+ok 23 - rejects retaining the SDK in server devDependencies, even with the runtime copy
+  ---
+  duration_ms: 74.719791
+  type: 'test'
+  ...
+# Subtest: rejects a baseline whose SDK version or original section changed
+ok 24 - rejects a baseline whose SDK version or original section changed
+  ---
+  duration_ms: 3.897708
+  type: 'test'
+  ...
+# Subtest: rejects duplicate baseline server sections or SDK records
+ok 25 - rejects duplicate baseline server sections or SDK records
+  ---
+  duration_ms: 4.741542
+  type: 'test'
+  ...
+# Subtest: rejects server manifest runtime version undefined
+ok 26 - rejects server manifest runtime version undefined
+  ---
+  duration_ms: 2.475375
+  type: 'test'
+  ...
+# Subtest: rejects server manifest runtime version ^1.29.0
+ok 27 - rejects server manifest runtime version ^1.29.0
+  ---
+  duration_ms: 1.698167
+  type: 'test'
+  ...
+# Subtest: rejects server manifest runtime version 1.30.0
+ok 28 - rejects server manifest runtime version 1.30.0
+  ---
+  duration_ms: 1.642291
+  type: 'test'
+  ...
+# Subtest: rejects a duplicate server manifest development entry
+ok 29 - rejects a duplicate server manifest development entry
+  ---
+  duration_ms: 1.908708
+  type: 'test'
+  ...
+# Subtest: the reviewed record is pinned by digest and bound to the upstream baseline
+ok 30 - the reviewed record is pinned by digest and bound to the upstream baseline
+  ---
+  duration_ms: 2.007125
+  type: 'test'
+  ...
+# Subtest: every reviewed change names a commit merged into this branch
+ok 31 - every reviewed change names a commit merged into this branch
+  ---
+  duration_ms: 90.02875
+  type: 'test'
+  ...
+# Subtest: every reviewed change was written by the merged commit it names
+ok 32 - every reviewed change was written by the merged commit it names
+  ---
+  duration_ms: 249.479667
+  type: 'test'
+  ...
+# Subtest: reviewed patch entries pin their patch file bytes
+ok 33 - reviewed patch entries pin their patch file bytes
+  ---
+  duration_ms: 1.302833
+  type: 'test'
+  ...
+# Subtest: accepts an override only when it cuts one dependency edge
+ok 34 - accepts an override only when it cuts one dependency edge
+  ---
+  duration_ms: 0.463041
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with an integrity that differs from its record
+ok 35 - rejects a reviewed record with an integrity that differs from its record
+  ---
+  duration_ms: 5.781875
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with a registry record without its integrity
+ok 36 - rejects a reviewed record with a registry record without its integrity
+  ---
+  duration_ms: 4.617583
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with a non-registry resolution
+ok 37 - rejects a reviewed record with a non-registry resolution
+  ---
+  duration_ms: 4.9265
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with a rewrite of registry metadata
+ok 38 - rejects a reviewed record with a rewrite of registry metadata
+  ---
+  duration_ms: 6.277625
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with a rewritten integrity
+ok 39 - rejects a reviewed record with a rewritten integrity
+  ---
+  duration_ms: 6.285583
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with an unreviewable section
+ok 40 - rejects a reviewed record with an unreviewable section
+  ---
+  duration_ms: 5.549083
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with an unknown op
+ok 41 - rejects a reviewed record with an unknown op
+  ---
+  duration_ms: 8.722
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with an extra field
+ok 42 - rejects a reviewed record with an extra field
+  ---
+  duration_ms: 6.306667
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with an abbreviated commit
+ok 43 - rejects a reviewed record with an abbreviated commit
+  ---
+  duration_ms: 6.253667
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with a patch entry without its file
+ok 44 - rejects a reviewed record with a patch entry without its file
+  ---
+  duration_ms: 4.027458
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with a rewritten patch hash without its pinned file
+ok 45 - rejects a reviewed record with a rewritten patch hash without its pinned file
+  ---
+  duration_ms: 4.7795
+  type: 'test'
+  ...
+# Subtest: rejects a reviewed record with a registry record that is not name@version
+ok 46 - rejects a reviewed record with a registry record that is not name@version
+  ---
+  duration_ms: 4.882291
+  type: 'test'
+  ...
+# Subtest: rejects reviewed changes that no longer apply to the baseline
+ok 47 - rejects reviewed changes that no longer apply to the baseline
+  ---
+  duration_ms: 22.444916
+  type: 'test'
+  ...
+# Subtest: existing patch replacements retain their package key and exact pinned payload
+ok 48 - existing patch replacements retain their package key and exact pinned payload
+  ---
+  duration_ms: 1.800917
+  type: 'test'
+  ...
+# Subtest: inherited patches pass unchanged, replaced under review or ported
+ok 49 - inherited patches pass unchanged, replaced under review or ported
+  ---
+  duration_ms: 1.118542
+  type: 'test'
+  ...
+# Subtest: an inherited patch cannot change or disappear without a reviewed lock change
+ok 50 - an inherited patch cannot change or disappear without a reviewed lock change
+  ---
+  duration_ms: 3.452167
+  type: 'test'
+  ...
+# Subtest: a ported patch must be gone and succeeded by a reviewed patch
+ok 51 - a ported patch must be gone and succeeded by a reviewed patch
+  ---
+  duration_ms: 2.732958
+  type: 'test'
+  ...
+# Subtest: the committed ports name reviewed successors that this checkout carries
+ok 52 - the committed ports name reviewed successors that this checkout carries
+  ---
+  duration_ms: 37.941875
+  type: 'test'
+  ...
+1..52
+# tests 52
+# suites 0
+# pass 52
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2331.6925
+warning: exhaustive rename detection was skipped due to too many files.
+warning: you may want to set your diff.renameLimit variable to at least 5593 and retry the command.
+{
+  "product": "SpecWithCode",
+  "checksPassed": 21,
+  "checksFailed": 0,
+  "checks": [
+    "independent runtime values",
+    "CLI package and alpha version",
+    "upstream MIT provenance retained exactly",
+    "project terms remain separate from inherited notices",
+    "reference trees and unlisted fixtures preserved; reviewed fixture migrations hash-verified",
+    "hosted services and telemetry opt in only",
+    "legal pages name the owner and state the telemetry default truthfully",
+    "security policy reaches a real inbox",
+    "self update only from an owned feed and original update endpoints absent",
+    "owned runtime has no original brand, env or origin",
+    "real first-party mark replaced",
+    "no upstream product, vendor or domain name outside the documented references",
+    "no upstream store, invite or signing identifier",
+    "no publishable key outside tests except for an owned host, none for an upstream host",
+    "upstream wordmark outline absent from every text file",
+    "brand-bearing images are not upstream artwork",
+    "pinned registry, patch and encoded payload bytes preserved",
+    "build scripts use owned artifact identity",
+    "workspace source exports resolve on disk",
+    "workspace protocol imports use owned package names",
+    "approval default and propagated headless policy"
+  ],
+  "failed": [],
+  "root": "/Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specwithcode-dev",
+  "upstream": "10f39eb9ac80c9a4b7f5097575dd2addc3b6f631",
+  "runtimeNode": "v22.20.0",
+  "preservation": {
+    "registryIntegrityRecords": 2211,
+    "reviewedLockChanges": 51,
+    "reviewedRegistryRecords": 4,
+    "reviewedPatches": 5,
+    "reviewedLockSha256": "166225522b28a87a2eb53d12ec016b872b71b439fd3d3210974b8f74eb44d967",
+    "inheritedPatches": 28,
+    "inheritedPatchesUnchanged": 25,
+    "inheritedPatchesReplacedByReview": 1,
+    "inheritedPatchesPorted": 2,
+    "encodedPayloads": 2220,
+    "encodedPayloadFiles": 6
+  },
+  "fixturePreservation": {
+    "referenceEntriesPreserved": 21835,
+    "referenceGitlinksPreserved": 2,
+    "unlistedFixtureFilesPreserved": 120,
+    "reviewedFixtureMigrationsVerified": 197,
+    "studioFixtureFilesRead": 41,
+    "reviewedFixtureBytesAndModesVerified": true,
+    "unlistedReferenceChangesRejected": true,
+    "upstreamCommit": "10f39eb9ac80c9a4b7f5097575dd2addc3b6f631",
+    "reviewCommits": [
+      "0b3c7c92330742fa17ed4fdfaa211c56df4ef58c",
+      "e400f67aed5d5e34a9010298983e32a0ae2cb157",
+      "e9a3cb08f2a073e594699446e7c28d67b5cb2f2a",
+      "9d03b0c63a2611aaff707d7b55a344de27437387",
+      "f08e451aa562c04b5ef8a36074c7682155d3f67c",
+      "b71edc50541865b427c7a05c80fa8e4ddb81d5e7",
+      "839602c74dbd58626c0fc8081379ae584aafabc5",
+      "1c75728fbbe49bd38d250e306633c238a4e673ed",
+      "a4631cf4ac2b7a1dc72575346fe1bd87828496d3",
+      "722be77e8547f912b1e4de1e9016821603258136"
+    ],
+    "manifestSha256": "4ec24e1ba5a4e72c68e097ed11713b7bee9f5c0fc735d0bb50e331814468dd55"
+  },
+  "genericUpstreamArtworkKept": [
+    {
+      "path": "assets/dev/app-icon.icon/Assets/background.svg",
+      "depicts": "blueprint paper: a blue gradient, a square grid, a frame line and corner hatching",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "assets/nightly/app-icon.icon/Assets/cloud-lower-left.svg",
+      "depicts": "one soft blue-to-violet cloud",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "assets/nightly/app-icon.icon/Assets/cloud-upper-right.svg",
+      "depicts": "the same cloud, mirrored",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "apps/marketing/public/nightly-sky.svg",
+      "depicts": "a wide navy-to-violet night sky strip with a few stars and two blurred clouds",
+      "comparedWithUpstream": "byte-identical at the same path"
+    },
+    {
+      "path": "assets/nightly/app-icon.icon/Assets/background.svg",
+      "depicts": "night sky: a navy-to-violet gradient, two soft glows, five dot stars, two cross stars and two horizon bands",
+      "comparedWithUpstream": "two comments reworded; it draws what upstream's layer at this path draws"
+    },
+    {
+      "path": "apps/mobile/assets/android-icon-background-nightly.png",
+      "depicts": "that night sky, full bleed, under the two clouds",
+      "comparedWithUpstream": "this checkout's render of the three nightly layers"
+    },
+    {
+      "path": "apps/mobile/assets/android-icon-background-dev.png",
+      "depicts": "the blueprint paper, full bleed",
+      "comparedWithUpstream": "this checkout's render of the development background layer"
+    },
+    {
+      "path": "apps/mobile/assets/android-splash-icon-nightly.png",
+      "depicts": "the page-and-prompt brand mark over that night sky and the two clouds",
+      "comparedWithUpstream": "Studio's mark composed over a render of the three nightly layers"
+    },
+    {
+      "path": "apps/mobile/assets/android-splash-icon-dev.png",
+      "depicts": "the page-and-prompt brand mark over the blueprint paper",
+      "comparedWithUpstream": "Studio's mark composed over a render of the development background layer"
+    }
+  ],
+  "noServiceOrAuthActions": true
+}

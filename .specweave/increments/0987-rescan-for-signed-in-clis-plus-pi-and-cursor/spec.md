@@ -30,7 +30,7 @@ Still to build (the rest of AC-01 to AC-03):
 - Each agent's version in `AgentDiscoveryResult` and on its Find agents row.
 - The next step on a row: "update Pi" for an outdated Pi, and the sign-in (login) command for a signed-out agent. Today a signed-out row only says "Installed, not signed in."
 
-Task Files below still name the old `specweave-studio` paths; the code now lives in `repositories/anton-abyzov/specwithcode-dev/` (FoundAgents.tsx replaces the planned new component).
+Task Files below still name the old `specweave-studio` paths; the code now lives in `repositories/anton-abyzov/specwithcode/` (FoundAgents.tsx replaces the planned new component).
 
 ## Approach
 
@@ -52,7 +52,7 @@ Task Files below still name the old `specweave-studio` paths; the code now lives
 ## Tasks
 
 ### T-01 Contract, probes and rescan handler
-- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specweave-studio/packages/contracts/src/providerDiscovery.ts, repositories/anton-abyzov/specweave-studio/apps/server/src/provider/providerDiscovery.ts, repositories/anton-abyzov/specweave-studio/apps/server/src/serverSettings.ts | Test: cd repositories/anton-abyzov/specweave-studio/apps/server && npx vp test run src/provider/providerDiscovery.test.ts src/serverSettings.test.ts
+- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/providerDiscovery.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/providerDiscovery.ts, repositories/anton-abyzov/specwithcode/apps/server/src/serverSettings.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/provider/providerDiscovery.test.ts src/serverSettings.test.ts
 
 ### T-02 Find agents button and results
-- AC: AC-03 | Files: repositories/anton-abyzov/specweave-studio/apps/web/src/components/settings/ProviderSettingsPanel.tsx, repositories/anton-abyzov/specweave-studio/packages/client-runtime/src/state/server.ts | Test: cd repositories/anton-abyzov/specweave-studio/apps/web && npx vp test run src/components/settings
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/ProviderSettingsPanel.tsx, repositories/anton-abyzov/specwithcode/packages/client-runtime/src/state/server.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/web && npx vp test run src/components/settings

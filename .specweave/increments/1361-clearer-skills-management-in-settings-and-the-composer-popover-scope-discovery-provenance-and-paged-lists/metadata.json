@@ -1,0 +1,16 @@
+{
+  "id": "1361-clearer-skills-management-in-settings-and-the-composer-popover-scope-discovery-provenance-and-paged-lists",
+  "uuid": "447c0463-8c37-4002-9935-d640664eed47",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T05:33:22.989Z",
+  "updated": "2026-11-20T06:18:19.133Z",
+  "lastActivity": "2026-11-20T06:18:19.133Z",
+  "title": "Clearer skills management in Settings and the composer popover: scope, discovery, provenance and paged lists",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {}
+}

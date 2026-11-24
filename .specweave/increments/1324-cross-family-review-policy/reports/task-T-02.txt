@@ -1,0 +1,52 @@
+$ cd repositories/anton-abyzov/specweave && npx vitest run tests/unit/review/review-policy-gate.test.ts tests/unit/review/review.test.ts
+# exit 0 — 2026-11-13T22:48:06.319Z
+
+
+ RUN  v4.1.11 /Users/antonabyzov/Projects/github/specweave-umb/repositories/anton-abyzov/specweave
+
+ ✓ tests/unit/review/review-policy-gate.test.ts (18 tests) 35840ms
+     ✓ round-trips the header and groups task Files by repository, leaving bookkeeping out  1500ms
+     ✓ --record stamps a review written elsewhere with model, family, author, repository and commit  1942ms
+     ✓ --record refuses without --model, without a verdict line, or with a --head that is not a commit id  2559ms
+     ✓ refuses with no review, naming the policy and the next command  1967ms
+     ✓ refuses a same-family review and names it  1726ms
+     ✓ refuses a fix first verdict and a review older than verification  1903ms
+     ✓ passes a squash-merged review and refuses when the reviewed files changed after it  4070ms
+     ✓ refuses a reviewed commit the repository does not have  1728ms
+     ✓ a cross-family policy takes any other family; without Required nothing changes  1882ms
+     ✓ orders by the recorded time, not checkout file times  1815ms
+     ✓ a review recorded before verify fails even when its file is newer  2076ms
+     ✓ an unclassified family or a Fable author never makes a review cross-family  1656ms
+     ✓ a deep policy refuses a standard review; a pinned model matches across provider spellings  1616ms
+     ✓ keeps a repository path with spaces and cannot be cut short by a value  1762ms
+     ✓ checks wildcard task Files and takes a path starting with a colon literally  2714ms
+     ✓ keeps underscores inside a model id and strips only the marks around it  1610ms
+     ✓ with a required policy, an older same-family fix first does not block a newer matching ship  1655ms
+     ✓ review.reviewer yields to an increment policy; an explicit --reviewer runs with a warning  1656ms
+ ✓ tests/unit/review/review.test.ts (20 tests) 47963ms
+     ✓ names the author family from the ledger, with claims as the fallback  1565ms
+     ✓ carries the ACs, Approach, tasks with Files, and the diff since the base  2009ms
+     ✓ keeps the leading space of the first diff stat row, like the rows after it  2926ms
+     ✓ --brief prints the brief and runs nothing  2106ms
+     ✓ picks Codex for Claude-written code and Claude for OpenAI-written code  1585ms
+     ✓ honours --reviewer and review.reviewer, and explains when none fits  1440ms
+     ✓ defaults to GPT-6.1-Sol in a read-only Codex sandbox  1497ms
+     ✓ parses the verdict line  1585ms
+     ✓ runs the reviewer with the brief, writes the report and a ledger note, exit 0 on ship  1761ms
+     ✓ exit 3 on fix first and when the answer has no verdict; the close gate notes fix first  2105ms
+     ✓ keeps every run's report: the ledger note names the file of that run, review-<reviewer>.md is the latest  2217ms
+     ✓ prints the report path relative to where it was run  2439ms
+     ✓ warns when the reviewer is the author's own family  1961ms
+     ✓ exit 1 when the reviewer fails, times out or none is installed  2898ms
+     ✓ a reviewer that exits non-zero is an error even when it prints a verdict  1922ms
+     ✓ {out} reaches the command as an environment variable, never as shell text  1708ms
+     ✓ a timeout stops the whole process tree and returns promptly  5365ms
+     ✓ kills a descendant that ignores SIGTERM and detached from the pipes  4604ms
+     ✓ Ctrl-C on specweave review kills the reviewer, even one that ignores SIGTERM  4682ms
+     ✓ runReviewer reads {out} when the command writes it, stdout otherwise  1585ms
+
+ Test Files  2 passed (2)
+      Tests  38 passed (38)
+   Start at  17:47:18
+   Duration  48.23s (transform 302ms, setup 59ms, import 310ms, tests 83.80s, environment 0ms)
+

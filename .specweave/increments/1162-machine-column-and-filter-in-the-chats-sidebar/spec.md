@@ -34,13 +34,13 @@ In: a named, aligned machine column on every chat row when the list spans machin
 ## Tasks
 
 ### T-01 Machine column and offline mark on chat rows
-- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/threadMachineFilter.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/StudioSidebar.tsx, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/shell.css | Test: npx vp test run --project unit src/studio/threadMachineFilter.test.ts src/components/studio/shell/StudioSidebar.test.tsx
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/studio/threadMachineFilter.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/StudioSidebar.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/shell.css | Test: npx vp test run --project unit src/studio/threadMachineFilter.test.ts src/components/studio/shell/StudioSidebar.test.tsx
 
 ### T-02 Machine filter, pill and Group by Machine
-- AC: AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/src/studio/shellModel.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/studio/shell/StudioSidebar.tsx | Test: npx vp test run --project unit src/studio/shellModel.test.ts src/components/studio/shell/StudioSidebar.test.tsx
+- AC: AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/studio/shellModel.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/StudioSidebar.tsx | Test: npx vp test run --project unit src/studio/shellModel.test.ts src/components/studio/shell/StudioSidebar.test.tsx
 
 ### T-03 Headless evidence, release and installed check on the M4
-- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode-dev/apps/web/tests/sidebar-stable-order/chat-machines.mjs | Test: headless chat-machines.mjs at wide and narrow widths
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/tests/sidebar-stable-order/chat-machines.mjs | Test: headless chat-machines.mjs at wide and narrow widths
 
 ### T-04 Verify and close 1162
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06 | Files: none | Test: specweave verify

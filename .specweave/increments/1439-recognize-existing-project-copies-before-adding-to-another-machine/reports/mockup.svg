@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1100" viewBox="0 0 1440 1100">
+<rect width="1440" height="1100" fill="#f2f3f7"/>
+<style>text{font-family:Arial,sans-serif;fill:#232332}.muted{fill:#696977}.small{font-size:15px}.body{font-size:18px}.title{font-size:25px;font-weight:600}.label{font-size:13px;font-weight:600;letter-spacing:1.3px;fill:#737284}.button{fill:white;font-size:17px;font-weight:600}.purple{fill:#7052bf}.mono{font-family:monospace;font-size:16px}</style>
+<text x="44" y="43" class="label">PROJECT COPIES · PROPOSED</text>
+<text x="44" y="83" class="title">Use what is already on the machine</text>
+<text x="44" y="113" class="body muted">Illustrative states for fortnite-3js. Repository status reuses increment 1435.</text>
+<rect x="44" y="145" width="370" height="892" rx="16" fill="#fff" stroke="#dedee7"/>
+<text x="68" y="182" class="label">01  MACHINE MENU</text>
+<text x="68" y="224" class="title">fortnite-3js</text>
+<text x="68" y="257" class="small muted">Compared with m4</text>
+<text x="68" y="306" class="label">ON THIS PROJECT</text>
+<rect x="60" y="324" width="338" height="88" rx="10" fill="#f5f2fc" stroke="#e4def3"/>
+<text x="78" y="353" class="body">m4</text>
+<text x="78" y="381" class="small muted">Shown · 3 uncommitted files</text>
+<text x="78" y="449" class="body">m1</text>
+<text x="78" y="477" class="small muted">Same commits as m4</text>
+<text x="78" y="532" class="body">linux-mini</text>
+<text x="78" y="560" class="small muted">2 commits behind m4</text>
+<text x="68" y="623" class="label">ADD OR LINK</text>
+<rect x="60" y="644" width="338" height="90" rx="10" fill="#f9f8fc" stroke="#e0dceb"/>
+<text x="78" y="674" class="body">M5</text>
+<text x="78" y="704" class="small purple">Folder found · use existing</text>
+<text x="78" y="777" class="body">win</text>
+<text x="78" y="805" class="small muted">Check for an existing copy</text>
+<text x="78" y="862" class="body muted">m3</text>
+<text x="78" y="890" class="small muted">Not connected to this app yet</text>
+<text x="68" y="982" class="small muted">Presence and file status stay separate.</text>
+<rect x="440" y="145" width="956" height="422" rx="16" fill="#fff" stroke="#dedee7"/>
+<text x="470" y="182" class="label">02  FOUND OUTSIDE THE SUGGESTED FOLDER</text>
+<text x="470" y="223" class="title">Folder found on M5</text>
+<text x="470" y="255" class="body muted">fortnite-3js is already here. Add it to SpecWithCode.</text>
+<rect x="470" y="278" width="894" height="91" rx="10" fill="#f8f8fb" stroke="#e2e2ea"/>
+<text x="490" y="310" class="mono">/Users/anton/Projects/fortnite-3js</text>
+<text x="490" y="342" class="small">Same repository · Same commits as m4</text>
+<text x="470" y="398" class="body">Uses this folder and shares the project’s goal, instructions and memory.</text>
+<text x="470" y="426" class="small muted">Repository files stay as they are. Local files and secrets have not been checked.</text>
+<text x="470" y="465" class="small muted">Details: checked project folders on M5 · just now</text>
+<rect x="470" y="494" width="204" height="44" rx="9" fill="#fff" stroke="#d9d9e3"/>
+<text x="486" y="522" class="small">Choose another folder</text>
+<rect x="1070" y="494" width="294" height="44" rx="9" fill="#7052bf" stroke="#7052bf"/>
+<text x="1086" y="522" class="button" style="fill:#ffffff">Use existing folder on M5</text>
+<rect x="440" y="590" width="460" height="447" rx="16" fill="#fff" stroke="#dedee7"/>
+<text x="470" y="628" class="label">03  ALREADY REGISTERED AND LINKED</text>
+<text x="470" y="673" class="title">Already on m1</text>
+<text x="470" y="706" class="body muted">fortnite-3js</text>
+<rect x="470" y="734" width="400" height="99" rx="10" fill="#f8f8fb" stroke="#e2e2ea"/>
+<text x="488" y="768" class="body">Same commits as m4</text>
+<text x="488" y="799" class="small muted">Local files and secrets not checked</text>
+<text x="470" y="875" class="small muted">Checked just now · View repository details</text>
+<rect x="470" y="910" width="183" height="44" rx="9" fill="#fff" stroke="#d9d9e3"/>
+<text x="486" y="938" class="small">Review differences</text>
+<rect x="681" y="910" width="189" height="44" rx="9" fill="#7052bf" stroke="#7052bf"/>
+<text x="697" y="938" class="button" style="fill:#ffffff">Open on m1</text>
+<text x="470" y="1003" class="small muted">No repeated Copy button after completion.</text>
+<rect x="924" y="590" width="472" height="447" rx="16" fill="#fff" stroke="#dedee7"/>
+<text x="954" y="628" class="label">04  OPTIONAL DIFFERENCES REVIEW</text>
+<text x="954" y="673" class="title">m4 → M5</text>
+<text x="954" y="706" class="body muted">Review what differs in fortnite-3js</text>
+<text x="954" y="753" class="small">Repository commits</text>
+<text x="1185" y="753" class="small muted">Same</text>
+<text x="954" y="795" class="small">Local work</text>
+<text x="1185" y="795" class="small muted">3 files on m4</text>
+<text x="954" y="837" class="small">Ignored data</text>
+<text x="1185" y="837" class="small muted">Compare files…</text>
+<text x="954" y="879" class="small">Secrets</text>
+<text x="1185" y="879" class="small muted">Not checked</text>
+<text x="954" y="921" class="small">Project memory</text>
+<text x="1185" y="921" class="small muted">Shared when linked</text>
+<rect x="954" y="959" width="216" height="44" rx="9" fill="#fff" stroke="#d9d9e3"/>
+<text x="970" y="987" class="small">Compare all files…</text>
+<text x="44" y="1076" class="small muted">Linking does not sync files. Sync uses the existing review and conflict rules. Counts above are examples.</text>
+</svg>

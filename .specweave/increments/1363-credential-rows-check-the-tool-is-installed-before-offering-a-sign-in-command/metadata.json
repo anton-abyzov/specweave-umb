@@ -1,0 +1,15 @@
+{
+  "id": "1363-credential-rows-check-the-tool-is-installed-before-offering-a-sign-in-command",
+  "uuid": "0088091a-a874-4f17-8047-5d1f9e557911",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-16T06:55:19.856Z",
+  "updated": "2026-11-16T10:50:21.559Z",
+  "lastActivity": "2026-11-16T10:50:21.559Z",
+  "title": "Credential rows check the tool is installed before offering a sign-in command",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-16T10:50:21.558Z",
+  "approvedAt": "2026-11-16T10:50:21.559Z"
+}

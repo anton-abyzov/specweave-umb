@@ -30,7 +30,7 @@ reject() {
 }
 
 number=0
-for repo in specwithcode-dev specweave-studio; do
+for repo in specwithcode; do
   number=$((number + 1))
   owner="repositories/anton-abyzov/$repo"
   id="$(printf '%04d' "$number")-$repo"

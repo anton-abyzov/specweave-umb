@@ -43,10 +43,10 @@ Merging deploys the relay on its own, so server-side fixes reach the Windows ins
 ## Tasks
 
 ### T-01 Relay deadline, bounded retries and provisioning log
-- AC: AC-01, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/infra/relay/src/http/Api.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/environments/ManagedEndpointProvider.ts, repositories/anton-abyzov/specwithcode-dev/infra/relay/src/environments/EnvironmentLinker.ts | Test: cd infra/relay && pnpm exec vitest run src/http/Api.test.ts src/environments/EnvironmentLinker.test.ts src/environments/ManagedEndpointProvider.test.ts
+- AC: AC-01, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/infra/relay/src/http/Api.ts, repositories/anton-abyzov/specwithcode/infra/relay/src/environments/ManagedEndpointProvider.ts, repositories/anton-abyzov/specwithcode/infra/relay/src/environments/EnvironmentLinker.ts | Test: cd infra/relay && pnpm exec vitest run src/http/Api.test.ts src/environments/EnvironmentLinker.test.ts src/environments/ManagedEndpointProvider.test.ts
 
 ### T-02 Client link timeout and useful message
-- AC: AC-02, AC-05 | Files: repositories/anton-abyzov/specwithcode-dev/packages/client-runtime/src/relay/managedRelay.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/cloud/linkEnvironment.ts, repositories/anton-abyzov/specwithcode-dev/apps/mobile/src/features/cloud/linkEnvironment.ts | Test: pnpm exec vitest run packages/client-runtime/src/relay apps/web/src/cloud/linkEnvironment.test.ts apps/mobile/src/features/cloud/linkEnvironment.test.ts
+- AC: AC-02, AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/client-runtime/src/relay/managedRelay.ts, repositories/anton-abyzov/specwithcode/apps/web/src/cloud/linkEnvironment.ts, repositories/anton-abyzov/specwithcode/apps/mobile/src/features/cloud/linkEnvironment.ts | Test: pnpm exec vitest run packages/client-runtime/src/relay apps/web/src/cloud/linkEnvironment.test.ts apps/mobile/src/features/cloud/linkEnvironment.test.ts
 
 ### T-03 Root cause from production and live proof
 - AC: AC-06, AC-07 | Files: as the logs show | Test: production D1 shows `ready_at` set for environment `6079479c`, and `studio_machine_list` on M4 lists the Windows machine

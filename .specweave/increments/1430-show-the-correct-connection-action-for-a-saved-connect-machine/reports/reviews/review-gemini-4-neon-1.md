@@ -1,0 +1,22 @@
+<!-- specweave review: reviewer=gemini-4-neon model=gemini-4-neon family=google author=openai depth=standard repo=repositories/anton-abyzov/specwithcode base=021ac0536cafcd09a8ce2de0206822483954b41c head=e37236bbd9a1e94561611b2034e82a7517f753b1 at=2026-11-20T06:00:12.510Z -->
+# Review: 1430 — Show the correct connection action for a saved Connect machine
+Verdict: ship
+
+- **Model:** `gemini-4-neon` (Gemini 4 Neon on Copilot Enterprise)
+- **Reviewed repo:** `/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-umb/fix-device-approval-several-devices/repositories/anton-abyzov/specwithcode` (PR `anton-abyzov/specwithcode#778`)
+- **Reviewed HEAD:** `e37236bbd9a1e94561611b2034e82a7517f753b1` (clean working tree; merge-base & base `021ac0536cafcd09a8ce2de0206822483954b41c`; commits `9bc9b82ce`, `e37236bbd`; 6 files, +150 / -23)
+- **Verification evidence:** `/Users/antonabyzov/.specwithcode/m4/worktrees/specweave-umb/fix-device-approval-several-devices/.specweave/increments/1430-show-the-correct-connection-action-for-a-saved-connect-machine/reports/verify.json` (`2026-11-20T05:53:41.464Z`, `ok: true`, `strictClose.errors: []`, 3/3 ACs, 2/2 tasks, 5/5 owner commands exit 0 including `npm run verify:pr -- --jobs 1 --no-server` and 6-shard `npm run test:server:sharded`). Read-only review; no files or reports modified.
+
+## Findings
+
+No blocking or non-blocking defects found.
+
+## Checked
+
+- **Preferred & alternate relay matching alongside Tailscale (`apps/web/src/studio/fleetAutoConnect.ts:114-164`, `200`, `219`):** `savedRouteOrigins` maps each fleet machine's Connect URL (`fleetMachineHasTailnetAddress(machine) ? machine.connectUrl : machine.url`, aligned with server `parseFleetOrigin` in `apps/server/src/fleet/fleetOrigin.ts`) and resolves `RelayConnectionTarget` across both preferred and alternate routes via `connectionRoutes(entry)`. `fleetMachineSaved` checks both `machine.url` and `machine.connectUrl` under the default `"advertised"` mode for Settings, while `fleetMachinesToAutoConnect` and `fleetMachinesAwaitingReach` pass `"primary"` so background Tailscale pairing still detects a missing direct tailnet route on dual-address machines.
+- **Both Settings consumers (`apps/web/src/components/settings/usePrimaryFleet.ts:38-44`, `apps/web/src/components/settings/StudioFleetConnections.tsx:377-381`, `409-413`):** Both pass `snapshot?.machines` into `savedRouteOrigins`. `buildMachineRows` suppresses the header `row.connect` action (including while `phase === "connecting"`), and `StudioFleetConnections` keeps `savedHere` populated so `StudioFleetRoster` renders the saved checkmark instead of `Connect machine`.
+- **Another device's environment ID (`apps/web/src/studio/fleetAutoConnect.ts:127-140`, `157-159`):** `connectUrls` keys strictly by `machine.environmentId`, `savedRouteOrigins` rejects any route where `route.target.environmentId !== entry.target.environmentId`, and `fleetMachineSaved` checks both `savedEnvironmentIds.has(machine.environmentId)` and `origins.get(machine.environmentId)`.
+- **Changed direct address (`apps/web/src/studio/fleetAutoConnect.ts:119-123`, `151-164`):** A Tailscale-only machine (`connectUrl` absent) resolves no Connect URL, so a moved direct address does not match and preserves the existing `Connect` / `Connect machine` repair action.
+- **Rejected device (`apps/web/src/studio/fleetAutoConnect.ts:87-101`, `130-132`; `StudioFleetConnections.tsx:376`, `919-923`, `1066-1071`):** `rejectedSavedEnvironments` (`phase === "error" && reapprovalRequired === true`) yields an empty origin set in `savedRouteOrigins`, causing `fleetMachineSaved` to return `false` and preserving re-approval (`Approve again` in `StudioFleetRoster`, `Connect` in `buildMachineRows`).
+- **Status and grants provenance (`apps/web/src/components/settings/machinesSettings.logic.ts:654-711`, `StudioFleetConnections.tsx:383-408`, `942-962`):** Machine status (`Online`, `Connecting…`, error/reason) still comes solely from `environment.connection` (`seenOf` / `machineStatuses`), and outgoing/incoming worker grants (`workers`, `workHere`, `workersRow`) still come from `fleetMachine.workers` and `workGrants`.
+- **Tests (`fleetAutoConnect.test.ts:254-304`, `machinesSettings.logic.test.ts:206-229`, `StudioFleetConnections.test.tsx:725-747`):** Cover preferred and alternate relay routes, Connect-only and dual-address machines, `connecting`/`connected` phases, auto-connect `"primary"` preservation, changed direct address, rejected device, and mismatched environment ID.

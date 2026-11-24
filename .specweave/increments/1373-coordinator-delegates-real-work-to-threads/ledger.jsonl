@@ -1,0 +1,11 @@
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-17T07:09:19.685Z","note":"session fa58c061-9f3e-45a9-9a0d-5709c300f9d3"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-17T07:09:19.688Z"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-17T07:09:19.690Z","evidence":"PR #522 afea0249, StudioOrchestrationInstructions.test.ts 19 passed\nHEAD 13bae2b7d6","link":"https://github.com/anton-abyzov/specwithcode/pull/522"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-17T07:09:24.628Z"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-17T07:09:24.630Z","evidence":"PR #522 afea0249, RuntimePolicy isCoordinator; PR CI green\nHEAD 13bae2b7d6"}
+{"t":"T-03","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-17T07:09:29.992Z"}
+{"t":"T-03","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-17T07:09:29.995Z","evidence":"PR #522 afea0249, ClaudeWorkflowPolicy.test.ts 26 passed\nHEAD 13bae2b7d6"}
+{"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-17T07:09:35.256Z"}
+{"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-17T07:09:35.260Z","evidence":"PR #523 8ad73fe6, SHIP at 28503ea6 (Sol round 2), 26 CI checks green, 249 focused tests\nHEAD 13bae2b7d6","link":"https://github.com/anton-abyzov/specwithcode/pull/523"}
+{"t":"T-04","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-17T08:05:03.006Z"}
+{"t":"T-04","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-17T08:05:03.010Z","evidence":"PR #522 released in v1.0.330, PR #523 released in v1.0.332 (request-release.sh --released)\nHEAD 13bae2b7d6"}

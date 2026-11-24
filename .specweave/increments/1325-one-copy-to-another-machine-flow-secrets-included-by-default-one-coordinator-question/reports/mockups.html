@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Copy to another machine: three options</title>
+<style>
+  :root { --fg:#1d1b26; --muted:#6b6878; --line:#e4e2ea; --bg:#f6f5f8; --card:#fff; --primary:#5b45b5; --ok:#2e9e6a; --soft:#f1eefb; }
+  * { box-sizing: border-box; }
+  body { margin:0; font: 14px/1.45 -apple-system, "Inter", "Segoe UI", sans-serif; color:var(--fg); background:var(--bg); padding:28px; }
+  h1 { font-size:20px; margin:0 0 4px; }
+  .lead { color:var(--muted); margin:0 0 22px; max-width:1100px; }
+  .row { display:grid; grid-template-columns: repeat(3, 1fr); gap:22px; align-items:start; }
+  .opt h2 { font-size:15px; margin:0 0 2px; }
+  .opt .sub { color:var(--muted); font-size:12.5px; margin:0 0 10px; min-height:36px; }
+  .pick { display:inline-block; font-size:11px; font-weight:600; color:#fff; background:var(--primary); border-radius:999px; padding:1px 8px; margin-left:6px; vertical-align:2px; }
+  .dlg { background:var(--card); border:1px solid var(--line); border-radius:14px; box-shadow:0 8px 28px rgba(30,20,60,.08); overflow:hidden; }
+  .body { padding:18px 18px 8px; display:flex; flex-direction:column; gap:14px; }
+  .title { font-size:17px; font-weight:600; margin:0; }
+  .desc { color:var(--muted); margin:-8px 0 0; font-size:13px; }
+  .label { font-weight:600; font-size:13px; margin-bottom:6px; }
+  .machines { display:flex; gap:6px; flex-wrap:wrap; }
+  .m { border:1px solid var(--line); border-radius:9px; padding:6px 10px; display:flex; gap:7px; align-items:center; font-size:13px; }
+  .m.on { border-color:var(--primary); background:var(--soft); }
+  .dot { width:8px; height:8px; border-radius:50%; background:var(--ok); }
+  .hint { color:var(--muted); font-size:11.5px; }
+  .field { display:flex; gap:6px; }
+  .input { flex:1; border:1px solid var(--line); border-radius:8px; padding:6px 9px; font: 12px ui-monospace, Menlo, monospace; color:var(--fg); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .btn { border:1px solid var(--line); border-radius:8px; padding:6px 11px; font-size:13px; background:#fff; white-space:nowrap; }
+  .btn.primary { background:var(--primary); border-color:var(--primary); color:#fff; font-weight:500; }
+  .box { border:1px solid var(--line); border-radius:10px; padding:10px 12px; display:flex; flex-direction:column; gap:7px; }
+  .li { display:flex; gap:9px; align-items:flex-start; font-size:13px; }
+  .ck { width:16px; height:16px; border-radius:4px; background:var(--primary); color:#fff; font-size:11px; display:flex; align-items:center; justify-content:center; flex:none; margin-top:1px; }
+  .ck.off { background:#fff; border:1.5px solid #b9b5c6; }
+  .x { width:16px; height:16px; color:var(--muted); flex:none; text-align:center; font-size:12px; margin-top:1px; }
+  .more { color:var(--primary); font-size:12px; }
+  .radio { display:flex; flex-direction:column; gap:6px; }
+  .r { display:flex; gap:9px; border:1px solid var(--line); border-radius:9px; padding:8px 10px; font-size:13px; }
+  .r.on { border-color:var(--primary); background:var(--soft); }
+  .rd { width:16px; height:16px; border-radius:50%; border:1.5px solid #b9b5c6; flex:none; margin-top:1px; }
+  .r.on .rd { border:5px solid var(--primary); }
+  .seg { display:flex; background:#efedf3; border-radius:9px; padding:3px; }
+  .seg div { flex:1; text-align:center; padding:6px; border-radius:7px; font-size:13px; color:var(--muted); }
+  .seg .on { background:#fff; color:var(--fg); box-shadow:0 1px 2px rgba(0,0,0,.08); }
+  .details { color:var(--muted); font-size:12.5px; }
+  .foot { display:flex; justify-content:flex-end; gap:8px; padding:12px 18px; border-top:1px solid var(--line); background:#faf9fc; }
+  .menu { border:1px solid var(--line); border-radius:10px; background:#fff; padding:6px; font-size:13px; }
+  .menu div { padding:5px 8px; border-radius:6px; }
+  .menu .hd { color:var(--muted); font-size:11.5px; padding-top:2px; }
+  .menu .hl { background:var(--soft); }
+  .steps { color:var(--muted); font-size:12px; }
+  .steps b { color:var(--fg); }
+  .pros { margin:12px 0 0; padding-left:16px; font-size:12.5px; color:var(--fg); }
+  .pros li { margin:2px 0; }
+  .pros .con { color:#9a3b3b; }
+</style>
+</head>
+<body>
+<h1>Copy a project to another machine: three options</h1>
+<p class="lead">Today five menu items (Add to another machine, Move to another machine, Move to m5, Sync to m5, the Add or move button) open one dialog with a Hand off / Copy local files toggle, a Workspace locations table and secrets left out. Under the hood every path is one copy engine plus one switch: does the coordinator stay or move. Each option below makes that switch the only question.</p>
+<div class="row">
+
+<!-- Option A -->
+<section class="opt" id="option-a">
+  <h2>A. One dialog, one coordinator question <span class="pick">Recommended</span></h2>
+  <p class="sub">One menu item, "Copy to another machine…". Files, secrets and uncommitted work come along by default; one question says where the coordinator runs.</p>
+  <div class="dlg">
+    <div class="body">
+      <p class="title">Copy specweave to m5</p>
+      <p class="desc">From m4. Nothing on m5 is replaced without asking.</p>
+      <div><div class="label">Machine</div>
+        <div class="machines"><div class="m"><span class="dot"></span>linux-mini</div><div class="m"><span class="dot"></span>m1</div><div class="m on"><span class="dot"></span>m5</div></div></div>
+      <div><div class="label">Folder on m5</div><div class="field"><div class="input">/Users/anton/Projects/github/specweave-umb</div><div class="btn">Browse…</div></div></div>
+      <div><div class="label">What comes along</div>
+        <div class="box">
+          <div class="li"><span class="ck">✓</span><span>All files in specweave-umb, including 18 uncommitted files</span></div>
+          <div class="li"><span class="ck">✓</span><span>Secrets (.env, keys): 6 files, included <span class="more">Show</span></span></div>
+          <div class="li"><span class="ck">✓</span><span>Project goal, instructions and memory, shared with m5</span></div>
+          <div class="li"><span class="x">–</span><span class="hint" style="font-size:13px">Stays on m4: sign-ins to Claude, Codex and GitHub, running processes</span></div>
+        </div></div>
+      <div><div class="label">Where should the coordinator run?</div>
+        <div class="radio">
+          <div class="r on"><span class="rd"></span><span>Keep on m4<br><span class="hint">m5 runs workers. You can move it later.</span></span></div>
+          <div class="r"><span class="rd"></span><span>Move to m5<br><span class="hint">Its conversation and threads continue on m5; m4 runs workers.</span></span></div>
+        </div></div>
+      <div class="details">Details ▸ <span class="hint">paths, worktree storage, Git-only, choose file types</span></div>
+    </div>
+    <div class="foot"><span class="btn">Cancel</span><span class="btn primary">Copy to m5</span></div>
+  </div>
+  <ul class="pros"><li>One entry point, one question; matches "the only difference is the coordinator".</li><li>Secrets visible and on, one click to leave them out.</li><li>Ships as UI-only: the engine already has copy-only and copy-and-move.</li><li class="con">Git-only handoff (no file copy) moves to Details.</li></ul>
+</section>
+
+<!-- Option B -->
+<section class="opt" id="option-b">
+  <h2>B. Two verbs: Copy to… and Move to…</h2>
+  <p class="sub">Two menu items with the same dialog. Move is Copy plus the coordinator. No question inside the dialog.</p>
+  <div class="menu" style="margin-bottom:10px">
+    <div class="hd">This project</div>
+    <div class="hl">⧉ Copy to another machine…</div>
+    <div>→ Move to another machine…</div>
+    <div>▶ Start a coordinator on m5</div>
+  </div>
+  <div class="dlg">
+    <div class="body">
+      <p class="title">Move specweave to m5</p>
+      <p class="desc">Copies everything, then the coordinator continues on m5.</p>
+      <div><div class="label">Machine</div>
+        <div class="machines"><div class="m"><span class="dot"></span>linux-mini</div><div class="m"><span class="dot"></span>m1</div><div class="m on"><span class="dot"></span>m5</div></div></div>
+      <div><div class="label">Folder on m5</div><div class="field"><div class="input">/Users/anton/Projects/github/specweave-umb</div><div class="btn">Browse…</div></div></div>
+      <div class="box">
+        <div class="li"><span class="ck">✓</span><span>All files, 18 uncommitted</span></div>
+        <div class="li"><span class="ck">✓</span><span>Secrets: 6 files, included</span></div>
+      </div>
+    </div>
+    <div class="foot"><span class="btn">Cancel</span><span class="btn primary">Move to m5</span></div>
+  </div>
+  <ul class="pros"><li>Shortest dialog.</li><li class="con">Two entry points again; the person has to know the difference before opening.</li><li class="con">Changing your mind means closing and reopening.</li></ul>
+</section>
+
+<!-- Option C -->
+<section class="opt" id="option-c">
+  <h2>C. Three-step wizard</h2>
+  <p class="sub">Where, then a full review of what comes along with per-item toggles, then the coordinator. Each step one screen.</p>
+  <div class="dlg">
+    <div class="body">
+      <p class="title">Copy specweave to m5</p>
+      <p class="steps">1 Where › <b>2 What comes along</b> › 3 Coordinator</p>
+      <div class="box">
+        <div class="li"><span class="ck">✓</span><span>8 repositories, 41,210 files, 2.3 GB</span></div>
+        <div class="li"><span class="ck">✓</span><span>18 uncommitted files</span></div>
+        <div class="li"><span class="ck">✓</span><span>Ignored files (build output, node_modules) <span class="more">Choose</span></span></div>
+        <div class="li"><span class="ck">✓</span><span>Secrets: 6 files <span class="more">Show</span></span></div>
+        <div class="li"><span class="ck off"></span><span>Worker worktrees (history only)</span></div>
+      </div>
+      <div class="seg"><div>Back</div><div class="on">Next: coordinator</div></div>
+    </div>
+    <div class="foot"><span class="btn">Cancel</span><span class="btn primary">Next</span></div>
+  </div>
+  <ul class="pros"><li>Most explicit about every class of file.</li><li class="con">Three screens for a choice most people make in one.</li><li class="con">Counts need a full measure before step 2: slow on a big umbrella.</li></ul>
+</section>
+
+</div>
+</body>
+</html>

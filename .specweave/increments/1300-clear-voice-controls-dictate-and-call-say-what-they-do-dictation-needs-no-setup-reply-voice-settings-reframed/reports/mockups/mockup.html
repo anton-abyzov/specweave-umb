@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1300 mockup: clear voice controls</title>
+<!-- Static design mockup for increment 1300. Not app code: tokens copied from apps/web/src/index.css,
+     icons are the Lucide glyphs the app already uses (mic, phone, audio-lines).
+     ?view=compare|before-composer|before-first-use|before-settings|after-composer|after-narrow|
+            after-dictating|after-call-card|after-call-blocked|after-settings   &theme=light|dark -->
+<style>
+:root{
+  --bg:#fbfbf9; --fg:#1f1f1f; --card:#ffffff; --popup:#fcfcfa; --muted:#f3f3f2; --muted-fg:#5c5b58;
+  --border:#e3e3e2; --input:#d9d9d7; --primary:#6d4fb5; --primary-fg:#ffffff; --primary-soft:rgba(109,79,181,.08);
+  --primary-ring:rgba(109,79,181,.32); --warn:#b45309; --warn-surface:rgba(245,158,11,.10); --ok:#047857;
+  --bad:#b42318; --sidebar:#f6f6f4; --tip:#1f1f1f; --tip-fg:#f5f4ee; --tip-muted:#b9b7ae; --scrim:rgba(20,20,18,.32);
+  --shadow:0 24px 60px -12px rgba(0,0,0,.22), 0 4px 14px rgba(0,0,0,.06);
+  --pop-shadow:0 12px 32px -6px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.06);
+}
+.dark{
+  --bg:#262624; --fg:#f5f4ee; --card:#30302e; --popup:#2b2b29; --muted:rgba(250,249,245,.06); --muted-fg:#b0aea5;
+  --border:rgba(222,220,209,.14); --input:rgba(222,220,209,.24); --primary:#a88cf6; --primary-fg:#1b1328;
+  --primary-soft:rgba(168,140,246,.12); --primary-ring:rgba(168,140,246,.45); --warn:#fbbf24;
+  --warn-surface:rgba(245,158,11,.16); --ok:#34d399; --bad:#f97066; --sidebar:#1f1e1d;
+  --tip:#f5f4ee; --tip-fg:#1f1f1f; --tip-muted:#5c5b58; --scrim:rgba(0,0,0,.5);
+  --shadow:0 24px 60px -12px rgba(0,0,0,.6), 0 4px 14px rgba(0,0,0,.3);
+  --pop-shadow:0 12px 32px -6px rgba(0,0,0,.55), 0 2px 6px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+.muted{color:var(--muted-fg)}
+svg{flex-shrink:0}
+.i{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+kbd{font:500 11.5px/1 ui-monospace,SFMono-Regular,Menlo,monospace;padding:3px 5px;border-radius:5px;background:rgba(127,127,127,.22)}
+
+/* ── App shell ──────────────────────────── */
+.app{display:grid;grid-template-columns:232px 1fr;height:100%}
+.side{background:var(--sidebar);border-right:1px solid var(--border);padding:14px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.brand{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;margin:0 4px 12px}
+.side .row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;white-space:nowrap}
+.side .row.on{background:var(--muted);font-weight:500}
+.side .row.sub{padding-left:22px;color:var(--muted-fg);font-size:13px}
+.side .label{font-size:12px;color:var(--muted-fg);padding:10px 8px 4px}
+.tag{font-size:9px;font-weight:700;padding:2px 3px;border-radius:4px;background:var(--primary-soft);color:var(--primary)}
+.main{display:flex;flex-direction:column;min-width:0;position:relative}
+.top{height:44px;display:flex;align-items:center;gap:8px;padding:0 18px;font-weight:500;flex:none}
+.ribbon{margin-left:auto;font-size:11.5px;font-weight:600;letter-spacing:.02em;padding:3px 9px;border-radius:999px;background:var(--muted);color:var(--muted-fg);box-shadow:inset 0 0 0 1px var(--border)}
+.ribbon.after{background:var(--primary-soft);color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary-ring)}
+.thread{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 24px}
+.col{width:100%;max-width:760px;margin:0 auto}
+.msg{margin:0 0 14px;line-height:1.55}
+.msg.me{margin-left:auto;max-width:74%;width:fit-content;background:var(--muted);border-radius:16px;padding:9px 14px}
+.dock{padding:6px 24px 26px;flex:none}
+.composer-wrap{position:relative}
+.composer{background:var(--card);border:1px solid var(--border);border-radius:20px;box-shadow:0 8px 28px -10px rgba(0,0,0,.18);padding:14px 12px 10px}
+.prompt{min-height:52px;color:var(--muted-fg);font-size:15px;padding:0 6px}
+.prompt.typed{color:var(--fg)}
+.caret{display:inline-block;width:1.5px;height:18px;background:var(--primary);vertical-align:-3px;margin-left:1px}
+.foot{display:flex;align-items:center;gap:4px;color:var(--muted-fg);font-size:13px;min-width:0}
+.ib{width:28px;height:28px;border:0;background:none;border-radius:7px;display:inline-grid;place-items:center;color:var(--muted-fg);position:relative;flex:none}
+.ib.hover{background:var(--muted);color:var(--fg)}
+.vb{height:28px;border:0;background:none;border-radius:8px;display:inline-flex;align-items:center;gap:6px;padding:0 9px 0 7px;font-size:13px;font-weight:500;color:var(--fg);box-shadow:inset 0 0 0 1px var(--border);position:relative;flex:none;white-space:nowrap}
+.vb svg{color:var(--muted-fg)}
+.vb.hover{background:var(--muted)}
+.vb.on{background:var(--primary-soft);box-shadow:inset 0 0 0 1.5px var(--primary);color:var(--primary)}
+.vb.on svg{color:var(--primary)}
+.state{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;margin-left:6px;box-shadow:inset 0 0 0 1px var(--border);font-size:12.5px;white-space:nowrap}
+.state i{width:7px;height:7px;border-radius:999px;background:var(--ok)}
+.grow{flex:1;min-width:0}
+.chip{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 8px;border-radius:8px;font-weight:500;white-space:nowrap}
+.send{margin-left:4px;width:32px;height:32px;border-radius:999px;border:0;background:var(--primary);color:var(--primary-fg);display:grid;place-items:center;flex:none}
+
+/* ── Tooltips ───────────────────────────── */
+.tip{position:absolute;top:36px;left:50%;transform:translateX(-50%);background:var(--tip);color:var(--tip-fg);border-radius:8px;padding:5px 9px;font-size:12.5px;font-weight:500;white-space:nowrap;box-shadow:var(--pop-shadow);z-index:3;text-align:left}
+.tip.rich{width:292px;white-space:normal;padding:10px 12px 11px;border-radius:11px;font-weight:400;line-height:1.45;left:0;transform:none}
+.tip.rich b{display:flex;align-items:center;gap:8px;font-weight:600;font-size:13.5px;margin-bottom:3px}
+.tip.rich b kbd{margin-left:auto}
+.tip.rich small{display:block;margin-top:6px;font-size:12px;color:var(--tip-muted)}
+.dock .tip{top:auto;bottom:36px}
+.notes{position:absolute;left:36px;top:calc(100% + 8px);display:flex;gap:8px;align-items:flex-start;z-index:3}
+.notes .tip{position:static;transform:none}
+
+/* ── Voice strip (same as today's .sws-voice-call) ── */
+.vbar{display:flex;align-items:center;gap:12px;margin-bottom:8px;padding:8px 8px 8px 14px;border:1px solid var(--input);border-radius:14px;background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.dots{display:inline-flex;align-items:center;gap:4px;height:22px}
+.dots i{width:7px;border-radius:999px;background:var(--primary)}
+.vbar .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.vbar .phase{font-size:12px;font-weight:600}
+.vbar .text{font-size:12.5px;color:var(--muted-fg)}
+.pill{font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--primary-soft);color:var(--primary);white-space:nowrap}
+.pill.plain{background:var(--muted);color:var(--muted-fg)}
+.pill.warn{background:var(--warn-surface);color:var(--warn)}
+
+/* ── Call card ──────────────────────────── */
+.card{position:absolute;left:72px;bottom:54px;width:404px;background:var(--popup);border:1px solid var(--border);border-radius:16px;box-shadow:var(--pop-shadow);padding:16px 16px 14px;z-index:4}
+.card::after{content:"";position:absolute;left:58px;bottom:-7px;width:12px;height:12px;background:var(--popup);border-right:1px solid var(--border);border-bottom:1px solid var(--border);transform:rotate(45deg)}
+.card h2{margin:0;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px}
+.card h2 svg{color:var(--primary)}
+.card p{margin:6px 0 0;color:var(--muted-fg);font-size:13px;line-height:1.5}
+.field{margin-top:14px}
+.field-label{font-size:12px;font-weight:600;color:var(--muted-fg);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:3px;padding:3px;border-radius:10px;background:var(--muted);box-shadow:inset 0 0 0 1px var(--border)}
+.seg span{display:flex;align-items:center;justify-content:center;gap:6px;height:28px;border-radius:7px;font-size:13px;font-weight:500;color:var(--muted-fg);white-space:nowrap}
+.seg span.sel{background:var(--card);color:var(--fg);box-shadow:0 0 0 1px var(--border),0 1px 2px rgba(0,0,0,.08)}
+.seg span.sel svg{color:var(--primary)}
+.seg-help{margin:6px 2px 0;font-size:12.5px;color:var(--muted-fg)}
+.vline{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--border);font-size:13px}
+.vline .grow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vline.warn{box-shadow:inset 0 0 0 1px var(--warn);background:var(--warn-surface);flex-wrap:wrap}
+.link{color:var(--primary);font-weight:500;font-size:13px;white-space:nowrap}
+.actions{margin-top:14px;display:flex;align-items:center;gap:10px}
+.btn{height:34px;padding:0 13px;border-radius:9px;border:1px solid var(--input);background:var(--card);font-weight:500;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:var(--primary-fg)}
+.btn.primary.focus{box-shadow:0 0 0 3px var(--primary-ring)}
+.btn.sm{height:28px;padding:0 10px;font-size:12.5px;border-radius:8px}
+.btn.ghost{border-color:transparent;background:none}
+.btn.off{opacity:.45}
+.fine{margin-top:12px;padding-top:10px;border-top:1px solid var(--border);font-size:12px;color:var(--muted-fg)}
+
+/* ── Dialogs as they are today ──────────── */
+.scrim{position:absolute;inset:0;background:var(--scrim);display:grid;place-items:center;z-index:5;padding:20px}
+.dlg{width:100%;max-width:512px;max-height:100%;overflow:hidden;background:var(--popup);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:22px 24px}
+.dlg h2{margin:0;font-size:18px;font-weight:600}
+.dlg p{margin:8px 0 0;color:var(--muted-fg);font-size:14px;line-height:1.5}
+.dlg label{display:block;margin-top:14px;font-size:14px}
+.inp{margin-top:4px;width:100%;border:1px solid var(--border);background:var(--bg);border-radius:7px;padding:8px 12px;font-size:14px;display:flex;align-items:center;color:var(--fg);min-height:38px}
+.inp.ph{color:var(--muted-fg)}
+.inp.mono{font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;min-height:64px;align-items:flex-start;white-space:pre}
+.inp .chev{margin-left:auto;color:var(--muted-fg)}
+.soon{margin-top:14px;border:1px solid var(--border);border-radius:9px;padding:11px 12px;font-size:14px}
+.dlg .actions{justify-content:flex-end}
+
+/* ── Settings > Voice ───────────────────── */
+.page{flex:1;min-height:0;overflow:hidden;padding:6px 32px 28px}
+.page-col{max-width:780px;margin:0 auto}
+.page h1{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0}
+.page .lead{margin:4px 0 0;color:var(--muted-fg)}
+.sec{margin-top:18px;border:1px solid var(--border);border-radius:14px;background:var(--card);overflow:hidden}
+.sec-head{padding:13px 16px 11px;border-bottom:1px solid var(--border)}
+.sec-head h3{margin:0;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px}
+.sec-head h3 svg{color:var(--primary)}
+.sec-head h3 .pill{margin-left:auto}
+.sec-head p{margin:4px 0 0;color:var(--muted-fg);font-size:13px}
+.srow{display:flex;align-items:center;gap:16px;padding:10px 16px;border-top:1px solid var(--border)}
+.sec-head + .srow{border-top:0}
+.srow .t{flex:1;min-width:0}
+.srow .t b{font-weight:500;display:block}
+.srow .t span{color:var(--muted-fg);font-size:12.5px}
+.sel-box{height:32px;min-width:190px;border:1px solid var(--input);border-radius:8px;padding:0 10px;display:flex;align-items:center;gap:8px;font-size:13px;background:var(--bg)}
+.sel-box .chev{margin-left:auto;color:var(--muted-fg)}
+.area{width:300px;min-height:54px;border:1px solid var(--input);border-radius:8px;padding:7px 10px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);white-space:pre}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 16px 14px}
+.opt{border:1px solid var(--input);border-radius:11px;padding:10px 12px;position:relative}
+.opt.sel{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-ring);background:var(--primary-soft)}
+.opt b{display:flex;align-items:center;gap:7px;font-weight:600;font-size:13.5px}
+.opt.sel b svg{color:var(--primary)}
+.opt p{margin:4px 0 0;color:var(--muted-fg);font-size:12.5px;line-height:1.45}
+.voices{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start;padding:12px 16px 14px}
+.radio{width:15px;height:15px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--input);flex:none}
+.opt.sel .radio{box-shadow:inset 0 0 0 4.5px var(--primary)}
+.mini{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap;align-items:center}
+.mini .sel-box{min-width:0;height:28px;font-size:12.5px;flex:1}
+.kv{display:grid;grid-template-columns:62px 1fr;gap:6px 8px;margin-top:9px;font-size:12.5px;align-items:center}
+.kv .sel-box{min-width:0;height:28px;font-size:12.5px}
+.okline{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12.5px;color:var(--ok);font-weight:500}
+
+/* ── Compare board ──────────────────────── */
+.board{height:100%;display:grid;grid-template-rows:1fr 1fr;gap:0}
+.lane{padding:22px 40px 0;position:relative;border-bottom:1px solid var(--border);min-height:0}
+.lane:last-child{border-bottom:0}
+.lane h4{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-fg);display:flex;gap:10px;align-items:center}
+.lane.after h4{color:var(--primary)}
+.lane .say{margin:0 0 14px;font-size:14px;color:var(--muted-fg)}
+.lane .composer-wrap{max-width:820px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const q = new URLSearchParams(location.search);
+const view = q.get("view") || "compare";
+document.documentElement.classList.toggle("dark", q.get("theme") === "dark");
+
+const ic = (d, s = 16) => `<svg class="i" viewBox="0 0 24 24" width="${s}" height="${s}">${d}</svg>`;
+const I = {
+  plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
+  mic: '<path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/>',
+  phone: '<path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/>',
+  wave: '<path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/>',
+  up: '<path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>',
+  stop: '<rect x="5" y="5" width="14" height="14" rx="2"/>',
+  play: '<path d="M6 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L7.5 3.64A1 1 0 0 0 6 4.5z"/>',
+  chev: '<path d="m6 9 6 6 6-6"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  text: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/>',
+  speaker: '<path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/>',
+  both: '<path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M15 8h6"/><path d="M15 12h6"/><path d="M15 16h4"/>',
+  alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+};
+const mark = (s) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#5b5cf0"/><path d="M8 5.5h6l3 3V18a.8.8 0 0 1-.8.8H8a.8.8 0 0 1-.8-.8V6.3A.8.8 0 0 1 8 5.5z" fill="#fff"/><path d="M9.6 11.6l2 1.7-2 1.7M12.6 15.3h2.2" fill="none" stroke="#1b1b3a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const isAfter = view.startsWith("after");
+const ribbon = `<span class="ribbon ${isAfter ? "after" : ""}">${isAfter ? "After · proposed" : "Before · today"}</span>`;
+
+const rest = `<span class="state"><i></i>Ready</span><span class="grow"></span><span class="chip">M4</span><span class="chip">Opus 5.5</span>
+  <button class="send" aria-label="Send">${ic(I.up)}</button>`;
+
+/* Today's row: three bare icons. `tip` puts one of today's plain tooltips under its icon. */
+function footBefore(tip) {
+  const t = (n, label) => (tip === n ? `<span class="tip">${label}</span>` : "");
+  return `<div class="foot">
+    <button class="ib" aria-label="Attach">${ic(I.plus)}</button>
+    <button class="ib${tip === 1 ? " hover" : ""}">${ic(I.mic)}${t(1, "Dictate into the message (⇧⌘D)")}</button>
+    <button class="ib${tip === 2 ? " hover" : ""}">${ic(I.phone)}${t(2, "Call the coordinator and talk")}</button>
+    <button class="ib${tip === 3 ? " hover" : ""}">${ic(I.wave)}${t(3, "Voice settings")}</button>
+    ${rest}</div>`;
+}
+
+const tipDictate = `<span class="tip rich"><b>Dictate <kbd>⇧⌘D</kbd></b>Speak, and your words are typed into the message. Nothing is sent until you press Send.<small>On this Mac · free · no setup</small></span>`;
+const tipCall = `<span class="tip rich"><b>Call the coordinator</b>Talk hands-free. What you say is sent as a message, and the answer is read aloud.<small>Answers: voice and text · This Mac's voice</small></span>`;
+
+/* Proposed row: two named controls; the settings icon is gone. */
+function footAfter(o = {}) {
+  const label = (text) => (o.narrow ? "" : text);
+  const cls = o.narrow ? "ib" : "vb";
+  return `<div class="foot">
+    <button class="ib" aria-label="Attach">${ic(I.plus)}</button>
+    <button class="${cls}${o.hover === "dictate" ? " hover" : ""}${o.dictating ? " on" : ""}" aria-label="Dictate">${ic(o.dictating ? I.stop : I.mic)}${label(o.dictating ? "Stop" : "Dictate")}${o.hover === "dictate" ? tipDictate : ""}</button>
+    <button class="${cls}${o.hover === "call" || o.card ? " hover" : ""}" aria-label="Call the coordinator">${ic(I.phone)}${label("Call")}${o.hover === "call" ? tipCall : ""}</button>
+    ${rest}</div>`;
+}
+
+function composer(foot, o = {}) {
+  const prompt = o.typed
+    ? `<div class="prompt typed">${o.typed}<span class="caret"></span></div>`
+    : `<div class="prompt">Message the coordinator</div>`;
+  return `<div class="composer-wrap">${o.above || ""}<div class="composer">${prompt}${foot}</div>${o.over || ""}</div>`;
+}
+
+function shell(body, o = {}) {
+  return `
+  <div class="app">
+    <aside class="side">
+      <div class="brand">${mark(18)}<span>SpecWithCode</span></div>
+      <div class="row muted">Search</div>
+      <div class="label">Projects</div>
+      <div class="row on"><span class="tag">DA</span>demo-app</div>
+      <div class="row sub">Add dark mode</div>
+      <div class="row sub">Fix login redirect</div>
+      <div class="row"><span class="tag">WS</span>website</div>
+    </aside>
+    <section class="main">
+      <div class="top"><span class="tag">DA</span>demo-app <span class="muted">/</span> Coordinator ${ribbon}</div>
+      <div class="thread"><div class="col">
+        <p class="msg me">What is left before we can ship dark mode?</p>
+        <p class="msg">Two things: the settings toggle still needs its test, and the chart colors are not themed yet. I can start a thread for each.</p>
+      </div></div>
+      <div class="dock"><div class="col">${body}</div></div>
+      ${o.overlay || ""}
+    </section>
+  </div>`;
+}
+
+/* ── Before ── */
+const consentToday = `
+  <div class="scrim"><div class="dlg" role="alertdialog">
+    <h2>Allow voice?</h2>
+    <p>Call the coordinator and hear it answer, or dictate into the message box. The microphone is on only during a call or dictation, and you can stop at any time.</p>
+    <p>What you say is turned into text on this Mac. In a call that text is sent as your message, so it shows in the conversation like anything you type. Microphone audio stays on this Mac. When ElevenLabs is selected, reply text is sent to ElevenLabs and uses your paid ElevenLabs credits. Otherwise replies use free macOS speech. Your selected AI provider still handles coordinator messages under its own subscription or billing settings. macOS will ask once for microphone access.</p>
+    <div class="actions"><button class="btn">Not now</button><button class="btn primary">Allow and dictate</button></div>
+  </div></div>`;
+
+const settingsToday = `
+  <div class="scrim"><div class="dlg" role="dialog">
+    <h2>Voice</h2>
+    <p>Speak naturally, without a speech subscription. Your agent’s usual text usage still applies.</p>
+    <label>Voice service<div class="inp">ElevenLabs · Your own key<span class="chev">${ic(I.chev, 14)}</span></div></label>
+    <p style="font-size:13.5px">ElevenLabs receives reply text and charges your ElevenLabs account. Your microphone audio stays on this Mac. SpecWithCode does not cover these charges.</p>
+    <label>Your ElevenLabs API key<div class="inp ph">Enter your API key</div></label>
+    <label>Voice ID<div class="inp ph">Copy from your ElevenLabs voice library</div></label>
+    <p style="font-size:12px">One setting for every project. The key stays in the SpecWithCode service's secret store on this Mac and is never shown again or synced to other machines.</p>
+    <label>Your vocabulary<div class="inp mono ph">SpecWeave
+pasta =&gt; Postiz</div></label>
+    <p style="font-size:12px;margin-top:4px">Names and terms to recognize, one per line, or heard =&gt; written. Earlier lines count most. Kept only on this Mac.</p>
+    <div class="soon"><b style="font-weight:500">Managed premium voice</b> <span class="muted" style="font-size:12px;margin-left:6px">Coming soon</span><p style="margin-top:3px">Included usage and spending controls. No payment or sign-up is available yet.</p></div>
+    <div class="actions"><button class="btn">Cancel</button><button class="btn primary">Save voice</button></div>
+  </div></div>`;
+
+/* ── After ── */
+const dictationBar = `
+  <div class="vbar"><span class="dots"><i style="height:9px"></i><i style="height:18px"></i><i style="height:13px"></i><i style="height:7px"></i></span>
+    <span class="body"><span class="phase">Listening</span><span class="text">Your words land in the message box. Nothing is sent until you send it.</span></span>
+    <span class="pill">On this Mac · free</span>
+    <button class="ib" aria-label="Stop dictating">${ic(I.stop)}</button></div>`;
+
+function callCard(blocked) {
+  const voice = blocked
+    ? `<div class="vline warn">${ic(I.alert)}<span class="grow" style="white-space:normal;flex-basis:300px">ElevenLabs needs an API key and a voice ID before it can read answers.</span>
+         <button class="btn sm primary">Finish setup</button><button class="btn sm">Use this Mac's voice</button></div>`
+    : `<div class="vline">${ic(I.speaker)}<span class="grow">This Mac's voice · Automatic</span><span class="pill plain">Free</span><span class="link">Change</span></div>`;
+  return `
+  <div class="card" role="dialog" aria-label="Call the coordinator">
+    <h2>${ic(I.phone, 17)}Call the coordinator</h2>
+    <p>Talk hands-free. What you say is sent as a message.</p>
+    <div class="field"><div class="field-label">How it answers</div>
+      <div class="seg" role="radiogroup"><span>${ic(I.text, 14)}Text only</span><span class="sel">${ic(I.both, 14)}Voice and text</span><span>${ic(I.speaker, 14)}Voice</span></div>
+      <div class="seg-help">Reads a short version aloud. The full answer is in the chat.</div></div>
+    <div class="field"><div class="field-label">Reply voice</div>${voice}</div>
+    <div class="actions"><button class="btn primary ${blocked ? "off" : "focus"}">${ic(I.phone, 15)}Start call</button><span class="muted" style="font-size:12.5px">${blocked ? "or choose Text only" : "Enter starts · Esc closes"}</span><span class="grow"></span><span class="link">Voice settings</span></div>
+    <div class="fine">Your speech becomes text on this Mac. Microphone audio never leaves it.</div>
+  </div>`;
+}
+
+function settingsPage() {
+  const nav = ["General", "Appearance", "Voice", "Keybindings", "Providers", "Agents", "Machines", "Connections", "Privacy"];
+  return `
+  <div class="app">
+    <aside class="side">
+      <div class="brand">${mark(18)}<span>Settings</span></div>
+      <div class="label">App</div>
+      ${nav.map((n) => `<div class="row${n === "Voice" ? " on" : ""}">${n}</div>`).join("")}
+    </aside>
+    <section class="main">
+      <div class="top"><span class="muted">Settings</span> <span class="muted">/</span> Voice ${ribbon}</div>
+      <div class="page"><div class="page-col">
+        <h1>Voice</h1>
+        <p class="lead">Speak instead of typing, and talk with the coordinator. Each part says what it is for.</p>
+
+        <div class="sec">
+          <div class="sec-head"><h3>${ic(I.mic)}Dictation<span class="pill">Free · on this Mac · no setup</span></h3>
+            <p>Press the microphone in any message box and speak. Your words are typed in; nothing is sent until you press Send.</p></div>
+          <div class="srow"><div class="t"><b>Language</b><span>System follows this Mac's language.</span></div><div class="sel-box">System<span class="chev">${ic(I.chev, 14)}</span></div></div>
+          <div class="srow"><div class="t"><b>Shortcut <kbd>⇧⌘D</kbd></b><span>Change the keys in Keybindings.</span></div><div class="sel-box">Press to start and stop<span class="chev">${ic(I.chev, 14)}</span></div></div>
+          <div class="srow"><div class="t"><b>Words to recognize</b><span>Names and terms, one per line, or heard =&gt; written. Used for dictation and calls. Kept only on this Mac.</span></div><div class="area">SpecWeave
+pasta =&gt; Postiz</div></div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-head"><h3>${ic(I.phone)}Calls with the coordinator</h3>
+            <p>Press Call in the coordinator's message box to talk hands-free. Each thing you say is sent as a message. How should it answer?</p></div>
+          <div class="opts">
+            <div class="opt"><b>${ic(I.text, 15)}Text only</b><p>It writes. Nothing is read aloud, and no voice service is used.</p></div>
+            <div class="opt sel"><b>${ic(I.both, 15)}Voice and text</b><p>Reads a short version aloud. The full answer is in the chat.</p></div>
+            <div class="opt"><b>${ic(I.speaker, 15)}Voice</b><p>Reads the whole answer aloud, for when you are away from the screen.</p></div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-head"><h3>${ic(I.speaker)}Reply voice<span class="pill plain">Calls only</span></h3>
+            <p>The voice that reads answers aloud in a call. It is not used for dictation or for understanding what you say.</p></div>
+          <div class="voices">
+            <div class="opt"><b><span class="radio"></span>This Mac's voice<span class="pill plain" style="margin-left:auto">Free</span></b>
+              <p>Made on this Mac. Nothing leaves it.</p>
+              <div class="mini"><div class="sel-box">Automatic<span class="chev">${ic(I.chev, 13)}</span></div><div class="sel-box">Natural pace<span class="chev">${ic(I.chev, 13)}</span></div><button class="btn sm">${ic(I.play, 12)}Preview</button></div></div>
+            <div class="opt sel"><b><span class="radio"></span>ElevenLabs<span class="pill plain" style="margin-left:auto">Your key, your credits</span></b>
+              <p>More natural. ElevenLabs receives the answer text and charges your account.</p>
+              <div class="kv"><span class="muted">API key</span><div class="sel-box">••••••••••••  Saved</div><span class="muted">Voice ID</span><div class="sel-box">21m00Tcm4TlvDq8ikWAM</div></div>
+              <div class="mini"><button class="btn sm primary">${ic(I.play, 12)}Save and test</button><span class="okline">${ic(I.check, 14)}Works. You heard a sample in this voice.</span></div></div>
+          </div>
+          <div class="srow"><div class="t"><b>Say it like this</b><span>How the voice should say a word, one per line: written =&gt; spoken. Changes only what is read aloud, never the text in the chat.</span></div><div class="area">vskill =&gt; vee skill
+Postiz =&gt; post-eez</div></div>
+        </div>
+      </div></div>
+    </section>
+  </div>`;
+}
+
+function compare() {
+  return `
+  <div class="board">
+    <div class="lane"><h4>Before · today</h4>
+      <p class="say">Three bare icons. The waveform is settings, the phone is a voice call, and each explains itself only on hover, in a few words.</p>
+      ${composer(footBefore(0), { over: `<div class="notes"><span class="tip">Dictate into the message (⇧⌘D)</span><span class="tip">Call the coordinator and talk</span><span class="tip">Voice settings</span></div>` })}
+    </div>
+    <div class="lane after"><h4>After · proposed</h4>
+      <p class="say">Two named controls. Hover says what happens and what it costs. Voice settings move into the Call card and Settings &gt; Voice.</p>
+      ${composer(footAfter({ hover: "dictate" }))}
+    </div>
+  </div>`;
+}
+
+const views = {
+  compare,
+  "before-composer": () => shell(composer(footBefore(3))),
+  "before-first-use": () => shell(composer(footBefore(0)), { overlay: consentToday }),
+  "before-settings": () => shell(composer(footBefore(0)), { overlay: settingsToday }),
+  "after-composer": () => shell(composer(footAfter({ hover: "dictate" }))),
+  "after-narrow": () => shell(composer(footAfter({ narrow: true, hover: "call" }))),
+  "after-dictating": () => shell(composer(footAfter({ dictating: true }), { above: dictationBar, typed: "Start a thread for the chart colors and" })),
+  "after-call-card": () => shell(composer(footAfter({ card: true }), { over: callCard(false) })),
+  "after-call-blocked": () => shell(composer(footAfter({ card: true }), { over: callCard(true) })),
+  "after-settings": settingsPage,
+};
+document.getElementById("root").innerHTML = (views[view] || compare)();
+</script>
+</body>
+</html>

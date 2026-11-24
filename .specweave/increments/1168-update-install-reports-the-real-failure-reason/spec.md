@@ -28,7 +28,7 @@ Out: the .deb feed fix, which the Linux chat session worker owns in #1188. Showi
 
 ### T-01 Reason in the install failure and the relaunch review
 
-- AC: AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/updates/installAttempt.ts, repositories/anton-abyzov/specwithcode-dev/apps/desktop/src/updates/DesktopUpdates.ts, repositories/anton-abyzov/specwithcode-dev/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode-dev/packages/contracts/src/desktopUpdateState.ts | Test: `installAttempt.test.ts`, `DesktopUpdates.test.ts`
+- AC: AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/desktop/src/updates/installAttempt.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/updates/DesktopUpdates.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/sidebar/SidebarRestartToUpdate.logic.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/desktopUpdateState.ts | Test: `installAttempt.test.ts`, `DesktopUpdates.test.ts`
 
 ### T-02 Carry the .deb feed fix from #1188
 

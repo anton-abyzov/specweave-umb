@@ -2,7 +2,7 @@
 
 ## Problem
 
-Anton (November 14, 2026, Settings > Models > Adversarial review on the M4) could not tell from the reviewer order that Claude-written work (Fable 5.2, Opus 5.5) is never reviewed by a Claude model: Claude Opus 5.5 sits at #1 with nothing saying it is skipped for Claude work. Rows carried a chip of stacked, unlabeled provider icons ("+4", "+2", "+1") that reads as noise. Claude showed "Usage unknown" with no reason and no way to fix it.
+The owner testing Settings > Models > Adversarial review on November 14, 2026 could not tell from the reviewer order that Claude-written work (Fable 5.2, Opus 5.5) is never reviewed by a Claude model: Claude Opus 5.5 sits at #1 with nothing saying it is skipped for Claude work. Rows carried a chip of stacked, unlabeled provider icons ("+4", "+2", "+1") that reads as noise. Claude showed "Usage unknown" with no reason and no way to fix it.
 
 Code read on specwithcode `main` 8f11ba70:
 
@@ -55,3 +55,6 @@ Rejected: keeping the icon chip with a tooltip (the track card already lists sou
 
 ### T-03 Project settings uses the Review card; icon chip removed; links fixed
 - AC: AC-03, AC-05 | Files: [repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AdversarialReviewSettings.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/FallbackOrderList.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/AdversarialReviewSettings.test.tsx] | Test: `vp test run apps/web/src/components/settings/AdversarialReviewSettings.test.tsx`
+
+### T-04 Merge the reviewed implementation
+- AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/web/tests/picker-calm/fixture.tsx, repositories/anton-abyzov/specwithcode/apps/web/tests/picker-calm/verify-settings.mjs | Test: GitHub PR #437 checks and exact-head adversarial review

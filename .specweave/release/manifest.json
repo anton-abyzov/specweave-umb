@@ -96,12 +96,10 @@
     {
       "name": "specweave-studio",
       "display": "SpecWithCode",
-      "slug": "anton-abyzov/specwithcode-dev",
-      "mirror_slug": "anton-abyzov/specwithcode",
-      "mirror_checkout": "~/Projects/github/specwithcode-public",
-      "path": "repositories/anton-abyzov/specwithcode-dev",
+      "slug": "anton-abyzov/specwithcode",
+      "path": "repositories/anton-abyzov/specwithcode",
       "default_branch": "main",
-      "visibility": "private",
+      "visibility": "public",
       "actions_enabled": true,
       "merge": { "method": "squash", "admin": false, "gh_needs_repo_flag": true },
       "version_file": "apps/server/package.json",
@@ -131,19 +129,21 @@
     },
     "vskill-npm": {
       "repo": "vskill",
+      "run_script_from": "origin",
       "release": ["bash", "scripts/release/release-npm.sh"],
       "default_args": [],
       "args_help": "[<version>] [--dry-run]",
       "dry_run_flag": "--dry-run",
       "expect_version": "default_branch_version",
       "verify": [
-        { "name": "npm latest", "kind": "npm_version", "package": "vskill" },
+        { "name": "npm latest", "kind": "npm_version", "package": "vskill", "repo": "anton-abyzov/vskill", "workflow": "npm-release.yml" },
         { "name": "GitHub release", "kind": "gh_release", "repo": "anton-abyzov/vskill", "tag": "v{version}" },
         { "name": "CI on main", "kind": "gh_run", "repo": "anton-abyzov/vskill", "workflow": "ci.yml", "branch": "main", "blocking": false }
       ]
     },
     "vskill-desktop": {
       "repo": "vskill",
+      "run_script_from": "origin",
       "release": ["bash", "scripts/release/release-desktop.sh"],
       "default_args": [],
       "args_help": "[<version>] [--dry-run]",
@@ -220,8 +220,7 @@
         "requirement_from": "expectedRequirement() in scripts/studio-projects/mac-signature.mjs of the studio repo; the desktop stage and the worker app update check the same"
       },
       "verify": [
-        { "name": "private release", "kind": "gh_release", "repo": "anton-abyzov/specwithcode-dev", "tag": "v{version}", "assets": ["studio-update.json", "SHA256SUMS", "*.dmg"] },
-        { "name": "public mirror release", "kind": "gh_release", "repo": "anton-abyzov/specwithcode", "tag": "v{version}" },
+        { "name": "GitHub release", "kind": "gh_release", "repo": "anton-abyzov/specwithcode", "tag": "v{version}", "assets": ["studio-update.json", "SHA256SUMS", "*.dmg"] },
         { "name": "M4 service", "kind": "fleet_endpoint", "url": "http://127.0.0.1:8319/.well-known/studio/environment", "state_file": "~/.specwithcode/m4/updates/state.json" },
         { "name": "M1 service", "kind": "fleet_connect", "machine": "m1" },
         { "name": "M3 service", "kind": "fleet_connect", "machine": "m3" },

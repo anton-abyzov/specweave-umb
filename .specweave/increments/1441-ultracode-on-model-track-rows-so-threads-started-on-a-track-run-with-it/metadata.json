@@ -1,0 +1,12 @@
+{
+  "id": "1441-ultracode-on-model-track-rows-so-threads-started-on-a-track-run-with-it",
+  "uuid": "81f7037d-30b9-4d98-bcaa-71935304d7d5",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-23T05:41:29.899Z",
+  "updated": "2026-11-23T05:41:29.899Z",
+  "lastActivity": "2026-11-23T05:41:29.899Z",
+  "title": "Ultracode on model track rows, so threads started on a track run with it",
+  "project": "specweave-umb"
+}

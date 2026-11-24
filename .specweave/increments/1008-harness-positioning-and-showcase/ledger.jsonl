@@ -8,3 +8,5 @@
 {"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-10-23T06:01:25.570Z","note":"session 27025cda-d027-459d-be10-f2bc46c8befb","model":"claude-opus-5-5[1m]"}
 {"t":"T-05","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-10-23T06:01:25.572Z","model":"claude-opus-5-5[1m]"}
 {"t":"T-05","e":"done","by":"claude@antons-macbook-m4max","at":"2026-10-23T06:16:45.784Z","evidence":"explainer.html built from measured JSON + official price table; fresh review 3H/5M/10L all applied (economics/review.md); headless light/dark/mobile clean; HF check 0/0; review cut 156s 1080p30\nHEAD 4dd4cd64f","line":"Harness layers and plan economics explainer, reviewed and fixed","link":"/Volumes/KINGSTON/SpecWithCode/harness-showcase-20261023/economics/explainer.html","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"skip","by":"claude@antons-macbook-m4max","at":"2026-11-19T06:17:02.912Z","note":"Anton: close as is, November 19, 2026","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"skip","by":"claude@antons-macbook-m4max","at":"2026-11-19T06:17:04.115Z","note":"Anton: close as is, November 19, 2026","model":"claude-opus-5-5[1m]"}

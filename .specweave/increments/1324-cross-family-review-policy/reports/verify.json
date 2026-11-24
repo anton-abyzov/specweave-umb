@@ -1,0 +1,165 @@
+{
+  "ok": true,
+  "strictClose": {
+    "errors": []
+  },
+  "ranAt": "2026-11-14T02:59:32.160Z",
+  "increment": "1324-cross-family-review-policy",
+  "commands": [
+    {
+      "cmd": "python3 scripts/fleet-project-sync.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 -m unittest discover -s tests -p test_handoff_evidence.py",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "python3 scripts/release/timing.py --self-test",
+      "exit": 0,
+      "cwd": ".",
+      "source": "config testing.commands"
+    },
+    {
+      "cmd": "npm run test:unit:fast",
+      "exit": 0,
+      "cwd": "repositories/anton-abyzov/specweave",
+      "source": "config testing.ownerCommands"
+    },
+    {
+      "cmd": "npm run verify:pr -- --jobs 1 --no-server",
+      "exit": 0,
+      "cwd": "repositories/anton-abyzov/specwithcode",
+      "source": "config testing.ownerCommands"
+    },
+    {
+      "cmd": "npm run test:server:sharded -- --shards 6 --out \"$(mktemp -d)\"",
+      "exit": 0,
+      "cwd": "repositories/anton-abyzov/specwithcode",
+      "source": "config testing.ownerCommands"
+    }
+  ],
+  "acs": {
+    "total": 6,
+    "done": 6,
+    "skippedAccepted": 0,
+    "mixed": 0,
+    "items": [
+      {
+        "id": "AC-01",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-01",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-02",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-02",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-03",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-03",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-04",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-05",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-05",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-06",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      },
+      {
+        "id": "AC-06",
+        "done": true,
+        "via": "ledger",
+        "tasks": [
+          {
+            "id": "T-04",
+            "status": "done"
+          },
+          {
+            "id": "T-07",
+            "status": "done"
+          }
+        ],
+        "acceptance": "met",
+        "waivers": []
+      }
+    ]
+  },
+  "tasks": {
+    "total": 7,
+    "done": 7,
+    "skipped": 0,
+    "open": 0
+  },
+  "skipped": [],
+  "acceptedSkips": [],
+  "ledgerMalformed": 0
+}

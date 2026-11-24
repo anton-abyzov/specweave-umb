@@ -1,15 +1,17 @@
 {
   "id": "1155-connect-devices-behind-one-address-do-not-lock-each-other-out",
   "uuid": "7b9d962e-8e50-429a-9454-5092b3e28a00",
-  "status": "active",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-31T08:12:17.309Z",
-  "updated": "2026-11-02T03:33:31.265Z",
-  "lastActivity": "2026-11-02T03:33:31.265Z",
+  "updated": "2026-11-13T19:05:55.811Z",
+  "lastActivity": "2026-11-13T19:05:55.811Z",
   "title": "Connect devices behind one address do not lock each other out",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "abandonedReason": "Superseded: delivered by specwithcode-dev PRs 1155 (361a777aae) and 1159 (b176381b95), shipped 1.0.146; nothing built in this increment. Anton approved November 13, 2026",
+  "abandonedAt": "2026-11-13T19:05:55.811Z"
 }
