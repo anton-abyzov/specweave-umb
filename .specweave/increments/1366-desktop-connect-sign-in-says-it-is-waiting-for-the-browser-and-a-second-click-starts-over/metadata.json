@@ -1,0 +1,17 @@
+{
+  "id": "1366-desktop-connect-sign-in-says-it-is-waiting-for-the-browser-and-a-second-click-starts-over",
+  "uuid": "996a2c4d-eb52-4556-b86c-d7c7314bfdcc",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-16T08:20:40.794Z",
+  "updated": "2026-11-19T08:36:05.010Z",
+  "lastActivity": "2026-11-19T08:36:05.010Z",
+  "title": "Desktop Connect sign-in says it is waiting for the browser, and a second click starts over",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-19T08:36:05.009Z",
+  "approvedAt": "2026-11-19T08:36:05.010Z"
+}

@@ -1,15 +1,17 @@
 {
   "id": "0967-thread-handoff-mode",
   "uuid": "f2303e36-d863-4452-97b8-4cca24921169",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P0",
   "created": "2026-10-20T17:49:58.000Z",
-  "updated": "2026-11-06T18:42:28.381Z",
-  "lastActivity": "2026-11-06T18:42:28.381Z",
+  "updated": "2026-11-20T19:56:14.109Z",
+  "lastActivity": "2026-11-20T19:56:14.109Z",
   "title": "Handoff mode: continue any thread on another machine or model",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-20T19:56:14.108Z",
+  "approvedAt": "2026-11-20T19:56:14.109Z"
 }

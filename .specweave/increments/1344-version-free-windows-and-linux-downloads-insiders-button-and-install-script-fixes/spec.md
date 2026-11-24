@@ -26,7 +26,7 @@ Out: Mac self-install (1.1, another worker), the CLI tool (1.3, another worker),
 - [ ] AC-05: `install.sh` retries an interrupted download once with `curl -C -` (or `wget -c`), keeping the bytes it has, before the checksum check; a 404 is not retried.
 - [ ] AC-06: When `install.sh` or `install.ps1` fails, it prints one "Report this failure" line with a GitHub new-issue link prefilled with the error, version and platform. Nothing is sent automatically.
 - [ ] AC-07: `docs/studio/updates.md` says the app checks about 15 seconds after launch and then once a minute whenever the last successful check is over 10 minutes old (the service agent stays hourly), and no longer says every build is unsigned.
-- [ ] AC-08: The download page links Windows and Linux installers through `releases/latest/download/<version-free name>` when the newest stable release carries them, and otherwise through the versioned files of the newest release that has all six (no broken link while 1.0.x releases attach Windows and Linux later). The release watch still reads which release a deployed page shows.
+- [ ] AC-08: From 1.1.0, the download page links Windows and Linux installers through `releases/latest/download/<version-free name>` when the newest stable release carries them; on 1.0.x releases, and otherwise, through the versioned files of the newest release that has all six (no broken link while 1.0.x releases attach Windows and Linux later). The release watch still reads which release a deployed page shows.
 - [ ] AC-09: On a Mac the page says "Apple silicon only" next to the Mac button; a Mac reported as Intel gets a plain "will not run on this Mac" message; Windows picks x64 or arm64 from `navigator.userAgentData` high-entropy architecture, falls back to x64, and keeps the other architecture's link visible.
 - [ ] AC-10: Next to the Stable button, an "Insiders" button downloads the newest Insiders build (a GitHub prerelease newer than the stable release) for the visitor's platform, with one line explaining Insiders. With no such prerelease, or none carrying the visitor's file, the button is hidden; no link points at a missing file.
 - [ ] AC-11: Headless Chromium screenshots of the rendered download page with Mac (Apple silicon and Intel), Windows (x64 and arm64) and Linux user agents are saved in this increment's `reports/`.
@@ -60,8 +60,16 @@ Risk: before 1.1.0 a new Latest 1.0.x release has no Windows or Linux files for 
 - D-02 Version-free names keep electron-builder's arch words (`x86_64` AppImage, `amd64` deb), like the Mac rule: drop the version, keep the rest.
 - D-03 Without a newer Insiders prerelease the Insiders button is hidden rather than pointing at Stable.
 - D-04 An installed Insiders build still defaults to the Stable track (`resolveDefaultDesktopUpdateChannel` maps only `-nightly.` versions to `nightly`). Recorded as a follow-up for Phase 2.5, not built here.
+- D-05 AC-08 reworded to match the shipped 1.1.0 cutoff: 1.0.x releases keep versioned Windows and Linux links, so a page never points at files a late attach has not uploaded yet (Anton, November 19, 2026, after the closing review's F1).
 ### Open
 - none
+
+## Follow-ups
+
+Found by the closing review (GPT-6.1 Sol on Copilot Enterprise, November 19, 2026); Anton chose to close with these recorded rather than fixed here.
+
+- Gap in AC 06, gap: `scripts/install.sh` prints the "Report this failure" line only through `fail()`. Bare commands under `set -eu` (`mktemp` at line 226, `tar` at line 890, launcher writes near line 956) exit without it; the EXIT trap only cleans up.
+- Gap in AC 03, gap: the catch-up signing job in `.github/workflows/release-windows-linux.yml` (lines 1275-1298) checks and re-signs `SHA256SUMS.asc` with the current secret's key, not the release's published `specwithcode-release-key.asc`. After a key rotation it would replace a good signature with one the release's own key cannot verify.
 
 ## Tasks
 

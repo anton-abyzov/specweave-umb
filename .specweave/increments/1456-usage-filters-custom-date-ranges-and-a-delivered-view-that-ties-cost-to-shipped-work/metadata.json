@@ -1,0 +1,15 @@
+{
+  "id": "1456-usage-filters-custom-date-ranges-and-a-delivered-view-that-ties-cost-to-shipped-work",
+  "uuid": "375595ba-986f-4222-9f41-6b65f416a071",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T06:30:55.951Z",
+  "updated": "2026-11-24T07:22:56.615Z",
+  "lastActivity": "2026-11-24T07:22:56.615Z",
+  "title": "Usage filters, custom date ranges and a Delivered view that ties cost to shipped work",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

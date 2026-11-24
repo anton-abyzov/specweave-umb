@@ -1,0 +1,18 @@
+{
+  "id": "1439-stream-to-shorts-skill-livestream-to-fast-vertical-shorts",
+  "uuid": "7f7a1a56-aab9-4f0c-985e-efe53b7ded98",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-21T07:43:51.205Z",
+  "updated": "2026-11-21T10:02:56.919Z",
+  "lastActivity": "2026-11-21T10:02:56.919Z",
+  "title": "stream-to-shorts skill: livestream to fast vertical shorts",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/vskill"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-21T09:46:28.794Z",
+  "approvedAt": "2026-11-21T09:46:28.795Z"
+}

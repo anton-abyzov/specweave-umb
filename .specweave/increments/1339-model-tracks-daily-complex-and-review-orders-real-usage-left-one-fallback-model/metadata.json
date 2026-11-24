@@ -5,9 +5,14 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-15T01:09:45.069Z",
-  "updated": "2026-11-15T01:32:34.669Z",
-  "lastActivity": "2026-11-15T01:32:34.669Z",
+  "updated": "2026-11-20T22:09:24.153Z",
+  "lastActivity": "2026-11-20T22:09:24.153Z",
   "title": "Model tracks: Daily, Complex and Review orders, real usage left, one fallback model",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

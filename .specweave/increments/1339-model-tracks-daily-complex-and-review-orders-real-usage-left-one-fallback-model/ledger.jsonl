@@ -1,1 +1,8 @@
 {"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-15T01:32:34.669Z","note":"review by muse-wonder-1.0 (meta) at 013d05387c05: fix first · reports/reviews/review-muse-wonder-1.0-1.md"}
+{"t":"*","e":"note","by":"muse","at":"2026-11-15T01:32:34.669Z","note":"review by muse-wonder-1.0 (meta) at 013d05387c05: fix first · reports/reviews/review-muse-wonder-1.0-1.md"}
+{"t":"T-13","e":"claim","by":"codex","at":"2026-11-20T20:30:09.086Z"}
+{"t":"T-13","e":"done","by":"codex","at":"2026-11-20T20:30:09.089Z","evidence":"Merged d1eef5943b98ca96d36e969f493085cf85ccd040. Gemini 4 Neon ship at 4ff47dac91efd6324b1b2b47622a5efa9316dd0a. 26 GitHub checks green.","link":"https://github.com/anton-abyzov/specwithcode/pull/499"}
+{"t":"T-14","e":"claim","by":"codex","at":"2026-11-20T21:06:52.482Z"}
+{"t":"T-14","e":"done","by":"codex","at":"2026-11-20T21:06:52.486Z","evidence":"Merged e6b560614ca5edc23231e1e7520e88f19a2b7212. Gemini 4 Neon ship at 063b4097444203c469df3239474752c7910eb906. 16 checks passed and 10 skipped. No live Cursor call.","link":"https://github.com/anton-abyzov/specwithcode/pull/613"}
+{"t":"T-03","e":"claim","by":"codex","at":"2026-11-20T22:09:24.146Z"}
+{"t":"T-03","e":"done","by":"codex","at":"2026-11-20T22:09:24.153Z","evidence":"Merged 7b910418fc62f79c0f494647043e2dfb51ed13dc. Gemini 4 Neon ship at 82a063a9f070d63434faaa0c043e2ff7d543eb48. 20 checks passed and 10 skipped.","link":"https://github.com/anton-abyzov/specwithcode/pull/532"}

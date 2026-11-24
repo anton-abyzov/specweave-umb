@@ -12,9 +12,18 @@ In: a caller-level test showing whether production paths create overlapping pend
 
 ## Acceptance Criteria
 
-- [ ] AC-01: A caller-level regression establishes whether the provider-switch, recovery and missed-item paths can produce overlapping pending histories.
-- [ ] AC-02: Combined delivery orders items chronologically by a real ordinal (not lexical IDs or run IDs); the probe passes.
-- [ ] AC-03: Cross-thread and fork attribution and the 4,096-byte pointer floor behave as before (existing ContextHandoff tests stay green).
+- [x] AC-01: A caller-level regression establishes whether the provider-switch, recovery and missed-item paths can produce overlapping pending histories.
+- [x] AC-02: Combined delivery orders items chronologically by a real ordinal (not lexical IDs or run IDs); the probe passes.
+- [x] AC-03: Cross-thread and fork attribution and the 4,096-byte pointer floor behave as before (existing ContextHandoff tests stay green).
+
+## Results
+
+Fixed in PR 671 (merge `b8f9c0bcc`), released in 1.0.378. The audit probe reproduced on pre-fix main `1d47f5078`: `["item:later","item:earlier"]`.
+
+- Proof for AC-01: the caller-level regression in `testkit/ProviderSwitch.integration.test.ts` (Claude run, failed Claude start, Codex detour, back to Claude) passes on the tests-only commit `cb478f865` too, so that production path already delivers the missed run before the detour; the reorder was not reached through it. The merge is kept as a guard (D-01 stays P2).
+- Proof for AC-02: `ContextHandoffBudget.test.ts` "pending handoff chronology" (probe, same-thread ordinal order, delivered bridge, 2,000 histories); the probe and ordinal cases fail on `cb478f865` and pass in PR 671 CI.
+- Proof for AC-03: single and fork-source histories keep their order; existing ContextHandoff suites green in PR 671 CI (server shards and typecheck).
+- Review: Copilot Enterprise `gpt-6.1-sol`, three rounds, ship at `651c6fc1e`.
 
 ## Approach
 
@@ -32,10 +41,11 @@ Find or add a durable item ordinal (run ordinal plus item position) on historica
 ## Tasks
 
 ### T-01 Caller-level reachability test
-- AC: AC-01 | Files: apps/server/src/orchestration-v2/ContextHandoffService.test.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/ContextHandoffService.test.ts
+- AC: AC-01 | Files: apps/server/src/orchestration-v2/testkit/ProviderSwitch.integration.test.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/testkit/ProviderSwitch.integration.test.ts
+- Files changed from `ContextHandoffService.test.ts` on November 19, 2026: the pending list is assembled in `ProviderTurnStartService.ts` (resume-fallback summary prepended, missed-run retry appended), so the caller-level test drives a real switch in the switch harness.
 
 ### T-02 Chronological merge of pending histories
-- AC: AC-02, AC-03 | Files: apps/server/src/orchestration-v2/ContextHandoffDelivery.ts, apps/server/src/orchestration-v2/ContextHandoffBudget.test.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/ContextHandoff
+- AC: AC-02, AC-03 | Files: apps/server/src/orchestration-v2/ContextHandoffDelivery.ts, apps/server/src/orchestration-v2/ContextHandoffBudget.ts, apps/server/src/orchestration-v2/ContextHandoffBudget.test.ts, packages/contracts/src/orchestrationV2.ts | Test: pnpm exec vp test run apps/server/src/orchestration-v2/ContextHandoff
 
 ### T-03 Verify and close 1065
 - AC: AC-01, AC-02, AC-03 | Files: .specweave/increments/1065-keep-handoff-history-chronological-across-overlapping-handoffs | Test: specweave verify 1065 and fresh-context review

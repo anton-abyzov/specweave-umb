@@ -1,0 +1,16 @@
+{
+  "id": "1427-every-step-names-its-machine",
+  "uuid": "a94863dd-6c04-40df-86e2-a743fcde4f93",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-19T22:30:01.000Z",
+  "updated": "2026-11-20T01:57:27.722Z",
+  "lastActivity": "2026-11-20T01:57:27.722Z",
+  "title": "Every step names its machine",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

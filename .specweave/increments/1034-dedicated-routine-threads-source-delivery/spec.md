@@ -23,9 +23,9 @@ Retain the existing worktree and staged changes. Validate server dispatch with i
 ## Tasks
 
 ### T-01 Validate and repair dedicated-thread behavior and UI
-- AC: AC-01, AC-02, AC-03 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/routine-own-threads/apps/server/src/scheduledTasks/ScheduledTaskService.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/routine-own-threads/apps/server/src/scheduledTasks/ScheduledTaskAdmission.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/routine-own-threads/apps/server/src/scheduledTasks/ScheduledTaskService.routines.test.ts, /Users/antonabyzov/.specwithcode/m4/worktrees/routine-own-threads/apps/web/src/components/studio/ProjectRoutines.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/evidence/routine-own-threads-20261023/verify.sh
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/scheduledTasks/ScheduledTaskService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/scheduledTasks/ScheduledTaskAdmission.ts, repositories/anton-abyzov/specwithcode/apps/server/src/scheduledTasks/ScheduledTaskService.routines.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectRoutines.tsx | Test: bash /Users/antonabyzov/.specwithcode/m4/evidence/routine-own-threads-20261023/verify.sh
 
 ### T-02 Review and deliver the source PR
-- AC: AC-04 | Files: /Users/antonabyzov/.specwithcode/m4/worktrees/routine-own-threads/CHANGELOG.md | Test: bash /Users/antonabyzov/.specwithcode/m4/evidence/routine-own-threads-20261023/verify.sh
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode/CHANGELOG.md | Test: bash /Users/antonabyzov/.specwithcode/m4/evidence/routine-own-threads-20261023/verify.sh
 
 Verify and close 1034.

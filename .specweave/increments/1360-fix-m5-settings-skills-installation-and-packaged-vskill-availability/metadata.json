@@ -11,5 +11,6 @@
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {}
 }

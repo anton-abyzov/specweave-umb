@@ -1,0 +1,15 @@
+{
+  "id": "1362-copy-to-another-machine-keeps-ticked-secrets-names-what-sends-the-ones-left-behind-and-links-both-sides-without-the-dialog",
+  "uuid": "fbce0c4d-8cf3-42cf-94f1-1a583825c05f",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-16T06:13:30.327Z",
+  "updated": "2026-11-16T11:16:38.882Z",
+  "lastActivity": "2026-11-16T11:16:38.882Z",
+  "title": "Copy to another machine keeps ticked secrets, names what sends the ones left behind, and links both sides without the dialog",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-16T11:16:38.881Z",
+  "approvedAt": "2026-11-16T11:16:38.882Z"
+}

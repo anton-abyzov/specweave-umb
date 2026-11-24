@@ -10,7 +10,7 @@ Evidence from the code and this Mac (app repo `repositories/anton-abyzov/specwit
 - 40 model, fallback and limit rows are spread over Settings > General, Settings > Models, Settings > Projects, the project dialog and two popovers. `ModelLanesSettings` renders on General (all machines) and on Models (one machine). "Model tiers" in the UI is the key `modelLanes`; the key `modelTiers` is shown as "Regular and frontier models", a per-provider grid of 9 providers by 2 dropdowns, mostly "No model".
 - A thread copies the project's thread model once at creation. The "threads follow the project model" decision of November 9 was never built. A thread created under GPT-6 Astra stays on Astra after the project moves to Fable 5.2, and the fallback card does not say so.
 - The project's thread model has two stores (the project record and a settings override). The override wins (`apps/server/src/project/ProjectDelegation.ts:25`), so the project dialog can change nothing. The limit worker resolves settings without the project (`apps/server/src/orchestration-v2/ProviderFallbackWorker.ts:914`, `:1761`), so launches and fallbacks disagree on "home".
-- Copilot Enterprise shows no usage because the token comes only from `gh` signed in as the same login. Cached reading on the M4: "Sign in to the GitHub CLI as abycrash to read Copilot usage". The reason is hidden in a tooltip. A paid seat whose premium bucket has no positive `entitlement` maps to zero windows. Copilot on a GHE host is skipped. Devin, Gemini and DeepSeek report nothing, and a limit reply from them never reaches `provider.usageLimits`.
+- Copilot Enterprise shows no usage because the token comes only from `gh` signed in as the same login. The cached reading asks the user to sign in to the GitHub CLI with the matching account. The reason is hidden in a tooltip. A paid seat whose premium bucket has no positive `entitlement` maps to zero windows. Copilot on a GHE host is skipped. Devin, Gemini and DeepSeek report nothing, and a limit reply from them never reaches `provider.usageLimits`.
 - "Usage unknown" in the order list appears when a reading is over 5 minutes old, though the server re-reads before acting.
 - Favorites, model order and "follow newest" are per device and never sync. The Connect relay stores no settings.
 - The usage ring on the model chip has no action of its own.
@@ -31,9 +31,9 @@ Out: installing provider CLIs automatically; a new first-run wizard step; changi
 
 ## Acceptance Criteria
 
-- [ ] AC-01: With nothing configured, the three tracks resolve to the built-in orders: Daily = Claude Opus 5.5, GPT-6.1 Sol, Muse Wonder 1.0, then the free tail GPT-6 Luna; Complex = Claude Fable 5.2, GPT-6 Astra; Review = GPT-6.1 Sol, Muse Wonder 1.0, Gemini 4 Carbon. A saved track replaces its built-in order.
+- [ ] AC-01: The built-in Daily order is Claude Opus 5.5, Claude Sonnet 5.5, GPT-6.2 Sol and GPT-6 Luna. Complex is Claude Fable 5.2 then GPT-6.2 Astra. Review is Gemini 4 Neon at High then GPT-6.2 Sol. A saved order replaces its built-in order.
 - [ ] AC-02: A track entry is a model. Its provider is chosen in this order: the maker's own subscription, then other flat-rate providers serving the same model by most verified room, never a per-token, Vertex or paid-router account unless the entry pins that provider. Only when no provider has room does the chain move to the next entry.
-- [ ] AC-03: A limited thread continues down its own track (Complex thread on Complex, everything else on Daily), then the other track; Complex and Review never use a free-tail entry; a non-empty legacy Fallback order still wins until the owner clicks "Use tracks". The picker card, the settings page and the server use the same chain.
+- [ ] AC-03: In Tracks mode, a limited thread tries other sources for its current model and then the other models on its own track. When the track is exhausted here, handoff can use the same track on another machine if enabled. Complex and Review exclude the free tail. The saved legacy fallback order still applies in single-model mode.
 - [ ] AC-04: A worker launched without a named model in a project set to "Tracks" starts on the first available entry of the track for its task lane (complex, else Daily). A project set to "One model" behaves as today. Existing projects with a saved thread model stay on "One model".
 - [ ] AC-05: An entry follows its family: when the catalog lists a newer version of the same family with the same billing, or the manifest names a successor, the entry resolves to it with no settings change, and the row shows "Follows newest". A pinned entry never moves. `gpt-6.1-sol` and `gpt-6-astra` style slugs are parsed as family plus version.
 - [ ] AC-06: Review is on or off per project; the reviewer comes from the Review track, skips the author's model family and refuses with reasons when no entry can run, as in increment 1324.
@@ -45,6 +45,10 @@ Out: installing provider CLIs automatically; a new first-run wizard step; changi
 - [ ] AC-12: The project's thread model has one store read by launches, the limit worker and the UI. Each thread records whether it follows the project or has its own model; a following thread takes a project change at its next turn; a usage-limit stand-in is not an own model. The fallback card names the model the thread was created with when the project has since changed, with one action to move it.
 - [ ] AC-13: Tracks, review switch defaults, favorites, favorite families and follow-newest are stored per account in Connect and reach every signed-in machine and device, newest change per key winning; signed out, they stay local and nothing is lost. Favorites start empty on a new account.
 - [ ] AC-14: The first-run provider screen shows a "Start free" card with ChatGPT Free and Copilot Free only when no subscription is detected; no wizard step is added.
+
+- [ ] AC-15: In the same release sweep, Remove clears a rejoined machine's old fleet record and the app's saved connection in one action when the old install is unreachable.
+
+- [ ] AC-16: Cursor usage reading is off by default on every platform and requires an explicit opt-in after a warning about Cursor's private endpoints and account-ban risk.
 
 ## Approach
 
@@ -202,3 +206,9 @@ Risks: the Copilot CLI may keep its token only in the system keyring, where the 
 
 ### T-12 Verify and close 1339
 - AC: AC-01 | Files: .specweave/increments/1339-model-tracks-daily-complex-and-review-orders-real-usage-left-one-fallback-model/spec.md | Test: specweave verify 1339
+
+### T-13 Rejoined machine removal from the release sweep
+- AC: AC-15 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/StudioFleetConnections.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/machinesSettings.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/useReplacedMachineRecords.ts | Test: GitHub PR #499 checks and exact-head adversarial review
+
+### T-14 Cursor usage opt-in
+- AC: AC-16 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/provider/cursorUsageAccess.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/usage/UsageService.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/usage/CursorUsageEnable.tsx | Test: GitHub PR #613 checks and exact-head adversarial review

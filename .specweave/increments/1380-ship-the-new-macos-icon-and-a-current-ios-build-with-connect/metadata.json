@@ -1,0 +1,13 @@
+{
+  "id": "1380-ship-the-new-macos-icon-and-a-current-ios-build-with-connect",
+  "uuid": "7a014ce1-4154-4d7d-a624-ffb83910b22c",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-17T21:56:00.713Z",
+  "updated": "2026-11-17T21:56:00.713Z",
+  "lastActivity": "2026-11-17T21:56:00.713Z",
+  "title": "Ship the new macOS icon and a current iOS build with Connect",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

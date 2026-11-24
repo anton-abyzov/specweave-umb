@@ -8,3 +8,7 @@
 {"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-10-27T18:59:02.211Z","note":"session 01a174b7-e9f0-7372-a30c-3c54cc857dc4"}
 {"t":"T-05","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-10-27T18:59:02.212Z"}
 {"t":"T-05","e":"done","by":"codex@antons-macbook-m4max","at":"2026-10-27T18:59:50.044Z","evidence":"9a3a79acc7a14dc713e6a8f88ff49e1c12ba22b8: typed table-row query fixes two CI TS2339 diagnostics. Focused output test 5/5 pass; Node22 web tsc exit 0. Logs: /Users/antonabyzov/.specwithcode/m4/evidence/1102-readable-report-tables/typecheck-fix-focused.log and /Users/antonabyzov/.specwithcode/m4/evidence/1102-readable-report-tables/typecheck-fix-web.log. Fresh review delta SHIP in /Users/antonabyzov/.specwithcode/m4/evidence/1102-readable-report-tables/review/fresh-review-5018f6fac6.md\nHEAD 39235ca79"}
+{"t":"*","e":"session","by":"claude@minisforum","at":"2026-11-20T19:49:47.285Z","note":"session 1453e101-bb7e-4f8b-b6a9-56a877afd6ee","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@minisforum","at":"2026-11-20T19:49:47.285Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@minisforum","at":"2026-11-20T19:49:47.287Z","evidence":"specwithcode-dev PR #914 merged 4ed0256340, released v1.0.110\nHEAD 97a1267e","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"claude@minisforum","at":"2026-11-20T19:56:14.833Z","note":"review by gemini-4-neon (Copilot Enterprise on m4) at specwithcode 5e374f8d2: ship; - none","model":"claude-opus-5-5[1m]"}
