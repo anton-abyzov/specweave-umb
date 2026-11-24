@@ -1,0 +1,12 @@
+{
+  "id": "1454-board-reports-list-real-reports-and-spec-file-opens-on-every-machine",
+  "uuid": "f295ccb5-6843-46a0-ab45-6c37c10cb1de",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-24T04:39:46.670Z",
+  "updated": "2026-11-24T04:39:46.670Z",
+  "lastActivity": "2026-11-24T04:39:46.670Z",
+  "title": "Board increment panel: Reports lists the real reports and Spec file opens on every machine",
+  "project": "specweave-umb"
+}
