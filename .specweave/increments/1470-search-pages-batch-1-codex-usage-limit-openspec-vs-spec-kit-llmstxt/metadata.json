@@ -1,15 +1,18 @@
 {
   "id": "1470-search-pages-batch-1-codex-usage-limit-openspec-vs-spec-kit-llmstxt",
   "uuid": "997beb8e-d442-4089-bdc1-6beedf0a6104",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-24T18:44:51.889Z",
-  "updated": "2026-11-24T19:53:48.682Z",
-  "lastActivity": "2026-11-24T19:53:48.682Z",
+  "updated": "2026-11-24T20:25:07.166Z",
+  "lastActivity": "2026-11-24T20:25:07.166Z",
   "title": "Search pages batch 1: Codex usage limit, OpenSpec vs Spec Kit, llms.txt",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specweave"
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-24T20:25:07.162Z",
+  "approvedAt": "2026-11-24T20:25:07.166Z"
 }
