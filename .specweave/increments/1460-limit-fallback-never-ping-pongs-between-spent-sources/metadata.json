@@ -1,15 +1,18 @@
 {
   "id": "1460-limit-fallback-never-ping-pongs-between-spent-sources",
   "uuid": "42c1e209-58ac-46d4-80c5-44ac7cf570f9",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-24T15:23:11.755Z",
-  "updated": "2026-11-24T16:54:50.131Z",
-  "lastActivity": "2026-11-24T16:54:50.131Z",
+  "updated": "2026-11-24T18:30:47.309Z",
+  "lastActivity": "2026-11-24T18:30:47.309Z",
   "title": "Limit fallback never ping-pongs between spent sources",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-24T18:30:47.308Z",
+  "approvedAt": "2026-11-24T18:30:47.309Z"
 }
