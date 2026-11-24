@@ -51,3 +51,11 @@ Out: worker-side recovery (restarting a cloudflared that lost its edge connectio
 
 ### T-04 Verify and close 1335
 - AC: AC-01, AC-02, AC-03 | Files: .specweave/increments/1335-slow-worker-fewer-false-drops-honest-timeout-reason-last-seen-keeps-counting/spec.md | Test: specweave verify 1335
+
+## Closure triage (November 24, 2026)
+
+Shipped in PR #396 (squash `6a7c99bfe`, v1.0.302). The November 14 Muse record was at pre-squash `1341b8a9` and `session.ts` changed since, so it was not reused. Closing review by GPT-6.2 Sol (Codex) at main `f3ce25682`: **fix**, so not verified or closed.
+- High, AC-01: on mobile resume the supervisor's 3 s foreground health probe can end a live remote session while frames arrive 12 s apart. `packages/client-runtime/src/connection/supervisor.ts:781`, `:858`, `:1030`
+- High, AC-02: the fixed 7 s probe starts after auth, link lookup and proof signing, so setup over 2 s still yields the relay's 504. `EnvironmentConnector.ts:140`, `:440`, `:597`; `Api.ts:203`, `:248`
+- High, AC-03: the 30 s clock also runs while a reachable machine asks for device approval. `ChatView.tsx:3733`; `connection/reach.ts:120`
+Needs a fix increment.

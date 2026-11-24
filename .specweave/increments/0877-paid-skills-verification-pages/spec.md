@@ -159,3 +159,7 @@ Both pages are async server components; interactive elements limited to native H
 - 0853/0857/0858 (runtime verify, stub harness, regression scheduling — facts source for /verification).
 - Local Studio app run (`vskill studio` from `repositories/anton-abyzov/vskill`) + local platform stack for screenshot capture (see memory: vskill-platform-local-stack).
 - Sample report source: `repositories/anton-abyzov/vskill/test/verify/reports/verify-result.json`.
+
+## Closure triage (November 24, 2026)
+
+Class d, stale. Nothing happened since July 2, 2026: no `/private-skills`, `/paid-skills` or `/verification` route on vskill-platform main and no PR for it (checked with `git ls-tree` and `gh pr list`). Proposed: abandon or re-plan; owner's call.

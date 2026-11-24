@@ -78,3 +78,14 @@ Out:
 
 ### T-04 Verify and close 1332
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09 | Files: .specweave/increments/1332-copy-progress-you-can-read-phases-a-real-bar-speed-and-time-left-same-in-the-background/reports/ | Test: specweave verify 1332
+
+## Closure triage (November 24, 2026)
+
+Shipped in PRs #382 (`9e5140399`, v1.0.301), #385 (`4e972a644`, v1.0.300), #427 (`76ff89e53`, v1.0.314). Closing review by GPT-6.2 Sol (Codex) at main `f3ce25682`: **fix**, so not verified or closed. AC-02, AC-06, AC-07 hold; AC-01, AC-03, AC-04, AC-05, AC-08 (partly) and AC-09 do not.
+- AC-01/AC-04: a Clone or Skip change on Review recompares with no track and no Run in background; Verify gets no progress and Apply clears it. `HandoffFolderCopy.tsx:854`; `destinationService.ts:1321`, `:1353`
+- AC-03: the background view drops counts and speed during Compare; sidebar and toast never show the speed. `copyProgress.ts:159`, `:269`; `folderCopyToasts.ts:61`
+- AC-04/AC-09: machine-menu Add passes `fresh`, so reopening skips the running copy; from `0262c7bb2cc` (#653, increment 1390), which also moved Sync to `ProjectSyncDialog` with spinner-only progress.
+- AC-05: a Measure failure on the source returns to setup without the stopped phase. `HandoffFolderCopy.tsx:432`, `:453`
+- AC-08: the 256 MiB budget allows 4 full batches at once, not 8. `pullWorker.ts:49`, `:64`
+- AC-09: closing a foreground Review shows no toast; `HandoffFolderCopyWatcher.test.tsx:1190` expects none.
+Part of the gap comes from 1390 replacing the flow; needs a fix increment or a superseded close; owner's call.
