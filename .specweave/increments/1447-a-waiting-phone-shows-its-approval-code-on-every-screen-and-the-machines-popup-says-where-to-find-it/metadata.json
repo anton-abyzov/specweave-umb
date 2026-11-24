@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-23T06:51:35.464Z",
-  "updated": "2026-11-23T06:51:35.464Z",
-  "lastActivity": "2026-11-23T06:51:35.464Z",
+  "updated": "2026-11-24T14:13:25.331Z",
+  "lastActivity": "2026-11-24T14:13:25.331Z",
   "title": "A waiting phone shows its approval code on every screen, and the machine's popup says where to find it",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

@@ -36,16 +36,16 @@ Out: sharing an approval between machines, or one request for all machines (1416
 
 ## Acceptance Criteria
 
-- [ ] AC-01: On the iPhone, while one or more machines wait to allow this phone, every screen (home, menu, any chat, settings) shows one "Allow this phone" block that lists each waiting machine by name with its current code and the line "This phone: {name} · ID {id}".
-- [ ] AC-02: The block opens by itself the first time a machine starts waiting. After Hide it becomes one row, "{n} machines are waiting · Show codes", and stays hidden through new codes, reconnects and restarts. It opens by itself again only for a machine that was not waiting when it was hidden, or after 30 days (same rule as PR #793).
-- [ ] AC-03: A code in the block is the one the machine accepts at that moment: when the machine issues a new code, the block shows it within 10 seconds, and a machine that allowed, denied or stopped answering leaves the block or is marked "{machine} isn't reachable right now".
+- [x] AC-01: On the iPhone, while one or more machines wait to allow this phone, every screen (home, menu, any chat, settings) shows one "Allow this phone" block that lists each waiting machine by name with its current code and the line "This phone: {name} · ID {id}".
+- [x] AC-02: The block opens by itself the first time a machine starts waiting. After Hide it becomes one row, "{n} machines are waiting · Show codes", and stays hidden through new codes, reconnects and restarts. It opens by itself again only for a machine that was not waiting when it was hidden, or after 30 days (same rule as PR #793).
+- [x] AC-03: A code in the block is the one the machine accepts at that moment: when the machine issues a new code, the block shows it within 10 seconds, and a machine that allowed, denied or stopped answering leaves the block or is marked "{machine} isn't reachable right now".
 - [ ] AC-04: "Stop asking" on the block pauses this phone's connection to the listed machines (the existing Disconnect). Within 10 minutes each machine's request runs out and its popup closes with no action there. The machine's page on the phone offers Reconnect, which asks again.
-- [ ] AC-05: The phone tells each machine its app version, and the popup shows it ("iOS · SpecWithCode 0.1.9").
+- [x] AC-05: The phone tells each machine its app version, and the popup shows it ("iOS · SpecWithCode 0.1.9").
 - [x] AC-06: The popup shows "Where is the code?" with steps for the asking device's kind. For an iPhone: open SpecWithCode on {device}; the code for {machine} is at the top of the screen under "Allow this phone"; check the phone also says ID {id}.
 - [x] AC-07: When the asking phone reports no version (every build before this increment, some of which do show a code inside a chat on the waiting machine), the popup shows both lines: "Open a chat on {machine} in SpecWithCode on {device}; the code is there." and "No code there? Update SpecWithCode on {device}, then open it again." It never tells a phone that reports a version with AC-01 to update. The code box, Deny and Later stay.
 - [x] AC-08: Later pressed in any window of a machine hides that device's popup in every window of that machine (its own app and browsers) for 30 days. The device stays listed under Settings > Machines, where its code can still be typed. A machine that does not support this keeps today's per-window Later.
 - [x] AC-09: Nothing in this increment lets a device in without its typed code, changes which machine an approval covers, or stores or sends a plain code anywhere new. The existing device-approval tests pass unchanged.
-- [ ] AC-10: An iPhone build with AC-01 to AC-05 is released, and the first version that has it is the one AC-07 compares against.
+- [x] AC-10: An iPhone build with AC-01 to AC-05 is released, and the first version that has it is the one AC-07 compares against.
 - [ ] AC-11: T-01's findings are written in `reports/m1-repro.md` for M1 and linux-mini: the app version, iPhone Duo's build, whether Later or Deny was pressed, in which window the popup returned, and which finding above explains it.
 
 ## Approach
@@ -76,11 +76,15 @@ Risks: the version is what the phone says about itself, so it only picks which h
 - D-05: the Hide rule on the phone copies PR #793 (closed stays closed for the unchanged request; 30 days) → copy.
 - D-07: who ends Later (from review, November 23, 2026) → the machine alone. Allow, Deny and Remove end Later for that device, so a request it makes afterwards shows again. A machine that keeps Later is the only word on it: a window stores nothing for such a machine and ignores what an older build stored, so a device put off before the update prompts once more. If the machine cannot be told, the popup stays closed in that window for that request only. A machine that keeps no Later keeps the 30-day window store.
 - D-08: the desktop step names where the code really is → "on a card in the app, and in Settings > Machines under “Waiting to join”". A browser on an iPhone and an iPad get the general steps, not the iPhone app's.
+- D-09: on the phone, a chat or the machine page of a waiting machine starts the block folded with no Hide (from the build, PR #825) → keep, because that page already shows the code; everywhere else the block opens by itself as AC-02 says. Anton can change it at acceptance.
+- D-10: a device that gave no name of its own (follow-up, PR #867) → the steps say "the device that is asking" instead of a stand-in such as "An iPhone" in the middle of a sentence.
 
 ### Open
 - D-06: should the phone's block also appear as a Live Activity or lock-screen line while the app is in the background? Not planned; the phone does not ask in the background.
 
 ## Review
+
+Record (November 24, 2026): PR #830 (popup steps, machine-kept Later) was reviewed by Gemini 4 Neon in round 1 and GPT-6.2 Sol in rounds 2 to 6, 8 blocking findings found and fixed, 0 blocking at the merged head; released in 1.0.414. PR #825 (iPhone) merged November 23 and is in TestFlight builds 0.1.9 (53) to (55). PR #867 (capture of the steps, unnamed-device wording, HTTP tests for Later) was reviewed by GPT-6.2 Sol on linux-mini at `519ce4a5`: ship, 0 blocking, 3 non-blocking (a label of only zero-width spaces still reads as a name; the capture has no unnamed case; one test assumes the refusal carries a code); merged as `5f40a70cb`. Still owed: Anton's acceptance on a real iPhone, AC-04 (no test covers "Stop asking") and AC-11 (`reports/m1-repro.md` could not establish whether Later or Deny was pressed).
 
 Auth area: an adversarial review by another model family is required before release, and Anton's acceptance of the popup wording and the phone block on a real iPhone.
 
@@ -90,10 +94,10 @@ Auth area: an adversarial review by another model family is required before rele
 - AC: AC-11 | Files: [.specweave/increments/1447-a-waiting-phone-shows-its-approval-code-on-every-screen-and-the-machines-popup-says-where-to-find-it/reports/m1-repro.md] | Test: `test -s .specweave/increments/1447-a-waiting-phone-shows-its-approval-code-on-every-screen-and-the-machines-popup-says-where-to-find-it/reports/m1-repro.md`
 
 ### T-02 iPhone: one "Allow this phone" block above every screen, with Hide
-- AC: AC-01, AC-02, AC-03 | Files: [repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Pairing/ApprovalCodesBlock.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/RootView.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCSync/AppModel.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Tests/SWCSyncTests/ApprovalCodesBlockTests.swift] | Test: `cd repositories/anton-abyzov/specwithcode/apps/ios/SWCKit && swift test --filter ApprovalCodesBlockTests`
+- AC: AC-01, AC-02, AC-03 | Files: [repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Pairing/ApprovalCodesBlock.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/RootView.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCSync/ApprovalBlock.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Tests/SWCSyncTests/ApprovalBlockTests.swift] | Test: `cd repositories/anton-abyzov/specwithcode/apps/ios/SWCKit && swift test --filter ApprovalBlockTests`
 
 ### T-03 iPhone: "Stop asking" and the app version sent to machines
-- AC: AC-04, AC-05 | Files: [repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Pairing/ApprovalCodesBlock.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCSync/LiveEngine+Connect.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Tests/SWCTransportTests/MachineHTTPTests.swift] | Test: `cd repositories/anton-abyzov/specwithcode/apps/ios/SWCKit && swift test --filter MachineHTTPTests`
+- AC: AC-04, AC-05 | Files: [repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Pairing/ApprovalCodesBlock.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCTransport/PhoneUserAgent.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Tests/SWCTransportTests/PhoneUserAgentTests.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Tests/SWCTransportTests/ConnectTests.swift] | Test: `cd repositories/anton-abyzov/specwithcode/apps/ios/SWCKit && swift test --filter PhoneUserAgentTests && swift test --filter ConnectTests`
 
 ### T-04 Popup: "Where is the code?" steps and the old-app line
 - AC: AC-06, AC-07 | Files: [repositories/anton-abyzov/specwithcode/apps/web/src/components/devices/ConnectDeviceViews.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/studio/connectDevices.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/devices/ConnectDeviceViews.test.tsx] | Test: `cd repositories/anton-abyzov/specwithcode/apps/web && npx vitest run src/components/devices/ConnectDeviceViews.test.tsx`
