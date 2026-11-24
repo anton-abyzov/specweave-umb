@@ -100,7 +100,7 @@ In:
 - Two-way memory, instructions, name, icon, and optional attached-repository URL sync across the owner's own machines via `LinkedMemorySync` + `LinkedPeerSync` behind `isOwnPersonalSyncAllowed`.
 - Per-file "Keep on this machine" (`localOnly`) flag and automatic secret scan before export.
 - Single collapsed sidebar row for linked Percy seats with machine badges, shared icon, and one-click "Use Percy on `<machine>`".
-- Single-runner `routineOwner` enforcement for personal assistant routines so briefings do not fire on multiple machines.
+- Routines keep firing once, on the machine where each was made: linking never stops or duplicates one (`routineOwner` decides only a copy a seat rested for another machine). Three Percys that each have a morning briefing still send three until the owner removes the extras.
 - Prerequisite hardening of MCP read guards (`thread/handlers.ts`, `projectMemory/handlers.ts`) and phone assistant selection consistency.
 - Owner-approved, snapshot-backed migration flow for existing separate assistants (`Percy`, `PercyAnton`, `PercyM1`).
 
@@ -172,11 +172,18 @@ Because `Percy`, `PercyAnton`, and `PercyM1` were created independently on three
 - **D-08 Leaving a link (review round 2):** A seat that leaves, or removes the last other seat, remembers the old link id and its members (`coordinatorBinding.formerLinks`). A seat still on that link that calls it is told "this seat left" and drops only that member, with a removal tombstone that travels to the rest; "you were removed" keeps meaning "unlink yourself". Joining a link again clears its former-link entry and its tombstones (`relinkedMembers`).
 - **D-09 Adding a machine (review round 2):** The link flow reuses an existing link id when any seat already has one, joins the seats already on the link first, and keeps the link's name. Every join, including adding a member, needs the owner's approval, a database copy and the clash resolutions. Clash renames move files without leaving a delete tombstone.
 
+- **D-10 First-link settings (review round 2):** The merge review asks whose instructions and attached repositories the link starts from (default: the first machine listed). That seat stamps its shared settings when it joins; every other seat joins without moving its stamp, so the chosen seat's settings reach every seat instead of the last renamed one. Extending a link: picking a machine already on it keeps the link's settings.
+
 ### Deferred (review round 2, low)
 - Federation of a linked Percy in `federatedProjectThreads.ts:142`.
 - The Connect user id header is self-asserted (D-07); it stays a consistency check.
 - The merge dialog nests a dialog role and can be dismissed during a join.
 - Runner removal: removing the runner machine leaves no runner until the owner picks one in Settings (Settings says so).
+- Preview returns the full member list beyond the AC-04 allow-list (the link flow needs it to find an existing link id).
+- With two assistant rows on one machine, the oldest row links and the owner cannot pick another.
+- After a removal pass the pair is recorded as synced although no memory merge ran; memory syncs on the next interval.
+- A shared setting a seat refuses (for example a title already taken there) is logged and not retried under the same stamp.
+- A clash rename on a seat that is already linked can be undone by a sync from an existing peer before the other seats finish joining; the link flow puts renames on joining seats.
 
 ### Open
 - none
