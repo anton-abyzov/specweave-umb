@@ -41,11 +41,11 @@ Why a hint and not a gate for tracked secrets: the file is in the Git objects an
 - AC: AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceSummary.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/fleet/folderTransfer
 
 ### T-04 A stripped origin never forces the move review
-- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceDrift.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/handoffGitTypes.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/fleet/folderTransfer
+- AC: AC-01 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceDrift.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/handoffGitTypes.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/portableGit.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/safeGitConfig.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/fleet/folderTransfer
 - Review finding (Sol, November 24, 2026): changing only a stripped local-path origin still emits a repository change, because the manifest keeps the source origin and identity (`sourceDrift.ts:137-147`, `:374-415`).
 
 ### T-05 Project secret patterns flag tracked files; preview wording
-- AC: AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceSummary.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/classify.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffSecretsStep.tsx | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/fleet/folderTransfer
+- AC: AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/sourceSummary.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/classify.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/secretLocations.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffSecretsStep.tsx | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/fleet/folderTransfer
 - Review findings: tracked files matching only the project's Secret files patterns get no hint (`sourceSummary.ts:22-28`); the preview heads those Git rows "Not copied" although they travel with history (`HandoffSecretsStep.tsx:209-223`).
 
 ### T-03 Verify and close 1328
@@ -60,3 +60,7 @@ Shipped in PR #354 (squash `b89033665`, v1.0.321). Closing review by GPT-6.2 Sol
 - Medium, AC-01: the standard Git LFS filter is carried (deliberate `LFS_FILTER`, `safeGitConfig.ts:61-67`); the AC says filter drivers are not carried.
 - Medium: the preview heads tracked-secret rows "Not copied" while their hint says the file travels with history. `HandoffSecretsStep.tsx:209-223`
 Open for the owner: amend AC-01 to allow `git@` user names and the LFS filter, or strip them.
+
+Fixed in PR #878 (merge `2b126b324`, November 24, 2026), GPT-6.2 Sol ship after four rounds:
+- T-04: a main repository's origin is compared only through its sanitized config; an external worktree's copy now carries the cleaned origin (credentials and query stripped), and the drift basis records the origin the copy wrote (snapshot's own config) to compare with the live one. `handoffGitTypes.ts` (`canonicalOrigin`) and the manifest header stay unchanged, since clone-from-origin and reconcile read them.
+- T-05: project Secret files patterns flag tracked files and, inside a containing folder, match from the project's top (`secretPatternMatcher(patterns, projectRelativePath)`, also used for untracked secrets); the preview heads Git rows "Copied with the repository".
