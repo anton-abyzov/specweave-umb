@@ -60,3 +60,7 @@ Rejected: greying rows out completely and making them inert. The row still opens
 
 ### T-06 Verify and close 1319
 - AC: AC-08 | Files: .specweave/increments/1319-each-machines-project-copies-are-visible-sidebar-tag-for-projects-not-on-this-device-per-machine-folders-in-settings-copy-first-add-to-another-machine/spec.md | Test: specweave verify 1319
+
+## Closure triage (November 24, 2026)
+
+Class d, partly superseded. Shipped in PR #329 (squash `bb548d9fe`, v1.0.283) and PR #347 (`c0d20a018`, v1.0.288). AC-03 and AC-04 no longer hold on main: `HandoffShare.tsx` was deleted by `48dd3b8c1` "One Copy to another machine flow, secrets included by default (#353)", and 1390 Phase 2 (PR #653) replaced the flow again; AC-01's tooltip "Runs on {machine}. No copy on this device." is in `apps/web/src/i18n/retiredPhrases.ts`. Proposed: close as superseded by 1326/1390; owner's call.

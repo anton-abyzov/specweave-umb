@@ -76,5 +76,20 @@ Out:
 ### T-07 Review stays reachable after closing the dialog
 - AC: AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectMachineHandoff.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectMachineHandoff.test.tsx | Test: cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/ProjectMachineHandoff
 
+### T-08 Review fixes on the current flow (after 1390)
+- AC: AC-01, AC-03, AC-04, AC-05, AC-08, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/studio/copyProgress.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffFolderCopy.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffCopyFooter.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/folderCopyToasts.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/shell/SidebarProjectList.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/HandoffFolderCopyWatcher.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/ProjectMachineHandoff.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/studio/useCopyDraft.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/destinationService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/pullWorker.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/web && npx vp test run src/studio/copyProgress src/components/studio
+- Owner chose a fix over a superseded close (November 24, 2026). Sol findings at `f3ce25682`, listed in Closure triage below: recompare after Clone/Skip shows no track or Run in background, Verify and Apply carry no progress; background view drops counts and speed; Add reopens fresh instead of the running copy (#653); Measure failure loses the stopped phase; 4 not 8 full batches at once; closing a foreground Review shows no toast. Where 1390's Sync dialog replaced a path for good, say so in the AC instead of rebuilding it.
+
 ### T-04 Verify and close 1332
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05, AC-06, AC-07, AC-08, AC-09 | Files: .specweave/increments/1332-copy-progress-you-can-read-phases-a-real-bar-speed-and-time-left-same-in-the-background/reports/ | Test: specweave verify 1332
+
+## Closure triage (November 24, 2026)
+
+Shipped in PRs #382 (`9e5140399`, v1.0.301), #385 (`4e972a644`, v1.0.300), #427 (`76ff89e53`, v1.0.314). Closing review by GPT-6.2 Sol (Codex) at main `f3ce25682`: **fix**, so not verified or closed. AC-02, AC-06, AC-07 hold; AC-01, AC-03, AC-04, AC-05, AC-08 (partly) and AC-09 do not.
+- AC-01/AC-04: a Clone or Skip change on Review recompares with no track and no Run in background; Verify gets no progress and Apply clears it. `HandoffFolderCopy.tsx:854`; `destinationService.ts:1321`, `:1353`
+- AC-03: the background view drops counts and speed during Compare; sidebar and toast never show the speed. `copyProgress.ts:159`, `:269`; `folderCopyToasts.ts:61`
+- AC-04/AC-09: machine-menu Add passes `fresh`, so reopening skips the running copy; from `0262c7bb2cc` (#653, increment 1390), which also moved Sync to `ProjectSyncDialog` with spinner-only progress.
+- AC-05: a Measure failure on the source returns to setup without the stopped phase. `HandoffFolderCopy.tsx:432`, `:453`
+- AC-08: the 256 MiB budget allows 4 full batches at once, not 8. `pullWorker.ts:49`, `:64`
+- AC-09: closing a foreground Review shows no toast; `HandoffFolderCopyWatcher.test.tsx:1190` expects none.
+Part of the gap comes from 1390 replacing the flow; needs a fix increment or a superseded close; owner's call.

@@ -1,0 +1,12 @@
+{
+  "id": "1465-chaos-rig-usage-limit-fallback-and-subagent-storm-on-fake-providers",
+  "uuid": "c24a6c9f-4650-429f-b141-ffe5d92871f6",
+  "status": "active",
+  "type": "experiment",
+  "priority": "P1",
+  "created": "2026-11-24T15:57:13.218Z",
+  "updated": "2026-11-24T15:57:13.218Z",
+  "lastActivity": "2026-11-24T15:57:13.218Z",
+  "title": "Chaos rig: usage-limit fallback and subagent storm on fake providers",
+  "project": "specweave-umb"
+}
