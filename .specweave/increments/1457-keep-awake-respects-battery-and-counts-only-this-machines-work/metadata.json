@@ -1,0 +1,15 @@
+{
+  "id": "1457-keep-awake-respects-battery-and-counts-only-this-machines-work",
+  "uuid": "a9814499-38bb-4b2c-bf79-f0639991d4ab",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T06:36:20.467Z",
+  "updated": "2026-11-24T06:43:36.635Z",
+  "lastActivity": "2026-11-24T06:43:36.635Z",
+  "title": "Keep awake respects battery and counts only this machine's work",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
