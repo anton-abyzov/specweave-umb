@@ -38,7 +38,7 @@ In: hand ports of R1 to R4 and R6 to R15, each with a test that fails before the
 - [ ] AC-11: A failed delegated task returns its child's final report with the error; a Codex turn that auto-compacts ends; status fetch does not write `FETCH_HEAD`, Changes totals do not take `index.lock`, and commit-message drafts write no objects into the repository.
 - [ ] AC-12: Storage cleanup keeps a worktree that contains a nested repository or files marked assume-unchanged or skip-worktree with edits; two spellings of one checkout through a symlink count as one.
 - [ ] AC-13: A relative Markdown image in a remote thread is read only from that thread's machine; it never falls back to a local file.
-- [ ] AC-14: A send interrupted by a socket drop is resent after reconnect with the same command id, twice at most; a send the host never answers fails after 60 seconds with an error the composer shows.
+- [ ] AC-14: A send interrupted by a socket drop is resent after reconnect with the same command id, twice at most; each attempt the host never answers fails after 60 seconds, and the whole send (attempts plus waits for a reconnect) fails after 2 minutes with an error the composer shows. The first message of a new thread is not resent (D-07).
 - [ ] AC-17: Queued runs are ordered by merging delegated completions and user messages by `requestedAt`, each kind keeping its `queuePosition` order, a tie going to the completion; a user's message on a busy coordinator no longer waits behind every delegated completion, and a delegated result that survives a restart-by-stop still runs ahead of the restart message. A dev-server run of a parent with three delegates and a queued message records the observed order in `reports/queue-order-live.md`.
 - [ ] AC-15: Every port has a test that fails on the pre-fix code, recorded in `reports/red-green.md`; every PR has green CI and a ship verdict from another model family at its merged head; the fixes are in a release.
 - [ ] AC-16: The public repository gains no mention of the upstream project in files, commits, branches or PR text.
@@ -65,6 +65,8 @@ Risks: R13 and R15 are medium (our cleanup and connection supervisor are our own
 - D-02 Merge and release without asking → yes for this increment (user, November 14, 2026).
 ### Defaulted (change any before sw-do)
 - D-03 A row that needs a design choice our code already made differently is adapted to our design, with the choice recorded here.
+- D-07 (November 15, 2026) AC-14 reads as 60 seconds per attempt and 2 minutes for the whole send; the review of PR 436 judged that reading sound and asked for this wording. A new thread's first message goes through the launch path and is not resent, because a repeated launch is not provably idempotent (a root launch on a Scratch project can claim a second folder); a timed-out send retried by hand can still duplicate, since the composer does not keep the ids.
+- D-08 (November 15, 2026) AC-03's clause "shutdown still releases the ownership lock" has no test that fails a write mid-run and then checks the lock. It is covered by two things together: `apps/server/src/bin.test.ts` proves the handler is installed on the real output streams of the server entry (so an EPIPE no longer ends the process through an unhandled error), and the existing shutdown tests prove an orderly shutdown releases the lock. The review of PR 431 accepted recording this instead of a new long-running test.
 ### Open
 - none
 

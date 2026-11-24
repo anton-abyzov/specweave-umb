@@ -77,5 +77,8 @@ Risks: a user who explicitly wants a claude.ai artifact now gets a refusal from 
 ### T-05 Import "Before the move to the M5" as the live proof
 - AC: AC-05 | Files: .specweave/reports/threads/, .specweave/increments/1320-reports-stay-in-specwithcode-no-provider-artifact-links-in-replies/reports/ | Test: grep -l 'original: "https://claude.ai/artifact/KMQWxSYB5N7EAJ9Fez58iT"' .specweave/reports/threads/*.md
 
+### T-07 Report saves never write through links and dedupe only the same thread's exact text
+- AC: AC-03, AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/project/ThreadReports.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/ThreadReports.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.testkit.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && node ../../node_modules/vite-plus/bin/vp test run src/project/ThreadReports.test.ts src/orchestration-v2/Adapters/ClaudeAdapterV2.test.ts
+
 ### T-06 Verify and close 1320
 - AC: AC-01, AC-02, AC-03, AC-04, AC-05 | Files: .specweave/increments/1320-reports-stay-in-specwithcode-no-provider-artifact-links-in-replies/reports/ | Test: specweave verify 1320-reports-stay-in-specwithcode-no-provider-artifact-links-in-replies

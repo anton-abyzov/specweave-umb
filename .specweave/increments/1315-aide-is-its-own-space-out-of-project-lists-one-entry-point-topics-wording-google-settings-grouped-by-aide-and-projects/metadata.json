@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-13T06:44:24.974Z",
   "title": "Aide is its own space: out of project lists, one entry point, topics wording, Google settings grouped by Aide and projects",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

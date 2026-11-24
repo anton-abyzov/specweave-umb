@@ -1,0 +1,13 @@
+{
+  "id": "1431-verify-joined-machine-resources-and-one-way-project-and-chat-privacy",
+  "uuid": "93182217-f548-42ac-bb8a-baa971a2ac3d",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T06:42:05.542Z",
+  "updated": "2026-11-20T06:42:05.542Z",
+  "lastActivity": "2026-11-20T06:42:05.542Z",
+  "title": "Verify joined-machine resources and one-way project and chat privacy",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

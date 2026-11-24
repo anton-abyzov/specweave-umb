@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-09T14:09:54.661Z",
   "title": "Percy default name and opt-in assistant link across your machines",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

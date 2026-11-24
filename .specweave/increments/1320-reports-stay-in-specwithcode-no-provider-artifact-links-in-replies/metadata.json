@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-13T20:35:42.645Z",
   "title": "Reports stay in SpecWithCode: no provider artifact links in replies",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

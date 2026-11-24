@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-11-08T08:36:36.973Z",
   "closeReason": "All tasks done; verify fails only on unrelated umbrella repos without installed deps (exit 127); AC-07 covered by T-05/T-06 evidence",
-  "approvedAt": "2026-11-08T08:36:36.974Z"
+  "approvedAt": "2026-11-08T08:36:36.974Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

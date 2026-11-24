@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-11T07:14:35.318Z",
   "title": "Pause stale-sweep rejection of unscanned crawler submissions",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

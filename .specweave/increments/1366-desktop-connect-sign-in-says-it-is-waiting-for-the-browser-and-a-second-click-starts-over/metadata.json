@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-16T08:20:40.794Z",
-  "updated": "2026-11-16T08:20:40.794Z",
-  "lastActivity": "2026-11-16T08:20:40.794Z",
+  "updated": "2026-11-16T20:32:57.595Z",
+  "lastActivity": "2026-11-16T20:32:57.595Z",
   "title": "Desktop Connect sign-in says it is waiting for the browser, and a second click starts over",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

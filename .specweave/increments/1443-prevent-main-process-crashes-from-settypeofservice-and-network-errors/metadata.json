@@ -8,5 +8,6 @@
   "updated": "2026-11-23T03:19:44.965Z",
   "lastActivity": "2026-11-23T03:19:44.965Z",
   "title": "Prevent main-process crashes from setTypeOfService and network errors",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }

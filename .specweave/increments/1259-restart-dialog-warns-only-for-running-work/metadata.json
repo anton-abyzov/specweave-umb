@@ -11,5 +11,7 @@
   "project": "specweave",
   "externalLinks": {},
   "readyForReviewAt": "2026-11-07T18:15:22.019Z",
-  "approvedAt": "2026-11-07T18:15:22.020Z"
+  "approvedAt": "2026-11-07T18:15:22.020Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

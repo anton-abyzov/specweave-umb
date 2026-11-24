@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-05T23:06:58.052Z",
   "title": "Support multiple interface languages at install and first run",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-14T08:01:59.373Z",
   "title": "Direct LAN path for Copy to another machine, with Connect fallback",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

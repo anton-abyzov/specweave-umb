@@ -1,0 +1,13 @@
+{
+  "id": "1435-artifact-storage-and-portable-documents",
+  "uuid": "1fe2bdf5-d266-432d-a3a8-368c37667d84",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-20T18:58:26.529Z",
+  "updated": "2026-11-20T19:06:16.203Z",
+  "lastActivity": "2026-11-20T19:06:16.203Z",
+  "title": "Artifact storage and portable documents",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

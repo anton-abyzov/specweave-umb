@@ -1,0 +1,15 @@
+{
+  "id": "1339-model-tracks-daily-complex-and-review-orders-real-usage-left-one-fallback-model",
+  "uuid": "11f8a06c-1c86-4294-9330-23eb08f34018",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-15T01:09:45.069Z",
+  "updated": "2026-11-20T20:47:01.834Z",
+  "lastActivity": "2026-11-20T20:47:01.834Z",
+  "title": "Model tracks: Daily, Complex and Review orders, real usage left, one fallback model",
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
+}

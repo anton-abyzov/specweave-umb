@@ -1,0 +1,18 @@
+{
+  "id": "1440-stream-to-shorts-110-frame-grid-labels-on-cuts-room-tone-bed-caption-rule",
+  "uuid": "13edf75f-12f9-4bc1-af29-4347b0542cac",
+  "status": "completed",
+  "type": "refactor",
+  "priority": "P2",
+  "created": "2026-11-21T10:28:04.335Z",
+  "updated": "2026-11-21T12:42:29.734Z",
+  "lastActivity": "2026-11-21T12:42:29.734Z",
+  "title": "stream-to-shorts 1.1.0: frame grid, labels on cuts, room-tone bed, caption rule",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/vskill"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-21T12:42:29.733Z",
+  "approvedAt": "2026-11-21T12:42:29.734Z"
+}

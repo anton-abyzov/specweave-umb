@@ -8,5 +8,8 @@
   "updated": "2026-11-13T09:15:29.870Z",
   "lastActivity": "2026-11-13T09:15:29.870Z",
   "title": "Personal assistant is named Percy everywhere, not Aide",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

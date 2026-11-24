@@ -1,0 +1,13 @@
+{
+  "id": "1415-a-switch-for-each-usage-reader-that-holds-a-vendor-token-cursor-grok-opencode-go",
+  "uuid": "60c4aa7e-f32b-4892-8302-1f22dd815c22",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T16:27:29.409Z",
+  "updated": "2026-11-18T16:44:14.766Z",
+  "lastActivity": "2026-11-18T16:44:14.766Z",
+  "title": "A switch for each usage reader that holds a vendor token: Cursor, Grok, OpenCode Go",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}

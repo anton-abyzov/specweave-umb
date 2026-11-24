@@ -12,5 +12,7 @@
   "externalLinks": {},
   "readyForReviewAt": "2026-11-08T22:49:08.018Z",
   "closeReason": "test:unit:fast failed only under parallel verify load; rerun alone: 544 files, 10532 tests passed; docs-only change, CI green on PR #2261",
-  "approvedAt": "2026-11-08T22:49:08.020Z"
+  "approvedAt": "2026-11-08T22:49:08.020Z",
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

@@ -9,5 +9,7 @@
   "lastActivity": "2026-11-13T20:35:52.798Z",
   "title": "Restart and update dialogs list running threads live, each one clickable, with Wait until quiet as the default",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

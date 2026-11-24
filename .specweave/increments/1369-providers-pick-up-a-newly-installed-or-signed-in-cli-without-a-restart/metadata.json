@@ -8,5 +8,8 @@
   "updated": "2026-11-16T20:04:40.442Z",
   "lastActivity": "2026-11-16T20:04:40.442Z",
   "title": "Providers pick up a newly installed or signed-in CLI without a restart",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {},
+  "testMode": "test-after",
+  "coverageTarget": 80
 }

@@ -19,7 +19,7 @@ The upstream triage of November 14, 2026 (`.specweave/increments/1346-t3-code-ch
 
 In: hand ports of the listed upstream fixes onto our code, each with a test that fails before the fix, split into reviewable PRs. Out: the dependency audit and sections 3 and 4 of the report (another worker). Hardening rows S10 to S12 were added on November 14, 2026 after Anton's "yes, adopt all".
 
-Release rule: PRs that change permissions, auth or access (AC-01, AC-02, AC-06, AC-10, AC-15) wait for Anton's acceptance before any release contains them. The rest ship with the data-loss fixes of 1348.
+Release rule: none since November 15, 2026. The PRs that change permissions, auth or access (AC-01, AC-02, AC-06, AC-10, AC-15) merge like every other PR (current main, green required checks, a ship verdict from another model family at the exact head) and ship in the same release as the data-loss fixes of 1348. The earlier rule, that they wait for Anton's acceptance before any release, is superseded by D-06.
 
 ## Acceptance Criteria
 
@@ -32,7 +32,7 @@ Release rule: PRs that change permissions, auth or access (AC-01, AC-02, AC-06, 
 - [ ] AC-07: A subagent thread waiting on a secret or a link raises the same owner notification as one waiting on an approval.
 - [ ] AC-08: The ACP MCP stdio bridge answers a server request (for example `ping`) that arrives before the tool result and still returns the result. If our MCP server never sends such requests mid-call, the task records that with evidence and adds the regression test only.
 - [ ] AC-09: The preview browser pins Chrome 157.0.8103.78 with sizes and hashes from our own downloads; the desktop app pins Electron 44.10.1; Linux packages carry no group or world write bits.
-- [ ] AC-10: Desktop IPC handlers answer only senders that are app windows (every window in `appWindows`, including project windows, PiP and permission windows); a preview guest gets no reply.
+- [ ] AC-10: Desktop IPC handlers answer only senders that are app windows (the main frame of every window in `appWindows`: the main window and project windows); a preview guest gets no reply. Picture-in-picture and the Mac permission helper never call these handlers (PiP only receives frames, the helper has its own channel with its own sender check), so nothing they do is refused.
 - [ ] AC-13: The secret request field is a real password input, still ignored by password managers (`SecretRequestCard.tsx:139`).
 - [ ] AC-14: MCP authentication runs in its own span that ends before the tool call; per-tool spans carry no arguments (`McpHttpServer.ts:239`).
 - [ ] AC-15: An idle MCP token expires after its idle limit even when the wall clock steps back and stays expired; a record restored after a restart is judged by wall time from its persisted `lastAliveAt` and is expired when the clock reads earlier than that (`McpSessionRegistry.ts:251`).
@@ -55,11 +55,12 @@ Risks: the IPC guard must trust all of `appWindows` (`ElectronWindow.ts:126`), n
 ## Decisions
 
 ### Asked
-- D-01 Which changes wait for Anton before release → permissions, auth and access: AC-01, AC-02, AC-06 (user, November 14, 2026). AC-10 is treated the same because it changes who may call desktop IPC.
+- D-01 Which changes wait for Anton before release → permissions, auth and access: AC-01, AC-02, AC-06 (user, November 14, 2026). AC-10 is treated the same because it changes who may call desktop IPC. Superseded by D-06.
+- D-06 Do the permission and auth PRs merge with the rest → yes. Asked whether "merge everything" includes the permission and auth PRs, with the recommendation to merge them with the rest once green and reviewed, Anton answered on November 15, 2026: "yes, it includes it, yes do as recommended". PRs 448, 449, 450, 451 and the ACP approval scope PR merge on the same bar as the others and ship in the same release; no separate acceptance step. The "Do not merge yet" line is removed from each PR when it merges.
 ### Defaulted (change any before sw-do)
-- D-02 Held PRs stay unmerged until Anton accepts. Any thread may request a release at any time and a release takes all of main, so a merged PR could ship before acceptance.
+- D-02 Held PRs stay unmerged until Anton accepts. Any thread may request a release at any time and a release takes all of main, so a merged PR could ship before acceptance. Superseded by D-06 on November 15, 2026.
 - D-03 Reviewer is Meta Muse (user's preference). If Muse cannot run, the review waits; no same-family substitute.
-- D-04 MCP token records restored after a restart have no monotonic reading: judge them by wall time from `lastAliveAt`, and treat a clock that reads earlier than `lastAliveAt` as expired (fail closed). Held for Anton with the other auth changes.
+- D-04 MCP token records restored after a restart have no monotonic reading: judge them by wall time from `lastAliveAt`, and treat a clock that reads earlier than `lastAliveAt` as expired (fail closed). No longer held (D-06); the rule is stated in the PR body.
 - D-05 Upstream commit ids are recorded only in this umbrella increment, not in the app repository's `UPSTREAM.md`, because the user asked that the public repository gain no mention of the upstream project.
 ### Open
 - none
@@ -96,7 +97,7 @@ Risks: the IPC guard must trust all of `appWindows` (`ElectronWindow.ts:126`), n
 ### T-12 MCP token expiry survives a clock step back
 - AC: AC-15 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/mcp/McpSessionRegistry.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/McpSessionRegistry.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && npx vp test run src/mcp/McpSessionRegistry
 
-### T-09 Red-green evidence, reviews, merge of shippable PRs, held PRs handed to Anton
+### T-09 Red-green evidence, reviews and merge of every PR
 - AC: AC-11, AC-12 | Files: .specweave/increments/1347-upstream-security-pass/reports/red-green.md | Test: test -s .specweave/increments/1347-upstream-security-pass/reports/red-green.md
 
 ### T-10 Verify and close 1347

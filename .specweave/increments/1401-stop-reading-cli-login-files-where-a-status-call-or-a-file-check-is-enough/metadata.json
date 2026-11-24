@@ -1,0 +1,13 @@
+{
+  "id": "1401-stop-reading-cli-login-files-where-a-status-call-or-a-file-check-is-enough",
+  "uuid": "2a9d3fee-6c14-43df-b6cd-25a2904becf5",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-18T08:09:30.051Z",
+  "updated": "2026-11-18T08:09:30.051Z",
+  "lastActivity": "2026-11-18T08:09:30.051Z",
+  "title": "Stop reading CLI login files where a status call or a file check is enough",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}
