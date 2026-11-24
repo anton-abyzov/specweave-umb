@@ -1,0 +1,57 @@
+{
+  "label": "before",
+  "steps": [
+    {
+      "step": "source",
+      "value": "From origin/main, fetched 1m ago"
+    },
+    {
+      "step": "reports section",
+      "value": null
+    },
+    {
+      "step": "spec viewer",
+      "value": "Workspace file '/Users/anton/Library/Caches/sw1454/home-before/userdata/board-copies/51636418b82a2ef1/baf714b84e0bf36c7367f8ec3957bf41/.specweave/increments/0042-office-reports/spec.md' is a protected credential or app state file and cannot be read here."
+    },
+    {
+      "step": "reports viewer",
+      "value": "Workspace file '/Users/anton/Library/Caches/sw1454/home-before/userdata/board-copies/51636418b82a2ef1/baf714b84e0bf36c7367f8ec3957bf41/.specweave/increments/0042-office-reports/reports/task-T-01.txt' is a protected credential or app state file and cannot be read here."
+    },
+    {
+      "step": "reports viewer title",
+      "value": null
+    },
+    {
+      "step": "reports next 1",
+      "value": {
+        "text": "Workspace file '/Users/anton/Library/Caches/sw1454/home-before/userdata/board-copies/51636418b82a2ef1/baf714b84e0bf36c7367f8ec3957bf41/.specweave/increments/0042-office-reports/reports/parity.md' is a",
+        "image": 0,
+        "frame": 0
+      }
+    },
+    {
+      "step": "reports next 2",
+      "value": {
+        "text": "Workspace file '/Users/anton/Library/Caches/sw1454/home-before/userdata/board-copies/51636418b82a2ef1/baf714b84e0bf36c7367f8ec3957bf41/.specweave/increments/0042-office-reports/reports/mockup.html' is",
+        "image": 0,
+        "frame": 0
+      }
+    },
+    {
+      "step": "reports next 3",
+      "value": {
+        "text": "Workspace file '/Users/anton/Library/Caches/sw1454/home-before/userdata/board-copies/51636418b82a2ef1/baf714b84e0bf36c7367f8ec3957bf41/.specweave/increments/0042-office-reports/reports/task-T-01.txt' ",
+        "image": 0,
+        "frame": 0
+      }
+    },
+    {
+      "step": "reports next 4",
+      "value": {
+        "text": "Workspace file '/Users/anton/Library/Caches/sw1454/home-before/userdata/board-copies/51636418b82a2ef1/baf714b84e0bf36c7367f8ec3957bf41/.specweave/increments/0042-office-reports/reports/parity.md' is a",
+        "image": 0,
+        "frame": 0
+      }
+    }
+  ]
+}

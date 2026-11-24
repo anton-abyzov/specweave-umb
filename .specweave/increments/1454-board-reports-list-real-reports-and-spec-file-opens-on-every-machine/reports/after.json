@@ -1,0 +1,57 @@
+{
+  "label": "after",
+  "steps": [
+    {
+      "step": "source",
+      "value": "From origin/main, fetched 4m ago"
+    },
+    {
+      "step": "reports section",
+      "value": "REPORTS\n4 · 1 EVIDENCE\nReports (2)\nparity.md\nmockup.html\nReviews (1)\nreviews/review-sol.md\nScreens and media (1)\nscreens/mockup.png\nTask evidence (1)"
+    },
+    {
+      "step": "spec viewer",
+      "value": "Office reports\nProblem\n\nPeople cannot find the parity report: the Reports button opens a task log.\n\nAcceptance Criteria\n AC-01: Reports opens the parity report.\nTasks\nT-01 Write the parity report\nAC: AC-01 | Files: reports/parity.md | Test: test -s reports/parity.md"
+    },
+    {
+      "step": "reports viewer",
+      "value": "Parity report\n\nSheets, whiteboards and documents compared with the desktop app.\n\nFeature\n\t\nStatus\n\n\nSheets\n\t\nDone\n\n\nWhiteboard\n\t\nPlanned"
+    },
+    {
+      "step": "reports viewer title",
+      "value": null
+    },
+    {
+      "step": "reports next 1",
+      "value": {
+        "text": "",
+        "image": 0,
+        "frame": 1
+      }
+    },
+    {
+      "step": "reports next 2",
+      "value": {
+        "text": "Review (GPT-6.2 Sol)\n\nVerdict: ship",
+        "image": 0,
+        "frame": 0
+      }
+    },
+    {
+      "step": "reports next 3",
+      "value": {
+        "text": "100% zoom\n100%",
+        "image": 1,
+        "frame": 0
+      }
+    },
+    {
+      "step": "reports next 4",
+      "value": {
+        "text": "Parity report\n\nSheets, whiteboards and documents compared with the desktop app.\n\nFeature\n\t\nStatus\n\n\nSheets\n\t\nDone\n\n\nWhiteboard\n\t\nPlanned",
+        "image": 0,
+        "frame": 0
+      }
+    }
+  ]
+}
