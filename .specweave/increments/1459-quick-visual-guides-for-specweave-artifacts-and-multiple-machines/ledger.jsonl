@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"codex@antons-macbook-m4max","at":"2026-11-24T13:36:34.995Z","note":"session 01a20dc3-7a35-7652-b8de-f05836fda33f"}
+{"t":"T-01","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-24T13:36:34.996Z"}
+{"t":"T-01","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-24T13:42:40.255Z","evidence":"bd7e81927ae3413e3800b4311566b7c4113745b6; 437 web and 16 walker tests; web build; 9 headless card checks\nHEAD 7a5d86045e"}
+{"t":"T-02","e":"claim","by":"codex@antons-macbook-m4max","at":"2026-11-24T13:42:40.983Z"}
+{"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-11-24T13:46:40.501Z","note":"review by claude-opus-5-5 (claude) at bd7e81927ae3: ship · reports/reviews/review-claude-opus-5-5-1.md","model":"claude-opus-5-5[1m]"}

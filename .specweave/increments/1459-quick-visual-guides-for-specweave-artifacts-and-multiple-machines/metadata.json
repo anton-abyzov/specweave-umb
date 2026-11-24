@@ -1,0 +1,15 @@
+{
+  "id": "1459-quick-visual-guides-for-specweave-artifacts-and-multiple-machines",
+  "uuid": "ca817f27-586b-45d7-9a52-777851c39813",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T13:36:04.470Z",
+  "updated": "2026-11-24T13:46:40.501Z",
+  "lastActivity": "2026-11-24T13:46:40.501Z",
+  "title": "Quick visual guides for SpecWeave, artifacts and multiple machines",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
