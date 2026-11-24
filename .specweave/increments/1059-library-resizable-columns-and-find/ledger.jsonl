@@ -1,0 +1,3 @@
+{"t":"*","e":"session","by":"claude@anton-m5max-proled","at":"2026-11-24T17:53:20.803Z","note":"session c068ff64-6a12-4e4d-b11b-1392007552df","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-24T17:53:20.804Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-24T17:53:20.806Z","evidence":"Owner approved the proposal and corrections November 24, 2026 (\"yes, do what's recommended\"); recorded as D-04\nHEAD d3f5156e2","model":"claude-opus-5-5[1m]"}

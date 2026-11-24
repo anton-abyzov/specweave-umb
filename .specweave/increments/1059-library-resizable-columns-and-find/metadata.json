@@ -5,11 +5,14 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-24T19:32:18.320Z",
-  "updated": "2026-10-24T19:32:18.320Z",
-  "lastActivity": "2026-10-24T19:32:18.320Z",
+  "updated": "2026-11-24T17:53:20.806Z",
+  "lastActivity": "2026-11-24T17:53:20.806Z",
   "title": "Library resizable columns and find",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
