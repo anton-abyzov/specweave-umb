@@ -54,6 +54,7 @@ Risks: agents already installed (1.0.276 and older) ignore the prerelease flag a
 - D-05 Hotfix approver → Anton; the `hotfix` label is applied only on his yes.
 - D-06 Release owner → the train workflow for stable; any session may still request insiders builds through request-release.sh.
 - D-07 1.0.x cadence until 1.1.0 → Anton, November 15, 2026, after 1.0.304 to 1.0.310 shipped within hours: "why are we releasing so often? I would wait for several features to be completed". Replaces D-01's "every merge" for the weekend. Merged features wait for one batched 1.0.x release; at most one more before the 1.1.0 cut, only after the in-flight PRs from both machines land (#437, #440, #441 from linux-mini, plus m4's open ones). Only real hotfixes ship at once: security, data loss, a broken update or install, or a crash in a core flow. Nobody dispatches Release macOS for a single merge. Cutoff 6 PM EST November 15, 2026: linux-mini dispatches the batch then, and anything unmerged rides in 1.1.0 (agreed with m4).
+- D-08 1.1.0 go → Anton, November 24, 2026: "yes, only when everything is merged and pushed, see all the projects and things that are still in progress." The cut waits until no app work is open: no open pull requests on anton-abyzov/specwithcode except dependency bumps, and no running thread on any machine with unpushed app work. Then it goes out through `request-release.sh` as an insiders build that the train promotes.
 ### Open
 - none
 

@@ -1,10 +1,10 @@
 ---
 increment: 0877-paid-skills-verification-pages
-title: "Private Skills & Verification Marketing Pages"
+title: Private Skills & Verification Marketing Pages
 type: feature
 priority: P1
-status: planned
-created: 2026-07-02
+status: abandoned
+created: 2026-07-02T00:00:00.000Z
 structure: user-stories
 test_mode: TDD
 coverage_target: 90

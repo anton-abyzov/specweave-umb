@@ -49,6 +49,10 @@ Out: worker-side recovery (restarting a cloudflared that lost its edge connectio
 ### T-03 Last seen keeps counting in the chat banner
 - AC: AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/hooks/useClockWhile.ts, repositories/anton-abyzov/specwithcode/apps/web/src/hooks/useClockWhile.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ChatView.tsx | Test: pnpm --dir apps/web exec vp test run src/hooks/useClockWhile.test.tsx src/lib/machineStatus.test.ts
 
+### T-05 Review fixes: resume probe, probe inside the deadline, clock only when unreachable
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/packages/client-runtime/src/connection/supervisor.ts, repositories/anton-abyzov/specwithcode/infra/relay/src/environments/EnvironmentConnector.ts, repositories/anton-abyzov/specwithcode/infra/relay/src/http/Api.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/ChatView.tsx | Test: pnpm --dir packages/client-runtime exec vp test run src/connection && pnpm --dir infra/relay exec vp test run --config ../../vite.config.ts --dir . src/environments/EnvironmentConnector.test.ts src/http/Api.test.ts
+- Owner approved the fix (November 24, 2026). Sol findings at `f3ce25682`: the resume health probe drops remote sessions that still get frames (`supervisor.ts:781`, `:858`); the 7 s probe must be bounded by the time left in the 9 s request deadline, with a test on the request path (`EnvironmentConnector.ts:140`, `Api.test.ts:1484`); the last-seen clock must not run during device approval (`ChatView.tsx:3733`).
+
 ### T-04 Verify and close 1335
 - AC: AC-01, AC-02, AC-03 | Files: .specweave/increments/1335-slow-worker-fewer-false-drops-honest-timeout-reason-last-seen-keeps-counting/spec.md | Test: specweave verify 1335
 
