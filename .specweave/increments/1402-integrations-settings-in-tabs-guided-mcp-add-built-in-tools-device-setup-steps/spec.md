@@ -1,5 +1,7 @@
 # Integrations settings in tabs: guided MCP add, built-in tools, device setup steps
 
+Split on November 24, 2026 (Anton: "do recommended, yes!"): T-06, T-08, T-09 and T-10 with AC-13 to AC-20, AC-25 to AC-32 and AC-34 moved unchanged to `1472-integrations-guided-mcp-add-device-setup-steps-phrases-and-release`. This increment closes on T-01 to T-05 and T-07.
+
 ## Problem
 
 Anton, on M5 in Settings > Integrations (November 18, 2026, four screenshots):

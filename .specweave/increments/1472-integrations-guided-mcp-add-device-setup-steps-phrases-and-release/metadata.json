@@ -1,0 +1,12 @@
+{
+  "id": "1472-integrations-guided-mcp-add-device-setup-steps-phrases-and-release",
+  "uuid": "05ef114d-cd2a-4e61-ac3b-b596b43e512d",
+  "status": "planned",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T16:28:59.501Z",
+  "updated": "2026-11-24T16:28:59.501Z",
+  "lastActivity": "2026-11-24T16:28:59.501Z",
+  "title": "Integrations guided MCP add, device setup steps, phrases and release",
+  "project": "specweave-umb"
+}
