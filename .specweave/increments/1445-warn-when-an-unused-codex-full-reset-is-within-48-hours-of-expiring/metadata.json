@@ -1,16 +1,18 @@
 {
   "id": "1445-warn-when-an-unused-codex-full-reset-is-within-48-hours-of-expiring",
   "uuid": "fe22fb4b-bcbf-425d-8f86-3819b185d263",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-23T03:37:01.280Z",
-  "updated": "2026-11-23T03:58:46.352Z",
-  "lastActivity": "2026-11-23T03:58:46.352Z",
+  "updated": "2026-11-24T19:34:58.356Z",
+  "lastActivity": "2026-11-24T19:34:58.356Z",
   "title": "Warn when an unused Codex full reset is within 48 hours of expiring",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
   ],
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-24T19:34:58.355Z",
+  "approvedAt": "2026-11-24T19:34:58.356Z"
 }

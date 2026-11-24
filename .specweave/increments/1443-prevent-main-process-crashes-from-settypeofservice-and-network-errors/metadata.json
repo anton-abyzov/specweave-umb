@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-23T03:19:44.965Z",
-  "updated": "2026-11-23T06:22:51.640Z",
-  "lastActivity": "2026-11-23T06:22:51.640Z",
+  "updated": "2026-11-24T19:35:23.588Z",
+  "lastActivity": "2026-11-24T19:35:23.588Z",
   "title": "Prevent main-process crashes from setTypeOfService and network errors",
   "project": "specweave-umb",
   "repositories": [
