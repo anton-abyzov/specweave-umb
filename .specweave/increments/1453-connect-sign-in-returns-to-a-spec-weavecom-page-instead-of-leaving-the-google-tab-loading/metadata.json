@@ -5,8 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-24T04:01:43.236Z",
-  "updated": "2026-11-24T04:01:43.236Z",
-  "lastActivity": "2026-11-24T04:01:43.236Z",
+  "updated": "2026-11-24T06:26:30.239Z",
+  "lastActivity": "2026-11-24T06:26:30.239Z",
   "title": "Connect sign-in returns to a spec-weave.com page instead of leaving the Google tab loading",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specweave",
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
