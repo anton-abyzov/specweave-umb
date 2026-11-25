@@ -1,0 +1,12 @@
+{
+  "id": "1484-helper-threads-another-machine-starts-show-under-their-project",
+  "uuid": "8520f23e-1055-4204-aac7-c03ee2f269e4",
+  "status": "active",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-25T04:55:48.670Z",
+  "updated": "2026-11-25T04:55:48.670Z",
+  "lastActivity": "2026-11-25T04:55:48.670Z",
+  "title": "Helper threads another machine starts show under their project, not as loose No project chats",
+  "project": "specweave-umb"
+}
