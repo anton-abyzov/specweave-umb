@@ -72,7 +72,7 @@ What each part buys:
 
 **Turning it on:** Settings > Machines > Screen sharing, on that machine's own app. The window asks the main process, which runs system authentication. A window showing another machine has no bridge to that machine's main process, so it can only read the state.
 
-**Prompt** (`ScreenShareWindows.ts`, the `MacPermissionHelper` pattern: frameless, always on top, own preload, answers accepted only from its own frame): "Work laptop (ID 7F3A) wants to view this Mac's screen." The name is the one on the approved list. First use adds: "Type this code on that device: 482 913." Deny, Allow once, Always allow this device; each Allow runs system authentication. 60 seconds, then Deny. Three refusals, timeouts or unfinished handshakes for a device in 10 minutes silence it for 10 minutes.
+**Prompt** (`ScreenShareWindows.ts`, the `MacPermissionHelper` pattern: frameless, always on top, own preload, answers accepted only from its own frame): "Work laptop (ID 7F3A) wants to view this Mac's screen." The name is the one on the approved list. First use adds: "Type this code on that device: 482 913." Deny, Allow once, Always allow this device; each Allow runs system authentication. 60 seconds, then Deny. Three counted ends for a device in 10 minutes silence it for 10 minutes: Deny, a prompt nobody answered, a wrong code, or the viewer leaving or sending something invalid while a person was being asked. Nothing before the device's proof counts (`spec.md`, AC-08).
 
 **Banner:** always on top, on every desktop and over full-screen apps: "Anton's MacBook Pro is viewing this screen · 02:13 · Stop". It is created before the first frame. No banner, no session. macOS adds its own screen-recording mark in the menu bar.
 
