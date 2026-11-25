@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T05:03:40.696Z",
-  "updated": "2026-11-25T05:03:40.696Z",
-  "lastActivity": "2026-11-25T05:03:40.696Z",
+  "updated": "2026-11-25T08:11:43.021Z",
+  "lastActivity": "2026-11-25T08:11:43.021Z",
   "title": "Installed pages: desktop powers with per-version consent",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
