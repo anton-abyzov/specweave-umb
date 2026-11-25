@@ -33,15 +33,15 @@ Out (later slices, see the plan): whiteboards, docs and designs on the envelope 
 ## Decisions
 
 ### Asked
-- D-01 Outside the owner's account: pending (asked November 24, 2026; recommendation: named invites, end-to-end, comment or view by default, links later).
-- D-02 Relay visibility: pending (recommendation: end-to-end for outside people; own devices keep Connect's current trust).
-- D-03 Home machine offline: pending (recommendation: read-only while offline, no relay storage).
-- D-04 Shares reaching the owner's other machines: pending (recommendation: only where that machine's existing approval holds).
+- D-01 Outside the owner's account → named invites (email or Connect account), end-to-end encrypted; comment or view by default, edit only when the owner allows it; expiry and revoke; no public links (owner, November 24, 2026).
+- D-02 Relay visibility → end-to-end for people outside the owner's account; the owner's own devices keep today's Connect trust (owner, November 24, 2026).
+- D-03 Home machine offline → an encrypted copy is kept on the relay so others keep working; the relay holds ciphertext only. This adds Cloudflare storage cost, accepted (owner, November 24, 2026).
+- D-04 Shares to the owner's other machines → a document opens on a machine only where that machine's existing per-machine approval already holds; no fleet-wide approval sharing (owner, November 24, 2026).
 ### Defaulted (change any before sw-do)
 - D-05: Yjs is the merge engine for sheets, whiteboards and docs; designs keep server-ordered operations.
 - D-06: The plain file stays canonical; merge state is a sidecar.
 ### Open
-- D-01 to D-04 gate C3 to C5 only, not this slice.
+- none (D-01 to D-04 shape C3 to C5; C1 needs none of them)
 
 ## Tasks
 
