@@ -57,13 +57,15 @@ Out: anything that adds or loosens an auth path (held: `dd512d86c5`, pairing-lin
 - [ ] AC-11: With the request logger on, webhook, asset and attachment-upload requests log no URL (their tokens never reach the log); other requests still log.
 - [ ] AC-12: A request to `/mcp` carrying an `Origin` header gets 403 before authentication, and `/mcp` gets no CORS headers or preflight answer. A bearer request with no `Origin` is still served, and the browser extension and desktop app (which do not call `/mcp`) are unaffected; other routes keep their CORS.
 - [ ] AC-13: `formatHeadlessServeOutput` adds a plain-HTTP warning when the connection string's host is not loopback, and none for `127.0.0.1`, `localhost` or `::1`.
-- [ ] AC-14: A render loaded with the contain-scroll fragment flag replaces `scrollIntoView` with one that scrolls only scrollers inside the page; without the flag the native method is untouched. The web frame that sets the flag is another group's file (report).
+- [ ] AC-14: A render loaded with the contain-scroll fragment flag replaces `scrollIntoView` with one that scrolls only scrollers inside the page, never the chat around the frame; without the flag the native method is untouched. The inline chat render frame sets the flag; file preview and fullscreen do not. Checked in headless Chromium with real layout.
 - [ ] AC-15: On Windows, uninstall cleanup runs `%SystemRoot%\System32\cmd.exe` and `PING.EXE` by absolute path with cwd System32 and passes the runtime folder through the environment, not the command text; `taskkill` and `powershell` in group A's files run from System32 by absolute path.
 - [ ] AC-16: An MCP launch into an existing worktree starts in the registered worktree path that passed the check, not the caller's spelling (a symlink to it); a non-worktree path is still refused.
 - [ ] AC-17: An atomic save keeps the replaced file's mode (`0600` stays `0600`, `0644` stays `0644`) with owner read and write always kept (`0000` becomes `0600`), creates a missing file as `0600`, syncs the data before the rename and the folder after it (a folder sync that the platform refuses is ignored); Windows behaviour is unchanged.
-- [ ] AC-18: A mode-limited sender steering into a turn started above its limit is refused; settled by a test, recorded as not reproduced if today's check already refuses it.
+- [ ] AC-18: Moved to 1476 (the mode limit against the running turn needs group B's files).
 - [ ] AC-19: The local device hub starts with a token, and our proxy and hub calls send it; a request to the hub without it is refused. The embedded dashboard, its WebSockets and device actions keep working through our proxy, and the token never reaches a log.
 - [ ] AC-20: A request from a loopback peer carrying `X-Forwarded-For` records the socket address in client metadata (regression; already stricter than upstream).
+- [ ] AC-21: The binary atomic writer keeps the replaced file's mode, creates a missing file as `0600` and syncs data before the rename and the folder after it, as the text writer does.
+- [ ] AC-22: No server file starts a Windows system tool (`powershell`, `taskkill`, `cmd`, `reg`, `schtasks`, `netsh`, `ipconfig`, `where`, `ping`, `wsl` and the like) by bare name; each runs from System32 by absolute path, held by a source guard over `apps/server/src`.
 
 ## Approach
 
@@ -86,7 +88,8 @@ Risks: the body limit could clamp a route that reads more than 1 MiB through `ar
 - D-01 Increment number 1479, not 1475: `1475-install-a-specwithcode-page-as-a-desktop-app` already exists in the `artifact-install-as-app` worktree and the CLI refuses the id.
 - D-02 Relay configuration keeps `relay:write`, which is already administrative-only in ours; no new scope (needs web and mobile files and older machines would lose it).
 - D-03 Revoke-all revokes every unspent pairing link, including Connect-bound and fleet ones and the startup pairing link: "every other way in" ends.
-- D-04 Scroll containment is gated by a fragment flag, as the web frame will set it; file preview and fullscreen keep native behaviour.
+- D-04 Scroll containment is gated by a fragment flag that only the inline chat frame sets; file preview and fullscreen keep native behaviour.
+- D-05 Coordinator (November 25, 2026): 0d6fe2141a moved to 1476 whole; 4c679a21e7 stays here with the apps/web frame files; the bare Windows tool sweep is a separate PR after 1476 and 1477 merge; `atomicWriteBytes.ts` joins the local-tools PR.
 ### Open
 - none
 
@@ -128,10 +131,19 @@ Risks: the body limit could clamp a route that reads more than 1 MiB through `ar
 ### T-12 Atomic saves keep modes and sync
 - AC: AC-17 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/atomicWrite.ts, repositories/anton-abyzov/specwithcode/apps/server/src/atomicWrite.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/telemetry/Identify.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/atomicWrite.test.ts
 
-### T-13 Mode limit against the running turn (settle by test)
+### T-13 Mode limit against the running turn (moved to 1476; not built here)
 - AC: AC-18 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.modeLimitSteer.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/Orchestrator.modeLimitSteer.test.ts
 
 ### T-14 Device hub requires a token
 - AC: AC-19 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/device/LocalDeviceHost.ts, repositories/anton-abyzov/specwithcode/apps/server/src/device/DeviceHubProxy.ts, repositories/anton-abyzov/specwithcode/apps/server/src/device/hubToken.ts, repositories/anton-abyzov/specwithcode/apps/server/src/device/hubToken.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/device/hubToken.test.ts apps/server/src/device/DeviceHubProxy.test.ts
+
+### T-15 Contained scrollIntoView in the inline chat render
+- AC: AC-14 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/htmlRender.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/htmlRender.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/htmlRender/containScroll.browser.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/files/BrowserDocumentFrame.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/HtmlRenderFrame.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/HtmlRenderFrame.test.tsx | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run packages/shared/src/htmlRender.test.ts apps/server/src/htmlRender/containScroll.browser.test.ts
+
+### T-16 Binary atomic saves keep modes and sync
+- AC: AC-21 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/atomicWriteBytes.ts, repositories/anton-abyzov/specwithcode/apps/server/src/atomicWriteBytes.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/atomicWriteBytes.test.ts
+
+### T-17 Windows system tools by absolute path everywhere (after 1476 and 1477 merge)
+- AC: AC-22 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/process/windowsSystemTools.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/git.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/lanInterfaces.ts, repositories/anton-abyzov/specwithcode/apps/server/src/fleet/folderTransfer/confinement.ts, repositories/anton-abyzov/specwithcode/apps/server/src/terminal/Manager.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpSessionRuntime.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/PiRpc.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/stagedProviderUpdate.ts, repositories/anton-abyzov/specwithcode/apps/server/src/preview/PortScanner.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/OfficeArtifacts.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/process/windowsSystemTools.test.ts
 
 Verify and close 1479.
