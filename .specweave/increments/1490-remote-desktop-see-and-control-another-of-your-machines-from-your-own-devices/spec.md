@@ -156,6 +156,14 @@ Pull request review, round 1 (November 25, 2026, `reports/pr-review-muse-1-verdi
 
 No test: the minute's recheck of a host's standing, the banner for a late display, and the preload check (Electron seams; the logic each calls is tested).
 
+Pull request review, round 2 (November 25, 2026, `reports/pr-review-muse-2-verdict.md`, at app commit `3f9209976`, after main with 1488 was merged in): ship, 0 blockers, 0 majors, 3 minors. All three are fixed in app commit `6cebf2b64`: an answer that arrives inside its 5 seconds is not refused while it is checked (N1), a machine missing from the loaded list is not treated as this one in Settings (N2), and `plan.md` and the docs count toward the quiet time only what the code counts (N3).
+
+Pull request review, round 3 (November 25, 2026, `reports/pr-review-muse-3-verdict.md`, at app commit `6cebf2b64`, the merged head): ship, 0 blockers, 0 majors, 1 minor that follows the merge.
+
+| Finding | Answer |
+|---|---|
+| R1 A device that showed its key and then disconnects during the read of the app's standing still opens a relay session for a moment | Left for slice 2, as the reviewer allows: the session closes itself at once, uses one of that device's own 12 opens, and reaches no prompt, frame or strike. The fix is one check that the socket is still live before the relay opens. |
+
 ## Tasks
 
 ### T-01 Capture spike and decision
