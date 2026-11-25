@@ -55,6 +55,9 @@ Risks: an MCP server's own request timeout (the TypeScript MCP SDK defaults to 6
 - D-07 New card text is English only for now; other languages fall back to English (the i18n catalog allows it).
 - D-08 The raw answers travel in process from the orchestrator to the Claude adapter, not through the effect outbox (which keeps settled effects for 7 days). Rejected: scrubbing outbox rows after delivery (touches every effect kind).
 - D-09 "Already answered" is decided by the orchestrator's single writer: the second of two answers finds the request resolved.
+- D-10 Review round 2 (GPT-6 Sol, NO-SHIP on `6e2061f87`) found two real gaps, both fixed:
+  - The adapter records a form's request a moment before its card. A request whose native id the Claude adapter gave it (`mcp-elicitation:` from driver `claudeAgent`) is a form even before its card lands. Until then an accept is refused with "This form is still opening. Try again in a moment.", and Decline or Cancel go through without keeping any answers.
+  - A field named `__proto__`, `constructor` or `prototype` makes the form one the card can't show, so it is cancelled with a note. The validator reads only the answers object's own values.
 ### Open
 - none
 
