@@ -1,15 +1,18 @@
 {
   "id": "1478-desktop-preview-consent-pairing-guards-and-relay-privacy",
   "uuid": "0e28bfcb-7a1e-4409-9b26-7c706cfb823b",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T03:13:40.304Z",
-  "updated": "2026-11-25T07:16:38.922Z",
-  "lastActivity": "2026-11-25T07:16:38.922Z",
+  "updated": "2026-11-25T11:16:12.729Z",
+  "lastActivity": "2026-11-25T11:16:12.729Z",
   "title": "Desktop preview consent, pairing guards and relay privacy",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-25T11:16:12.729Z",
+  "approvedAt": "2026-11-25T11:16:12.729Z"
 }
