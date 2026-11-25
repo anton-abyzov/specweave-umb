@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@anton-m5max-proled","at":"2026-11-25T05:09:13.521Z","note":"session fce6b469-1317-469d-afaa-59e16a89f321","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-25T05:09:13.522Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-25T05:09:13.522Z","evidence":"reports/discover-probe.md: discover answered in 3 ms median (HTTP 400, -32022); spawn to tool list 188 ms vs 198 ms with immediate -32601; no change needed\nHEAD 4b8d47bce","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-25T05:09:13.579Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-25T05:09:13.581Z","evidence":"reports/worker-refusal-matrix.md: 171 tools (names match live tools/list), 10 Yes, 149 Conditional, 12 No, read-only at fbb9b6f6e; citations spot-checked\nHEAD 4b8d47bce","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-25T05:09:13.638Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-25T05:09:13.639Z","evidence":"git diff --name-only origin/main -- '*skills*' '*SKILL.md' is empty in specwithcode on PR #931 head\nHEAD 4b8d47bce","model":"claude-opus-5-5[1m]"}

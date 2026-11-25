@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T04:46:08.149Z",
-  "updated": "2026-11-25T04:46:08.149Z",
-  "lastActivity": "2026-11-25T04:46:08.149Z",
+  "updated": "2026-11-25T05:09:13.639Z",
+  "lastActivity": "2026-11-25T05:09:13.639Z",
   "title": "studio-code MCP tool surface: core tools up front, search hints, SpecWeave toolkit",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
