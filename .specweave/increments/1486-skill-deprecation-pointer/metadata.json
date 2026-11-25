@@ -1,0 +1,20 @@
+{
+  "id": "1486-skill-deprecation-pointer",
+  "uuid": "6cd6f6dd-19cb-4005-9cc4-e553b68644fb",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T04:26:20.768Z",
+  "updated": "2026-11-25T06:57:07.689Z",
+  "lastActivity": "2026-11-25T06:57:07.689Z",
+  "title": "Skill deprecation that names the replacement",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specweave",
+    "repositories/anton-abyzov/vskill",
+    "repositories/anton-abyzov/vskill-platform"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-25T06:57:07.688Z",
+  "approvedAt": "2026-11-25T06:57:07.689Z"
+}
