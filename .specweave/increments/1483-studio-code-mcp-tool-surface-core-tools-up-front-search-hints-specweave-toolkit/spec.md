@@ -54,6 +54,10 @@ Risks: the `tools/list` rewrite parses each list response (about 170 tools, tens
 
 - **SpecWeave write tools** (`task_done`, `verify`, `pickup`), a later increment, gated on: the calling thread's registered worktree; its assigned increment and task; the task's current claim held by that thread; the thread's execution permissions (no plan mode, no approval-required run without approval); verify through the heavy-checks gate (`specweave-studio checks run`); no arbitrary commands (`--cmd`, `--run` never passed); idempotent retries (a repeated done with the same evidence is a no-op).
 - Role-filtered tool listings.
+- From the delta review of `fd1d0d3fe` (both low, accepted at merge):
+  - Links inside `.specweave/` are not checked. `workspace.ts` real-paths only the `.specweave` entry, so an `increments` link into another checkout is still read. Real-path the files the CLI reads, or have the CLI refuse links out of `--workspace`.
+  - The `tools/list` pre-check in `McpToolVisibility.ts` misses a method written with a JSON-escaped slash (`tools\/list`), so such a list goes out unfiltered. The handlers still refuse the call. Fix: also parse a body that contains a backslash.
+- Run the real `specweave task list|next` in CI against a scratch worktree, so a CLI release that adds a write fails a test.
 
 ## Decisions
 
