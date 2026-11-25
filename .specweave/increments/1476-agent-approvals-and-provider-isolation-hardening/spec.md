@@ -116,3 +116,6 @@ Risks: AC-03 changes what Codex Full access asks; elicitations still go to the p
 
 ### T-13 Red-green record
 - AC: AC-19 | Files: .specweave/increments/1476-agent-approvals-and-provider-isolation-hardening/reports/red-green.md | Test: test -s .specweave/increments/1476-agent-approvals-and-provider-isolation-hardening/reports/red-green.md
+
+### T-14 ACP agent spawns do not merge the server environment back
+- AC: AC-08 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpSessionRuntime.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpSessionRuntime.environment.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && corepack pnpm exec vp test run src/provider/acp/AcpSessionRuntime.environment.test.ts
