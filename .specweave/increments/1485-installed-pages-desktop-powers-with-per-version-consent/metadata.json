@@ -1,0 +1,12 @@
+{
+  "id": "1485-installed-pages-desktop-powers-with-per-version-consent",
+  "uuid": "f24080fd-5323-4780-9041-18472252643f",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T05:03:40.696Z",
+  "updated": "2026-11-25T05:03:40.696Z",
+  "lastActivity": "2026-11-25T05:03:40.696Z",
+  "title": "Installed pages: desktop powers with per-version consent",
+  "project": "specweave-umb"
+}

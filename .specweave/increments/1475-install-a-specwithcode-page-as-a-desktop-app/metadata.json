@@ -1,0 +1,16 @@
+{
+  "id": "1475-install-a-specwithcode-page-as-a-desktop-app",
+  "uuid": "4ca8a26d-87a0-4fec-a732-299c20d51de7",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T03:03:44.696Z",
+  "updated": "2026-11-25T06:21:43.893Z",
+  "lastActivity": "2026-11-25T06:21:43.893Z",
+  "title": "Install a SpecWithCode page as a desktop app",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {}
+}
