@@ -47,6 +47,8 @@ Risk: high. A wrong fix delivers a result twice or wakes the wrong run. The doub
 ### Open
 - none
 
+- D-90 Added from 1474 (November 25, 2026): the upstream review found two more late-result losses for this increment to cover when it starts: settling a thread cancels automatic queued wakes, so delegated results are lost (`2c3d3b4501`, our `apps/server/src/orchestration-v2/Orchestrator.ts:3604`), and its companion at `:13879` (`d4d54658f9`). Lane notes: 1474 `reports/lanes/a3-server.md`.
+
 ## Tasks
 
 ### T-01 Reproduce each loss case

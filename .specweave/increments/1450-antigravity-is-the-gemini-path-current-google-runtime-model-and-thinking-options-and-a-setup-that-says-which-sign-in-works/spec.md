@@ -72,6 +72,8 @@ Rejected:
 ### Open
 - none
 
+- D-90 Added from 1474 (November 25, 2026): 14 upstream rows are marked planned-1450 in 1474 `reports/all-changes.tsv` (`2f19cec079`, `714997c420`, `084ad5e1a0`, `d1822be5a9`, `90a86d5cb1`, `5ee1c2f652`, `944d1820e2`, `a73cdc4df1`, `67692a7549`, `2ba4fde9a5`, `0058a4abb3`, `1402a2c9bf`, `9504f65989`, `5f29d87c9b`), plus `9d0d00656f` and `490a0d687b`, which only matter on the 1.5 runtime this increment adopts, and `5f3cdab9b7` (registry index refresh: offer an update, never auto-install, to keep the pins). Give each an AC or a skip when this increment starts.
+
 ## Tasks
 
 ### T-01 Current runtime on six platforms
