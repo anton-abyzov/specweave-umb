@@ -1,0 +1,15 @@
+{
+  "id": "1486-guided-onboarding-tour-skills-other-machines-model-tracks-and-where-settings-live",
+  "uuid": "a19ac4d8-4f80-4a8c-af1f-fd4a671cda10",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T05:24:17.875Z",
+  "updated": "2026-11-25T06:03:41.989Z",
+  "lastActivity": "2026-11-25T06:03:41.989Z",
+  "title": "Guided onboarding tour: skills, other machines, model tracks and where settings live",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
