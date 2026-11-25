@@ -46,9 +46,9 @@ Out:
 Server (`apps/server`):
 
 1. `apps/server/src/assets/HtmlFilePreview.ts` (new) holds what a framed HTML file needs:
-   - The locked policy: `sandbox allow-scripts allow-forms; default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'`. `'self'` is the asset server, which serves files only through signed URLs. Checked headless: under `sandbox` Chromium matches `'self'` against the document's URL, so local files load.
+   - The locked policy: `sandbox allow-scripts allow-forms; default-src 'none'; script-src 'sha256-<link script>'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'`. `'self'` is the asset server, which serves files only through signed URLs. script-src is only the hashed link script. A page script can post `ui/open-link` for a site the reader did not click, so the page's own scripts do not run. Checked headless: under `sandbox` Chromium matches `'self'` against the document's URL, so local pictures, video and audio load.
    - A wrapper page. Content policy cannot stop a page from navigating its own frame, but a parent's `frame-src` can. The wrapper is a script-free shell (one hashed relay script) with `frame-src 'self'` that frames the real page. Checked headless: the inner page loads, its navigation to another origin is refused, and so is navigating the wrapper or the top window.
-   - A small link script added to the page: a trusted click on an `http(s)` link asks the app to open it (`ui/open-link`, the protocol agent renders already use) instead of navigating. The wrapper relays messages both ways.
+   - A small link script added to the page: a trusted click on an `http(s)` link asks the app to open it (`ui/open-link`, the protocol agent renders already use) instead of navigating. The wrapper forwards only that request, not an arbitrary message from the page.
 2. `apps/server/src/http.ts`: for a file HTML asset (host file or workspace file, never an attachment):
    - `?studio-frame=1`, or an `iframe` fetch destination with no parameter, returns the wrapper, which frames the same path with `?studio-frame=page`.
    - Any request that is not a top-level document load gets the locked policy. A top-level load (`Sec-Fetch-Dest: document`, no parameter) keeps today's policy. A framed page cannot reach that copy: it cannot open windows, cannot navigate the top window, and `connect-src 'none'` blocks fetching it.
@@ -75,7 +75,7 @@ Rejected:
 
 Risks:
 
-- Pages that load fonts, scripts or styles from other sites lose them inside the app frame. That is the request; "Open in browser" shows the page as a browser does.
+- Pages that load fonts, scripts or styles from other sites lose them inside the app frame, and so do a page's own scripts. That is the request; "Open in browser" shows the page as a browser does.
 - DNS prefetch is not covered by content policy in Chromium. A page could leak a few bytes through host names.
 - A page can still request other URLs on the app's own server as pictures or frames. Those requests carry no session (opaque origin, `SameSite=Lax` cookie) and their answers cannot be read. Unchanged from today.
 - Without `Sec-Fetch-Dest` (plain `http` to a LAN address), a top-level load also gets the locked policy. Stricter, not broken.
@@ -90,7 +90,7 @@ Risks:
 - D-01 Links to other sites inside a previewed page open in the browser on the reader's click, through the app, as agent HTML renders do. Reversible: remove the link script and they do nothing.
 - D-02 The side panel no longer remembers "show HTML source". Markdown there defaults to rendered for anyone who never chose.
 - D-03 The switch reads "View source" / "Preview" (both already translated in all eight languages).
-- D-04 Inline scripts and `eval` stay allowed in the frame: they add no reach, and blocking them breaks ordinary report pages.
+- D-04 The frame runs only the hashed link script. The page's inline scripts, `eval` and sibling scripts do not run there: a script can forge `ui/open-link` on the reader's next click. Open in browser still runs them.
 - D-05 A file with no thread keeps today's text view; media and HTML there show a short "open it from a thread" card.
 
 ### Open

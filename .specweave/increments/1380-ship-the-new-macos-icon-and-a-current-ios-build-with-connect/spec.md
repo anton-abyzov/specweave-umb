@@ -16,9 +16,10 @@ In: macOS bundle ships the Icon Composer icon (`Assets.car` + `CFBundleIconName`
 
 ## Acceptance Criteria
 
-- [ ] AC-01: A packaged macOS build has `Contents/Resources/Assets.car`, `CFBundleIconName = Icon`, and an `icon.icns` rendered from the channel's `app-icon.icon`.
-- [ ] AC-02: The released desktop version installed on the M4 shows the new full-bleed icon in Finder/LaunchServices and the Dock (screenshot), or the report names the exact one-time Dock refresh step.
-- [ ] AC-03: An iOS build from current `main` (version above 0.1.7, build above 45) is processed in TestFlight, in the Internal group, and submitted for App Store review; report names version, build and state.
+- [x] AC-01: A packaged macOS build has `Contents/Resources/Assets.car`, `CFBundleIconName = Icon`, and an `icon.icns` rendered from the channel's `app-icon.icon`.
+- [x] AC-02: The released desktop version installed on the M4 shows the new full-bleed icon in Finder/LaunchServices and the Dock (screenshot), or the report names the exact one-time Dock refresh step.
+- [x] AC-04: After an update that changes the icon, the macOS app re-registers its bundle and offers once to reload the Dock (clearing the user Dock icon cache); M5's Dock shows the new icon (screenshot).
+- [x] AC-03: An iOS build from current `main` (version above 0.1.7, build above 45) is processed in TestFlight, in the Internal group, and submitted for App Store review; report names version, build and state.
 
 ## Approach
 
@@ -48,3 +49,6 @@ Rejected: clearing only the Dock cache (the legacy icns still renders in the gre
 
 ### T-03 Ship iOS 0.1.8 to TestFlight and App Store review
 - AC: AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/ios/project.yml | Test: asc builds list --app 6824245458; asc versions list --app 6824245458
+
+### T-04 Refresh the Dock icon cache after an update (M5 report)
+- AC: AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/desktop/src/updates/macIconRefresh.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/updates/macIconRefresh.test.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/app/DesktopApp.ts | Test: vp test run apps/desktop/src/updates/macIconRefresh.test.ts; M5 Dock screenshot

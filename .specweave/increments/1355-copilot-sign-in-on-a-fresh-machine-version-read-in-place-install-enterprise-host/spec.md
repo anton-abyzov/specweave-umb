@@ -10,11 +10,11 @@ In: tolerant version read; Install / update agent button in the sign-in step whe
 
 ## Acceptance Criteria
 
-- [ ] AC-01: `GitHub Copilot CLI 1.0.104.` (and `v1.0.104`, `1.0.104,`) reads as 1.0.104; preview and unrelated text still do not.
-- [ ] AC-02: When sign-in fails because Copilot CLI is missing, too old or its version cannot be read, the sign-in step shows Install / update agent and the message points there.
-- [ ] AC-03: The Copilot sign-in step lets the user pick github.com or an enterprise host (listed from gh or typed), and device sign-in starts with `--host <host>` for an enterprise host; github.com uses the default host.
-- [ ] AC-04: Without a picked host, a COPILOT_GH_HOST or GH_HOST set for the instance decides the host before the single-gh-enterprise-host rule, and the device code is read for that host.
-- [ ] AC-05: An older server ignores the new optional `host` field; an invalid host is rejected with a plain message.
+- [x] AC-01: `GitHub Copilot CLI 1.0.104.` (and `v1.0.104`, `1.0.104,`) reads as 1.0.104; preview and unrelated text still do not.
+- [x] AC-02: When sign-in fails because Copilot CLI is missing, too old or its version cannot be read, the sign-in step shows Install / update agent and the message points there.
+- [x] AC-03: The Copilot sign-in step lets the user pick github.com or an enterprise host (listed from gh or typed), and device sign-in starts with `--host <host>` for an enterprise host; github.com uses the default host.
+- [x] AC-04: Without a picked host, a COPILOT_GH_HOST or GH_HOST set for the instance decides the host before the single-gh-enterprise-host rule, and the device code is read for that host.
+- [x] AC-05: An older server ignores the new optional `host` field; an invalid host is rejected with a plain message.
 
 ## Approach
 

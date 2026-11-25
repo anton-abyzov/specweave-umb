@@ -17,6 +17,11 @@ In: the SpecWithCode web/desktop thread composer stack (`apps/web`): question ca
 - [x] AC-05: Jump to latest never overlaps the cards (found by `data-jump-to-latest`, not its label).
 - [x] AC-06: Verified headless in light and dark at 1512x945, 480x945, 1512x700 and 480x700, with before and after screenshots.
 
+## Closure notes (November 24, 2026)
+
+- AC-02 was delivered as written by PR #633 (`7dd99a12`). PR #719 (`c924fa83`, merged November 19, 2026) then changed it on purpose: when every description fits, all show and hover does nothing; otherwise rows are one line, a clipped description shows in a tooltip after 350 ms, and keyboard focus or the details arrow still open a row. At the verified revision `f3ce2568` AC-02 holds in that refined form, not word for word (Muse closing review, medium finding).
+- Open low-risk follow-up from the same review: tabbing from a keyboard-opened row to a link inside its description folds the row under focus (`ComposerPendingUserInputPanel.tsx:634`, no `relatedTarget` check). Not fixed here.
+
 ## Approach
 
 `ComposerBanner.Scroll` and the card's scroll area size from `--chat-panel-height`, which ChatView publishes from its overlay's parent with the same ResizeObserver that measures the composer. `ComposerPendingUserInputPanel` gains compact rows, a folded summary and a `collapseKey` (environment and thread) stored in local storage by `questionCardCollapse.ts`. `QueuedRunsControl` folds by default (opens while a row is edited) and replaces the steer paragraph with a header hint. The pill measurement moved to `measureScrollToEndClearance` in `composerFooterLayout.ts`, shared by ChatView and the fixture. A keyboard-opened row folds only after a press completes, so a click never lands on a row that moved.

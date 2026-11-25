@@ -1,0 +1,21 @@
+{"t":"T-01","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:36.848Z"}
+{"t":"T-01","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:37.238Z","evidence":"apps/server HtmlFilePreview.test.ts and AssetAccess.test.ts: 49 passed\nHEAD 8f171d1669"}
+{"t":"T-02","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:37.601Z"}
+{"t":"T-02","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:37.977Z","evidence":"BrowserDocumentFrame.test.tsx: 4 passed\nHEAD 8f171d1669"}
+{"t":"T-03","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:38.339Z"}
+{"t":"T-03","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:38.732Z","evidence":"LinkedFileBody.test.tsx, ViewerLinkedPane.test.tsx, i18n.test.ts passed\nHEAD 8f171d1669"}
+{"t":"T-04","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:39.097Z"}
+{"t":"T-04","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:39.488Z","evidence":"ThreadArtifacts.test.tsx and FilePreviewPanel.test.ts passed\nHEAD 8f171d1669"}
+{"t":"T-05","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:39.848Z"}
+{"t":"T-05","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:40.241Z","evidence":"MarkdownPathList.test.tsx passed\nHEAD 8f171d1669"}
+{"t":"T-06","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:40.610Z"}
+{"t":"T-06","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:18:41.012Z","evidence":"node scripts/studio-verify/html-file-sandbox.mjs exit 0; screenshots in reports/\nHEAD 8f171d1669"}
+{"t":"*","e":"note","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:19:11.478Z","note":"Code is repositories/anton-abyzov/specwithcode d1a2f1251 on 1368-html-file-preview"}
+{"t":"*","e":"note","by":"muse@antons-macbook-m4max","at":"2026-11-16T15:26:16.787Z","note":"review by muse-wonder-1.0 (meta) at d1a2f1251: fix first · reports/reviews/review-muse-wonder-1.0-1.md"}
+{"t":"*","e":"note","by":"grok@antons-macbook-m4max","at":"2026-11-16T15:56:43.680Z","note":"Code is repositories/anton-abyzov/specwithcode c928fc000 on 1368-html-file-preview. Review fixes: only the hashed link script runs in the frame."}
+{"t":"*","e":"note","by":"grok@antons-macbook-m4max","at":"2026-11-16T16:05:39.548Z","note":"Code is repositories/anton-abyzov/specwithcode 4f6c8a458 on 1368-html-file-preview."}
+{"t":"*","e":"note","by":"grok@antons-macbook-m4max","at":"2026-11-16T16:24:40.851Z","note":"Code is repositories/anton-abyzov/specwithcode 94c5b4426 on 1368-html-file-preview. Attachment HTML stays on today's frame."}
+{"t":"T-07","e":"claim","by":"grok@antons-macbook-m4max","at":"2026-11-16T16:40:33.605Z","line":"Merged PR 507, release left to the release thread","link":"https://github.com/anton-abyzov/specwithcode/pull/507"}
+{"t":"T-07","e":"done","by":"grok@antons-macbook-m4max","at":"2026-11-16T16:40:34.001Z","evidence":"PR 507 squash-merged. Head 94c5b44263c81c0841394223929bbe460115b505. Merge commit 30d07a7f3f09a856d683001eb5b5381a36351d25 on main. Release not requested; it stays with Request and verify app releases.\nHEAD 7b933dd504","line":"Merged PR 507","link":"https://github.com/anton-abyzov/specwithcode/pull/507"}
+{"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-11-24T21:06:05.757Z","note":"review by gpt-6.2-sol (openai) at f3ce25682fdf: fix first · reports/reviews/review-gpt-6.2-sol-1.md","model":"claude-opus-5-5[1m]"}
+{"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-11-24T21:06:06.732Z","note":"Closing review November 24, 2026 (m4 triage batch C): verify PASS at specwithcode f3ce25682 (verify:pr + 6 server shards), then gpt-6.2-sol (openai) Verdict: fix first: 1 high (a sandbox policy gap in workspace asset serving affecting AC-06/AC-07) and 3 medium (workspace audio/video links, parent-folder relative media, top-level LAN load policy for AC-09). Details in the local review report; not closed, needs a fix PR.","model":"claude-opus-5-5[1m]"}
