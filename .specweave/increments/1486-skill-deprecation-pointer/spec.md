@@ -101,6 +101,8 @@ Risks:
 - D-04 Only block-style `metadata` is read, matching `versionFields`. The flow-style object in AC-01 describes the keys, not the YAML layout.
 - D-05 Notices go to stderr under `--json`, so stdout stays parseable.
 - D-06 Upstream reads use raw.githubusercontent.com only, with a 5 s timeout. Offline or rate-limited means no claim.
+- D-07 (lead review, November 25, 2026) The deprecated task-skill-announcer keeps an inert notice: its description no longer carries the broad "run, invoke or test the task skill" triggers, so existing installs see the notice and future bulk installs get a skill that only answers an explicit `/task-skill-announcer`. A test loads the e2e fixture through the Studio frontmatter parser, not just its name.
+- D-08 (lead review) AC-06 stays: `specweave update` consumes `catalog.deprecated` (notices, and installed deprecated copies are never rewritten or removed) and the validator consumes the four metadata keys. It reads only local files, so no network bound is needed. The list ships empty: no sw-* skill is deprecated or changed.
 
 ### Open
 
