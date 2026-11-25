@@ -36,7 +36,8 @@ Why the main process and not the server or a window: the server runs as plain No
 | Management key (`fleet-invitation`, coordinator) | no | no | no | no |
 | Worker grant, outside MCP client (`mcp-client`) | no | no | no | no |
 | Agent thread (MCP tools, computer use) | no tool exists | no | no | a click is not enough: Allow needs Touch ID or the password |
-| A process running as the same user on the target | already has the screen through the app's grants | can stand in, without the machine key | not through the app's windows; can run code as the app | not defended (`spec.md`, Threat model) |
+| A process that only rewrites this user's files on the target | already has the screen through the app's grants | can stand in for the host, without the machine key (a viewer that saved the key refuses it) | no | named limit (`spec.md`, Threat model, AC-04) |
+| A process that runs code as the app on the target | already has the screen | yes, with the machine key | yes | not defended (`spec.md`, Threat model, D-15) |
 
 - The viewer rule lives in `apps/server/src/auth/personDevice.ts`, shared with 1488 (its AC-07).
 - A device removed from the list loses its socket within 5 seconds, a revoked sign-in at once in the same process and within 30 seconds from another (`serveSocketUntilSessionEnds`, `apps/server/src/auth/http.ts:325`). Expiry is not watched for these sessions today, so the screen-sharing socket sets its own timer to the session's expiry. A sign-in with no expiry is refused.
@@ -46,7 +47,7 @@ Why the main process and not the server or a window: the server runs as plain No
 
 ## 3. The sealed session
 
-On the wire every binary message is one type byte (`SCREEN_SHARE_WIRE`: hello 1, challenge 2, proof 3, sealed 4) and a body: UTF-8 JSON for hello, challenge and proof, one sealed record for sealed. Inside the seal a record starts with its own type byte (`SCREEN_SHARE_RECORD`); the two number spaces share no value. `encodeScreenShareWire`, `encodeScreenShareWireJson`, `decodeScreenShareWire` and `decodeScreenShareJson` in `packages/contracts/src/screenShare.ts` are the only encoders. On the host socket each binary message is prefixed with the 36-character session id. Each side's handshake start is single-use: it answers one challenge or one proof and is discarded on success, failure, timeout or retry.
+On the wire every binary message is one type byte (`SCREEN_SHARE_WIRE`: hello 1, challenge 2, proof 3, sealed 4, knock 5) and a body: UTF-8 JSON for hello, challenge and proof, one sealed record for sealed, one compact JWS for the knock. The knock comes first and stops at the server: it answers the server's `{ t: "prove", nonce, environmentId }` with the device key's signature over the nonce and the machine id (type `swc-screen-share-knock+jws`, checked against the key the sign-in is bound to), and only then is a session opened, counted and told to the app. Inside the seal a record starts with its own type byte (`SCREEN_SHARE_RECORD`, from 16 up: viewer to machine 16 to 19, machine to viewer 32 and 33); the two number spaces share no value. `encodeScreenShareWire`, `encodeScreenShareWireJson`, `decodeScreenShareWire` and `decodeScreenShareJson` in `packages/contracts/src/screenShare.ts` are the only encoders. On the host socket each binary message is prefixed with the 36-character session id. Each side's handshake start is single-use: it answers one challenge or one proof and is discarded on success, failure, timeout or retry.
 
 All of it is in `packages/shared/src/screenShareChannel.ts` (`@noble` for X25519 and Ed25519, WebCrypto for AES-GCM; runs in the browser, in Electron's main process and in tests under Node 22).
 
