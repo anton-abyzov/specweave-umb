@@ -29,42 +29,45 @@ Why the main process and not the server or a window: the server runs as plain No
 |---|---|---|---|---|
 | Approved Connect device (`cloud-connect`, `jkt:` key on the list) | yes, after approval | no | no | no |
 | Phone link with an approved key | yes, after approval (slice 5 client) | no | no | no |
-| The target's own app (`desktop-bootstrap`, loopback) | no | yes | through its windows, with a native confirmation | the prompt window itself |
+| The target's own app (`desktop-bootstrap`, loopback, proof on every connection) | no | yes | through its windows, with system authentication | the prompt window, with system authentication |
 | Phone link with no key (`link:`) | no | no | no | no |
 | Pairing code, LAN or SSH window (`one-time-token`) | no | no | no | no |
 | Local CLI (`local-cli-owner`), startup link, dev tokens | no | no | no | no |
 | Management key (`fleet-invitation`, coordinator) | no | no | no | no |
 | Worker grant, outside MCP client (`mcp-client`) | no | no | no | no |
-| Agent thread (MCP tools, shell) | no tool exists | no | no | computer use refuses the app's own windows |
+| Agent thread (MCP tools, computer use) | no tool exists | no | no | a click is not enough: Allow needs Touch ID or the password |
+| A process running as the same user on the target | already has the screen through the app's grants | can stand in, without the machine key | not through the app's windows; can run code as the app | not defended (`spec.md`, Threat model) |
 
 - The viewer rule lives in `apps/server/src/auth/personDevice.ts`, shared with 1488 (its AC-07).
-- A device removed from the list, or whose sign-in ends, loses its socket within 5 seconds (`serveSocketUntilSessionEnds`, `apps/server/src/auth/http.ts:325`).
+- A device removed from the list loses its socket within 5 seconds, a revoked sign-in at once in the same process and within 30 seconds from another (`serveSocketUntilSessionEnds`, `apps/server/src/auth/http.ts:325`). Expiry is not watched for these sessions today, so the screen-sharing socket sets its own timer to the session's expiry.
 - The switch and grants never pass through the server, so `settings:write`, `access:write` and `server.updateSettings` cannot reach them.
 
 ## 3. The sealed session
 
-All of it is in `packages/shared/src/screenShareChannel.ts` (WebCrypto, runs in the browser, in Electron's main process and in tests under Node 22).
+All of it is in `packages/shared/src/screenShareChannel.ts` (`@noble` for X25519 and Ed25519, WebCrypto for AES-GCM; runs in the browser, in Electron's main process and in tests under Node 22).
 
-1. **Viewer hello:** mode (`view`), a fresh X25519 public key `vk`, the device public key as a JWK, and whether it already holds a saved key for this machine.
-2. **Target challenge:** a 32-byte nonce, a fresh X25519 public key `mk`, the machine's Ed25519 screen-sharing key `mid`, and `mid`'s signature over the transcript hash `th = SHA-256("specwithcode screen share v1" | environment id | session id | mode | vk | device key thumbprint | nonce | mk | mid)`.
-3. **Viewer proof:** the viewer checks the signature and its saved key, then sends an ES256 JWS made with the device key: header `{typ: "swc-screen-share+jws", alg, jwk}`, payload `{aud: environment id, sid, mode, th, iat}`.
+1. **Viewer hello:** mode (`view`), a fresh X25519 public key `vk`, the device public key as a JWK, whether it already holds a saved key for this machine, and `c = SHA-256(r)` for a fresh 32-byte random `r` it keeps to itself.
+2. **Target challenge:** a 32-byte nonce, a fresh X25519 public key `mk`, the machine's Ed25519 screen-sharing key `mid`, and `mid`'s signature over the transcript hash `th = SHA-256("specwithcode screen share v1" | environment id | session id | mode | vk | device key thumbprint | c | nonce | mk | mid)`.
+3. **Viewer proof:** the viewer checks the signature and its saved key, then sends an ES256 JWS made with the device key: header `{typ: "swc-screen-share+jws", alg, jwk}`, payload `{aud: environment id, sid, mode, th, iat, r}`. The target checks `SHA-256(r) = c`.
 4. **Target checks:** the JWK's thumbprint equals the device key the server attested for this socket; the signature holds; `th` equals its own; `iat` is within 60 seconds; the nonce is unused. Then section 4 decides.
 5. **Keys:** `HKDF-SHA256(X25519(mk, vk), salt = nonce, info = "specwithcode screen share v1 keys" | th)` gives one AES-256-GCM key per direction. Each record is `type (1) | counter (8) | ciphertext | tag`, the nonce is the counter, the session id, type and counter are authenticated. A counter that is not exactly the next one ends the session.
 
 What each part buys:
 
 - **The device signature protects the screen.** The target only ever encrypts to a `vk` that an approved device key signed together with the target's own `mk` and nonce. Someone on the path who swaps a key, or who holds a replayed WebSocket ticket, cannot produce that signature, so they can neither start a session nor read one.
-- **The machine key protects the viewer.** Without it, someone on the path could answer as the target and show a made-up screen, which matters once the owner types (slice 2). The viewer saves `mid` per machine on first use. Trust on first use rests on one comparison: the prompt on the target and the viewer both show a short code made from `mid` and the device key (four groups of four hex digits, 1488's fingerprint format). A viewer with no saved key always gets the prompt, even where a grant exists.
+- **The machine key protects the viewer.** Without it, someone on the path could answer as the target and show a made-up screen, which matters once the owner types (slice 2). The viewer saves `mid` per machine on first use. Trust on first use is one enforced step, not a display. Both ends derive a 6-digit code from the session secret, `th` and `r`. Only the target's prompt shows it. The viewer shows a field, compares what is typed with its own code, and only then saves `mid` and sends the code back inside the sealed session; the target sends no frame before that. Someone answering as the target from the network cannot put a code on the real machine's screen, and because the target fixed `mk` and its nonce before `r` was revealed, it cannot search for a session whose code equals one shown elsewhere. A viewer with no saved key always gets the prompt, even where a grant exists, so the first view needs a person at the machine.
 - **Separate from DPoP.** Same key, different `typ` and payload, so neither verifier accepts the other's token.
-- 1488's `signInSeal.ts` covers one-way sealing to a view key. Its X25519 and HKDF helpers are reused once it is on `main`; this channel adds the two signatures and the counters.
+- 1488's `signInSeal.ts` covers one-way sealing to a view key. The two modules stay separate; they share the `@noble` primitives and the device-key signing helper `signWithDeviceKey(typ, payload)` in `apps/web/src/cloud/dpop.ts`.
 
 ## 4. Approval, the banner and the store
 
-**Store** (`apps/desktop/src/screenShare/ScreenShareStore.ts`): one file in the app's data folder, encrypted with `safeStorage` (a Keychain key bound to the app's signature). It holds the switch, the grants (device thumbprint, name, granted, last used), the machine key and the last 500 audit entries. A file that does not decrypt, or that names another machine, reads as off with no grants, and a new machine key is made, so every viewer is asked again.
+**Store** (`apps/desktop/src/screenShare/ScreenShareStore.ts`, `screenShareSeal.ts`): one file in the app's data folder. A random 256-bit store key is wrapped by `safeStorage` (a Keychain key bound to the app's signature; on macOS it is AES-CBC with no integrity check, hence the second layer). The contents are AES-256-GCM under the store key with the purpose and version authenticated. It holds the switch, the grants (device thumbprint, name, granted, last used), the machine key, the cooldown counts and the last 500 audit entries. A file that does not open reads as off with no grants, and a new machine key is made, so every viewer is asked again and Settings says the store was reset. Where `safeStorage` is unavailable nothing is stored and the switch cannot be turned on. The audit list can be erased by a same-user process: it is evidence about remote devices only.
 
-**Turning it on:** Settings > Machines > Screen sharing, on that machine's own app. The window asks the main process, which shows a native confirmation. A window showing another machine has no bridge to that machine's main process, so it can only read the state.
+**System authentication:** `systemPreferences.promptTouchID(reason)` in the main process. Electron 44 evaluates user presence (`kSecAccessControlUserPresence`): Touch ID, Apple Watch or the account password, in the system's own dialog. A rejected promise, for any reason, means no. Used for turning on, Allow once and Always allow.
 
-**Prompt** (`ScreenShareWindows.ts`, the `MacPermissionHelper` pattern: frameless, always on top, own preload, answers accepted only from its own frame): "Anton's MacBook Pro (ID 7F3A) wants to view this Mac's screen. Code 41c2-9a0e-77b1-03fd." Deny, Allow once, Always allow this device. 60 seconds, then Deny. Three refusals or timeouts for a device in 10 minutes silence it for 10 minutes.
+**Turning it on:** Settings > Machines > Screen sharing, on that machine's own app. The window asks the main process, which runs system authentication. A window showing another machine has no bridge to that machine's main process, so it can only read the state.
+
+**Prompt** (`ScreenShareWindows.ts`, the `MacPermissionHelper` pattern: frameless, always on top, own preload, answers accepted only from its own frame): "Work laptop (ID 7F3A) wants to view this Mac's screen." The name is the one on the approved list. First use adds: "Type this code on that device: 482 913." Deny, Allow once, Always allow this device; each Allow runs system authentication. 60 seconds, then Deny. Three refusals, timeouts or unfinished handshakes for a device in 10 minutes silence it for 10 minutes.
 
 **Banner:** always on top, on every desktop and over full-screen apps: "Anton's MacBook Pro is viewing this screen · 02:13 · Stop". It is created before the first frame. No banner, no session. macOS adds its own screen-recording mark in the menu bar.
 
@@ -76,27 +79,29 @@ What each part buys:
 
 | | macOS | Windows | Linux |
 |---|---|---|---|
-| Stills (slices 1, 2) | Electron `desktopCapturer` in the main process (ScreenCaptureKit underneath); fallback `/usr/sbin/screencapture` | `desktopCapturer` (DXGI duplication or Windows Graphics Capture underneath) | `desktopCapturer` through the xdg-desktop-portal ScreenCast and PipeWire on Wayland; X11 directly |
+| Stills (slices 1, 2) | Electron `desktopCapturer` in the main process (ScreenCaptureKit underneath); fallback `/usr/sbin/screencapture` | `desktopCapturer` (DXGI duplication or Windows Graphics Capture underneath) | one xdg-desktop-portal ScreenCast session per screen-sharing session, frames read from PipeWire; the portal's picker is a consent dialog, so repeated still calls are not used. X11 directly |
 | Video (slice 3) | a hidden capture window in its own session, `getDisplayMedia` answered only when the main process armed it | same | same; the portal draws its own picker unless a restore token is kept |
 | Permission | Screen Recording for the app; granted once, kept across updates; a fresh grant needs a relaunch | none | the portal's own consent, per session or remembered |
-| Input (slice 2 and later) | a small signed Swift helper posting `CGEvent`s (pointer, keys, scroll), started by the app so the app's Accessibility grant applies | `SendInput` through `ffi-rs` (already used for `user32`) | the portal's RemoteDesktop session (libei) from a Rust helper using `ashpd`; XTest on X11 |
-| Lock screen | placard; synthetic input at the login window is unreliable and is not attempted | placard; the secure desktop needs a system service, not planned | placard |
+| Input (slice 2 and later) | a small signed Swift helper posting `CGEvent`s (pointer, keys, scroll); see the rules below | `SendInput` through `ffi-rs` (already used for `user32`); Windows drops it for elevated windows, so the viewer says "this window needs an administrator at the machine" | the portal's RemoteDesktop session (libei) from a Rust helper using `ashpd`; XTest on X11 |
+| Lock screen | placard; `powerMonitor` lock events plus `getSystemIdleState` before and after each capture; synthetic input at the login window is not attempted | placard; the secure desktop needs a system service, not planned | placard |
 | Elevation prompts | macOS ignores synthetic clicks on its consent sheets; typed text is refused while a system prompt has focus (D-04) | UAC's secure desktop is not captured; placard | polkit prompts as any window; typed text refused (D-04) |
 
 - macOS capture numbers from this machine are in `reports/capture-spike.md`.
 - The existing computer-use input path is not reused: it yields to the local person, aborts when the pointer moves and takes a process per action.
+- **Rules for the macOS input helper (slice 2), with a spike first.** Whether a separately signed helper inside the bundle is charged to the app's Accessibility grant is unproven; slice 2 starts by measuring it. The helper runs only during a live control session and exits with it. It takes commands only over a pipe it inherits from the app, never a listening socket or a named service. It stops on its own timer after the banner's Stop or 2 minutes of silence.
+- **Display sleep.** A session keeps the display from sleeping (`powerSaveBlocker`, `prevent-display-sleep`). It does not wake a sleeping display: that would light a screen in a room nobody chose to show. The viewer says the display may be asleep.
 
 ## 6. Transport
 
 - **Slices 1 and 2: sealed frames over the existing connection.** JPEG at 1920 px, only on change, one unconfirmed frame at a time, so a slow link gets fewer frames and never a backlog. Works on every route Connect works on and needs no new network service. About 0.2 to 0.6 MB per second while the screen moves, nothing while it is still.
 - **Slice 3: WebRTC video.** The offer, answer and candidates travel inside the sealed session, so the DTLS fingerprints are authenticated end to end and the media stays private even through a relay. STUN from `stun.cloudflare.com`. If no path forms in 8 seconds the session stays on frames.
-- **Slice 4: TURN.** A relay route `POST /v1/environments/:id/turn-credentials`, called by the target with its environment credential, returns Cloudflare Realtime TURN credentials valid for one hour; the target hands them to the viewer inside the session. Cloudflare lists 1,000 GB a month free, then $0.05 per GB; a relayed 1080p hour is roughly 1 to 2 GB. A per-account monthly cap in the relay keeps it inside what the owner allows (D-03). Unset key: the route answers 503 and sessions stay direct or on frames.
+- **Slice 4: TURN.** A relay route `POST /v1/environments/:id/turn-credentials`, called by the target with its environment credential, returns Cloudflare Realtime TURN credentials valid for 10 minutes, one live credential per machine, renewed inside the sealed session; the target hands them to the viewer inside the session. Cloudflare lists 1,000 GB a month free, then $0.05 per GB; a relayed 1080p hour is roughly 1 to 2 GB. The relay stops issuing when its own estimate (minutes issued times a worst-case bitrate) nears 800 GB. That is an estimate: a credential is usable for any traffic until it expires and Cloudflare meters after the fact, so the relay cannot promise no bill. Before slice 4 the owner confirms on the Cloudflare plan that overage blocks (D-03). Unset key: the route answers 503 and sessions stay direct or on frames.
 
 ## 7. Control (slice 2 and after)
 
 - **A separate permission.** "Allow control" is its own prompt and its own grant; a view grant never implies it. The banner reads "is controlling" and Stop works the same.
 - **Computer use pauses on the target** while a person controls it, so an agent and the owner never fight for the pointer, and resumes when the session ends.
-- **Secure input and passwords.** While macOS reports secure event input, or a system prompt (SecurityAgent, loginwindow) has focus, typed text is not forwarded and the viewer says why. Clicks still work. This keeps 1438 D-01 (an administrator password is typed only in the system's own prompt at the machine). Whether website and app password fields may be typed is D-04, for the owner. The viewer cannot see whether a field is a password field except through this signal.
+- **Secure input and passwords.** While macOS reports secure event input, or a system prompt (SecurityAgent, loginwindow) has focus, typed text is not forwarded and the viewer says why. No click is sent either while SecurityAgent or loginwindow has focus: a click can confirm a system sheet. This keeps 1438 D-01 (an administrator password is typed only in the system's own prompt at the machine). A password field on a web page does not turn secure input on, so the app cannot tell it from any text field; what to do about that is the open half of D-04.
 - **Keys:** physical key codes plus layout-independent text, modifier state reset on every end so no key stays held.
 - **Clipboard and files:** off by default. Clipboard is a per-session opt-in for text only. Files stay on `studio_file_transfer`.
 
@@ -137,8 +142,12 @@ Each slice is one pull request or a short stack, reviewed on Meta Muse at high e
 - **A switch in `settings.json`.** Anything with `settings:write`, or a file edit, flips it.
 - **Encrypting in the server.** One more process that sees the screen, reachable by every session class.
 - **WebRTC first.** See D-05.
-- **Trusting the relay for the machine key.** It would make the relay able to stand in for a machine; pinning with one code comparison avoids that.
+- **Trusting the relay for the machine key.** It would make the relay able to stand in for a machine; pinning after one typed code avoids that.
+- **A click-only prompt.** A click can be synthetic; see D-13.
+- **Closing Electron's run-as-node and inspect switches here.** Right, and not in this increment: the app starts its backend and helpers through run-as-node, so it needs its own change and release.
+- **A hash-chained audit list.** A same-user process can delete the whole file; the list is evidence about remote devices only, and says so.
 
 ## 11. Proof limits for slice 1
 
 - Capture on a Developer ID build with a real Screen Recording grant, the banner over a full-screen app, and a session across Connect between two Macs can only be shown on installed releases with the owner turning the switch on. Until then: unit tests on the channel, the guards, the session rules and the store, and a headless viewer fixture fed by a fake target.
+- System authentication on a Mac with no Touch ID sensor in reach is unverified (`spec.md`, Open).
