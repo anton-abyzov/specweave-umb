@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T03:28:49.869Z",
-  "updated": "2026-11-25T03:28:49.869Z",
-  "lastActivity": "2026-11-25T03:28:49.869Z",
+  "updated": "2026-11-25T11:33:16.419Z",
+  "lastActivity": "2026-11-25T11:33:16.419Z",
   "title": "Live collaboration on sheets, whiteboards, docs, designs and pages",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
