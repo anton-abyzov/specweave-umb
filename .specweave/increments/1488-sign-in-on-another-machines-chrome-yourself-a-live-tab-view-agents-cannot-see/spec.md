@@ -116,6 +116,16 @@ Round 3 also confirmed all nine round 2 fixes.
 4. Low: pulling frames counted as activity. Only input resets the 10 minute idle limit now.
 5. Low: nothing capped the requests or popups. A thread may have 5 sign-ins waiting, and a view may hold 10 popups.
 
+## Review round 4 (Meta Muse Wonder Full 1.0, high, November 25, 2026): SHIP at `520c45efa`, 5 low findings
+
+All five round 3 fixes hold. No path carries typed text or the held tab to a thread.
+
+1. A decline or expiry during the 10 s Allow wait did not wake `start`, which then answered "Allow first". Fixed in `29ea2acf6`: it hears "has ended" at once and opens nothing.
+2. A start already waiting may win the view when the person allows from another device. That device then shows "already open" and the person types nothing, so no secret moves. This is closed by the person-device guard follow-up (see Proof limits).
+3. Frame pulls need only the view id, so another owner session could take the one-shot dialog notice. Accepted: the frames are sealed, and a frame is how the window gets the token.
+4. The popup cap counts popups the view follows, not hub holds, which stay until teardown. Accepted: teardown releases every hold for the view.
+5. Regression tests. `29ea2acf6` adds tests for a decline while Chrome attaches (tab closed), for a decline during the Allow wait, and for frame pulls that do not keep a view open. The unmount cancel and Try again in the web viewer have no automated test yet.
+
 ## Proof limits
 
 - The view key is not authenticated against a pinned identity of the machine. A fingerprint is shown in the view.
