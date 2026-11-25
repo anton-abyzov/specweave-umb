@@ -1,0 +1,12 @@
+{
+  "id": "1478-desktop-preview-consent-pairing-guards-and-relay-privacy",
+  "uuid": "0e28bfcb-7a1e-4409-9b26-7c706cfb823b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T03:13:40.304Z",
+  "updated": "2026-11-25T03:13:40.304Z",
+  "lastActivity": "2026-11-25T03:13:40.304Z",
+  "title": "Desktop preview consent, pairing guards and relay privacy",
+  "project": "specweave-umb"
+}
