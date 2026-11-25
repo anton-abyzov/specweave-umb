@@ -1,0 +1,13 @@
+$ cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run packages/shared/src/boardReports.test.ts apps/server/src/project/ProjectBoardIncrement.test.ts
+# exit 0 — 2026-11-24T05:57:21.143Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.1.0 /Users/anton/.specwithcode/worktrees/specweave-umb/board-reports-and-spec-file/repositories/anton-abyzov/specwithcode
+
+
+ Test Files  2 passed (2)
+      Tests  36 passed (36)
+   Start at  00:57:20
+   Duration  461ms (import 53%, transform 26%, tests 17%, setup 3%, worker 1%)
+

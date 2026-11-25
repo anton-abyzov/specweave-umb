@@ -1,15 +1,18 @@
 {
   "id": "1454-board-reports-list-real-reports-and-spec-file-opens-on-every-machine",
   "uuid": "f295ccb5-6843-46a0-ab45-6c37c10cb1de",
-  "status": "active",
+  "status": "completed",
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-24T04:39:46.670Z",
-  "updated": "2026-11-24T05:57:31.043Z",
-  "lastActivity": "2026-11-24T05:57:31.043Z",
+  "updated": "2026-11-25T01:12:04.795Z",
+  "lastActivity": "2026-11-25T01:12:04.795Z",
   "title": "Board increment panel: Reports lists the real reports and Spec file opens on every machine",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-25T01:12:04.794Z",
+  "approvedAt": "2026-11-25T01:12:04.795Z"
 }

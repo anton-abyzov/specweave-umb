@@ -1,0 +1,22 @@
+$ cd repositories/anton-abyzov/specwithcode/apps/web && node ../../node_modules/vite-plus/bin/vp test run src/components/studio/shell/BoardIncrementView.test.tsx src/components/studio/shell/BoardPane.test.tsx
+# exit 0 — 2026-11-24T05:57:28.401Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+Warning: Route file "/Users/anton/.specwithcode/worktrees/specweave-umb/board-reports-and-spec-file/repositories/anton-abyzov/specwithcode/apps/web/src/routes/projectReturnRoute.test.tsx" does not export a Route. This file will not be included in the route tree.
+
+If this file is not intended to be a route, you can exclude it using one of these options:
+  1. Rename the file to "/Users/anton/.specwithcode/worktrees/specweave-umb/board-reports-and-spec-file/repositories/anton-abyzov/specwithcode/apps/web/src/routes/-projectReturnRoute.test.tsx" (prefix with "-")
+  2. Use 'routeFileIgnorePattern' in your config to match this file
+
+Current configuration:
+  routeFileIgnorePrefix: "-"
+  routeFileIgnorePattern: undefined
+
+ RUN  v5.1.0 /Users/anton/.specwithcode/worktrees/specweave-umb/board-reports-and-spec-file/repositories/anton-abyzov/specwithcode/apps/web
+
+
+ Test Files  2 passed (2)
+      Tests  95 passed (95)
+   Start at  00:57:22
+   Duration  6.21s (transform 74%, import 13%, environment 7%, tests 5%)
+

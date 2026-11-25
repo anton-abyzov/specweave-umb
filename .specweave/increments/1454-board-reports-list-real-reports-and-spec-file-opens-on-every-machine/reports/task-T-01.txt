@@ -1,0 +1,19 @@
+$ cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/workspace/WorkspaceSensitivePaths.test.ts apps/server/src/workspace/WorkspaceFileSystem.test.ts apps/server/src/assets/AssetAccess.test.ts
+# exit 0 — 2026-11-24T05:57:20.111Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.1.0 /Users/anton/.specwithcode/worktrees/specweave-umb/board-reports-and-spec-file/repositories/anton-abyzov/specwithcode
+
+(node:4272) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4271) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:4273) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  3 passed (3)
+      Tests  144 passed (144)
+   Start at  00:57:14
+   Duration  5.95s (tests 59%, import 24%, transform 17%)
+
