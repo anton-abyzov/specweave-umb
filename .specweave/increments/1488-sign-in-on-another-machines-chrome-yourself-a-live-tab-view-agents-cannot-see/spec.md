@@ -55,6 +55,7 @@ Out: an agent typing into a vendor page. Copying cookies or passwords between ma
 - [ ] AC-06: The session ends on Done, after 10 minutes with no frame pulled and no input, or when the tab closes. Ending detaches the debugger and releases the hold. Done leaves the tab open, so the signed-in session stays in the profile. Cancel closes the tab.
 - [ ] AC-07: Only a person's device session may start, view or drive a sign-in view. A worker grant, an outside MCP client and an agent thread are refused (slice 2, with the new RPC). The card that offers it uses the access card pattern with a new subject kind.
 - [ ] AC-08: A popup the held tab opens (OAuth) is held, viewed and ended with it.
+- [ ] AC-10: When a page in the held tab asks for a passkey (`navigator.credentials.get` or `create` with `publicKey`), the next frame carries a notice with the kind and the site. The notice says that Chrome's passkey window is outside the view and that a phone passkey works only next to the machine, and it offers another way to sign in. The page's WebAuthn call runs unchanged. No challenge, credential, QR or hybrid data is read, relayed or proxied. The notice clears when the page navigates.
 - [ ] AC-09: Agents ask for a sign-in with one tool: `chrome_sign_in_needed {profile, url, reason}`. It raises the card and returns at once. When the session ends the thread hears only "signed in: done or cancelled", never the address history or frames (slice 2).
 
 ## Approach
@@ -73,6 +74,25 @@ Slice 2, after D-01:
 - The `chrome_sign_in_needed` tool, and the routine wording "Sign-in needed on m1: Square" instead of a "Blockers" paragraph.
 
 Risks: an active relay could swap the session key (seal.ts states that fleet machines pin by environment id, not by key). The viewer shows a 4-word key fingerprint that the card on the owner's own machine also shows. Frames of a signed-in page cross the relay, which is no worse than thread screenshots today.
+
+## Passkeys (added November 25, 2026 at Anton's request: "add passkey QR")
+
+The request was for the view to show Chrome's cross-device (hybrid) passkey QR, so the owner could approve with the iPhone's Face ID from anywhere. That cannot work, for two reasons:
+
+- The hybrid flow requires a Bluetooth Low Energy advertisement from the phone to the computer that shows the QR. The data then travels through the vendor's tunnel. The Bluetooth step is a proximity check, and it exists precisely so that a QR relayed to a distant phone fails. This is the defence against "PoisonSeed"-style relayed-QR phishing. Sources: [mojoauth](https://mojoauth.com/blog/cross-device-passkey-qr-flow-where-users-drop-off), [The Hacker News](https://thehackernews.com/2025/07/poisonseed-hackers-bypass-fido-keys.html). An iPhone next to M5 cannot complete a QR that m1 shows.
+- Chrome draws the passkey window and its QR in its own UI, outside the page. `Page.captureScreenshot` never sees it. Only a whole-screen capture of m1 would, and that belongs to the remote desktop work, which has the same Bluetooth limit.
+
+What 1488 builds instead (AC-10, T-05): the view detects the request and tells the owner, who then picks the site's other sign-in method (password plus code, an emailed link). If the owner's phone is physically next to m1, the native flow works as usual. Nothing in WebAuthn is relayed, proxied or emulated: no virtual authenticator and no `WebAuthn.enable`.
+
+## Review round 1 (GPT-6.2 Sol, November 25, 2026): FIX FIRST, 7 findings, all addressed in `31d793f77`
+
+1. Races around the hold. The hub now refuses held-tab calls at dispatch and drops their answers. While a sign-in tab is being created, no thread takes a new tab. The debugger must detach cleanly, and "already attached" is refused.
+2. Popups that close unseen. Popups are attached at once, a popup closed without an event is dropped after `tabs.get`, and a tab whose opener is held is held too, both in `chrome_tabs` and in `useTab`.
+3. Frame and origin binding. Each frame names `tabId:navigationEntryId`, a frame taken across a navigation is discarded, input must name the current frame, and text goes only to https pages.
+4. Cleanup. Holds stay until Chrome confirms. Cancel and idle close the tabs. In-flight calls settle first. Holds survive a reconnect, and a failed teardown finishes on reconnect.
+5. Frames in clear. Frames are sealed to the viewer's X25519 key. Only named keys with no character of their own are sent as keys. Every failure of a secret-bearing command returns one fixed message. Proof limit: the view key is not authenticated against a pinned identity of the machine. A fingerprint is shown instead (follow-up).
+6. Replay. Sealed text carries a sequence number, which is spent before dispatch, and its size is capped before decoding.
+7. Leaks. A refused thread gets a generic "not available", held tabs are not counted in Settings, and `dispose()` unsubscribes.
 
 ## Decisions
 
@@ -98,6 +118,9 @@ Risks: an active relay could swap the session key (seal.ts states that fleet mac
 
 ### T-03 Mockup of the card and the viewer
 - AC: AC-07, AC-09 | Files: .specweave/increments/1488-sign-in-on-another-machines-chrome-yourself-a-live-tab-view-agents-cannot-see/reports/mockup.html | Test: manual: the mockup screenshot exists in reports/
+
+### T-05 Passkey request notice (no WebAuthn relay)
+- AC: AC-10 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/browserExtension/signInView.ts, repositories/anton-abyzov/specwithcode/apps/server/src/browserExtension/signInView.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/browserExtension/signInView.test.ts
 
 ### T-04 RPC for person sessions, access card subject, viewer (slice 2, after D-01)
 - AC: AC-07, AC-08, AC-09 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/browserExtension.ts, repositories/anton-abyzov/specwithcode/apps/server/src/browserExtension/BrowserExtension.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/SignInViewCard.tsx | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/browserExtension/
