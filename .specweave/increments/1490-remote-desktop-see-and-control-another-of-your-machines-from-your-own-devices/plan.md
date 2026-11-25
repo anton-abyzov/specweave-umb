@@ -46,6 +46,8 @@ Why the main process and not the server or a window: the server runs as plain No
 
 ## 3. The sealed session
 
+On the wire every binary message is one type byte (`SCREEN_SHARE_WIRE`: hello 1, challenge 2, proof 3, sealed 4) and a body: UTF-8 JSON for hello, challenge and proof, one sealed record for sealed. Inside the seal a record starts with its own type byte (`SCREEN_SHARE_RECORD`); the two number spaces share no value. `encodeScreenShareWire`, `encodeScreenShareWireJson`, `decodeScreenShareWire` and `decodeScreenShareJson` in `packages/contracts/src/screenShare.ts` are the only encoders. On the host socket each binary message is prefixed with the 36-character session id. Each side's handshake start is single-use: it answers one challenge or one proof and is discarded on success, failure, timeout or retry.
+
 All of it is in `packages/shared/src/screenShareChannel.ts` (`@noble` for X25519 and Ed25519, WebCrypto for AES-GCM; runs in the browser, in Electron's main process and in tests under Node 22).
 
 1. **Viewer hello:** mode (`view`), a fresh X25519 public key `vk`, the device public key as a JWK, whether it already holds a saved key for this machine, and `c = SHA-256(r)` for a fresh 32-byte random `r` it keeps to itself.
@@ -76,6 +78,20 @@ What each part buys:
 **Audit:** every attempt and session, in the store, listed in Settings on that machine.
 
 **Timeouts:** section D-10 in `spec.md`.
+
+
+**What each end reads, and when.** The relay passes sealed records as soon as a proof went by, valid or not, so these duties are the ends' own:
+
+| Stage | Target (app) | Viewer |
+|---|---|---|
+| Before hello | reads only a hello; anything else ends the session | sends hello after the server's `open`, having checked the machine id in it |
+| After hello | sends one challenge, reads only a proof | reads only a challenge; checks the signature and the saved key; sends the proof |
+| Proof accepted | may now open sealed records; shows the prompt or goes live by grant | may now open sealed records; draws nothing |
+| Asking, code | reads only "end" and, in the code stage, the code; sends states, no frame | shows the state words and the code field; draws nothing |
+| Live | sends frames; reads "frame received", "show display", "end" | draws frames only now, and only if its own code check passed or the key was already saved |
+| Any stage | an unexpected or unreadable record ends the session | a record that is not a state or a frame ends the session |
+
+The app sends its status as soon as the server says `attached`; until then the server answers viewers "not available right now". Status may change at any time; turning off ends the session. A replaced app's late messages are dropped by the server.
 
 ## 5. Capture and input per operating system
 
