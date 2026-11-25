@@ -1,0 +1,12 @@
+{
+  "id": "1483-studio-code-mcp-tool-surface-core-tools-up-front-search-hints-specweave-toolkit",
+  "uuid": "a828eee0-2c9e-4be0-b16e-83871367dad3",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T04:46:08.149Z",
+  "updated": "2026-11-25T04:46:08.149Z",
+  "lastActivity": "2026-11-25T04:46:08.149Z",
+  "title": "studio-code MCP tool surface: core tools up front, search hints, SpecWeave toolkit",
+  "project": "specweave-umb"
+}
