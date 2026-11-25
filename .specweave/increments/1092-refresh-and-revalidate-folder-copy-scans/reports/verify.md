@@ -1,11 +1,11 @@
 # Verify — 1092-refresh-and-revalidate-folder-copy-scans
 
-PASS · 2026-11-24T15:50:14.203Z · commands from config testing.commands
+PASS · 2026-11-25T00:22:12.934Z · commands from config testing.commands
 
 ## Commands
 
 - Working directory: . (config testing.commands)
-### `python3 scripts/fleet-project-sync.py --self-test` → exit 0 (11s)
+### `python3 scripts/fleet-project-sync.py --self-test` → exit 0 (10s)
 
 ```
 test_absent_and_idempotent (__main__.SafetyTests.test_absent_and_idempotent) ... ok
@@ -23,7 +23,7 @@ test_unpushed_commit_preserved (__main__.SafetyTests.test_unpushed_commit_preser
 test_unsafe_paths_urls_and_symlinks (__main__.SafetyTests.test_unsafe_paths_urls_and_symlinks) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 10.471s
+Ran 13 tests in 10.099s
 
 OK
 ```
@@ -34,7 +34,7 @@ OK
 ```
 ..............................................
 ----------------------------------------------------------------------
-Ran 46 tests in 0.362s
+Ran 46 tests in 0.352s
 
 OK
 ```
@@ -45,14 +45,14 @@ OK
 ```
 .................
 ----------------------------------------------------------------------
-Ran 17 tests in 0.094s
+Ran 17 tests in 0.095s
 
 OK
 recorded
 ```
 
 - Working directory: . (explicit)
-### `python3 scripts/fleet-project-sync.py --self-test` → exit 0 (11s)
+### `python3 scripts/fleet-project-sync.py --self-test` → exit 0 (10s)
 
 ```
 test_absent_and_idempotent (__main__.SafetyTests.test_absent_and_idempotent) ... ok
@@ -70,7 +70,7 @@ test_unpushed_commit_preserved (__main__.SafetyTests.test_unpushed_commit_preser
 test_unsafe_paths_urls_and_symlinks (__main__.SafetyTests.test_unsafe_paths_urls_and_symlinks) ... ok
 
 ----------------------------------------------------------------------
-Ran 13 tests in 11.071s
+Ran 13 tests in 9.779s
 
 OK
 ```
@@ -81,7 +81,7 @@ OK
 ```
 ..............................................
 ----------------------------------------------------------------------
-Ran 46 tests in 0.400s
+Ran 46 tests in 0.347s
 
 OK
 ```
@@ -92,7 +92,7 @@ OK
 ```
 .................
 ----------------------------------------------------------------------
-Ran 17 tests in 0.078s
+Ran 17 tests in 0.077s
 
 OK
 recorded

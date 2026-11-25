@@ -1,25 +1,20 @@
-<!-- specweave review: reviewer=gpt-6.2-sol model=gpt-6.2-sol family=openai author=openai depth=standard repo=repositories/anton-abyzov/specwithcode base=8ad73fe68f10f3d4afcfd76b3a6948ca4944a0f8 head=bdc54e3ab280b900bcd10e66d7433508efdaadca at=2026-11-24T15:57:14.082Z -->
-# 1092 closure review of task Files (GPT-6.2 Sol, Codex, effort high)
+<!-- specweave review: reviewer=gpt-6.2-sol model=gpt-6.2-sol family=openai author=openai depth=standard repo=repositories/anton-abyzov/specwithcode base=8ad73fe68f10f3d4afcfd76b3a6948ca4944a0f8 head=cf41f4dc9060adc4fc7ea32192b67c1baa9de2cf at=2026-11-25T00:28:32.807Z -->
+# 1092 T-12 captured-copy snapshot review round 2 (GPT-6.2 Sol, Codex, effort high)
 Verdict: fix first
 
-Head: bdc54e3ab280b900bcd10e66d7433508efdaadca (v1.0.420). Read-only, no tests run. All 43 task-listed files present at the head.
+Head: cf41f4dc9060adc4fc7ea32192b67c1baa9de2cf (main, 1.0.429 merge; contains v1.0.428 with PR #884). Round 1 at bdc54e3ab. Read-only, test assertions inspected, not run.
 
-## Per AC
-- AC-01 gap: apps/server/src/fleet/folderTransfer/manifest.test.ts:332 covers ordinary removal, addition and registration retention; a missing worktree with a non-directory ancestor aborts the scan (manifest.ts:309).
-- AC-02 gap: apps/web/src/components/studio/HandoffFolderCopy.wizard.test.tsx:797 covers scan age, unchanged Refresh and timeout; Refresh can expand the secret list and retain obsolete missing-worktree notices.
-- AC-03 gap: twoServer.snapshot.test.ts:133 proves captured bytes survive churn and changed destinations or damaged backing are refused; approval can still accept a different preview from the one the caller saw.
-- AC-04 met: manifest.test.ts:332, apps/web/tests/folder-copy/verify.mjs:353, twoServer.verify.test.ts:636; evidence separates source, fixture and installed checks.
-- AC-05 met: reconcile.test.ts:588, HandoffCopyPreview.test.tsx:412.
-- AC-07 met: twoServer.snapshot.test.ts:133, sourceSnapshot.test.ts:61, sourceService.snapshot.test.ts:57; folderCopyPreparation.ts:206 keeps idle and drift checks.
+## Round 1 findings
+1. `.envrc` gained a secret: fixed (sourceSnapshot.ts:535; sourceSnapshot.review.test.ts:45).
+2. Ancestor swap: not fixed in full; pinned descendant lookup gap below (sourceCaptureAnchor.ts:122; sourceSnapshot.review.test.ts:135).
+3. Missing capturedSource: fixed (sourceService.ts:1214; sourceService.review.test.ts:55).
+4. Drift stamp: fixed for the buffered writer queue (sourceSnapshot.ts:448; sourceSnapshot.review.test.ts:271); streamed reads gap below.
+5. Crash before cleanup: fixed (sourceService.ts:507; sourceService.review.test.ts:71).
+6. FIFO open: fixed (sourceSnapshot.ts:173; sourceSnapshot.review.test.ts:285).
 
 ## Findings
-- Blocker · packages/contracts/src/folderCopy.ts:335, apps/server/src/fleet/folderTransfer/destinationService.ts:646 — approval can use an unseen preview. Window A reviews a job; window B changes a conflict choice and finishes comparing; A clicks Copy; approval carries only operationId and secret options, so the server validates and transfers B's plan. The concurrent-approval test covers two approvals of the same plan. Re-verified statically.
-- Important · apps/web/src/components/studio/handoffCopyScanRecovery.ts:50, handoffCopySecrets.ts:73, useCopySecrets.ts:115 — Refresh can expand the secret list: a newly added `.env.local` enters the live summary and, with secrets included, the next Copy stages it unless unticked; the saved pointer stays identical so the assertion misses it. Re-verified statically.
-- Important · apps/server/src/fleet/folderTransfer/manifest.ts:309 — a registered worktree whose parent is replaced by a file gives `ENOTDIR` from lstat; the scan throws before labelling the registration missing. Re-verified statically.
-- Important · apps/web/src/components/studio/handoffCopyNotices.ts:32 — restore a previously missing folder and Refresh: the live summary counts it present while the saved warning still says missing. Re-verified statically.
-- Important · apps/server/src/fleet/folderTransfer/destinationService.ts:703, :1209, apps/web/src/components/studio/HandoffCopyFooter.tsx:192 — approval persists a disk shortage; freeing space and recomputing leaves the old disk flag set and both approval actions disabled. Re-verified statically.
+- High · apps/server/src/fleet/folderTransfer/sourceCaptureAnchor.ts:122, sourceSnapshot.ts:194 — the pinned lookup follows intermediate symlinks. On Linux, if the root is replaced after pinning and a nested directory in the parked original becomes a link to the replacement tree, both lookups can resolve to the same outside inode; absolute-path checks see a stable replacement tree, so capture packs its bytes. After scanning. Re-verified by source trace.
+- Medium · apps/server/src/fleet/folderTransfer/sourceSnapshot.ts:437, sourceDrift.ts:603 — streamed writes can age a racy stamp: a same-size rewrite within one filesystem tick leaves timestamps unchanged; a slow pack write pushes the sampled time past the two-second guard, so deferred move validation can skip hashing changed bytes. Re-verified by source trace.
+- Medium · apps/server/src/fleet/folderTransfer/agentCopy.ts:329, destinationService.ts:655 — same-version agent approval drops the revision: the agent checks the preview is clean, then calls copyApprove({ operationId }) without previewRevision; a concurrent replan publishing a ready mirror plan in between can move a destination-only file to backup. Re-verified by source trace.
 
-## Evidence
-The release receipt records 100 passing tests across seven files; older ledger runs apply to their recorded heads; the installed README honestly limits its claim to an isolated one-machine check (live scan and Refresh UI need a second paired machine).
-
-Author check (closing worker, by reading at the same head): blocker confirmed, FolderCopyApproveInput (folderCopy.ts:335) has no plan or preview identity and approve() reads the current plan (destinationService.ts:646-650). Not patched here, per the closing brief.
+Author check (closing worker, by reading at cf41f4dc9): agentCopy.ts:329 confirmed, copyApprove({ operationId }) with no previewRevision. Not patched here.
