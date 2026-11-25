@@ -1,0 +1,12 @@
+{
+  "id": "1476-agent-approvals-and-provider-isolation-hardening",
+  "uuid": "61c0e9ca-f83c-48cd-81e5-4762b2d94370",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T03:13:17.951Z",
+  "updated": "2026-11-25T03:13:17.951Z",
+  "lastActivity": "2026-11-25T03:13:17.951Z",
+  "title": "Agent approvals and provider isolation hardening",
+  "project": "specweave-umb"
+}
