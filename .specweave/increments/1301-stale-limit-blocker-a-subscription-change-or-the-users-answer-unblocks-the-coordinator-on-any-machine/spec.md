@@ -94,3 +94,6 @@ Risks: D-01 changes a behavior a test pinned. A thread woken by AC-05 may answer
 
 ### T-06 Verify and close 1301
 - AC: AC-01 | Files: .specweave/increments/1301-stale-limit-blocker-a-subscription-change-or-the-users-answer-unblocks-the-coordinator-on-any-machine/spec.md | Test: specweave verify 1301
+
+### T-07 Respect Stop when a subscription change would restart a completed thread
+- AC: AC-02, AC-05 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.limitLiftedResume.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/limitLifted.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/orchestrationV2.ts, repositories/anton-abyzov/specwithcode/CHANGELOG.md | Test: cd repositories/anton-abyzov/specwithcode/apps/server && pnpm exec vp test run src/orchestration-v2/Orchestrator.limitLiftedResume.test.ts
