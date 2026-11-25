@@ -58,6 +58,8 @@ Risks: an MCP server's own request timeout (the TypeScript MCP SDK defaults to 6
 - D-10 Review round 2 (GPT-6 Sol, NO-SHIP on `6e2061f87`) found two real gaps, both fixed:
   - The adapter records a form's request a moment before its card. A request whose native id the Claude adapter gave it (`mcp-elicitation:` from driver `claudeAgent`) is a form even before its card lands. Until then an accept is refused with "This form is still opening. Try again in a moment.", and Decline or Cancel go through without keeping any answers.
   - A field named `__proto__`, `constructor` or `prototype` makes the form one the card can't show, so it is cancelled with a note. The validator reads only the answers object's own values.
+- D-11 Review round 3 (GPT-6 Sol, NO-SHIP on `630cfcd4b`) found that Stop or the unattended timer could fire after the app recorded Submit but before the queued answer reached the adapter. The server then got `cancel` and the record was overwritten as cancelled. Fix: the orchestrator marks the form answered as it records the answer, and the adapter checks that mark.
+  - Stop or the timer then waits up to 2 minutes (`ANSWER_IN_FLIGHT_GRACE_MS`) for the answer and passes it on, so the server gets what the record says. If the answer still hasn't arrived, the call is cancelled with the note "The answer to <server>'s question didn't reach it in time; it was cancelled." The record is never overwritten as cancelled.
 ### Open
 - none
 
