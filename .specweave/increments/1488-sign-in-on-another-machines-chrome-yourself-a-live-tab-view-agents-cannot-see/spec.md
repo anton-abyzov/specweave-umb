@@ -121,6 +121,7 @@ Round 3 also confirmed all nine round 2 fixes.
 - The view key is not authenticated against a pinned identity of the machine. A fingerprint is shown in the view.
 - `chrome_sign_in_needed` uses the caller's own machine's Chrome. A thread on M5 asking for m1's Chrome is refused with a pointer to run it on m1 (follow-up: forward over `chrome_peer`).
 - The web viewer is checked in a headless fixture (real card and view components, real WebCrypto sealing, a stand-in machine) and by unit tests. A live run with the real extension on m1 waits for the release.
+- The sign-in methods refuse coordinator keys only. A local owner credential (for example `local-cli-owner`) could answer the card and open a view itself. It would get a fresh tab it can already reach with chrome tools. It would not get what the person types or sees: frames are sealed to the starting window's key, input and Done need a token carried only inside those frames, and one request opens one view. Follow-up: switch to the person-device guard that 1490 adds in `apps/server/src/auth/personDevice.ts`.
 - The iOS app shows a sign-in card as an unknown subject kind (it treats kinds as an open enum). A native viewer is a follow-up.
 
 ## Decisions
