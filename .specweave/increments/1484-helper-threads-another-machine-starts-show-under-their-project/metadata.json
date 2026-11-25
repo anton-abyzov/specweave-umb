@@ -1,0 +1,18 @@
+{
+  "id": "1484-helper-threads-another-machine-starts-show-under-their-project",
+  "uuid": "8520f23e-1055-4204-aac7-c03ee2f269e4",
+  "status": "completed",
+  "type": "bug",
+  "priority": "P1",
+  "created": "2026-11-25T04:55:48.670Z",
+  "updated": "2026-11-25T08:37:43.690Z",
+  "lastActivity": "2026-11-25T08:37:43.690Z",
+  "title": "Helper threads another machine starts show under their project, not as loose No project chats",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-25T08:37:43.686Z",
+  "approvedAt": "2026-11-25T08:37:43.690Z"
+}
