@@ -1,0 +1,12 @@
+{
+  "id": "1486-skill-deprecation-pointer",
+  "uuid": "6cd6f6dd-19cb-4005-9cc4-e553b68644fb",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T04:26:20.768Z",
+  "updated": "2026-11-25T04:26:20.768Z",
+  "lastActivity": "2026-11-25T04:26:20.768Z",
+  "title": "Skill deprecation that names the replacement",
+  "project": "specweave-umb"
+}
