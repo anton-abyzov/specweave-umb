@@ -1,0 +1,12 @@
+{
+  "id": "1490-remote-desktop-see-and-control-another-of-your-machines-from-your-own-devices",
+  "uuid": "36b1dbc8-7bf4-4d51-91cd-0ad90924f799",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T15:47:57.720Z",
+  "updated": "2026-11-25T15:47:57.720Z",
+  "lastActivity": "2026-11-25T15:47:57.720Z",
+  "title": "Remote desktop: see and control another of your machines from your own devices",
+  "project": "specweave-umb"
+}
