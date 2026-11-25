@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T15:14:07.155Z",
-  "updated": "2026-11-25T16:13:07.574Z",
-  "lastActivity": "2026-11-25T16:13:07.574Z",
+  "updated": "2026-11-25T16:29:45.248Z",
+  "lastActivity": "2026-11-25T16:29:45.248Z",
   "title": "Sign in on another machine's Chrome yourself: a live tab view agents cannot see",
   "project": "specweave-umb",
   "repositories": [

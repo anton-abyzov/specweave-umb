@@ -52,7 +52,7 @@ Out: an agent typing into a vendor page. Copying cookies or passwords between ma
 - [ ] AC-03: Nothing from the held tab reaches a thread, the audit list or a log. No `record` call, no frame or address in thread items, and no input text is ever stored.
 - [ ] AC-04: The view gets frames of the tab (JPEG, at most about 2 per second, and only while a viewer listens). Each frame carries the page's origin as Chrome reports it over CDP (`Page.getNavigationHistory`), never as an agent or vendor states it.
 - [ ] AC-05: The viewer sends clicks, scrolls, key presses and text. Coordinates are clamped to the frame. Text arrives sealed to the session's X25519 key and is unsealed only on the machine that owns the tab. A plain-text `text` input is refused.
-- [ ] AC-06: The session ends on Done, after 10 minutes with no frame pulled and no input, or when the tab closes. Ending detaches the debugger and releases the hold. Done leaves the tab open, so the signed-in session stays in the profile. Cancel closes the tab.
+- [ ] AC-06: The session ends on Done, after 10 minutes with no input (pulling frames does not keep it open), or when the tab closes. Ending detaches the debugger and releases the hold. Done leaves the tab open, so the signed-in session stays in the profile. Cancel closes the tab.
 - [ ] AC-07: Only a person's device session may start, view or drive a sign-in view. A worker grant, an outside MCP client and an agent thread are refused (slice 2, with the new RPC). The card that offers it uses the access card pattern with a new subject kind.
 - [ ] AC-08: A popup the held tab opens (OAuth) is held, viewed and ended with it.
 - [ ] AC-10: When a page in the held tab asks for a passkey (`navigator.credentials.get` or `create` with `publicKey`), the next frame carries a notice with the kind and the site. The notice says that Chrome's passkey window is outside the view and that a phone passkey works only next to the machine, and it offers another way to sign in. The page's WebAuthn call runs unchanged. No challenge, credential, QR or hybrid data is read, relayed or proxied. The notice clears when the page navigates.
@@ -105,6 +105,16 @@ What 1488 builds instead (AC-10, T-05): the view detects the request and tells t
 7. Legacy holds were lost when an install started sending an `instanceId`. They now carry over.
 8. Frames had a fail-open sentinel. Input must name a frame the view sent, with the same origin and a history entry. Residual: a navigation between the check and `Input.insertText`.
 9. The Settings tab count included held tabs. It no longer does.
+
+## Review round 3 (Meta Muse Wonder Full 1.0, high, November 25, 2026): FIX FIRST, 5 findings, all addressed in `520c45efa`
+
+Round 3 also confirmed all nine round 2 fixes.
+
+1. High: `start` did not check that the card was allowed, and an agent can compute the request id. Now `start` waits up to 10 s for the card's Allow and otherwise opens nothing in Chrome. The sign-in RPCs were already owner-only, so a thread cannot call `start` itself.
+2. Medium: the view id worked as a bearer secret. Each view now has a random token that travels only inside sealed frames. Input and Done need it. Cancel does not, since it only closes the tab.
+3. Medium: closing the window while the view opened left the tab held, and a failed start had no retry. The viewer now cancels a view that finishes opening after its window closed, and offers "Try again" after a failed start.
+4. Low: pulling frames counted as activity. Only input resets the 10 minute idle limit now.
+5. Low: nothing capped the requests or popups. A thread may have 5 sign-ins waiting, and a view may hold 10 popups.
 
 ## Proof limits
 
