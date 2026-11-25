@@ -5,8 +5,11 @@
   "type": "bug",
   "priority": "P1",
   "created": "2026-11-24T18:53:42.451Z",
-  "updated": "2026-11-24T18:53:42.451Z",
-  "lastActivity": "2026-11-24T18:53:42.451Z",
+  "updated": "2026-11-25T02:53:49.795Z",
+  "lastActivity": "2026-11-25T02:53:49.795Z",
   "title": "Bare file names in chat link only when the file exists",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

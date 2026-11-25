@@ -12,11 +12,11 @@ In: inline code that names a bare file (no `/` or `\` in what was written, optio
 
 ## Acceptance Criteria
 
-- [ ] AC-01: A bare file name in inline code that the thread's machine does not have renders as plain code, not a chip; clicking it shows no toast.
-- [ ] AC-02: A bare file name the host has (in the workspace root, a folder the message names, or found uniquely by search) still renders as a chip that opens the file, with `file:line` keeping its line.
-- [ ] AC-03: Until the host answers, a bare name renders as plain code, on every mount; nothing confirmed earlier is reused, so a file deleted since never shows a chip and a file created since starts linking.
-- [ ] AC-04: Paths containing `/` keep today's behaviour, including the not-found notice for a missing one.
-- [ ] AC-05: A remote thread checks the name on its own machine (the thread's environment), never on the viewer's.
+- [x] AC-01: A bare file name in inline code that the thread's machine does not have renders as plain code, not a chip; clicking it shows no toast.
+- [x] AC-02: A bare file name the host has (in the workspace root, a folder the message names, or found uniquely by search) still renders as a chip that opens the file, with `file:line` keeping its line.
+- [x] AC-03: Until the host answers, a bare name renders as plain code, on every mount; nothing confirmed earlier is reused, so a file deleted since never shows a chip and a file created since starts linking.
+- [x] AC-04: Paths containing `/` keep today's behaviour, including the not-found notice for a missing one.
+- [x] AC-05: A remote thread checks the name on its own machine (the thread's environment), never on the viewer's.
 
 ## Approach
 
