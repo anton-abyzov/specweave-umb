@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-24T16:30:58.023Z",
-  "updated": "2026-11-24T20:04:19.635Z",
-  "lastActivity": "2026-11-24T20:04:19.635Z",
+  "updated": "2026-11-25T02:14:19.685Z",
+  "lastActivity": "2026-11-25T02:14:19.685Z",
   "title": "Fix folder-copy approval binding and snapshot review defects",
   "project": "specweave-umb"
 }
