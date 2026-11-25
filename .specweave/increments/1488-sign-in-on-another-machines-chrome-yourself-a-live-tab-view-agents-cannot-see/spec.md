@@ -56,7 +56,7 @@ Out: an agent typing into a vendor page. Copying cookies or passwords between ma
 - [ ] AC-07: Only a person's device session may start, view or drive a sign-in view. A worker grant, an outside MCP client and an agent thread are refused (slice 2, with the new RPC). The card that offers it uses the access card pattern with a new subject kind.
 - [ ] AC-08: A popup the held tab opens (OAuth) is held, viewed and ended with it.
 - [ ] AC-10: When a page in the held tab asks for a passkey (`navigator.credentials.get` or `create` with `publicKey`), the next frame carries a notice with the kind and the site. The notice says that Chrome's passkey window is outside the view and that a phone passkey works only next to the machine, and it offers another way to sign in. The page's WebAuthn call runs unchanged. No challenge, credential, QR or hybrid data is read, relayed or proxied. The notice clears when the page navigates.
-- [ ] AC-09: Agents ask for a sign-in with one tool: `chrome_sign_in_needed {profile, url, reason}`. It raises the card and returns at once. When the session ends the thread hears only "signed in: done or cancelled", never the address history or frames (slice 2).
+- [ ] AC-09: Agents ask for a sign-in with one tool: `chrome_sign_in_needed {url, reason, clientRequestId, profile?}`. It raises a sign-in card in the caller's thread and waits up to 4 minutes. It returns one word (done, cancelled, timed_out, tab_closed, declined, expired or signing_in) and never the address history, frames or keys. Calling it again with the same `clientRequestId` keeps waiting without a second card. A sign-in card stores no grant. It works on the machine whose Chrome it uses (slice 2).
 
 ## Approach
 
@@ -94,6 +94,25 @@ What 1488 builds instead (AC-10, T-05): the view detects the request and tells t
 6. Replay. Sealed text carries a sequence number, which is spent before dispatch, and its size is capped before decoding.
 7. Leaks. A refused thread gets a generic "not available", held tabs are not counted in Settings, and `dispose()` unsubscribes.
 
+## Review round 2 (Meta Muse Wonder Full 1.0, high, November 25, 2026): FIX FIRST, 9 findings, all addressed in `de316f0ca`
+
+1. A failed `tabs.get` counted as a closed tab. Now only Chrome's "No tab with id" proves a tab is closed. Transport errors keep the hold, and orphaned teardowns retry every 30 s as well as on reconnect.
+2. Popups found by their opener were held forever. `holdForPerson` now reports them to their view. Teardown walks every tab held for the view, and a popup reported after the end is closed (Cancel) or released (Done).
+3. A closed main tab left its popups open. They now close with it.
+4. `callTabId` missed some shapes. `tabs.remove` with a list is now checked id by id, and `tabs.update` without an id is refused.
+5. The passkey notice named the page's `rpId`. It now names the host from Chrome's navigation history.
+6. The passkey binding was unproven on real Chrome. `Runtime.enable` was added (`2c519246c`) and checked on real headless Chrome. Proof limit: a popup that asks for a passkey before it is attached is not reported.
+7. Legacy holds were lost when an install started sending an `instanceId`. They now carry over.
+8. Frames had a fail-open sentinel. Input must name a frame the view sent, with the same origin and a history entry. Residual: a navigation between the check and `Input.insertText`.
+9. The Settings tab count included held tabs. It no longer does.
+
+## Proof limits
+
+- The view key is not authenticated against a pinned identity of the machine. A fingerprint is shown in the view.
+- `chrome_sign_in_needed` uses the caller's own machine's Chrome. A thread on M5 asking for m1's Chrome is refused with a pointer to run it on m1 (follow-up: forward over `chrome_peer`).
+- The web viewer is checked in a headless fixture (real card and view components, real WebCrypto sealing, a stand-in machine) and by unit tests. A live run with the real extension on m1 waits for the release.
+- The iOS app shows a sign-in card as an unknown subject kind (it treats kinds as an open enum). A native viewer is a follow-up.
+
 ## Decisions
 
 ### Asked
@@ -123,4 +142,4 @@ What 1488 builds instead (AC-10, T-05): the view detects the request and tells t
 - AC: AC-10 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/browserExtension/signInView.ts, repositories/anton-abyzov/specwithcode/apps/server/src/browserExtension/signInView.test.ts | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/browserExtension/signInView.test.ts
 
 ### T-04 RPC for person sessions, access card subject, viewer (slice 2, after D-01)
-- AC: AC-07, AC-08, AC-09 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/browserExtension.ts, repositories/anton-abyzov/specwithcode/apps/server/src/browserExtension/BrowserExtension.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/SignInViewCard.tsx | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/browserExtension/
+- AC: AC-07, AC-08, AC-09 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/browserSignIn.ts, repositories/anton-abyzov/specwithcode/apps/server/src/browserExtension/signInRequests.ts, repositories/anton-abyzov/specwithcode/apps/server/src/browserExtension/BrowserExtension.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/toolkits/chrome/signInTool.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/signInSeal.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/signIn/SignInViewer.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/AccessRequestCard.tsx | Test: cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/browserExtension/ apps/server/src/mcp/toolkits/chrome/ apps/server/src/access/AccessRequests.test.ts apps/server/src/auth/RpcAuthorization.away.test.ts
