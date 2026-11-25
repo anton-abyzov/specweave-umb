@@ -1,0 +1,12 @@
+{
+  "id": "1479-server-access-and-sign-in-hardening",
+  "uuid": "389f6bf0-273f-4459-899c-aa3ab688125b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T03:14:01.241Z",
+  "updated": "2026-11-25T03:14:01.241Z",
+  "lastActivity": "2026-11-25T03:14:01.241Z",
+  "title": "Server access and sign-in hardening",
+  "project": "specweave-umb"
+}
