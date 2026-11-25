@@ -1,6 +1,6 @@
 # Sign in on another machine's Chrome yourself: a live tab view agents cannot see
 
-Auth change: slice 1 adds no client entry point and no scope, but slice 2 does. Nothing past slice 1 merges before Anton answers D-01.
+Auth change, accepted by Anton on November 25, 2026 (D-01): build, merge and release all slices.
 
 ## Problem
 
@@ -77,7 +77,8 @@ Risks: an active relay could swap the session key (seal.ts states that fleet mac
 ## Decisions
 
 ### Asked
-- D-01 (open, for Anton): 1438 D-01 says passwords are typed only in a prompt drawn by the machine itself, because an in-app field sends them over the WebSocket and the Connect relay. A live tab view breaks the letter of that rule: the owner's keys leave their device and reach m1's page. The recommendation is to allow it as a narrow exception, under these conditions: (a) text is sealed end to end to a per-session key, so Cloudflare and the relay see only ciphertext; (b) only a person's device session can open the view; (c) the view always shows the origin as m1's Chrome reports it; (d) agents cannot see the tab at all. Answer: allow with (a) to (d), or keep 1438 D-01 strict and leave remote sign-in to Screen Sharing.
+- D-01: 1438 D-01 says passwords are typed only in a prompt drawn by the machine itself. May the owner's keystrokes reach another machine's Chrome page over Connect through this view, as a narrow exception under (a) text sealed end to end to a per-view key, (b) only the owner's device sessions may open the view, (c) the origin always shown as that machine's Chrome reports it, (d) agents blind to the tab? → **Yes** (Anton, November 25, 2026: "yes yes, connect through it and control. Do everything you need. I allow fully."). Recorded in project memory `decision_remote_sign_in_view.md`; administrator passwords stay under 1438 D-01.
+- D-05: change the Square password that a routine printed in plain text on November 25? → **No** (Anton: "No, don't change it. You have Obsidian notes, and it's all saved and stored there."). Accepted risk, see `reports/accepted-risk.md`. The routines on m1 are changed so they never read or print credentials.
 
 ### Defaulted (change any before sw-do)
 - D-02: frames come from polled `Page.captureScreenshot` (JPEG q60, about 2 per second), not `Page.startScreencast`, because a background tab on an unattended Mac sends no screencast frames. Reversible.
@@ -85,7 +86,7 @@ Risks: an active relay could swap the session key (seal.ts states that fleet mac
 - D-04: option D (saved-password autofill pressed by an agent) gets no product work. Routines may try an existing session or "Continue with Google" first, as today.
 
 ### Open
-- D-01 above.
+- none
 
 ## Tasks
 
