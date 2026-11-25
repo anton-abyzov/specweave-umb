@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T03:13:40.304Z",
-  "updated": "2026-11-25T03:13:40.304Z",
-  "lastActivity": "2026-11-25T03:13:40.304Z",
+  "updated": "2026-11-25T03:41:28.343Z",
+  "lastActivity": "2026-11-25T03:41:28.343Z",
   "title": "Desktop preview consent, pairing guards and relay privacy",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
