@@ -5,11 +5,14 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-15T05:50:28.924Z",
-  "updated": "2026-11-15T07:06:44.533Z",
-  "lastActivity": "2026-11-15T07:06:44.533Z",
+  "updated": "2026-11-25T01:26:54.749Z",
+  "lastActivity": "2026-11-25T01:26:54.749Z",
   "title": "A runaway check cannot freeze a Linux worker: agent commands get their own memory limit",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

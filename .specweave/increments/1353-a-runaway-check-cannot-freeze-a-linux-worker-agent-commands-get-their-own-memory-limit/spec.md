@@ -21,8 +21,8 @@ Out: macOS and Windows. Queueing or limiting how many heavy checks run at once. 
 - [ ] AC-01: On a Linux worker, the server process and cloudflared run with a memory reservation that agent commands cannot take, and agent commands run under one limit below the machine's memory with no swap of their own. The limits are visible in the unit and its cgroup files.
 - [ ] AC-02: With an agent command allocating past the limit, the server answers `/.well-known/studio/environment` in under 2 s throughout, and the command is ended within 30 s.
 - [ ] AC-03: The thread whose command was ended gets a plain message naming the command, the limit and what to do (run fewer heavy checks at once).
-- [ ] AC-04: A machine whose cgroup setup is unavailable (no cgroup v2, no delegation) starts and works as before, and says so once in the service log.
-- [ ] AC-05: An existing installation picks up the new limits on its next update without a manual step.
+- [x] AC-04: A machine whose cgroup setup is unavailable (no cgroup v2, no delegation) starts and works as before, and says so once in the service log.
+- [x] AC-05: An existing installation picks up the new limits on its next update without a manual step.
 
 ## Approach
 
