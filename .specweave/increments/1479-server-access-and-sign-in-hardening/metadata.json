@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T03:14:01.241Z",
-  "updated": "2026-11-25T05:17:37.417Z",
-  "lastActivity": "2026-11-25T05:17:37.417Z",
+  "updated": "2026-11-25T13:09:05.466Z",
+  "lastActivity": "2026-11-25T13:09:05.466Z",
   "title": "Server access and sign-in hardening",
   "project": "specweave-umb",
   "repositories": [
