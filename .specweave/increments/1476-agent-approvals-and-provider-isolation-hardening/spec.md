@@ -52,6 +52,7 @@ Out: changes in files other wave 1 groups own (`auth/RpcAuthorization.ts`, `Orch
 - [ ] AC-17: With telemetry on, the analytics id never reads or derives from Codex or Claude account ids; it is a random per-install id.
 - [ ] AC-18: Analytics report a model outside the known vendor catalog as `custom:<provider>`, never its raw name; catalog models report as today.
 - [ ] AC-19: `reports/red-green.md` records, per row, the test, its red run on `origin/main` and its green run, or "not reproduced" / "already fixed" with the proving `path:line`.
+- [ ] AC-20: A message that joins a running turn (steer or queue promotion) from a mode-limited sender is checked against the runtime and interaction modes that turn started with, so lowering the limit or the thread's modes mid-turn cannot let a steer into a turn running above the limit; run attempts recorded before this change (no modes stored) are checked against the thread's current modes as today (row `0d6fe2141a`, assigned by the coordinator November 25).
 
 ## Approach
 
@@ -119,3 +120,6 @@ Risks: AC-03 changes what Codex Full access asks; elicitations still go to the p
 
 ### T-14 ACP agent spawns do not merge the server environment back
 - AC: AC-08 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpSessionRuntime.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/acp/AcpSessionRuntime.environment.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && corepack pnpm exec vp test run src/provider/acp/AcpSessionRuntime.environment.test.ts
+
+### T-15 Steers are checked against the running turn's modes
+- AC: AC-20 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/orchestrationV2.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ProviderTurnStartService.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.ts (the dispatch mode-limit check only), repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.modeLimit.test.ts | Test: cd repositories/anton-abyzov/specwithcode/apps/server && corepack pnpm exec vp test run src/orchestration-v2/Orchestrator.modeLimit.test.ts
