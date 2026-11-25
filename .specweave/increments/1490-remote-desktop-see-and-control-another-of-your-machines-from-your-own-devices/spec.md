@@ -76,10 +76,10 @@ Risks: the Screen Recording grant is read once at launch, so a fresh grant needs
 ## Decisions
 
 ### Asked
-- D-01 Turning screen sharing on for a machine the owner is away from → waiting for Anton. Built as: only at that machine.
-- D-02 A locked Mac → waiting for Anton. Built as: placard only.
-- D-03 TURN relay spend (slice 4) → waiting for Anton. Nothing built yet.
-- D-04 Typing into password fields over remote control (slice 2, 1438 D-01) → waiting for Anton. Nothing built yet.
+- D-01 Where may screen sharing be turned on? → only at that machine (Anton, November 25, 2026). m1 and m3 each need one visit to turn it on and press "Always allow" for his devices.
+- D-02 A locked Mac → a "This Mac is locked" placard; the lock screen is never sent and cannot be unlocked remotely (Anton, November 25, 2026).
+- D-03 TURN relay spend (slice 4) → yes, capped at Cloudflare's free 1,000 GB a month; at the cap sessions fall back to frames, no bill (Anton, November 25, 2026).
+- D-04 Password fields over remote control (slice 2) → nothing is typed into any secure field; clicks still work; website sign-ins go through the 1488 sign-in view (Anton, November 25, 2026). 1438 D-01 stands.
 
 ### Defaulted (change any before sw-do)
 - D-05 Slice 1 sends encrypted JPEG frames over the existing connection, not WebRTC. The brief asked for WebRTC over the relay with TURN; that is slices 3 and 4. Reasons: no sender-side WebRTC exists, Connect is optional so a non-WebRTC path is needed anyway, the iPhone app has no WebRTC library, TURN is spend, and frames need no new network path to review.
@@ -88,7 +88,6 @@ Risks: the Screen Recording grant is read once at launch, so a fresh grant needs
 - D-08 Approval is a main-process window, not the access card: a remote window or a management key can answer `access.answerRequest`.
 - D-09 "Always allow" is per device and view-only, ends 30 days after its last use, and is offered only when a person presses it at the machine.
 - D-10 Numbers: prompt 60 s, session 2 h, silence 2 min, cooldown 3 in 10 min, 500 audit entries, 3 frames per second, 1920 px.
-- D-11 A locked Mac shows a placard; the lock screen itself is never streamed.
 - D-12 Control comes before WebRTC (slice 2 before slice 3): clicking a button works at a few frames per second, and it is what the owner asked for first.
 
 ### Open
