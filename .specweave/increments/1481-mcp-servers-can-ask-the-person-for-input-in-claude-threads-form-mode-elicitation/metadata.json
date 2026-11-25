@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T04:24:41.312Z",
-  "updated": "2026-11-25T04:24:41.312Z",
-  "lastActivity": "2026-11-25T04:24:41.312Z",
+  "updated": "2026-11-25T05:27:23.067Z",
+  "lastActivity": "2026-11-25T05:27:23.067Z",
   "title": "MCP servers can ask the person for input in Claude threads (form-mode elicitation)",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
