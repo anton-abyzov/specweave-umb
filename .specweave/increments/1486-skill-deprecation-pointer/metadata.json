@@ -5,8 +5,13 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T04:26:20.768Z",
-  "updated": "2026-11-25T04:26:20.768Z",
-  "lastActivity": "2026-11-25T04:26:20.768Z",
+  "updated": "2026-11-25T04:59:14.402Z",
+  "lastActivity": "2026-11-25T04:59:14.402Z",
   "title": "Skill deprecation that names the replacement",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specweave",
+    "repositories/anton-abyzov/vskill",
+    "repositories/anton-abyzov/vskill-platform"
+  ]
 }
