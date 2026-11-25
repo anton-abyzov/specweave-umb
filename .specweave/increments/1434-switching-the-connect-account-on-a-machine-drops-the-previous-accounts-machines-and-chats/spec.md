@@ -81,6 +81,8 @@ Known limits at ship (GPT-6.2 Sol rounds 1 to 13): a save cut short by a defect 
 ### Open
 - none
 
+- D-90 Added from 1474 (November 25, 2026): upstream `dbee5a0af0` fixes the same file: an account switch whose route removal fails still activates the next account (`apps/web/src/cloud/managedAuth.tsx:111`), and `314a11498e` an offline launch that reads as signed out removes every Connect machine (`managedAuth.tsx:127`). Lane notes: 1474 `reports/lanes/d1-web.md`.
+
 ## Review
 
 Reviewer order: Gemini 4 Neon (Copilot Enterprise), then GPT-6.2 Sol.
