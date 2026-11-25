@@ -5,8 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T03:03:44.696Z",
-  "updated": "2026-11-25T03:03:44.696Z",
-  "lastActivity": "2026-11-25T03:03:44.696Z",
+  "updated": "2026-11-25T06:21:43.893Z",
+  "lastActivity": "2026-11-25T06:21:43.893Z",
   "title": "Install a SpecWithCode page as a desktop app",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {}
 }
