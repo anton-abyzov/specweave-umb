@@ -1,15 +1,17 @@
 {
   "id": "0970-phone-fleet-failover",
   "uuid": "cfd6cac8-3022-4e83-95be-f84186144784",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-20T17:49:58.000Z",
-  "updated": "2026-10-21T16:35:20.908Z",
-  "lastActivity": "2026-10-21T16:35:20.908Z",
+  "updated": "2026-11-24T21:08:58.813Z",
+  "lastActivity": "2026-11-24T21:08:58.813Z",
   "title": "Phone keeps working when the main machine is off",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "readyForReviewAt": "2026-11-24T21:08:58.812Z",
+  "approvedAt": "2026-11-24T21:08:58.813Z"
 }

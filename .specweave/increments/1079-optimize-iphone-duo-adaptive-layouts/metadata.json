@@ -1,15 +1,17 @@
 {
   "id": "1079-optimize-iphone-duo-adaptive-layouts",
   "uuid": "7cbc3ffe-6f5b-4a24-9df2-70bf15513318",
-  "status": "active",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-10-26T03:25:38.341Z",
-  "updated": "2026-10-26T05:04:48.813Z",
-  "lastActivity": "2026-10-26T05:04:48.813Z",
+  "updated": "2026-11-24T16:30:13.102Z",
+  "lastActivity": "2026-11-24T16:30:13.102Z",
   "title": "Optimize iPhone Duo adaptive layouts",
   "project": "specweave-umb",
   "externalLinks": {},
   "testMode": "test-after",
-  "coverageTarget": 80
+  "coverageTarget": 80,
+  "abandonedReason": "Superseded by 1150, which owns the iPhone Duo layout and hardware acceptance. Owner approved November 24, 2026 (\"do recommended, yes!\"), board triage b-m5-02.",
+  "abandonedAt": "2026-11-24T16:30:13.102Z"
 }

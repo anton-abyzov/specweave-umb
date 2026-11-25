@@ -23,7 +23,7 @@ Read-only scan validation retains the original operation and manifest. Store a s
 
 ## Decisions
 ### Asked
-- none
+- T-06, T-09 and AC-06: Anton chose "Skipped (accepted), superseded" on the 1092 T-06 decision card, November 24, 2026 (superseded by the 1117 real move and 1390 Sync and Add; no migration performed).
 ### Defaulted
 - Preview clarity groups conflict controls visually without excluding, merging or preselecting any file. Counts describe currently planned actions, not source repository size. Destination identity statements are limited to scan evidence.
 - Missing registration is historical metadata, not a current folder.

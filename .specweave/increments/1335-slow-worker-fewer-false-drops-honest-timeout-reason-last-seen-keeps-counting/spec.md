@@ -49,5 +49,17 @@ Out: worker-side recovery (restarting a cloudflared that lost its edge connectio
 ### T-03 Last seen keeps counting in the chat banner
 - AC: AC-03 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/hooks/useClockWhile.ts, repositories/anton-abyzov/specwithcode/apps/web/src/hooks/useClockWhile.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/ChatView.tsx | Test: pnpm --dir apps/web exec vp test run src/hooks/useClockWhile.test.tsx src/lib/machineStatus.test.ts
 
+### T-05 Review fixes: resume probe, probe inside the deadline, clock only when unreachable
+- AC: AC-01, AC-02, AC-03 | Files: repositories/anton-abyzov/specwithcode/packages/client-runtime/src/connection/supervisor.ts, repositories/anton-abyzov/specwithcode/infra/relay/src/environments/EnvironmentConnector.ts, repositories/anton-abyzov/specwithcode/infra/relay/src/http/Api.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/ChatView.tsx | Test: pnpm --dir packages/client-runtime exec vp test run src/connection && pnpm --dir infra/relay exec vp test run --config ../../vite.config.ts --dir . src/environments/EnvironmentConnector.test.ts src/http/Api.test.ts
+- Owner approved the fix (November 24, 2026). Sol findings at `f3ce25682`: the resume health probe drops remote sessions that still get frames (`supervisor.ts:781`, `:858`); the 7 s probe must be bounded by the time left in the 9 s request deadline, with a test on the request path (`EnvironmentConnector.ts:140`, `Api.test.ts:1484`); the last-seen clock must not run during device approval (`ChatView.tsx:3733`).
+
 ### T-04 Verify and close 1335
 - AC: AC-01, AC-02, AC-03 | Files: .specweave/increments/1335-slow-worker-fewer-false-drops-honest-timeout-reason-last-seen-keeps-counting/spec.md | Test: specweave verify 1335
+
+## Closure triage (November 24, 2026)
+
+Shipped in PR #396 (squash `6a7c99bfe`, v1.0.302). The November 14 Muse record was at pre-squash `1341b8a9` and `session.ts` changed since, so it was not reused. Closing review by GPT-6.2 Sol (Codex) at main `f3ce25682`: **fix**, so not verified or closed.
+- High, AC-01: on mobile resume the supervisor's 3 s foreground health probe can end a live remote session while frames arrive 12 s apart. `packages/client-runtime/src/connection/supervisor.ts:781`, `:858`, `:1030`
+- High, AC-02: the fixed 7 s probe starts after auth, link lookup and proof signing, so setup over 2 s still yields the relay's 504. `EnvironmentConnector.ts:140`, `:440`, `:597`; `Api.ts:203`, `:248`
+- High, AC-03: the 30 s clock also runs while a reachable machine asks for device approval. `ChatView.tsx:3733`; `connection/reach.ts:120`
+Needs a fix increment.

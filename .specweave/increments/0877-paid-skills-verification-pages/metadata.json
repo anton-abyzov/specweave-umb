@@ -1,10 +1,10 @@
 {
   "id": "0877-paid-skills-verification-pages",
-  "status": "planned",
+  "status": "abandoned",
   "type": "feature",
   "priority": "P1",
   "created": "2026-07-02T01:38:46.186Z",
-  "lastActivity": "2026-07-02T01:38:46.186Z",
+  "lastActivity": "2026-11-24T15:59:36.241Z",
   "testMode": "TDD",
   "coverageTarget": 90,
   "feature_id": null,
@@ -13,5 +13,8 @@
   "planning": {
     "parallel": false
   },
-  "project": "vskill-platform"
+  "project": "vskill-platform",
+  "updated": "2026-11-24T15:59:36.241Z",
+  "abandonedReason": "Stale: nothing since July 2, 2026; no pages on vskill-platform main. Owner agreed November 24, 2026.",
+  "abandonedAt": "2026-11-24T15:59:36.241Z"
 }

@@ -24,12 +24,12 @@ Out: any change to `LICENSE`, `THIRD_PARTY_NOTICES.md` or `UPSTREAM.md` text. Th
 
 ## Acceptance Criteria
 
-- [ ] AC-01: `node scripts/studio-brand-audit.mjs` exits 0 with no failed check in the shared checkout at the PR head, and again at `origin/main` after the merge.
-- [ ] AC-02: The audit still fails, proven by unit tests, when: the inherited license text in `THIRD_PARTY_NOTICES.md` is altered, missing or duplicated; `LICENSE` is missing, is not the MIT text or carries the inherited copyright; an inherited fixture changes without a pinned reviewed hash; an inherited patch changes or disappears without a reviewed lock change; a publishable key outside a test is not for an owned host, or any key is for an upstream host.
-- [ ] AC-03: Studio-owned fixture files are scanned for upstream names like any other owned file.
-- [ ] AC-04: The PR changes no byte of `LICENSE`, `THIRD_PARTY_NOTICES.md` or `UPSTREAM.md`, and its description says for each of the seven checks whether the check or the code was stale.
-- [ ] AC-05: The shared checkout is back on detached `origin/main` with a clean status, and the "Onboarding and new-project-from-folder UX" thread is told main passes.
-- [ ] AC-06: Generated manifests state the license Anton chose, or stay untouched if he says so.
+- [x] AC-01: `node scripts/studio-brand-audit.mjs` exits 0 with no failed check in the shared checkout at the PR head, and again at `origin/main` after the merge.
+- [x] AC-02: The audit still fails, proven by unit tests, when: the inherited license text in `THIRD_PARTY_NOTICES.md` is altered, missing or duplicated; `LICENSE` is missing, is not the MIT text or carries the inherited copyright; an inherited fixture changes without a pinned reviewed hash; an inherited patch changes or disappears without a reviewed lock change; a publishable key outside a test is not for an owned host, or any key is for an upstream host.
+- [x] AC-03: Studio-owned fixture files are scanned for upstream names like any other owned file.
+- [x] AC-04: The PR changes no byte of `LICENSE`, `THIRD_PARTY_NOTICES.md` or `UPSTREAM.md`, and its description says for each of the seven checks whether the check or the code was stale.
+- [x] AC-05: The shared checkout is back on detached `origin/main` with a clean status, and the "Onboarding and new-project-from-folder UX" thread is told main passes.
+- [x] AC-06: Generated manifests state the license Anton chose, or stay untouched if he says so.
 
 ## Approach
 

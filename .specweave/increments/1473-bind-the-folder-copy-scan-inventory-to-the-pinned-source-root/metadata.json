@@ -1,0 +1,12 @@
+{
+  "id": "1473-bind-the-folder-copy-scan-inventory-to-the-pinned-source-root",
+  "uuid": "c1ac8b6f-edbe-4fdc-adc2-969eaa9c0e8a",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-24T20:49:14.798Z",
+  "updated": "2026-11-24T20:49:14.798Z",
+  "lastActivity": "2026-11-24T20:49:14.798Z",
+  "title": "Bind the folder-copy scan inventory to the pinned source root",
+  "project": "specweave-umb"
+}

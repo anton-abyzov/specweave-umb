@@ -1,0 +1,12 @@
+{
+  "id": "1467-chaos-rig-relay-retries-and-file-transfer-faults",
+  "uuid": "214d3f0b-2beb-4086-ad8a-79830a375c45",
+  "status": "planned",
+  "type": "experiment",
+  "priority": "P2",
+  "created": "2026-11-24T15:57:13.955Z",
+  "updated": "2026-11-24T15:57:13.955Z",
+  "lastActivity": "2026-11-24T15:57:13.955Z",
+  "title": "Chaos rig: relay retries and file-transfer faults",
+  "project": "specweave-umb"
+}

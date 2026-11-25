@@ -5,3 +5,4 @@
 {"t":"T-02","e":"done","by":"codex@antons-macbook-m4max","at":"2026-11-23T03:44:05.362Z","evidence":"922d903cf: checks copy apps/web pnpm test passed 33 tests covering eligibility, persistence, message and confirmation; reports/checks-922d903cf.log\nHEAD 892a8c6fdc"}
 {"t":"*","e":"note","by":"copilot@antons-macbook-m4max","at":"2026-11-23T03:49:34.629Z","note":"review by gemini-4-neon (google) at 922d903cf5b2: fix first · reports/reviews/review-gemini-4-neon-1.md"}
 {"t":"*","e":"note","by":"copilot@antons-macbook-m4max","at":"2026-11-23T03:58:46.352Z","note":"review by gemini-4-neon (google) at 17036c8bdad7: ship · reports/reviews/review-gemini-4-neon-2.md"}
+{"t":"*","e":"note","by":"claude@antons-macbook-m4max","at":"2026-11-24T19:34:40.952Z","note":"review by claude-sonnet-5-5 (claude) at f3ce25682fdf: ship · reports/reviews/review-claude-sonnet-5-5-1.md","model":"claude-opus-5-5[1m]"}

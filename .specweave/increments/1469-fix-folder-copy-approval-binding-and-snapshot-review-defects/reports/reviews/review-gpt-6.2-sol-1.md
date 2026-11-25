@@ -1,0 +1,34 @@
+<!-- specweave review: reviewer=gpt-6.2-sol model=gpt-6.2-sol family=openai author=unknown depth=standard repo=repositories/anton-abyzov/specwithcode base=bf2021f9e971e6940da089ff7c971f5c5b1b9a7e head=1b966f0d7f3ede1816419a00efa57f3bb1fe5675 at=2026-11-24T17:15:48.627Z -->
+# Review: 1469 Folder-copy approval binding and snapshot capture
+Verdict: fix first
+Reviewer context: GPT-6.2-Sol on Codex, reviewing Claude Opus 5.5 work in PR #884. Reviewed head 1b966f0d7f3ede1816419a00efa57f3bb1fe5675, merge base bf2021f9e971e6940da089ff7c971f5c5b1b9a7e.
+
+## [blocker] apps/web/src/components/studio/HandoffFolderCopy.tsx:546 Replace everything can approve a plan the user never saw
+Window A clicks Replace everything with Mirror off. While A is staging secrets, window B enables Mirror and finishes its comparison. A's decision request merges into the current record and keeps Mirror (apps/server/src/fleet/folderTransfer/destinationService.ts:625). A then submits the revision returned by its poll (apps/web/src/components/studio/HandoffFolderCopy.tsx:986). The readiness check accepts any settled plan with no open decisions and no disk flag. Destination-only files can be moved to backup under B's Mirror choice. The watcher also accepts the current ready plan from the saved Replace all pointer (apps/web/src/components/studio/HandoffFolderCopyWatcher.tsx:542). Bind the decision and resulting approval to the plan and choices authorized by the click. Re-verified by reading.
+
+## [blocker] apps/server/src/fleet/folderTransfer/sourceSnapshot.ts:316 The anchor can pin a different tree from the scan
+The build takes its inventory before preparing Git and starting capture (apps/server/src/fleet/folderTransfer/sourceService.ts:920). If an ancestor has already been replaced at first pin, the anchor records the replacement root. A same-volume replacement with matching file names can stay in place through capture and be removed before approval. All per-file checks can agree with the replacement and approval validates its already captured pack. Tie the source-root identity to the inventory it supplies. The new swap test stages its replacement after pinning. Re-verified by reading.
+
+## [important] apps/server/src/fleet/folderTransfer/destinationService.ts:701 A recomputed comparison can retain the old disk shortage
+After a disk refusal, free space and change a file on the destination. Copy revalidates the destination, writes a new plan, and asks for review while leaving the old disk figure on the revised preview. The background replan clears it at line 1221, but this revalidation path only writes the plan. Clear the disk note when publishing the recalculated plan. Re-verified by reading.
+
+## [important] apps/server/src/fleet/folderTransfer/sourceSnapshot.review.test.ts:77 The ancestor-swap test expects Unix confinement on Windows
+The test expects capture to recover the original bytes after the swap. Windows gets a null anchor (apps/server/src/fleet/folderTransfer/sourceCaptureAnchor.ts:59) and the existing path checks cannot distinguish the restored ancestor in this fixture. A Windows run can fail the assertion, or fail during the fixture's replacement cleanup if removal is denied while its file is open. Scope the assertion to the platforms covered by AC-03. Re-verified by reading.
+
+## [nit] apps/server/src/fleet/folderTransfer/sourceSnapshot.ts:502 Failed pack close skips anchor cleanup
+If closing the pack rejects on Linux, the following closeAnchors call is skipped and the directory handles remain open until garbage collection. Release anchors in a finally around pack close. Re-verified by reading.
+
+## Prior findings and regression tests
+- AC-01: Direct Copy, consolidation and job runner carry the status revision via their existing status snapshots. The watcher retains its status across the route and staging waits. The destination rejects a mismatch and checks the saved preview again under lock before approval. The Replace everything gap above survives. Optional fields preserve the planned older-peer behavior.
+- AC-02: The probe set survives scan preparation and the buffered path rechecks held bytes before appending. A probed file whose capture exceeds the probe cap is refused, including the streamed path. The tests exercise changed .envrc and config bytes. Add an over-limit case to cover the separate guard.
+- AC-03: Linux and macOS check the opened file against the pinned root after open. This covers the original within-open swap. Pre-pin substitution and the Windows fixture remain as above. Linux handles close on ordinary success, acquisition refusal and pack-open failure. See the pack-close error path above.
+- AC-04: Both approval validation and chunk reads reach ready(), which refuses the damaged captured record. The regression calls validateReviewed and manifest, exercising the same guard chunks calls.
+- AC-05: The buffered read records readAtNs before queuing its pack write. The test advances its clock after the pack write, which isolates the old stamp error.
+- AC-06: A terminal or failed state carries the pending flag in its durable save. Cleanup clears it without resaving a terminal state. The crash test writes the terminal record, interrupts cleanup, and exercises the restart sweep.
+- AC-07: Nonblocking open lets the regular-file check reject a FIFO before a writer connects. The Unix regression measures that behavior with a delayed writer on the old path. It exercises the blocking open and does not call cancel.
+- AC-08: Refresh adds newly listed secret paths to the persisted exclusions before publishing the fresh summary. The regression covers the callback and ordering. It does not exercise the dialog's later staging call.
+- AC-09: ENOTDIR now follows the same missing-registration branch as ENOENT. The fixture replaces a registered worktree's parent with a regular file.
+- AC-10: The Refresh filter matches the scanner's actual missing-registration wording and retains unrelated destination warnings. The test exercises that filter.
+- AC-11: The footer leaves Copy enabled and shows the old shortage as a note. The test covers that and the decide/replan path, with the approval-time revalidation gap above.
+
+Tests were inspected at the tests-first commit 2c4c9b6effd0d59f809305502e80a20cc96d32ae and at the reviewed head. At the tests-first commit the revision test stops at the missing revision before it exercises stale-approval rejection. Compatibility and unchanged-file controls are expected to pass both ways. The failing assertions in the other regression cases map to the corresponding code changes by inspection. Red/green execution was not verified in this read-only review. No existing verification report was present in the increment. Exact-head server shard 1 failed during runner setup with `E: Package 'build-essential' has no installation candidate`.
