@@ -82,7 +82,7 @@ Risks: the Screen Recording grant is read once at launch, so a fresh grant needs
 - D-01 Where may screen sharing be turned on? → only at that machine (Anton, November 25, 2026). m1 and m3 each need one visit to turn it on and press "Always allow" for his devices.
 - D-02 A locked Mac → a "This Mac is locked" placard; the lock screen is never sent and cannot be unlocked remotely (Anton, November 25, 2026).
 - D-03 TURN relay spend (slice 4) → yes, capped at Cloudflare's free 1,000 GB a month; at the cap sessions fall back to frames (Anton, November 25, 2026). The relay can only stop issuing credentials on its own estimate; whether overage blocks or bills is a setting on the Cloudflare plan, which the owner confirms before slice 4 (`plan.md` section 6).
-- D-04 Password fields over remote control (slice 2) → nothing is typed into any secure field; clicks still work; website sign-ins go through the 1488 sign-in view (Anton, November 25, 2026). 1438 D-01 stands. The review found this cannot be kept as worded for web pages; see Open.
+- D-04 Password fields over remote control (slice 2) → nothing is typed into any secure field; clicks still work; website sign-ins go through the 1488 sign-in view (Anton, November 25, 2026). 1438 D-01 stands. The review found this cannot be kept as worded for web pages (macOS reports secure input for system and native password fields only), so the owner was asked again: "No typing into browsers" (Anton, November 25, 2026). Under remote control typed text is not forwarded while a browser is the front app; clicks and scrolling work there; every website sign-in uses 1488. He chose this over typing with a warning and over a best-effort check of the browser's accessibility tree.
 
 ### Defaulted (change any before sw-do)
 - D-05 Slice 1 sends encrypted JPEG frames over the existing connection, not WebRTC. The brief asked for WebRTC over the relay with TURN; that is slices 3 and 4. Reasons: no sender-side WebRTC exists, Connect is optional so a non-WebRTC path is needed anyway, the iPhone app has no WebRTC library, TURN is spend, and frames need no new network path to review.
@@ -101,7 +101,6 @@ Risks: the Screen Recording grant is read once at launch, so a fresh grant needs
 - 1488 needs the same person-device guard (its AC-07), a device-key signing helper in `apps/web/src/cloud/dpop.ts` and a `packages/shared` export. The guard is `apps/server/src/auth/personDevice.ts` and the helper is `signWithDeviceKey(typ, payload)`; whoever merges second imports the other's.
 - A Mac with no Touch ID sensor in reach (Mac mini, Mac Studio, a laptop with the lid closed): Electron's prompt asks for user presence, which should fall back to the account password, but this is unverified. If it rejects there, screen sharing cannot be turned on at that Mac until a password path is built.
 - WebSocket tickets are valid 5 minutes, not single-use and not bound to a path (`SessionStore.ts`). The knock (AC-03) makes a copied ticket useless for screen sharing; making tickets single-use or path-bound for every socket is a sign-in change and the owner's call.
-- D-04 for web pages (before slice 2): macOS reports secure input for system and native password fields only. A password field on a web page looks like any text field. Either remote typing may enter them, or typing into browsers is off and every website sign-in uses 1488. The owner chooses.
 
 ## Review
 Adversarial review on Meta Muse (`muse-wonder-full-1.0`, high effort) for the plan and for each pull request. GPT-6.2 Sol only if Muse is unavailable. Never Grok.
@@ -119,7 +118,7 @@ Plan review, round 1 (November 25, 2026, `reports/plan-review-muse.md`): fix fir
 | 7 `safeStorage` is not authenticated | AC-02: AES-256-GCM under a wrapped key; no plaintext fallback; rollback stated. |
 | 8 Lock detection unnamed, wake unbacked | AC-13 names the mechanism and drops waking the display. |
 | 9 Input helper (slice 2) | `plan.md` section 5: rules and a spike before slice 2. |
-| 10 D-04 over-promises | Open decision for the owner before slice 2. |
+| 10 D-04 over-promises | Decided: no typing into browsers (D-04). |
 | 11 TURN cap cannot promise no bill | D-03 and `plan.md` section 6. |
 | 12 to 14 | `plan.md` section 5 (Linux, Windows), AC-07, AC-14, AC-16, file sizes, 1488 helper names, channel nits. |
 
