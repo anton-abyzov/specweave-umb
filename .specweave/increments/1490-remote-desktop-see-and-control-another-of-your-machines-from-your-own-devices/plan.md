@@ -143,7 +143,7 @@ So "from anywhere" holds for phone prompts and codes, and does not hold for the 
 | Slice | Delivers | Own increment | Needs from the owner |
 |---|---|---|---|
 | 1 | macOS target, view-only, sealed frames, app and browser viewer | this one, 1490 | nothing; D-01 and D-02 can change its defaults |
-| 2 | macOS control: pointer, keys, scroll; separate approval; computer use paused | next | D-04 |
+| 2 | macOS control: pointer, keys, scroll; separate approval; computer use paused | next | nothing more: D-04 is answered (no typing into browsers) |
 | 3 | WebRTC video with frames as the fallback | later | nothing |
 | 4 | TURN on the relay with a monthly cap | later | D-03 (spend) |
 | 5 | iPhone viewer, native (CryptoKit, no new package), frames first | later | nothing |

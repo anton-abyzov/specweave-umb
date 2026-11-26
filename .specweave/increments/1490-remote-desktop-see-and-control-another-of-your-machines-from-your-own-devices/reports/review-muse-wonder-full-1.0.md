@@ -2,7 +2,7 @@
 # PR review round 3: 1490 screen sharing slice 1 (PR 955, branch `remote-desktop`)
 Verdict: ship
 
-Reviewer: Muse Wonder Full 1.0 (Meta) on Muse Code, reviewing Claude Fable 5.2's work. Reviewed commit: `6cebf2b64f91dec5e5db84a56f37a5c6474b6bc1` in `/Users/anton/.specwithcode/worktrees/specweave-umb/remote-desktop/repositories/anton-abyzov/specwithcode`. Scope: `git diff 3f9209976..6cebf2b64` (three files) plus the Prompt sentence in the increment's `plan.md`. Read-only: no source file changed, no commit, no installer, nothing captured a screen. The `sw-review` skill could not be loaded (project skills are refused in this untrusted worktree), so this report follows the round 1 and 2 reports' shape.
+Reviewer: Muse Wonder Full 1.0 (Meta) on Muse Code, reviewing Claude Fable 5.2's work. Reviewed commit: `6cebf2b64f91dec5e5db84a56f37a5c6474b6bc1` in `repositories/anton-abyzov/specwithcode`. Scope: `git diff 3f9209976..6cebf2b64` (three files) plus the Prompt sentence in the increment's `plan.md`. Read-only: no source file changed, no commit, no installer, nothing captured a screen. The `sw-review` skill could not be loaded (project skills are refused in this untrusted worktree), so this report follows the round 1 and 2 reports' shape.
 
 Counts: 0 blockers, 0 majors, 1 minor (R1, a narrowed residue of N1; it can follow the merge).
 

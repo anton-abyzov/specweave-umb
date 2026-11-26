@@ -1,0 +1,34 @@
+# Findings F6 to F8, test notes, questions
+
+Part of `pr-review-muse-1-verdict.md` (reviewed commit `9ae00861f335e5161a9179bdf521137bd019905c`). Code paths are relative to `repositories/anton-abyzov/specwithcode`; spec and plan paths are relative to the increment folder.
+
+## [minor] F6. Docs and comments claim four things the code does not quite do
+
+- **Browser-tab limit missing from user docs.** `docs/studio/screen-sharing.md:74-77` says the edge carries "only sealed bytes" with no qualification, and the "What it does not protect against" list (`:84-97`) omits the spec's own caveat: a browser-tab viewer loads its code through that edge, so the claim holds there only against an edge that does not rewrite (`spec.md:31`). Either carry the sentence into the docs (the installed-app viewer has no such limit) or scope the claim.
+- **`noAgentPath.test.ts` "fails if one is added"** (`docs/studio/screen-sharing.md:62-66`) is unconditional. The test greps for the feature's names and constants (F5); a route or tool named otherwise passes. AC-16 itself now states this limit; the docs should not drop it.
+- **`plan.md:39` keeps the R2-6 merged row.** The same-user process "can stand in, without the machine key" and, in the next column, "can run code as the app". The second half can read the key. The spec was fixed (`spec.md:27-29`); the plan table was not.
+- **Number spaces do share values.** `packages/contracts/src/screenShare.ts:65-93` comments that wire and record types "share no value", and the spec's round 2 table repeats it; record `state: 1` and `frame: 2` equal wire `hello: 1` and `challenge: 2`. No live path confuses them (every sender prefixes, every receiver dispatches on the wire byte first, and a raw frame misread as a challenge fails closed at both ends), so this is a comment fix: either renumber the record types out of 1 to 4 or correct the sentence before a future change believes it.
+
+## [minor] F7. A launch proof's standing can outlive the proof, and a live session is never rechecked
+
+Files: `apps/server/src/auth/personDevice.ts:209-225`; `packages/shared/src/desktopBootstrapToken.ts:70-78`; `apps/server/src/screenShare/ScreenShareHttp.ts:230-243`.
+
+A launch proof is accepted for its window and one either side (`desktopBootstrapToken.ts:74`). The standing kept from it is simply "now plus one window" (`personDevice.ts:215`), regardless of which window the proof belonged to. A proof presented in its last valid moment (previous window) gains up to one further 10-minute window at viewer-open checks, past the "lasts 10 minutes either side" AC-04 describes. Separately, once a viewer is in, nothing rechecks the standing: the host socket's deadline becomes `Effect.never` after the hello (`ScreenShareHttp.ts:230-235`), so if renewals stop (wedged app, or the verifier rewritten without a reattach) a live session runs to its own limits anyway. Both are within AC-04's letter ("checked again when a viewer opens"); the bearer is main-process-equivalent while valid. Smallest fix: store the window the proof matched and end the standing at that window's end plus one; optionally recheck the standing on the relay's stage ticks rather than only at open.
+
+## [minor] F8. "View screen" shows on capability alone, not on this device being approved there
+
+Files: `apps/web/src/components/screenShare/ViewScreenButton.tsx:138`; AC-15 (`spec.md:63`).
+
+AC-15: the button "shows on another machine's card only when that machine reports the capability and this device is approved there". The component checks only the capability. The server refuses everyone else with a clear end state, so nothing is shown that should not be; the cost is a person on, for example, a not-yet-approved or LAN window being offered a button that can only fail. Smallest fix: either gate on the same approved-device knowledge the Connect devices section already renders, or reword AC-15 to capability-only with the refusal as the approval answer (the R2-8 alternative the code already implements for `no_host` and `off`).
+
+## Test notes (task item 4, beyond F5)
+
+Behaviour tests that do prove their criteria, run by this reviewer, 220 passing: channel handshake and record rules including bit-flip, replay and reordering (`screenShareChannel.test.ts`); every refused viewer and host class named in AC-03 and AC-04 against the real guard functions (`personDevice.test.ts`); relay order, size, deadline, buffer and cannot-open-a-record rules (`ScreenShareRelay.test.ts`); session rules end to end over the real channel, including Allow with mismatched codes never reaching live, banner-before-frame, audit-before-start and the authentication binding (`screenShareSession.logic.test.ts`); store seal, reset and key-pair validation (`ScreenShareStore.test.ts`, `screenShareSeal.test.ts`); viewer rules including no draw before live from an unverified machine (`screenViewer.logic.test.ts`, `screenShareClient.test.ts`).
+
+Criteria whose only test is a text match on source: AC-16's HTTP half (F5) and the "host code imports nothing from `computerUse`" clause of AC-10, which has no test at all that this reviewer could find (verified by reading instead: no such import exists under `apps/desktop/src/screenShare/` or `apps/desktop/src/ipc/methods/screenShare.ts`). AC-01 through AC-15 otherwise map to behaviour tests at the logic layer; the Electron, socket and capture seams around them are the stated proof limits.
+
+## Questions (not verified either way, not counted)
+
+1. `ScreenShareSettings` decides "here" solely by whether `window.desktopBridge?.screenShare` exists (`apps/web/src/components/screenShare/ScreenShareSettings.tsx:298`, `:342`) and takes no environment id. In an app window on machine B rendering another machine's Machines page, the switch would actuate B while the page describes the other machine (still safe: the Touch ID dialog appears on B and says "this Mac"). This reviewer could not verify from code alone whether that page can render for a remote primary environment; `isThisMachineTarget` (`apps/web/src/connection/desktopLocal.ts:56-66`) exists for exactly this decision and is already imported by `MachinesSettings.tsx`.
+2. Banners are created for the displays present at `goLive` (`ScreenShareWindows.ts:124`). A display plugged in mid-session gets no banner. It also cannot be viewed (the display list is fixed at `screenShareSession.logic.ts:579-580`), so nothing leaks; whether AC-09's "on every desktop" should also cover a late display is the authors' call.
+3. The banner's Stop depends on `screen-share-preload.cjs` existing beside the main bundle (`apps/desktop/src/ipc/methods/screenShare.ts:263-264`). Nothing verifies the preload loaded; a missing preload would leave a visible banner with a dead Stop (turn-off and quit still end the session). This sits inside the known "capture on a signed installed release is unverified" limit, and is worth one line in that release check.
