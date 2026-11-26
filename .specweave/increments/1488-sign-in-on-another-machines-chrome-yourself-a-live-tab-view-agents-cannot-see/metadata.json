@@ -1,0 +1,15 @@
+{
+  "id": "1488-sign-in-on-another-machines-chrome-yourself-a-live-tab-view-agents-cannot-see",
+  "uuid": "3ad71e9b-10c8-4fe6-98cb-63b4ff7c7469",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T15:14:07.155Z",
+  "updated": "2026-11-25T16:46:21.399Z",
+  "lastActivity": "2026-11-25T16:46:21.399Z",
+  "title": "Sign in on another machine's Chrome yourself: a live tab view agents cannot see",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "1477-repository-pull-request-and-preview-browser-safety",
+  "uuid": "693d612b-3c1c-48f7-b69e-591f00d8aab0",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T03:15:50.959Z",
+  "updated": "2026-11-25T08:23:41.485Z",
+  "lastActivity": "2026-11-25T08:23:41.485Z",
+  "title": "Repository, pull request and preview-browser safety",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

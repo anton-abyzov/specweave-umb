@@ -1,0 +1,21 @@
+{"t":"*","e":"session","by":"claude@m4","at":"2026-11-25T07:57:50.753Z","note":"session a8e79c10-384b-4538-ab08-546c154800cf","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@m4","at":"2026-11-25T07:57:50.757Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@m4","at":"2026-11-25T07:57:50.759Z","evidence":"PR #918 merged 16d9a678a; red/green in reports/red-green.md; required checks green; Sol SHIP\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@m4","at":"2026-11-25T07:57:51.350Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@m4","at":"2026-11-25T07:57:51.360Z","evidence":"PR #918 merged 16d9a678a; red/green in reports/red-green.md; required checks green; Sol SHIP\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@m4","at":"2026-11-25T07:57:51.849Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@m4","at":"2026-11-25T07:57:51.851Z","evidence":"PR #919 merged 71f9333e4; red/green in reports/red-green.md; required checks green; Sol SHIP\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@m4","at":"2026-11-25T07:57:52.296Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@m4","at":"2026-11-25T07:57:52.297Z","evidence":"PR #919 merged 71f9333e4; red/green in reports/red-green.md; required checks green; Sol SHIP\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"claim","by":"claude@m4","at":"2026-11-25T07:57:52.742Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-05","e":"done","by":"claude@m4","at":"2026-11-25T07:57:52.745Z","evidence":"PR #919 merged 71f9333e4; red/green in reports/red-green.md; required checks green; Sol SHIP\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
+{"t":"T-09","e":"claim","by":"claude@m4","at":"2026-11-25T07:57:53.202Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-09","e":"done","by":"claude@m4","at":"2026-11-25T07:57:53.203Z","evidence":"PR #921 merged e98797827 at 3d7b2aadc; red/green in reports/red-green.md; required checks green; Sol SHIP\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
+{"t":"T-10","e":"claim","by":"claude@m4","at":"2026-11-25T07:57:53.660Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-10","e":"done","by":"claude@m4","at":"2026-11-25T07:57:53.662Z","evidence":"PR #922 merged b12c354e7 at 4ac498e8b; red/green in reports/red-green.md; required checks green; Sol SHIP with A-B-A residual listed in spec\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@m4","at":"2026-11-25T08:23:39.523Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@m4","at":"2026-11-25T08:23:39.526Z","evidence":"PR #920 merged 2cef19f36 at a927a10dc; red/green in reports/red-green.md; required checks green; Sol SHIP\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"claim","by":"claude@m4","at":"2026-11-25T08:23:40.544Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-07","e":"done","by":"claude@m4","at":"2026-11-25T08:23:40.547Z","evidence":"PR #920 merged 2cef19f36 at a927a10dc; red/green in reports/red-green.md; required checks green; Sol SHIP\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
+{"t":"T-08","e":"claim","by":"claude@m4","at":"2026-11-25T08:23:41.483Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-08","e":"done","by":"claude@m4","at":"2026-11-25T08:23:41.485Z","evidence":"PR #920 merged 2cef19f36 at a927a10dc; red/green in reports/red-green.md; required checks green; Sol SHIP\nHEAD 253451d05f","model":"claude-opus-5-5[1m]"}
