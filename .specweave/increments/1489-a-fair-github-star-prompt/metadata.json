@@ -1,0 +1,12 @@
+{
+  "id": "1489-a-fair-github-star-prompt",
+  "uuid": "669f96f3-baa0-4643-b9dc-b9b1f8435aa3",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-25T15:33:38.235Z",
+  "updated": "2026-11-25T16:22:58.131Z",
+  "lastActivity": "2026-11-25T16:22:58.131Z",
+  "title": "A fair GitHub star prompt",
+  "project": "specweave-umb"
+}
