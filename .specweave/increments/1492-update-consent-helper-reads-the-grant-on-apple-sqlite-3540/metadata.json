@@ -1,0 +1,15 @@
+{
+  "id": "1492-update-consent-helper-reads-the-grant-on-apple-sqlite-3540",
+  "uuid": "fe21a1ba-4c40-4271-b5c8-d5a360e62474",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-26T20:16:24.631Z",
+  "updated": "2026-11-26T20:16:24.631Z",
+  "lastActivity": "2026-11-26T20:16:24.631Z",
+  "title": "Update consent helper reads the grant on Apple SQLite 3.54.0",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
