@@ -1,15 +1,18 @@
 {
   "id": "1481-mcp-servers-can-ask-the-person-for-input-in-claude-threads-form-mode-elicitation",
   "uuid": "a9c3e9df-98c1-4af1-98fe-34fe8018066b",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-25T04:24:41.312Z",
-  "updated": "2026-11-25T05:58:58.153Z",
-  "lastActivity": "2026-11-25T05:58:58.153Z",
+  "updated": "2026-11-26T06:47:28.976Z",
+  "lastActivity": "2026-11-26T06:47:28.976Z",
   "title": "MCP servers can ask the person for input in Claude threads (form-mode elicitation)",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-26T06:47:28.975Z",
+  "approvedAt": "2026-11-26T06:47:28.976Z"
 }
