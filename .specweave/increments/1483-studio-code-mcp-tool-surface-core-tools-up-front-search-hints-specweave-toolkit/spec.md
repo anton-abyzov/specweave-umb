@@ -58,6 +58,11 @@ Risks: the `tools/list` rewrite parses each list response (about 170 tools, tens
   - Links inside `.specweave/` are not checked. `workspace.ts` real-paths only the `.specweave` entry, so an `increments` link into another checkout is still read. Real-path the files the CLI reads, or have the CLI refuse links out of `--workspace`.
   - The `tools/list` pre-check in `McpToolVisibility.ts` misses a method written with a JSON-escaped slash (`tools\/list`), so such a list goes out unfiltered. The handlers still refuse the call. Fix: also parse a body that contains a backslash.
 - Run the real `specweave task list|next` in CI against a scratch worktree, so a CLI release that adds a write fails a test.
+- From the reviews of November 25 (`reports/reviews/review-claude-opus-5-5-3.md`, `review-gpt-6-2-sol-1.md`). Fixed in specwithcode #954 (`bbe55bff8`): the missing `ProcessRunner` (every call failed in 1.0.442), partial claims crashing `next_task`, `config.json` required, `..x` folders, Windows current-folder lookup, deleted-thread and literal-key tests. Still open, all low:
+  - The registered worktree path and `.specweave`/`config.json` can be swapped after the check (TOCTOU). This is fine for read-only tools only while the caller's own shell can read what the server reads. Revisit before the write tools, or if a provider sandbox restricts reads more than the server does.
+  - A streamed or multi-line `data:` `tools/list` answer passes the listing filter unchanged. Effect buffers every non-subscription answer today, and calls are still refused.
+  - `apps/server/src/fleet/fleetSkills.ts:762-781` runs a CLI with a worktree cwd on Windows the same way. Add the same `NoDefaultCurrentDirectoryInExePath` guard there.
+  - The typecheck cannot see a toolkit's missing services, because `registerToolkit` types them away. Every toolkit with dependencies needs a full-layer call test, as `toolkits/specweave/fullLayer.test.ts` does.
 
 ## Decisions
 
