@@ -1,0 +1,18 @@
+{
+  "id": "1491-fleet-update-scripts-read-the-database-on-apple-sqlite-3540",
+  "uuid": "e98b7e4c-6d0f-4940-bf5a-6fd4a5a87ede",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-26T15:58:06.467Z",
+  "updated": "2026-11-26T17:29:53.562Z",
+  "lastActivity": "2026-11-26T17:29:53.562Z",
+  "title": "Fleet update scripts read the database on Apple SQLite 3.54.0",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-26T17:29:53.561Z",
+  "approvedAt": "2026-11-26T17:29:53.562Z"
+}
