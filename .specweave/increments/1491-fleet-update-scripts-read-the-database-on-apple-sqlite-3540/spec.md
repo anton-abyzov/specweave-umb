@@ -23,12 +23,12 @@ Out:
 
 ## Acceptance Criteria
 
-- [ ] AC-01: On `/usr/bin/python3` with Apple's SQLite 3.54.0, `live_database.connect` reads a WAL database whose service has closed it (only the main file on disk), the connection refuses writes, and no `-wal` or `-shm` is created. A database with `-shm` on disk never takes that fallback.
+- [ ] AC-01: On `/usr/bin/python3` with Apple's SQLite 3.54.0, `live_database.connect` reads a WAL database whose service has closed it (only the main file on disk), and the connection refuses writes. The reader holds SQLite's WAL read locks, so a service that starts during the read cannot checkpoint over the pages it uses. A database with `-shm` on disk never takes that fallback, and one that a process holds without its `-wal` and `-shm` is refused.
 - [ ] AC-02: The fleet suite (`scripts/studio-fleet/run-tests.sh`) passes on `/usr/bin/python3` (SQLite 3.54.0) and on a stock-SQLite Python 3.12 (3.53.1), including the six files above, in the gated checks copy with the server built.
 
 ## Approach
 
-`live_database.connect` keeps its URI choice: `mode=ro&readonly_shm=1` when `-shm` exists, otherwise `mode=ro`. If that open fails with "unable to open database file" and neither `-shm` nor `-wal` exists, it opens `mode=ro&immutable=1`. That reads the main file without locks or side files. With no `-shm` on disk no process has the database open, so the main file holds every commit. The open is forced, with a schema read, inside a helper, so a lazy open cannot fail later at the caller.
+`live_database.connect` keeps its URI choice: `mode=ro&readonly_shm=1` when `-shm` exists, otherwise `mode=ro`. If that open fails with "unable to open database file" and neither `-shm` nor `-wal` exists, and no process holds a SHARED lock on the main file, it creates `-shm` and `-wal` empty (`O_CREAT|O_EXCL|O_NOFOLLOW`), which is what stock SQLite's first reader does. Just before the open it checks the new `-shm` is still empty: if so it opens plain `mode=ro`, and if another process has initialised it meanwhile it opens `mode=ro&readonly_shm=1` as for any shared index. The reader then takes SQLite's locks like any other connection. If a process does hold the file without its side files, the open is refused. The open is forced, with a schema read, inside a helper, so a lazy open cannot fail later at the caller.
 
 A test support module, `scripts/studio-fleet/sqlite_fixture.py`, provides:
 - `close(db)` ends a fixture's connection the way the service does: checkpoint, close, then remove `-wal` and `-shm`.
@@ -37,11 +37,11 @@ A test support module, `scripts/studio-fleet/sqlite_fixture.py`, provides:
 Fixtures that model a running service (the pre-stop room check, the admission read with a write during it) use `RunningService`. Fixtures that model a stopped service use `close`. `test-page-continuity.py` reads through `live_database.connect`, as production does, instead of a plain `mode=ro` URI.
 
 Rejected:
-- Always opening a closed database as immutable: this would change behaviour on stock SQLite for no gain.
-- Creating `-shm` ourselves: a reader alone on a `-shm` locks a starting service out ("database is locked").
+- `mode=ro&immutable=1` (round 1 of review, GPT-6 Sol): it reads without locks. A service that starts mid-read checkpoints over the main file under it, which was measured on 3.54.0.
+- Creating `-shm` and then opening with `readonly_shm=1`: a reader alone on an uninitialised `-shm` locks a starting service out ("database is locked"). Plain `mode=ro` on the created files does not; a writer that starts mid-read commits and checkpoints normally.
 - A read-write connection with `query_only`: it can checkpoint and delete `-wal` at close, the hazard `live_database` exists to prevent.
 
-Risk: an immutable reader does not see a service that starts during its read. That fallback is taken only when no process has the database open, which is the update agent's own stopped-service window.
+Risk: a process that lost both its locks and its side files looks like no process at all, to this check as to stock SQLite. The empty side files stay behind after the read, as stock SQLite leaves them.
 
 ## Decisions
 
@@ -53,6 +53,7 @@ Risk: an immutable reader does not see a service that starts during its read. Th
 
 - D-01 The fallback triggers only on "unable to open database file" with no `-shm` and no `-wal`. Stock SQLite keeps its current path (low blast radius).
 - D-02 The fixtures change to match the service, not the assertions. Assertions that encode service behaviour stay as they are.
+- D-03 The fallback leaves empty `-wal` and `-shm`, matching stock SQLite's reader (reversible).
 
 ### Open
 
@@ -62,7 +63,7 @@ Risk: an immutable reader does not see a service that starts during its read. Th
 
 ### T-01 Read a stopped database on Apple's SQLite, fixtures that match the service
 
-- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/live_database.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/sqlite_fixture.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-live-database.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-page-continuity.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-preflight-disk.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-room-before-stop.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-admission.py | Test: cd repositories/anton-abyzov/specwithcode/scripts/studio-fleet && /usr/bin/python3 -B test-live-database.py && /usr/bin/python3 -B test-update-admission.py
+- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/scripts/studio-fleet/live_database.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/sqlite_fixture.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-live-database.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-page-continuity.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-protected-tables-after-restart.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-rehearse-update.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-preflight-disk.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-room-before-stop.py, repositories/anton-abyzov/specwithcode/scripts/studio-fleet/test-update-admission.py | Test: cd repositories/anton-abyzov/specwithcode/scripts/studio-fleet && /usr/bin/python3 -B test-live-database.py && /usr/bin/python3 -B test-update-admission.py
 
 ### T-02 Full fleet suite on both SQLite builds in the gated copy
 
