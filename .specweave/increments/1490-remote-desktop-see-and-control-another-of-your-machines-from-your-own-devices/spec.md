@@ -164,6 +164,8 @@ Pull request review, round 3 (November 25, 2026, `reports/pr-review-muse-3-verdi
 |---|---|
 | R1 A device that showed its key and then disconnects during the read of the app's standing still opens a relay session for a moment | Left for slice 2, as the reviewer allows: the session closes itself at once, uses one of that device's own 12 opens, and reaches no prompt, frame or strike. The fix is one check that the socket is still live before the relay opens. |
 
+Merged: app pull request 955 as squash `129e0c63f` on `main` (November 25, 2026), every required check green at the reviewed head `6cebf2b64`; a release of `main` was requested the same night. `specweave verify 1490` on the build machine: 17 of 17 criteria, 7 of 7 tasks; its three repo-wide commands failed there for reasons outside this change (no `yaml` module for Python, no `pnpm` on the path, and one timeout in `src/terminal/elevatedRun.test.ts`), so the close runs where those tools exist.
+
 ## Tasks
 
 ### T-01 Capture spike and decision
