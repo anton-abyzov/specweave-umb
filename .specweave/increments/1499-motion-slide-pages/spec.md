@@ -73,6 +73,9 @@ Out:
 
   It runs in the harness under the stage frame with GPU. A screenshot of each scene and a short recording are saved to this increment's `reports/`.
 - [ ] AC-12: **Agent guide.** The html_render and html_preview tool descriptions explain stage pages, `path`, the two libraries and the deck API, in under 1,800 added characters. `docs/studio/motion-pages.md` holds the full guide.
+- [ ] AC-13: **One card per report title.** When a thread holds several report pages with the same title (ignoring case and surrounding spaces), only the newest shows as a full card. Each earlier one shows its header with "Earlier version. The newest is further down." and Open report: no preview, no Install as app, and its page loads only when opened. Diagrams (`kind: "visual"`) are never grouped. The html_render description tells agents to revise by republishing under the same title.
+- [ ] AC-14: **Honest report label.** The report card says "Report", and its footer says the thread shows a preview and the opened report has the links, tabs and evidence files. The phrase is translated in every catalog, and "Interactive report" no longer appears.
+- [ ] AC-15: **Quit closes only an installed page.** In an installed page window, Command-Q on macOS (Control-Q on Windows and Linux, with no other modifier) closes that window and never reaches the menu's Quit. Quit from the menu bar still quits SpecWithCode.
 
 ## Approach
 
@@ -113,7 +116,7 @@ Out:
 - D-04: Libraries are inlined at publish and never served by URL, so every copy is self-contained.
 - D-05: The demo deck's visual polish is marked for a Fable 5.2 pass after November 28, 2026 (weekly limit).
 ### Open
-- none
+- D-06 (owner): Move macOS installs to Electron's app-shim, as Claude desktop does, for a Dock icon, menu bar and Command-Q of their own. This needs ad-hoc signing and hash checks, which reverses part of `decision_installed_page_apps`. It is a follow-up increment, not 1499. Recommended: yes.
 
 ## Tasks
 
@@ -135,5 +138,8 @@ Out:
 ### T-06 Original demo deck, guide and harness run under the stage frame
 - AC: AC-07, AC-11, AC-12 | Files: [repositories/anton-abyzov/specwithcode/examples/motion-deck/demo.html, repositories/anton-abyzov/specwithcode/docs/studio/motion-pages.md, .specweave/increments/1499-motion-slide-pages/reports/] | Test: harness.mjs stage run with the published demo; screenshots and recording in reports/
 
+### T-08 Owner follow-ups: duplicate report cards, report label, installed-page quit, Claude app comparison
+- AC: AC-13, AC-14, AC-15 | Files: [repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/MessagesTimeline.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/MessagesTimeline.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/MessagesTimeline.replacedReports.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/HtmlRenderFrame.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/HtmlRenderFrame.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/i18n/phrases/, repositories/anton-abyzov/specwithcode/apps/desktop/src/artifactApps/ArtifactAppWindows.ts, repositories/anton-abyzov/specwithcode/apps/desktop/src/artifactApps/ArtifactAppWindows.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/mcp/toolkits/html/tools.ts, .specweave/increments/1499-motion-slide-pages/reports/owner-questions-reports-and-installed-apps.md] | Test: cd apps/web && vp test run src/components/chat/HtmlRenderFrame.test.tsx src/components/chat/MessagesTimeline.replacedReports.test.ts src/i18n; vp test run apps/desktop/src/artifactApps/ArtifactAppWindows.test.ts
+
 ### T-07 Review, merge and release
-- AC: AC-01..AC-12 | Files: [] | Test: Gemini 4 Neon then GPT-6.2 Sol review recorded; CI green; request-release.sh
+- AC: AC-01..AC-15 | Files: [] | Test: Gemini 4 Neon then GPT-6.2 Sol review recorded; CI green; request-release.sh
