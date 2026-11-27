@@ -40,3 +40,29 @@ Checks at `9fb13b986` (`reports/gates-9fb13b986.txt`):
 - 37 of 37 pass in each of five time zones.
 - `vp fmt --check` is clean.
 - Typecheck gate: "0 new diagnostics, passed".
+
+# Response to round 4 (9fb13b986, NO-SHIP)
+
+**[high] The late-failure closer can fire after the stopped run's event stream has ended: fixed in `be39567bf`, by a different design.**
+
+The closer is gone. When the grace ends and the answer's commit is still running, the call now waits for that commit's outcome before it ends:
+
+- `markClaudeFormAnswerCommitted` (one orchestrator hook after an accepted commit) reports success.
+- `forgetUncommittedFormAnswer` (on failure or a rejected receipt) reports failure. It also marks the form closing first, so a Submit queued behind the commit is refused.
+
+On failure, the call closes the card itself with `closeCard`. That is the same stream, still owned by the live call, that the existing Stop and timer closes use. On success, the record is left as it is (1481 D-11). Nothing outlives the call, so there is no eviction or stale closer.
+
+Tests:
+
+- "waits past the grace for a commit still running, and closes the card if it fails (1493)"
+- "leaves the record alone when a commit still running past the grace succeeds (1493)"
+- The orchestrator test checks that a real commit reports "committed".
+
+`Orchestrator.ts` now has 12 hook lines.
+
+Checks at `be39567bf` (`reports/gates-be39567bf.txt`):
+
+- Focused tests: 71 of 71 pass.
+- 37 of 37 pass in each of five time zones.
+- `vp fmt --check` is clean.
+- Typecheck gate: "0 new diagnostics, passed".
