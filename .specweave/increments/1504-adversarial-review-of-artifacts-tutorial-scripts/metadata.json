@@ -1,0 +1,12 @@
+{
+  "id": "1504-adversarial-review-of-artifacts-tutorial-scripts",
+  "uuid": "99266a33-3102-41b0-820f-409da6e5e584",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T07:19:55.154Z",
+  "updated": "2026-11-27T08:07:24.650Z",
+  "lastActivity": "2026-11-27T08:07:24.650Z",
+  "title": "Adversarial review of artifacts tutorial scripts",
+  "project": "specweave-umb"
+}
