@@ -1,0 +1,15 @@
+{
+  "id": "1502-every-artifact-type-from-new",
+  "uuid": "e8ec86ae-b6e1-4956-9e6f-e2a241026524",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T06:34:38.204Z",
+  "updated": "2026-11-27T06:49:42.109Z",
+  "lastActivity": "2026-11-27T06:49:42.109Z",
+  "title": "Artifacts New menu offers every artifact type: Design, Slides and Design system next to Sheet, Whiteboard and Document",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
