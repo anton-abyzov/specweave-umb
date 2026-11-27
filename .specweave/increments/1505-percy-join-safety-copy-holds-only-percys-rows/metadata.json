@@ -1,0 +1,18 @@
+{
+  "id": "1505-percy-join-safety-copy-holds-only-percys-rows",
+  "uuid": "24f16d2b-422e-41d9-af6b-1638c59d224b",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T09:53:40.363Z",
+  "updated": "2026-11-27T11:31:05.517Z",
+  "lastActivity": "2026-11-27T11:31:05.517Z",
+  "title": "Percy join safety copy holds only Percy's rows",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-27T11:31:05.516Z",
+  "approvedAt": "2026-11-27T11:31:05.517Z"
+}

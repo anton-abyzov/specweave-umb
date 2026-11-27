@@ -5,11 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T07:41:01.254Z",
-  "updated": "2026-11-27T08:14:03.952Z",
-  "lastActivity": "2026-11-27T08:14:03.952Z",
+  "updated": "2026-11-27T08:32:47.238Z",
+  "lastActivity": "2026-11-27T08:32:47.238Z",
   "title": "Percy join database copy stops filling the disk",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {}
 }
