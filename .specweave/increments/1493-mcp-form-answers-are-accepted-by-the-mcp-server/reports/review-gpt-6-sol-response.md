@@ -66,3 +66,30 @@ Checks at `be39567bf` (`reports/gates-be39567bf.txt`):
 - 37 of 37 pass in each of five time zones.
 - `vp fmt --check` is clean.
 - Typecheck gate: "0 new diagnostics, passed".
+
+# Response to round 5 (be39567bf, NO-SHIP)
+
+**[high] A planning failure leaves the form call waiting forever: fixed.**
+
+The three commit-path hooks are gone. The respond dispatch is now wrapped at its call site with `Effect.onExit`, which calls `ClaudeForms.settleFormAnswerDispatch(command, Exit.isSuccess(exit))`. Any exit settles the hand-off: success, a planning failure, a rejected receipt, a defect or an interruption. The adapter's wait is also capped (`commitOutcomeLimit`, 2 minutes); if the cap is reached, the card is left as the record says.
+
+Tests:
+
+- "settles a hand-off however its dispatch ends (1493)"
+- "ends a call whose commit never settles, leaving the card as the record says (1493)"
+- The successful-respond test shows the hook is wired.
+
+**[high, plausible] Stopped-run ingestion closes while the call waits: confirmed, and fixed durably.**
+
+I traced it: nothing in the orchestrator cancelled a pending `mcp-elicitation` request after Stop with a live session, and the adapter's late event is dropped once the run's subscription ends. This is also true of 1481's own Stop path.
+
+A provider turn's end already cancels its pending native questions through the ingestor's own events (`dismissNativeUserInputs`, `getPendingNativeUserInputs`). That sweep now covers Claude forms and their `approval_request` cards too (`isDismissedAtTurnEnd` and `isDismissedTurnEndCard` in `ClaudeFormResponses.ts`; 8 changed lines in `ProjectionStore.ts`). A form already answered is not pending, so it is never swept (1481 D-11). The race between an answer and the sweep is covered by the existing test "preserves an answer committed after terminal normalization reads a pending question".
+
+Test: "dismisses only native questions and Claude forms when a provider turn ends with %s" in `ProviderEventIngestor.test.ts`, for all five terminals. It covers a pending Claude form (cancelled), an answered Claude form (kept) and a Codex elicitation (kept).
+
+Checks at `44abc282e` (`reports/gates-44abc282e.txt`):
+
+- Focused tests: 10 files, 120 tests, all pass. The set adds `ProviderEventIngestor`, `ProviderTurnControlService`, `Orchestrator.questionAnswers` and `ProjectionControlReads`.
+- 37 of 37 pass in each of five time zones.
+- `vp fmt --check` is clean.
+- Typecheck gate: "0 new diagnostics, passed".

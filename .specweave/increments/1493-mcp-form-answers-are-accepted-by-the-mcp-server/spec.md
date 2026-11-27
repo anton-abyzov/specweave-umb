@@ -51,6 +51,10 @@ Out: phone and coordinator cards (1481 D-06), Codex elicitations, URL mode.
   - The adapter calls `beginClosingClaudeForm` where it used to read `isClaudeFormAnswered`.
   - `forgetUncommittedFormAnswer(command)` drops the mark and hand-off when `commitCommand` fails (`tapError`) or returns a rejected receipt. That is 3 more hook lines in `Orchestrator.ts`, 10 in total.
   - The closing mark outlives the call (it is bounded at 200 like `closed`), so a Submit between the call ending and the cancelled update landing is still refused.
+- **AC-06, AC-07 after review rounds 2 to 5:** a call whose answer never arrived waits for that answer's commit outcome before it ends, with an upper bound.
+  - The respond dispatch settles its hand-off on every exit. An `Effect.onExit` at its call site marks it committed on success and forgotten on failure, rejection, interruption or a defect.
+  - A provider turn's end now cancels its pending Claude forms, like native questions (`getPendingNativeUserInputs`, `isDismissedAtTurnEnd`). A stopped run stops reading the adapter's events, so the adapter's own cancellation can be dropped. A form already answered is not pending, so 1481 D-11 holds.
+  - Hook lines: 13 in `Orchestrator.ts`, 8 in `ProjectionStore.ts`.
 - **AC-08:** `Orchestrator.claudeForms.test.ts` asserts that the committed effect's `answers` equals `{ confirm: "[redacted]" }`.
 
 Rejected:
