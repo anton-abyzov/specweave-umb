@@ -18,7 +18,7 @@ Measured on M5's database on November 27, 2026 (report `reports/research-batchin
 
 In: the research, the measurement scripts and their numbers, the option analysis with security and per-tool consent, a recommendation, and the Muse review rounds of that research and plan.
 
-Out: any code change unless the review or the owner reverses the recommendation. Wake-notification rows, nameless "Tool" rows and ToolSearch rows are recorded as separate follow-ups, not fixed here.
+Out: any code change unless the review or the owner reverses the recommendation. Wake-notification rows, `task_status` polling, nameless "Tool" rows and ToolSearch rows are recorded as separate follow-ups, not fixed here.
 
 ## Acceptance Criteria
 
@@ -35,7 +35,9 @@ Out: any code change unless the review or the owner reverses the recommendation.
 3. Read where approval happens: Claude `allowedTools` and `canUseTool` keyed on `mcp__studio-code__*` names (`apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts:1359`, `claudeReadOnlyMcpTools.ts`), and the server gates in `apps/server/src/mcp/McpToolAccess.ts`.
 4. Compare options and recommend. Review on Muse; fix findings; re-review.
 
-Rejected for now, with numbers in the report: a sandboxed JS batch tool (saves at most 1.7% of rows, needs a sandbox and a consent design, and hides inner calls from name-keyed host gates); composite tools (0.7%); further UI collapsing of studio-code rows (they are already folded).
+Rejected for now, with numbers in the report: a sandboxed JS batch tool (about 1.7% fewer rows; consent is keepable through each tool's server `Declaration`, but it needs a sandbox); composite tools (0.7%); further UI collapsing of studio-code rows (they are already folded).
+
+Review: Muse Wonder Full 1.0 at Extra High, round 1 "agree with changes" (reports/muse-review.md); findings 1 to 8 answered in the report.
 
 ## Decisions
 
