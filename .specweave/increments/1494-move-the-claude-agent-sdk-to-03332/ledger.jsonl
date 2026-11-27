@@ -1,0 +1,9 @@
+{"t":"*","e":"session","by":"claude@anton-m5max-proled","at":"2026-11-27T04:39:21.987Z","note":"session c4575354-77f9-4e7a-89c4-863a54c34b29","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T04:39:21.988Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-27T04:39:21.989Z","evidence":"PR #967 merged 6cc49ea7d0; SDK 0.3.332 in pnpm-lock; typecheck gate 0 new diagnostics; permission-mode fix 10308421b0\nHEAD 9e5b38cc31","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T04:39:22.360Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-27T04:39:22.361Z","evidence":"test -s .specweave/increments/1494-move-the-claude-agent-sdk-to-03332/reports/sdk-changelog-review.md → exit 0\nlog: .specweave/increments/1494-move-the-claude-agent-sdk-to-03332/reports/task-T-02.txt\nHEAD 9e5b38cc31","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T04:39:22.726Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-27T04:39:22.727Z","evidence":"checks run at 00ac360945: web 18,561 passed, server 20,794 passed; at 10308421b0: Adapters 1,060 passed; PR CI 28 green\nHEAD 9e5b38cc31","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T04:39:23.096Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-04","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-27T04:39:23.097Z","evidence":"test -s .specweave/increments/1494-move-the-claude-agent-sdk-to-03332/reports/live-turn.md → exit 0\nlog: .specweave/increments/1494-move-the-claude-agent-sdk-to-03332/reports/task-T-04.txt\nHEAD 9e5b38cc31","model":"claude-opus-5-5[1m]"}

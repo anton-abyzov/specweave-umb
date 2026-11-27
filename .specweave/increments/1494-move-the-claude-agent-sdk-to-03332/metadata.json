@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T02:30:17.840Z",
-  "updated": "2026-11-27T02:30:17.840Z",
-  "lastActivity": "2026-11-27T02:30:17.840Z",
+  "updated": "2026-11-27T04:39:23.097Z",
+  "lastActivity": "2026-11-27T04:39:23.097Z",
   "title": "Move the Claude Agent SDK to 0.3.332",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
