@@ -39,7 +39,7 @@ Out:
 ## Acceptance Criteria
 
 - [ ] AC-01: **Stage flag at publish.** A page whose head has `<meta name="specwithcode-page" content="stage">` is published with `stage: true` on its html_render reference, and publishing skips the 9-width height measurement for it. A page without the tag publishes exactly as before.
-- [ ] AC-02: **Thread card.** A stage page shows a presentation card that mounts no frame, so it runs no WebGL or audio. The card has the title and an Open button. Open shows the page in the reader at the full size of the viewer area. The frame is focused when the reader opens, so arrow keys work without a click.
+- [ ] AC-02: **Thread card.** A stage page shows a presentation card that mounts no frame, so it runs no WebGL or audio. The card has the title and a Play button. Play shows the page in the reader at the full size of the viewer area. The frame is focused when the reader opens, so arrow keys work without a click.
 - [ ] AC-03: **Stage frame permissions.** A stage page's frame, in the reader and in an installed window, has `allow="autoplay; fullscreen"`. Report frames keep no `allow` attribute.
   - Harness: after one click inside a stage frame, `requestFullscreen()` succeeds and the page's `AudioContext` is `running`.
 - [ ] AC-04: **Deep links.** The page bootstrap removes only its own fragment keys (`studio-theme`, `studio-contain-scroll`). The page's own fragment is kept: a frame loaded with `#deck-2` sees `location.hash === "#deck-2"` at boot. A report with no fragment of its own still ends with an empty hash.

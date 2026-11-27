@@ -1,0 +1,12 @@
+{
+  "id": "1503-installed-page-app-shims",
+  "uuid": "9bf2afdb-ac82-407f-8fff-902779db33e3",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T06:56:48.480Z",
+  "updated": "2026-11-27T06:56:48.480Z",
+  "lastActivity": "2026-11-27T06:56:48.480Z",
+  "title": "Installed pages run as their own macOS apps",
+  "project": "specweave-umb"
+}
