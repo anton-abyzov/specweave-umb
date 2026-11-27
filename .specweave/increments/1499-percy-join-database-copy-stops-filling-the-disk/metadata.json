@@ -1,16 +1,18 @@
 {
   "id": "1499-percy-join-database-copy-stops-filling-the-disk",
   "uuid": "9a2651f5-6459-48d6-bd9e-ff813be08419",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T07:41:01.254Z",
-  "updated": "2026-11-27T08:32:47.238Z",
-  "lastActivity": "2026-11-27T08:32:47.238Z",
+  "updated": "2026-11-27T14:54:13.288Z",
+  "lastActivity": "2026-11-27T14:54:13.288Z",
   "title": "Percy join database copy stops filling the disk",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
   ],
-  "externalLinks": {}
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-27T14:54:13.287Z",
+  "approvedAt": "2026-11-27T14:54:13.288Z"
 }
