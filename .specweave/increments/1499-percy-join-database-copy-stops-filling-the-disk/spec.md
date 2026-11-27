@@ -39,6 +39,8 @@ In: the copy itself, the Percy snapshotter, the message a peer row shows, tests.
 - D-01 Keep the whole-database copy and fail closed when it cannot be saved (1448 AC-13). Recommendation for the owner: Undo restores from the Percy restore point (`<id>.percy.json`, `personalRestorePoint.ts`), which holds everything a join changes; the 18.8 GiB copy is a second safety net that costs the database's size in free space on every join series. Replace it with a copy of only the Percy project's rows, or drop it, in a follow-up once the owner agrees.
 - D-02 Headroom is the larger of 1 GiB and 10% of the database size.
 - D-03 Backoff starts at 1 minute and is capped at 1 hour, kept in memory (a restart retries at once).
+### Later (1505, November 27, 2026)
+- The Percy join copy is no longer a whole-database backup: 1505 D-01 (owner, recommended option) makes it a copy of the Percy project's rows only (`projectRowsSnapshot.ts`, `.rows.sqlite`). AC-01's one-step backup and AC-02's "database size" now apply to `db snapshot`; the Percy copy reads its rows in one read transaction and checks space against their size. AC-04 is stricter than written: one copy per process for any target, and a second target is refused at once. Copies are published only by hard link, never replacing another copy.
 ### Open
 - none
 
