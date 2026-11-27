@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T06:27:21.447Z",
-  "updated": "2026-11-27T07:14:46.375Z",
-  "lastActivity": "2026-11-27T07:14:46.375Z",
+  "updated": "2026-11-27T07:25:19.810Z",
+  "lastActivity": "2026-11-27T07:25:19.810Z",
   "title": "Quieter threads: fold wake notices, stop task_status polling, name every tool row",
   "project": "specweave-umb"
 }
