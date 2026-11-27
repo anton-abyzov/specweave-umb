@@ -1,0 +1,7 @@
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-27T07:56:20.386Z","note":"review by gpt-6.2-sol (openai) at b6f5ca2993a6: fix first · reports/reviews/review-gpt-6.2-sol-1.md"}
+{"t":"*","e":"note","by":"codex@antons-macbook-m4max","at":"2026-11-27T08:02:29.547Z","note":"review by gpt-6.2-sol (openai) at 12e66403ba4a: ship · reports/reviews/review-gpt-6.2-sol-2.md"}
+{"t":"*","e":"session","by":"claude@antons-macbook-m4max","at":"2026-11-27T08:14:02.705Z","note":"session 51d6cdc2-de7e-4a89-8db7-9964d2d1da26","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-27T08:14:02.718Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-27T08:14:02.723Z","evidence":"PR #983 merged 3e1e3055c; checks copy 12e66403b: 4 files 35 tests passed; busy-writer test times out at rate 100; GPT-6.2 Sol review round 2 ship\nHEAD 150934a7d8","link":"https://github.com/anton-abyzov/specwithcode/pull/983","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@antons-macbook-m4max","at":"2026-11-27T08:14:03.521Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@antons-macbook-m4max","at":"2026-11-27T08:14:03.952Z","evidence":"PR #983 merged 3e1e3055c; checks copy 12e66403b: 4 files 35 tests passed; busy-writer test times out at rate 100; GPT-6.2 Sol review round 2 ship\nHEAD 150934a7d8","link":"https://github.com/anton-abyzov/specwithcode/pull/983","model":"claude-opus-5-5[1m]"}
