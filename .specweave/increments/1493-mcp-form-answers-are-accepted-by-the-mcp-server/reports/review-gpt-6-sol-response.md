@@ -119,3 +119,7 @@ Checks at `30f63b76a` (`reports/gates-30f63b76a.txt`):
 - 37 of 37 pass in each of five time zones.
 - `vp fmt --check` is clean.
 - Typecheck gate: "0 new diagnostics, passed".
+
+# Rounds 7 and 8
+
+Round 7 returned SHIP at `30f63b76a` with 0 findings. CI then failed twice on a pre-existing race in `Manager.test.ts`: every 10 ms poll re-registers the same ports. It is fixed test-only in `7686efaba` (`manager-race.txt`). Round 8 returned SHIP at `7686efaba` with 0 findings.
