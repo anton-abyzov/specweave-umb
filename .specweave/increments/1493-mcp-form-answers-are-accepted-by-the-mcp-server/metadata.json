@@ -1,0 +1,15 @@
+{
+  "id": "1493-mcp-form-answers-are-accepted-by-the-mcp-server",
+  "uuid": "08f2a46b-8923-41ac-b829-9ff0cb5c4365",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T00:07:47.942Z",
+  "updated": "2026-11-27T00:15:24.587Z",
+  "lastActivity": "2026-11-27T00:15:24.587Z",
+  "title": "MCP form answers are accepted by the MCP server",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
