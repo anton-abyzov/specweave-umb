@@ -1,0 +1,12 @@
+{
+  "id": "1494-move-the-claude-agent-sdk-to-03332",
+  "uuid": "8742fefd-b2f2-476b-ae75-d37c7b9eb694",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T02:30:17.840Z",
+  "updated": "2026-11-27T02:30:17.840Z",
+  "lastActivity": "2026-11-27T02:30:17.840Z",
+  "title": "Move the Claude Agent SDK to 0.3.332",
+  "project": "specweave-umb"
+}
