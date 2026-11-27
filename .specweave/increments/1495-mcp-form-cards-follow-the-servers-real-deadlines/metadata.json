@@ -1,0 +1,13 @@
+{
+  "id": "1495-mcp-form-cards-follow-the-servers-real-deadlines",
+  "uuid": "a25a1a2e-e40f-4d05-a25a-46843c80209b",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T03:39:09.422Z",
+  "updated": "2026-11-27T03:39:09.422Z",
+  "lastActivity": "2026-11-27T03:39:09.422Z",
+  "title": "MCP form cards follow the server's real deadlines",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}
