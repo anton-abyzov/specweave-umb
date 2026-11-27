@@ -16,3 +16,10 @@
 {"t":"T-09","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T08:59:18.252Z"}
 {"t":"T-09","e":"block","by":"claude@anton-m5max-proled","at":"2026-11-27T08:59:22.787Z","note":"waiting on the provider proof, round one"}
 {"t":"T-09","e":"release","by":"claude@anton-m5max-proled","at":"2026-11-27T08:59:26.966Z"}
+{"t":"T-09","e":"claim","by":"codex@anton-m5max-proled","at":"2026-11-27T15:53:38.221Z"}
+{"t":"T-09","e":"block","by":"codex@anton-m5max-proled","at":"2026-11-27T15:54:56.795Z","note":"waiting on the provider proof, round one"}
+{"t":"T-09","e":"release","by":"codex@anton-m5max-proled","at":"2026-11-27T15:56:28.699Z"}
+{"t":"T-09","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T15:59:51.964Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-09","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-27T15:59:52.401Z","evidence":"Used as the live proof target: claude@anton-m5max-proled (M5, v1.0.450) and codex@anton-m5max-proled (thread mcp:c1e5eab4, M5, v1.0.454) each ran claim, claim again (changed false), block, block with other spacing (changed false) and release through the studio-code tools; ledger lines in this file\nHEAD 694934fb85","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T15:59:52.780Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-06","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-27T15:59:53.205Z","evidence":"reports/provider-proof.md: Claude passed on M5 v1.0.450, Codex (GPT-6.1 Sol) passed on M5 v1.0.454, no per-provider setup; whoami equals the tools' agent for both; git shows only ledger.jsonl and metadata.json changed, no commit. Copilot not run: monthly quota exhausted on every fleet account until December 1, 2026. Open gap filed: set launches with increment write no binding when the increment is only on the branch\nHEAD 694934fb85","model":"claude-opus-5-5[1m]"}
