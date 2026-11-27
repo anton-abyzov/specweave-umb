@@ -93,3 +93,29 @@ Checks at `44abc282e` (`reports/gates-44abc282e.txt`):
 - 37 of 37 pass in each of five time zones.
 - `vp fmt --check` is clean.
 - Typecheck gate: "0 new diagnostics, passed".
+
+# Response to round 6 (44abc282e, NO-SHIP)
+
+**[high] A later failing respond erases an earlier committed hand-off: fixed.**
+
+`handOffClaudeFormAnswers` now records which command made the hand-off (`owners` in `ClaudeFormResponses.ts`, passed from the existing hand-off line in `Orchestrator.ts`). `settleFormAnswerDispatch` acts only on that command's exit, and a failed exit never forgets an answer already marked committed. A second respond refused with `FORM_ALREADY_ANSWERED`, or any dispatch that made no hand-off, is a no-op.
+
+Tests:
+
+- "keeps the first answer's hand-off when a later answer is refused (1493)" drives two ordered responds through the real orchestrator with the effect worker off, so delivery is delayed. After the refused second answer, the outcome is still `committed`, the adapter cannot close the card, and `takeClaudeFormAnswers` returns the first answer.
+- "settles a hand-off however its dispatch ends (1493)" also asserts that another command id's exit is a no-op.
+
+**[high] The turn-end sweep's write is not guarded for Claude forms: fixed.**
+
+`EventSink.guardUserInputCancellations` now covers `isClaudeFormRequest` requests as well as native questions. The stale check compares the request's current kind, and the `message` capability check applies only to `user_input`. The turn-item filter covers `approval_request` cards too.
+
+Test: "preserves an answer committed after terminal normalization reads a pending %s" is now parameterized over a native question and a Claude form (`mcp-elicitation` request, `approval_request` node and item).
+
+Negative check (`reports/negative-30f63b76a.txt`): with `EventSink.ts` from `44abc282e`, the Claude form race test fails. With `ClaudeFormResponses.ts` from `44abc282e`, both new orchestrator tests fail.
+
+Checks at `30f63b76a` (`reports/gates-30f63b76a.txt`):
+
+- Focused tests: 10 files, 122 tests, all pass.
+- 37 of 37 pass in each of five time zones.
+- `vp fmt --check` is clean.
+- Typecheck gate: "0 new diagnostics, passed".

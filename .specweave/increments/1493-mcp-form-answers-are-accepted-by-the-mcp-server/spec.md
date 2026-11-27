@@ -54,6 +54,8 @@ Out: phone and coordinator cards (1481 D-06), Codex elicitations, URL mode.
 - **AC-06, AC-07 after review rounds 2 to 5:** a call whose answer never arrived waits for that answer's commit outcome before it ends, with an upper bound.
   - The respond dispatch settles its hand-off on every exit. An `Effect.onExit` at its call site marks it committed on success and forgotten on failure, rejection, interruption or a defect.
   - A provider turn's end now cancels its pending Claude forms, like native questions (`getPendingNativeUserInputs`, `isDismissedAtTurnEnd`). A stopped run stops reading the adapter's events, so the adapter's own cancellation can be dropped. A form already answered is not pending, so 1481 D-11 holds.
+  - Only the dispatch that made a hand-off settles it (`owners`, keyed by command id), and a failure never forgets a committed answer. A refused second answer leaves the first one's hand-off alone.
+  - The turn-end write guard (`EventSink.guardUserInputCancellations`) covers the Claude forms the sweep selects and their `approval_request` cards, so an answer committed between the sweep's read and its write is kept.
   - Hook lines: 13 in `Orchestrator.ts`, 8 in `ProjectionStore.ts`.
 - **AC-08:** `Orchestrator.claudeForms.test.ts` asserts that the committed effect's `answers` equals `{ confirm: "[redacted]" }`.
 
