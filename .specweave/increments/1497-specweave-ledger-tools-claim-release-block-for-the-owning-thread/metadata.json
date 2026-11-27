@@ -5,9 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T03:56:17.825Z",
-  "updated": "2026-11-27T03:56:17.825Z",
-  "lastActivity": "2026-11-27T03:56:17.828Z",
+  "updated": "2026-11-27T04:06:03.080Z",
+  "lastActivity": "2026-11-27T04:06:03.080Z",
   "title": "SpecWeave ledger tools: claim, release and block for the thread that owns the increment",
   "project": "specweave-umb",
-  "parent": "1483-studio-code-mcp-tool-surface-core-tools-up-front-search-hints-specweave-toolkit"
+  "parent": "1483-studio-code-mcp-tool-surface-core-tools-up-front-search-hints-specweave-toolkit",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

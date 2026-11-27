@@ -1,0 +1,7 @@
+{"t":"*","e":"session","by":"claude@anton-m5max-proled","at":"2026-11-27T03:58:57.738Z","note":"session 6b034561-a0d3-4a43-9651-9fbc41e8f663","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T03:58:57.739Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-27T04:06:01.291Z","evidence":"vp test run identity.test.ts: 5 passed (verify copy at 0873932f3a)\nHEAD 20da29f62d","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T04:06:02.010Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-27T04:06:02.375Z","evidence":"vp test run ownership.test.ts: 9 passed, verify copy\nHEAD 20da29f62d","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-27T04:06:02.718Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-03","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-27T04:06:03.080Z","evidence":"vp test run apps/server/src/mcp/toolkits/specweave apps/server/src/mcp/studioReadOnlyTools.test.ts: 7 files, 52 tests passed, verify copy\nHEAD 20da29f62d","model":"claude-opus-5-5[1m]"}

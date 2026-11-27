@@ -2,7 +2,7 @@
 
 ## Problem
 
-Increment 1483 gave studio-code two read-only SpecWeave tools (`specweave_task_status`, `specweave_next_task`). To change a task's state an agent still runs `specweave task claim|release|block` in its shell, so a thread that has studio-code but a restricted shell (plan mode, an approval-required run, a provider whose shell policy drops SpecWeave's variables) cannot take or hand back a task at all.
+Increment 1483 gave studio-code two read-only SpecWeave tools (`specweave_task_status`, `specweave_next_task`). To change a task's state an agent still runs `specweave task claim|release|block` in its shell, and nothing checks that the increment is the thread's own: a shell claim lands in whatever ledger the agent points it at. studio-code already knows the calling thread, its registered worktree and the increment it was launched with or linked to, so it can offer the same three ledger moves with that check built in, for any provider, without a shell command.
 
 The reviews that shaped 1483 drew the line for write tools. GPT-6.2 Sol (`06-critique-sol.md` item 3): `pickup` fetches and moves a Git ref, `task done` can run a command, auto-claim and commit, `verify` runs project commands and writes reports. Fable 5.2 (`08-fable-review.md` item 8): do not build the write tools as planned; the recommended ceiling is ledger-only with an ownership check. The owner approved that ceiling on November 26, 2026.
 
@@ -42,7 +42,7 @@ All app code is in `repositories/anton-abyzov/specwithcode/apps/server/src/mcp/t
 | block | same reason: success, no event | refused, holder named | `task block` |
 | release | open, done or skipped: success, no event | refused, holder named | `task release` |
 
-"Another thread" covers two threads that share an agent id (two Claude threads on one machine, or a delegated child in its parent's checkout): another live thread of the project whose SpecWeave binding file names this worktree, increment and task, with the claim's time, holds it. The CLI's own checks (earliest live claim wins, Files overlap, unmet dependencies, template tasks) stay in force and their refusals pass through. Results carry `changed`, the task's state after the call, the agent id and the command that ran (or null).
+"Another thread" covers two threads that share an agent id (two Claude threads on one machine, or a delegated child in its parent's checkout). With no other live thread in the checkout a hold under the caller's id is the caller's. Otherwise it needs proof: these tools wrote that hold for a thread (kept in memory by increment folder, task and claim time), or a thread's SpecWeave binding file names this worktree, increment, task and time. Without proof the call is refused and the checkout's threads are named, so one thread never takes or releases a sibling's task. The CLI's own checks (earliest live claim wins, Files overlap, unmet dependencies, template tasks) stay in force and their refusals pass through. Results carry `changed`, the task's state after the call, the agent id and the command that ran (or null).
 
 **Access.** The tools are `actsAsCaller` (a thread with a live run; read-only clients and advisor threads refused), `Tool.Readonly` false, and stay off `claudeReadOnlyMcpTools.ts`, so Claude plan mode asks before a call. Listing follows 1483: only where the worktree holds `.specweave/`.
 
@@ -50,7 +50,7 @@ All app code is in `repositories/anton-abyzov/specwithcode/apps/server/src/mcp/t
 
 **Proof (AC-05).** After the release is installed on M5, a Claude, a Codex and a Copilot thread are each launched with `increment` set to this one, in a worktree that holds it, and work one proof task (T-09): claim, claim again, block, block again, release. Their replies and the ledger lines go in `reports/provider-proof.md`.
 
-Risks: the binding-file check names a thread only for the claim it last made; an earlier claim by a sibling thread with the same agent id reads as the caller's own (the CLI would treat it the same way). A Claude thread in plan mode is asked before each call; that is intended.
+Risks: after a server restart the in-memory record is gone, so in a checkout shared by several threads an older hold the binding files no longer name is refused until its holder uses the shell; a single-thread checkout is not affected. A Claude thread in plan mode is asked before each call; that is intended.
 
 ## Decisions
 
@@ -63,6 +63,8 @@ Risks: the binding-file check names a thread only for the claim it last made; an
 - D-04 Identity → the caller's own SpecWeave agent id (`<tool>@<host>`), not a per-thread id, so the agent's shell and the tools agree on who holds a task. A provider with no known slug is refused.
 - D-05 `skip` is left out: it is terminal and finishes tasks, closer to `done` than to a claim.
 - D-06 The real-CLI test runs where a `specweave` command is installed and is skipped elsewhere (CI has none today); the run on M5 is recorded in `reports/`.
+- D-07 Approval modes → the write tools are not on the read-only lists (`claudeReadOnlyMcpTools.ts`, `STUDIO_READ_ONLY_TOOLS`), so each provider's own approval rule applies to them like any other change: Claude plan mode asks, an ACP permission request follows the thread's policy (`acpRequestDisposition`), a Codex MCP approval follows the thread's runtime mode.
+- D-08 Two threads, one agent id → a hold counts as the caller's only with proof when another live thread shares the checkout (Approach); otherwise refused.
 
 ### Open
 - none
