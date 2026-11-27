@@ -22,11 +22,11 @@ Out: any code change unless the review or the owner reverses the recommendation.
 
 ## Acceptance Criteria
 
-- [ ] AC-01: A research report in this increment's `reports/` gives per-thread and total studio-code call counts, same-step versus sequential splits, and desktop and mobile row counts from the real row builders for today, a same-step batch and an adjacent-merge bound.
-- [ ] AC-02: The report weighs a sandboxed JS batch tool, composite tools and UI-only collapsing against prior art (Anthropic programmatic tool calling and code execution with MCP, Cloudflare Code Mode, Codex/OpenCode Code Mode as T3 met it), including where per-tool approval is enforced today and how each option keeps or loses it.
-- [ ] AC-03: The report recommends the smallest change that pays off, or no change, with the numbers that decide it.
-- [ ] AC-04: Muse Wonder Full 1.0 at Extra High reviews the research and plan; every finding is answered in the report and the review ends with no open blocking finding.
-- [ ] AC-05: If any code ships, a batch never bypasses per-tool approval: each inner call is checked by the same host and server gates as a direct call, proven by a test of the refusal.
+- [x] AC-01: A research report in this increment's `reports/` gives per-thread and total studio-code call counts, same-step versus sequential splits, and desktop and mobile row counts from the real row builders for today, a same-step batch and an adjacent-merge bound.
+- [x] AC-02: The report weighs a sandboxed JS batch tool, composite tools and UI-only collapsing against prior art (Anthropic programmatic tool calling and code execution with MCP, Cloudflare Code Mode, Codex/OpenCode Code Mode as T3 met it), including where per-tool approval is enforced today and how each option keeps or loses it.
+- [x] AC-03: The report recommends the smallest change that pays off, or no change, with the numbers that decide it.
+- [x] AC-04: Muse Wonder Full 1.0 at Extra High reviews the research and plan; every finding is answered in the report and the review ends with no open blocking finding.
+- [x] AC-05: If any code ships, a batch never bypasses per-tool approval: each inner call is checked by the same host and server gates as a direct call, proven by a test of the refusal. Holds with nothing to test: no batch or composite tool ships (D-03, accepted by the owner November 27, 2026), so no call path changes.
 
 ## Approach
 
@@ -37,7 +37,7 @@ Out: any code change unless the review or the owner reverses the recommendation.
 
 Rejected for now, with numbers in the report: a sandboxed JS batch tool (about 1.7% fewer rows; consent is keepable only with work on both sides, each inner call through its server `Declaration` and through the host's per-tool settings ask/deny and read-only list, and it needs a sandbox); composite tools (0.7%); further UI collapsing of studio-code rows (they are already folded).
 
-Review: Muse Wonder Full 1.0 at Extra High, round 1 "agree with changes", round 2 "fix first" on R2-1 and R2-2 (reports/muse-review.md); all round 1 and round 2 findings answered in the report and spec.
+Review: Muse Wonder Full 1.0 at Extra High, round 1 "agree with changes", round 2 "fix first" on R2-1 and R2-2, round 3 "ship" (reports/muse-review.md); all round 1 and round 2 findings answered in the report and spec.
 
 ## Decisions
 

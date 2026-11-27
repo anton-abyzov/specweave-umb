@@ -5,8 +5,9 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T06:01:24.795Z",
-  "updated": "2026-11-27T06:35:06.388Z",
-  "lastActivity": "2026-11-27T06:35:06.388Z",
+  "updated": "2026-11-27T06:40:57.136Z",
+  "lastActivity": "2026-11-27T06:40:57.136Z",
   "title": "Fewer studio-code tool rows: research batching and apply only what pays off",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "externalLinks": {}
 }
