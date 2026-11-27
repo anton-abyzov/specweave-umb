@@ -9,8 +9,8 @@ Nothing like batching exists. Increment 1483 (1.0.443) loads 6 core studio-code 
 Measured on M5's database on November 27, 2026 (report `reports/research-batching.md`):
 
 - studio-code calls are 4,489 of 37,976 worker tool rows (11.8%) and 526 of 790 coordinator tool rows (66.6%).
-- Only 766 studio-code calls (2.0% of tool rows) ran in the same model step as the call before them, so a static batch or composite tool could merge them. Another 1,804 adjacent pairs are sequential, with a model decision between them.
-- Run through the real row builders (`deriveMessagesTimelineRows` for desktop, `buildThreadFeed` + `deriveThreadFeedPresentation` for mobile), the 40 threads with the most studio-code calls since November 20 show 1,330 tool rows on desktop today. A same-step batch would show 1,321 (-0.7%); an ideal sandbox that merges every adjacent call would show 1,308 (-1.7%). Mobile: 1,402, 1,393, 1,381.
+- At least 766 studio-code calls (2.0% of tool rows) ran in the same model step as the call before them (a lower bound: 1,368 at a 10 s start gap), so a static batch or composite tool could merge them. The other adjacent pairs have reasoning or another tool between them.
+- Run through the real row builders (`deriveMessagesTimelineRows` for desktop, `buildThreadFeed` + `deriveThreadFeedPresentation` for mobile), the 40 threads with the most studio-code calls since November 20 show 1,330 tool rows on desktop today. A same-step batch would show 1,321 (-0.7%); a script that merges every adjacent call would show about 1,308 (-1.7%, a bound biased both ways). Mobile: 1,402, 1,393, 1,381.
 - Desktop and mobile already fold every run of adjacent tool calls into one row with a studio-aware summary ("Read 3 threads and sent 2 messages"), and fold each settled turn into one row.
 - Of the 1,300 single rows still visible on desktop, 785 are wake notifications (background task, command and monitor finishes) and 149 are system notices. About 60 are studio-code calls.
 
@@ -22,7 +22,7 @@ Out: any code change unless the review or the owner reverses the recommendation.
 
 ## Acceptance Criteria
 
-- [ ] AC-01: A research report in this increment's `reports/` gives per-thread and total studio-code call counts, same-step versus sequential splits, and desktop and mobile row counts from the real row builders for today, a same-step batch and an ideal sandbox.
+- [ ] AC-01: A research report in this increment's `reports/` gives per-thread and total studio-code call counts, same-step versus sequential splits, and desktop and mobile row counts from the real row builders for today, a same-step batch and an adjacent-merge bound.
 - [ ] AC-02: The report weighs a sandboxed JS batch tool, composite tools and UI-only collapsing against prior art (Anthropic programmatic tool calling and code execution with MCP, Cloudflare Code Mode, Codex/OpenCode Code Mode as T3 met it), including where per-tool approval is enforced today and how each option keeps or loses it.
 - [ ] AC-03: The report recommends the smallest change that pays off, or no change, with the numbers that decide it.
 - [ ] AC-04: Muse Wonder Full 1.0 at Extra High reviews the research and plan; every finding is answered in the report and the review ends with no open blocking finding.
@@ -35,9 +35,9 @@ Out: any code change unless the review or the owner reverses the recommendation.
 3. Read where approval happens: Claude `allowedTools` and `canUseTool` keyed on `mcp__studio-code__*` names (`apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts:1359`, `claudeReadOnlyMcpTools.ts`), and the server gates in `apps/server/src/mcp/McpToolAccess.ts`.
 4. Compare options and recommend. Review on Muse; fix findings; re-review.
 
-Rejected for now, with numbers in the report: a sandboxed JS batch tool (about 1.7% fewer rows; consent is keepable through each tool's server `Declaration`, but it needs a sandbox); composite tools (0.7%); further UI collapsing of studio-code rows (they are already folded).
+Rejected for now, with numbers in the report: a sandboxed JS batch tool (about 1.7% fewer rows; consent is keepable only with work on both sides, each inner call through its server `Declaration` and through the host's per-tool settings ask/deny and read-only list, and it needs a sandbox); composite tools (0.7%); further UI collapsing of studio-code rows (they are already folded).
 
-Review: Muse Wonder Full 1.0 at Extra High, round 1 "agree with changes" (reports/muse-review.md); findings 1 to 8 answered in the report.
+Review: Muse Wonder Full 1.0 at Extra High, round 1 "agree with changes", round 2 "fix first" on R2-1 and R2-2 (reports/muse-review.md); all round 1 and round 2 findings answered in the report and spec.
 
 ## Decisions
 
