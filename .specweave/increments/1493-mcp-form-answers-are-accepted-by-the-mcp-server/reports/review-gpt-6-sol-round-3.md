@@ -1,0 +1,10 @@
+Verdict: NO-SHIP
+Verdict: fix first
+Reviewed commit: e2402a5f0b8afa4544e876a21550f3a54588e369
+Reviewer context: fresh GPT-6-Sol on Codex, reviewing Claude-written code
+
+## [high] apps/server/src/provider/ClaudeMcpElicitation.ts:383 a commit failure after grace still leaves a dead card pending
+
+Submit can set the answered mark before its commit finishes. Stop or the unattended timer then enters the two-minute grace at lines 357-359. If grace expires while the commit is still pending, the second `beginClosingClaudeForm` sees the mark and leaves the card open; the adapter returns at line 389, and its `ensuring` block at lines 400-405 drops the mark and pending response. A later `commitCommand` failure invokes the cleanup at `Orchestrator.ts:13778`, but the mark is already gone and no adapter remains to close the card. A new Submit can then be recorded as resolved even though the MCP call ended. `commitDeadline` supplies no bound without `authorityEndsAt`, so a commit can remain unresolved past the two-minute grace. The new test fails the commit *before* ending grace, so it does not cover this order. Keep a failure notification/closure path after adapter exit, or make the commit outcome authoritative before deciding whether to leave the card pending. Test failure after grace has expired.
+
+Re-verification: inspected the full `d08bb72c4...e2402a5f0` diff and the changed paths again at the cited lines. A possible competing-answer cleanup issue was dropped after checking `Orchestrator.ts:13824`: `threadDispatch.withLock` serializes dispatch through commit for one thread. The existing 69 focused tests, five 37-test time-zone runs, clean format check and zero-new-diagnostics typecheck are recorded in `reports/gates-e2402a5f0.txt`. The lint diagnostics in that report are pre-existing `Effect.runSync`/`Effect.runPromise` uses in the touched test file; the prior format issue is resolved. No new lint or format finding is raised.

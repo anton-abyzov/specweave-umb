@@ -23,3 +23,20 @@ Checks at `e2402a5f0` (`reports/gates-e2402a5f0.txt`):
 - Focused tests: 69 of 69 pass.
 - 37 of 37 pass in each of five time zones: Asia/Kolkata, America/St_Johns, Pacific/Chatham, UTC and America/New_York.
 - Typecheck gate: "0 new diagnostics, passed".
+
+# Response to round 3 (e2402a5f0, NO-SHIP)
+
+**[high] A commit failure after grace still leaves a dead card pending: fixed in `9fb13b986`.**
+
+When grace ends with the answer's commit still running, the adapter now calls `closeClaudeFormNowOrOnFailedCommit`, a single synchronous registry step. It closes the card at once if the commit already failed. Otherwise it keeps a closer, which outlives the call.
+
+If that commit fails later, `forgetUncommittedFormAnswer` does two things in the same step: it marks the form closing, so any Submit queued behind the commit is refused, and it runs the closer, which emits the cancelled card. A commit that succeeds keeps 1481 D-11: the closer never runs.
+
+Test: "closes the card when the answer's commit fails after the call ended (1493)".
+
+Checks at `9fb13b986` (`reports/gates-9fb13b986.txt`):
+
+- Focused tests: 70 of 70 pass.
+- 37 of 37 pass in each of five time zones.
+- `vp fmt --check` is clean.
+- Typecheck gate: "0 new diagnostics, passed".

@@ -1,14 +1,11 @@
-<!-- specweave review: reviewer=gpt-6-sol model=gpt-6-sol family=openai author=claude depth=standard repo=repositories/anton-abyzov/specwithcode base=d08bb72c4b50c12b45c55e32ab499e013c6335e1 head=f4f458ec3f302023dd61861099e7a1a8a65a26cc at=2026-11-27T00:21:51.618Z -->
-# Review: 1493 MCP form answers are accepted by the MCP server
+<!-- specweave review: reviewer=gpt-6-sol model=gpt-6-sol family=openai author=claude depth=standard repo=repositories/anton-abyzov/specwithcode base=d08bb72c4b50c12b45c55e32ab499e013c6335e1 head=e2402a5f0b8afa4544e876a21550f3a54588e369 at=2026-11-27T00:57:08.414Z -->
+Verdict: NO-SHIP
 Verdict: fix first
-Reviewed commit: f4f458ec3f302023dd61861099e7a1a8a65a26cc
-Reviewer context: fresh Codex session, GPT-6-Sol
+Reviewed commit: e2402a5f0b8afa4544e876a21550f3a54588e369
+Reviewer context: fresh GPT-6-Sol on Codex, reviewing Claude-written code
 
-## [high] apps/server/src/provider/ClaudeMcpElicitation.ts:357 failed commit after Stop leaves the card pending
-Submit sets the in-memory answered mark, then Stop sees it and enters the two-minute grace. If `commitCommand` fails or returns a rejected receipt, `forgetUncommittedFormAnswer` clears the mark, but `committed` remains true. At grace expiry, lines 379-386 return without `closeCard`; the card stays pending with no live adapter and a later Submit can be recorded as resolved. Recheck the mark after grace or notify the adapter of commit failure, then close the card when no answer was committed. Add a test with Stop between hand-off and failed commit.
+## [high] apps/server/src/provider/ClaudeMcpElicitation.ts:383 a commit failure after grace still leaves a dead card pending
 
-## [high] packages/shared/src/mcpElicitationDateTime.ts:75 a zoned default can change instant on Submit
-In `America/New_York`, `2026-11-01T01:30:00-05:00` displays as `2026-11-01T01:30`, then the local `Date` constructor selects `-04:00`; unchanged Submit sends an instant 60 minutes earlier. Lines 89-92 also drop fractional seconds from a default. Preserve the original zoned value while untouched, and handle ambiguous or nonexistent local times when edited. The DST case was reproduced in the required checks copy.
+Submit can set the answered mark before its commit finishes. Stop or the unattended timer then enters the two-minute grace at lines 357-359. If grace expires while the commit is still pending, the second `beginClosingClaudeForm` sees the mark and leaves the card open; the adapter returns at line 389, and its `ensuring` block at lines 400-405 drops the mark and pending response. A later `commitCommand` failure invokes the cleanup at `Orchestrator.ts:13778`, but the mark is already gone and no adapter remains to close the card. A new Submit can then be recorded as resolved even though the MCP call ended. `commitDeadline` supplies no bound without `authorityEndsAt`, so a commit can remain unresolved past the two-minute grace. The new test fails the commit *before* ending grace, so it does not cover this order. Keep a failure notification/closure path after adapter exit, or make the commit outcome authoritative before deciding whether to leave the card pending. Test failure after grace has expired.
 
-## [medium] apps/server/src/provider/ClaudeMcpElicitation.test.ts:411 new tests fail the lint gate
-The new `Effect.runPromise` calls at lines 411 and 436 trigger `studio(no-manual-effect-runtime-in-tests)`. The gate report also shows format failures in `packages/shared/src/mcpElicitationDateTime.ts` and `packages/shared/src/mcpElicitationForm.test.ts`; a focused lint and format check reproduced them. Convert the tests to `it.effect(...)` and format the touched files before shipping.
+Re-verification: inspected the full `d08bb72c4...e2402a5f0` diff and the changed paths again at the cited lines. A possible competing-answer cleanup issue was dropped after checking `Orchestrator.ts:13824`: `threadDispatch.withLock` serializes dispatch through commit for one thread. The existing 69 focused tests, five 37-test time-zone runs, clean format check and zero-new-diagnostics typecheck are recorded in `reports/gates-e2402a5f0.txt`. The lint diagnostics in that report are pre-existing `Effect.runSync`/`Effect.runPromise` uses in the touched test file; the prior format issue is resolved. No new lint or format finding is raised.
