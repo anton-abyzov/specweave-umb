@@ -41,7 +41,7 @@ In: named launches (`delegate_task`, `create_threads`, `studio_thread_launch`, l
 - D-01 Expected behaviour per the coordinator's brief (owner's use-recommended rule): Ultracode is on for every thread whose track row has it on, including named-model launches that match a row and fallback hops onto one, unless the caller explicitly turns it off.
 - D-02 Review launches and routines stay as 1441 decided.
 - D-03 Existing m4 threads are not switched on: no row on m4 has Ultracode on, so none qualifies.
-- D-04 Fallback hops skip a row's Ultracode for the project coordinator and for any thread a routine runs in (its own or one it posts into). A stopped run does not say whether a routine's turn or a person's ended, so a person's turns in a routine-bound thread stay off too; off is the safe side. The routine lookup is read again under the project lock (review round 3). A stopped run whose start message carries a routine id stays off too, so a routine moved or deleted mid-turn cannot hand its turn the row (review round 4).
+- D-04 Fallback hops skip a row's Ultracode for the project coordinator and for any thread a routine runs in (its own or one it posts into). A stopped run does not say whether a routine's turn or a person's ended, so a person's turns in a routine-bound thread stay off too; off is the safe side. The routine lookup is read again under the project lock (review round 3). A stopped run whose start message carries a routine id stays off too, so a routine moved or deleted mid-turn cannot hand its turn the row (review round 4); the check follows automatic fallback continuations back to the first message, and a run it cannot trace counts as a routine's (review round 5).
 ### Open
 - none
 
