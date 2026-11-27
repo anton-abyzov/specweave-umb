@@ -1,4 +1,4 @@
-# 1496 MCP servers can ask you to open a link in Claude threads
+# 1498 MCP servers can ask you to open a link in Claude threads
 
 ## Problem
 
@@ -80,6 +80,6 @@ Rejected:
 
 ### T-03 URL card and screenshot
 
-- AC: AC-01, AC-02, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/McpElicitationUrlCard.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/McpElicitationUrlCard.test.tsx, .specweave/increments/1496-mcp-servers-can-ask-you-to-open-a-link-in-claude-threads/reports/url-card.png | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/McpElicitationUrlCard.test.tsx
+- AC: AC-01, AC-02, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/McpElicitationUrlCard.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/McpElicitationUrlCard.test.tsx, .specweave/increments/1498-mcp-servers-can-ask-you-to-open-a-link-in-claude-threads/reports/url-card.png | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/McpElicitationUrlCard.test.tsx
 
-Verify and close 1496.
+Verify and close 1498.
