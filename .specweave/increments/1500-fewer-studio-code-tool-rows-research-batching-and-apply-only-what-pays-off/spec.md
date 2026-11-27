@@ -45,7 +45,7 @@ Review: Muse Wonder Full 1.0 at Extra High, round 1 "agree with changes" (report
 - D-01 Should batching be planned? → "Yes, apply it when it's really necessary", full research, Muse Wonder Full at Extra High review (owner via coordinator, November 27, 2026).
 ### Defaulted (change any before sw-do)
 - D-02 Muse effort is Extra High for this increment, as the owner said on November 27, 2026. This overrides `decision_muse_effort_high.md` (High since November 18) for this review only.
-- D-03 Recommendation: ship no batching code. The coordinator settles this with the owner, since it is below the brief's UI-only floor.
+- D-03 Ship no batching code → accepted by the owner, November 27, 2026 ("Yes, accept it. I agree."). Follow-ups go to a new increment.
 ### Open
 - D-04 Whether to fold wake-notification rows (785 of 1,300 visible single rows) is a separate increment, if the owner wants it.
 
