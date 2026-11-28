@@ -56,9 +56,9 @@ Out:
 - [ ] AC-03: The model picker shows these routes with the preset's mark and a "Your key" or "Local" label.
   - Their models' billing reads `api`, `paid-router` or `local` per `modelBilling.ts`, never `subscription`.
   - A list-price note says the vendor bills the key at its own list price, with no numbers or savings claims.
-- [ ] AC-04: Nothing automatic picks an open-model route. That covers provider fallback, the any-ready worker pick, Auto task routing, learned preferences, same-model alternates, and a Complex chain continuing into Daily entries.
+- [ ] AC-04: Nothing automatic picks an open-model route. That covers provider fallback, the any-ready worker pick, Auto task routing, learned preferences, same-model alternates (including a review's reviewer order), the coordinator and worker defaults, and a Complex chain continuing into Daily entries.
   - It runs only on a track or a thread where the person put it.
-  - The person can add it to Daily (the documented case), or to another track by hand.
+  - The person can add it to Daily (the documented case) or Complex by hand. The Review track refuses it, since reviews never spend a key.
   - A test proves a Daily launch lands on a route the person added there.
 - [ ] AC-05: A thread can move onto or off an open-model route in the same conversation.
   - The permission mode is kept. An approval card still open on the running turn is interrupted, as with any switch.
@@ -67,14 +67,16 @@ Out:
 
 ## Approach
 
-1. **Seam** (landed in `87d7285c1`).
+1. **Seam** (first commit of app PR #1018).
    - `packages/shared/src/openModelPresets.ts` holds the preset data, `buildOpenModelEnvironment`, the marker reader and `isOpenModelRoute`. It imports contracts only.
    - `ServerProvider.openModelPreset` carries the marker to clients.
 2. **Launch and snapshot.**
    - `mergeNativeSubscriptionEnvironment` hardens marker instances only: it blanks host credentials the preset does not set, and forces `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1`.
+     - A keyed preset whose key rows are empty gets a placeholder token, so Claude Code cannot fall back to the host's claude.ai sign-in.
+     - An inherited marker variable is dropped from instances whose rows name no preset.
    - `ClaudeDriver` stamps the following on marker instances:
      - `openModelPreset`;
-     - an auth label of "Your key" or "Local";
+     - an auth label of "Your key" or "Local". Claude Code reports `ANTHROPIC_AUTH_TOKEN` as an unverified subscription token, so that answer becomes a signed-in `apiKey` (keyed) or `local` sign-in and its warning clears;
      - per-model billing from `classifyBaseUrlBilling(baseUrl, billingProviderId)`;
      - a catalog of the preset's model ids, with no built-in Claude slugs.
    - Local presets discover models from the runtime's `/v1/models`, reusing `localModelServer.ts`, and point the background and subagent slots at the launching model.
@@ -84,8 +86,8 @@ Out:
    - The native-transcript transfer refuses to cross endpoints, so a switch between Anthropic and a vendor takes the budgeted handoff. This avoids replaying signed thinking blocks on another endpoint.
 4. **Tracks.**
    - `isHeldSource` holds open-model routes whatever their billing.
-   - `trackEntryRefusal` lets a person add them by hand.
-   - The any-ready filter, Auto routing, learned preferences and the model-mode Complex-into-Daily chain skip them unless named.
+   - `trackEntryRefusal` lets a person add them to Daily or Complex by hand and refuses them on Review.
+   - The any-ready filter, Auto routing, learned preferences, reviewer alternates, the coordinator and worker defaults, and the model-mode Complex-into-Daily chain skip them unless named.
    - Edits to `providerFallback.ts` (1,932 lines) swap expressions only, with no net growth.
 5. **Web.**
    - `AddOpenModelDialog` is reached from the wizard's step 0.
@@ -107,7 +109,7 @@ Files over 1,500 lines must not grow: `providerFallback.ts`, `ClaudeAdapterV2.ts
 - D-05: Every new rule keys on the `SPECWITHCODE_OPEN_MODEL_PRESET` marker row. Instances built by hand with a base URL behave exactly as before. Hardening those would be an auth change, raised with the owner separately.
 - D-06: Preset instances use the default Claude home, so the person's skills and settings apply. `ANTHROPIC_AUTH_TOKEN` outranks a stored claude.ai login (Claude Code authentication docs, spike), and the preset blanks `ANTHROPIC_API_KEY` and `CLAUDE_CODE_OAUTH_TOKEN`.
 - D-07: When the endpoint changes, the switch is a history handoff, never a native resume.
-- D-08: An open-model route is never picked automatically. A person may put it on any track by hand, and Daily is the documented case.
+- D-08: An open-model route is never picked automatically. A person may put it on Daily or Complex by hand, and Daily is the documented case. Review refuses it, as it refuses other keyed or token-billed routes.
 - D-09: OpenRouter asks for one model id, since it serves hundreds. Local presets discover their models; if discovery finds none, the instance shows "No models found at <address>".
 ### Open
 - none
