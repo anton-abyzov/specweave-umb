@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-28T08:16:36.554Z",
-  "updated": "2026-11-28T08:16:36.554Z",
-  "lastActivity": "2026-11-28T08:16:36.554Z",
+  "updated": "2026-11-28T10:02:18.558Z",
+  "lastActivity": "2026-11-28T10:02:18.558Z",
   "title": "Dictation keeps earlier text and long lists keep their scroll position",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
