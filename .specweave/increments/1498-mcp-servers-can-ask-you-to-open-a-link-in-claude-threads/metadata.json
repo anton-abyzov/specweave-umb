@@ -1,0 +1,18 @@
+{
+  "id": "1498-mcp-servers-can-ask-you-to-open-a-link-in-claude-threads",
+  "uuid": "8e9b8df8-0969-40fe-82fa-46c5e9d9fd6c",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T03:50:41.019Z",
+  "updated": "2026-11-28T12:44:18.752Z",
+  "lastActivity": "2026-11-28T12:44:18.752Z",
+  "title": "MCP servers can ask you to open a link in Claude threads",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-28T12:44:18.749Z",
+  "approvedAt": "2026-11-28T12:44:18.752Z"
+}
