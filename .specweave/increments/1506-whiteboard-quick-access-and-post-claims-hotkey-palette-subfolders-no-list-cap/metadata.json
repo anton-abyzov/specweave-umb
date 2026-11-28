@@ -1,0 +1,15 @@
+{
+  "id": "1506-whiteboard-quick-access-and-post-claims-hotkey-palette-subfolders-no-list-cap",
+  "uuid": "d4e1ce23-77cd-4310-8f14-d10f3045f0d6",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T16:29:11.760Z",
+  "updated": "2026-11-27T17:15:21.227Z",
+  "lastActivity": "2026-11-27T17:15:21.227Z",
+  "title": "Whiteboard quick access and post claims: hotkey, palette, subfolders, no list cap",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
