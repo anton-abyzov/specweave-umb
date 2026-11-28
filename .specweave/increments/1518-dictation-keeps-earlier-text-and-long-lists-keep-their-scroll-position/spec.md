@@ -20,11 +20,11 @@ In: iPhone composer dictation (state machine, recognizer task, cursor, editable 
 
 ## Acceptance Criteria
 
-- [ ] AC-01: On the iPhone, words said before a pause stay in the draft when the recognizer starts a new phrase; text that was in the draft before dictation, and edits made while listening, are never replaced.
-- [ ] AC-02: On the iPhone, dictation writes at the cursor (after a selection), the mic is offered with text in the draft, and the field stays editable while sending is blocked.
-- [ ] AC-03: On the desktop, a dictated phrase goes after a selection and never replaces it.
-- [ ] AC-04: Long lists on the iPhone and desktop keep their scroll position while scrolling and picking, including when live data refreshes.
-- [ ] AC-05: Shipped: PR merged green, app release requested, TestFlight build with the iPhone changes, proof screenshots or recording.
+- [x] AC-01: On the iPhone, words said before a pause stay in the draft when the recognizer starts a new phrase; text that was in the draft before dictation, and edits made while listening, are never replaced.
+- [x] AC-02: On the iPhone, dictation writes at the cursor (after a selection), the mic is offered with text in the draft, and the field stays editable while sending is blocked.
+- [x] AC-03: On the desktop, a dictated phrase goes after a selection and never replaces it.
+- [x] AC-04: Long lists on the iPhone and desktop keep their scroll position while scrolling and picking, including when live data refreshes.
+- [x] AC-05: Shipped: PR merged green, app release requested, TestFlight build with the iPhone changes, proof screenshots or recording.
 
 ## Approach
 
