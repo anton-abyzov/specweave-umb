@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T03:50:41.019Z",
-  "updated": "2026-11-27T03:50:41.019Z",
-  "lastActivity": "2026-11-27T03:50:41.019Z",
+  "updated": "2026-11-28T09:28:51.270Z",
+  "lastActivity": "2026-11-28T09:28:51.270Z",
   "title": "MCP servers can ask you to open a link in Claude threads",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

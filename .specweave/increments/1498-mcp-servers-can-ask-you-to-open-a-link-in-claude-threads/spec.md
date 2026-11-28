@@ -82,4 +82,12 @@ Rejected:
 
 - AC: AC-01, AC-02, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/McpElicitationUrlCard.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/McpElicitationUrlCard.test.tsx, .specweave/increments/1498-mcp-servers-can-ask-you-to-open-a-link-in-claude-threads/reports/url-card.png | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/chat/McpElicitationUrlCard.test.tsx
 
+### T-04 Link contract and the adapter's existing tests
+
+- AC: AC-01, AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/mcpElicitation.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpElicitation.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/provider/ClaudeMcpElicitation.test.ts
+
+### T-05 Route URL cards in the composer
+
+- AC: AC-01, AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ComposerPendingApprovalPanel.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/chat/ChatComposer.tsx | Test: node node_modules/typescript/bin/tsc --noEmit --project apps/web/tsconfig.json
+
 Verify and close 1498.
