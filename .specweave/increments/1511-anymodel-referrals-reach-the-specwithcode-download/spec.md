@@ -87,4 +87,4 @@ Rejected:
 - AC: AC-03, AC-04 | Files: repositories/anton-abyzov/specweave/docs-site/src/lib/siteEvents.ts, repositories/anton-abyzov/specweave/docs-site/src/lib/__tests__/siteEvents.test.ts, repositories/anton-abyzov/specweave/docs-site/src/pages/privacy.md | Test: npx vitest run src/lib/__tests__/siteEvents.test.ts (in docs-site)
 
 ### T-03 Live check and one-week collector
-- AC: AC-05 | Files: ~/.specwithcode/m5/evidence/anymodel-funnel/collect.sh, ~/.specwithcode/m5/evidence/anymodel-funnel/count.sh | Test: bash ~/.specwithcode/m5/evidence/anymodel-funnel/count.sh shows a referral_landing line with source anymodel from the headless check
+- AC: AC-05 | Files: ~/.specwithcode/m5/evidence/anymodel-funnel/collect.sh, ~/.specwithcode/m5/evidence/anymodel-funnel/count.sh | Test: INCLUDE_TESTS=1 bash ~/.specwithcode/m5/evidence/anymodel-funnel/count.sh shows the headless check's referral_landing and download_click with source anymodel; plain count.sh leaves test-windows.txt traffic out and lists all-source events per day as the liveness signal
