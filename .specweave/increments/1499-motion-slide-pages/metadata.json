@@ -1,0 +1,18 @@
+{
+  "id": "1499-motion-slide-pages",
+  "uuid": "1d5362eb-42f2-47cc-9e91-27e4c77599f3",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T05:41:00.648Z",
+  "updated": "2026-11-28T14:53:36.675Z",
+  "lastActivity": "2026-11-28T14:53:36.675Z",
+  "title": "Motion slide pages: WebGL scenes, music, slide navigation and a loading bar run in SpecWithCode pages, installed apps and standalone downloads",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-28T14:53:36.674Z",
+  "approvedAt": "2026-11-28T14:53:36.675Z"
+}

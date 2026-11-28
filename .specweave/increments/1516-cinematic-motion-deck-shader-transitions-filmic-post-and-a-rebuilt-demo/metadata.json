@@ -1,0 +1,18 @@
+{
+  "id": "1516-cinematic-motion-deck-shader-transitions-filmic-post-and-a-rebuilt-demo",
+  "uuid": "e7b396e0-9c18-4881-a5ed-2a120e25e523",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T07:25:37.565Z",
+  "updated": "2026-11-28T14:51:26.510Z",
+  "lastActivity": "2026-11-28T14:51:26.510Z",
+  "title": "Cinematic motion deck: shader transitions, filmic post and a rebuilt demo",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-28T14:51:26.509Z",
+  "approvedAt": "2026-11-28T14:51:26.510Z"
+}
