@@ -1,0 +1,3 @@
+$ grep -q "Tasks on the SDK entrypoint" .specweave/increments/1495-mcp-form-cards-follow-the-servers-real-deadlines/reports/probe.md
+# exit 0 — 2026-11-28T07:41:46.536Z
+

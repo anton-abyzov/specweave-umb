@@ -5,9 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T03:39:09.422Z",
-  "updated": "2026-11-27T03:39:09.422Z",
-  "lastActivity": "2026-11-27T03:39:09.422Z",
+  "updated": "2026-11-28T07:42:02.265Z",
+  "lastActivity": "2026-11-28T07:42:02.265Z",
   "title": "MCP form cards follow the server's real deadlines",
   "project": "specweave-umb",
-  "externalLinks": {}
+  "externalLinks": {},
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }

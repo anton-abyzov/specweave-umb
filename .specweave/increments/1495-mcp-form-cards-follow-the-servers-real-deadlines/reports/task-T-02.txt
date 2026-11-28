@@ -1,0 +1,13 @@
+$ cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/provider/ClaudeMcpElicitation.test.ts
+# exit 0 — 2026-11-28T07:41:59.224Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.1.0 /Users/anton/.specwithcode/worktrees/specweave-umb/mcp-form-deadlines-url-mode/repositories/anton-abyzov/specwithcode
+
+
+ Test Files  1 passed (1)
+      Tests  28 passed (28)
+   Start at  02:41:58
+   Duration  956ms (import 63%, transform 32%, tests 3%, setup 1%)
+

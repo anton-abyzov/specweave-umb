@@ -1,0 +1,15 @@
+$ cd repositories/anton-abyzov/specwithcode && node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.elicitation.test.ts
+# exit 0 — 2026-11-28T07:42:02.235Z
+
+note: You are running `vp test` as a Vite+ built-in command. If you meant to run the test npm script, use `vpr test` instead.
+
+ RUN  v5.1.0 /Users/anton/.specwithcode/worktrees/specweave-umb/mcp-form-deadlines-url-mode/repositories/anton-abyzov/specwithcode
+
+(node:85625) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  02:42:00
+   Duration  1.69s (import 56%, transform 36%, tests 7%, setup 1%)
+

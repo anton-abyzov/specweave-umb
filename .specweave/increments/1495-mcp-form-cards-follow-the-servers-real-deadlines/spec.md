@@ -40,7 +40,7 @@ Out: opening links for URL mode (a separate owner decision), Codex and Copilot f
 
   It runs headless through the Claude Code CLI bundled with the Agent SDK bump (thread "Claude Agent SDK on a current Claude Code for MCP features"). T-01 starts on that bump's merge, or rebases onto it if it lands first. The installed Claude Code 2.1.331 is the comparison. It records the SDK messages, what the card shows, and the answers at 6 and 11 minutes over HTTP. Report: `reports/probe.md`.
 - **AC-02:** in `ClaudeMcpElicitation.ts`, when the call ends with `by: "stop"` and the turn is not stopping, the adapter shows a new `stoppedWaitingNotice`. Telling an SDK abort apart from the person's Stop comes from the turn's own state.
-- **AC-03:** set `UNATTENDED_MCP_ELICITATION_TIMEOUT_MS` to the shortest deadline the probe measures (expected 5 minutes, from the HTTP idle timeout), and update `unattendedTimeoutNotice` to match.
+- **AC-03:** set `UNATTENDED_MCP_ELICITATION_TIMEOUT_MS` to the shortest deadline the probe measures (expected 5 minutes, from the HTTP idle timeout), and update `unattendedTimeoutNotice` to match. Measured (D-03): 5 minutes, set by Claude Code's HTTP stream drop after about 356 s without keepalives.
 - **AC-04:** key the URL-decline notice by the tool call (the SDK's tool use id if the elicitation carries it, otherwise the server plus the turn), so retries replace one notice.
 
 ## Decisions
@@ -53,6 +53,7 @@ Out: opening links for URL mode (a separate owner decision), Codex and Copilot f
 
 - D-01 This is a new increment, not tasks added to 1493. 1493 is merged, released and strictly verified (reversible).
 - D-02 The unattended timeout follows the shortest measured deadline. An attended card has no timer of its own and closes when the SDK stops waiting (reversible).
+- D-03 The deadline that sets the unattended timeout is the shortest one no server signals: Claude Code drops an HTTP call's stream after about 356 s without keepalives (`reports/probe.md`). The MCP TypeScript SDK's 60 s request timeout is shorter, but the server signals it, the SDK aborts, and the card closes with the stopped-waiting notice. A modern server's `requestState` (10 minutes at GitHub) is longer. Timeout: 5 minutes (reversible).
 
 ### Open
 
@@ -67,5 +68,9 @@ Out: opening links for URL mode (a separate owner decision), Codex and Copilot f
 ### T-02 Stopped-waiting notice, real timeout, one URL notice per call
 
 - AC: AC-02, AC-03, AC-04 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpElicitation.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpElicitation.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/provider/ClaudeMcpElicitation.test.ts
+
+### T-03 The adapter tells the module when the turn is stopping
+
+- AC: AC-02 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.elicitation.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.elicitation.test.ts
 
 Verify and close 1495.
