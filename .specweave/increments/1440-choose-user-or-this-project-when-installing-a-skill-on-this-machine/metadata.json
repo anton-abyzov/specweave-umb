@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-20T20:13:23.351Z",
-  "updated": "2026-11-20T20:13:23.351Z",
-  "lastActivity": "2026-11-20T20:13:23.351Z",
+  "updated": "2026-11-28T10:04:13.485Z",
+  "lastActivity": "2026-11-28T10:04:13.485Z",
   "title": "Skill install: scope, machines and any agent (including custom agents)",
   "project": "specweave-umb",
   "repositories": [
