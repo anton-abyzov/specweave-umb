@@ -72,6 +72,12 @@ The real deadlines, shortest first:
 
 **The unattended timeout is set by the shortest deadline nothing signals: the HTTP stream drop at about 356 s.** `UNATTENDED_MCP_ELICITATION_TIMEOUT_MS` becomes 5 minutes, and the notice says "in 5 minutes". The 60 s server timeout is shorter, but it arrives as the SDK's abort, which now closes the card with "`<server>` stopped waiting for an answer." A cut to 60 s would cancel cards on modern servers that wait 10 minutes. On the timeout the server gets `cancel` (unchanged, `ClaudeMcpElicitation.ts`).
 
+## Abort cause
+
+The abort carries no cause: every `elicitation-abort` in the runs above, from a server's cancel, a stream drop or a CLI exit, has the reason `AbortError: This operation was aborted`.
+
+`crash.sh` (November 28) kills the CLI with a form pending, once with SIGKILL and once with SIGTERM. The SDK aborts `onElicitation`, and 2 ms later the output ends with "Claude Code process terminated by signal SIGKILL" or "exited with code 143". The app's 2 s wait for its own mark after an abort covers that gap by a wide margin.
+
 ## Proof limits
 
 - One account and one machine (M5, macOS). The `tengu_glowing_lark` flag is remote, so another account could see Tasks on.
