@@ -1,0 +1,15 @@
+{
+  "id": "1514-find-and-open-existing-whiteboards-board-picker-hotkey-palette-search-library-filter",
+  "uuid": "80c93b51-83a0-471a-8ba8-72567d0fdafb",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T02:42:14.993Z",
+  "updated": "2026-11-28T07:13:47.093Z",
+  "lastActivity": "2026-11-28T07:13:47.093Z",
+  "title": "Find and open existing whiteboards: board picker hotkey, palette search, Library filter",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}

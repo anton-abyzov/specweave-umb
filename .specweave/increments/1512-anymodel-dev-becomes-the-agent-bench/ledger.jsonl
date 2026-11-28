@@ -1,0 +1,5 @@
+{"t":"*","e":"session","by":"claude@anton-m5max-proled","at":"2026-11-28T02:16:21.230Z","note":"session 3f3c2628-918c-4856-b54f-9b01653de4a1","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-28T02:16:21.233Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-01","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-28T02:16:21.236Z","evidence":"anymodel PR #7 merged (1353404); wrangler deploy version dea1ef3e; curl api.anymodel.dev /v1/messages, /health, / and workers.dev all 410 with README pointer, November 27, 2026\nHEAD fb8fbc9042","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"claim","by":"claude@anton-m5max-proled","at":"2026-11-28T02:16:23.936Z","model":"claude-opus-5-5[1m]"}
+{"t":"T-02","e":"done","by":"claude@anton-m5max-proled","at":"2026-11-28T02:16:23.938Z","evidence":"release v2.0.1 published by OIDC workflow; npm view anymodel@2.0.1 readme contains 'Hosted endpoint retired'\nHEAD fb8fbc9042","model":"claude-opus-5-5[1m]"}

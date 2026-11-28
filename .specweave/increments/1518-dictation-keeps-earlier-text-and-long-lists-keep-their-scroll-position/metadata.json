@@ -1,0 +1,18 @@
+{
+  "id": "1518-dictation-keeps-earlier-text-and-long-lists-keep-their-scroll-position",
+  "uuid": "601311ad-96fc-4c44-b254-73f8e2881e5b",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T08:16:36.554Z",
+  "updated": "2026-11-28T12:08:54.242Z",
+  "lastActivity": "2026-11-28T12:08:54.242Z",
+  "title": "Dictation keeps earlier text and long lists keep their scroll position",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-28T12:08:54.241Z",
+  "approvedAt": "2026-11-28T12:08:54.242Z"
+}
