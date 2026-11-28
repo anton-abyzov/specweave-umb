@@ -1,0 +1,19 @@
+{
+  "id": "1497-specweave-ledger-tools-claim-release-block-for-the-owning-thread",
+  "uuid": "60e738c4-ea84-47a6-b8b9-aed17e7fdc83",
+  "status": "completed",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-27T03:56:17.825Z",
+  "updated": "2026-11-28T07:50:39.690Z",
+  "lastActivity": "2026-11-28T07:50:39.690Z",
+  "title": "SpecWeave ledger tools: claim, release and block for the thread that owns the increment",
+  "project": "specweave-umb",
+  "parent": "1483-studio-code-mcp-tool-surface-core-tools-up-front-search-hints-specweave-toolkit",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-28T07:50:39.689Z",
+  "approvedAt": "2026-11-28T07:50:39.690Z"
+}

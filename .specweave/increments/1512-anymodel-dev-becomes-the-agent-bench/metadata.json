@@ -1,0 +1,15 @@
+{
+  "id": "1512-anymodel-dev-becomes-the-agent-bench",
+  "uuid": "2e384cb1-4c31-411d-889c-3371c45a60e2",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T02:02:40.216Z",
+  "updated": "2026-11-28T02:16:23.938Z",
+  "lastActivity": "2026-11-28T02:16:23.938Z",
+  "title": "anymodel.dev becomes the agent bench in SpecWithCode style, and the hosted Worker retires",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/anymodel"
+  ]
+}

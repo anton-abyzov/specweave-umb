@@ -2,7 +2,7 @@
 
 ## Problem
 
-The October 28, 2026 keyword audit (1127, `reports/seo-audit-raw.md`) mapped measured searches to pages. 1127 shipped the compare hub, handoff.md and the switch guides. Pages it marked P0 or P1 still return 404 on November 24, 2026: `/docs/compare/openspec-vs-spec-kit` (P0), `/docs/compare/openspec-alternatives` (P0), `/docs/guides/codex-usage-limit` (P1, mirror of our strongest guide) and `/docs/guides/ai-coding-agent-orchestration` (P1). `specwithcode.com/llms.txt` redirects to `spec-weave.com/code/llms.txt`, which is a 404, so AI crawlers that start from the SpecWithCode domain find nothing. The owner approved a small first batch on November 24, 2026, on the condition that it makes sense (anymodel.org research follow-up).
+The October 28, 2026 keyword audit (1127, `reports/seo-audit-raw.md`) mapped measured searches to pages. 1127 shipped the compare hub, handoff.md and the switch guides. Pages it marked P0 or P1 still return 404 on November 24, 2026: `/docs/compare/openspec-vs-spec-kit` (P0), `/docs/compare/openspec-alternatives` (P0), `/docs/guides/codex-usage-limit` (P1, mirror of our strongest guide) and `/docs/guides/ai-coding-agent-orchestration` (P1). `specwithcode.com/llms.txt` redirects to `spec-weave.com/code/llms.txt`, which is a 404, so AI crawlers that start from the SpecWithCode domain find nothing. The owner approved a small first batch on November 24, 2026, on the condition that it makes sense (gateway research follow-up).
 
 ## Scope
 
@@ -34,7 +34,7 @@ Rejected: an orchestration page in this batch (P1 but overlaps `/code` and the "
 
 ### Open
 - D-05 "Claude Code в России": owner to confirm. Recommendation: do not build. Russia is not on Anthropic's supported-countries list (https://www.anthropic.com/supported-countries, effective November 12, 2026; it covers Claude.ai, Claude Code and the API and also people physically in an unsupported region), so an honest page can only say it is unsupported, and any how-to reads as advice to get around the region rule, which conflicts with Anthropic's terms and our brand rules.
-- D-06 Batch 2 candidates (not built): `openspec-alternatives` (1127 P0), and "Claude Code with DeepSeek, GLM, Kimi or a local model" from the vendors' own Anthropic-compatible endpoints (honest answer to the demand anymodel.org sells into; needs the app's current provider code checked for any SpecWithCode claim).
+- D-06 Batch 2 candidates (not built): `openspec-alternatives` (1127 P0), and "Claude Code with DeepSeek, GLM, Kimi or a local model" from the vendors' own Anthropic-compatible endpoints (honest answer to the demand third-party gateways sell into; needs the app's current provider code checked for any SpecWithCode claim).
 
 ## Tasks
 
