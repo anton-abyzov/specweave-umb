@@ -28,7 +28,7 @@ Out:
 - The 32 s promo video, which waits for the funnel trigger.
 - Deleting the domain or the npm package; the owner must approve that.
 - Any paid plan.
-- Naming or linking anymodel.org.
+- Naming or linking any third-party gateway.
 - The SpecWithCode app track, which is increment 1513.
 
 ## Acceptance Criteria
