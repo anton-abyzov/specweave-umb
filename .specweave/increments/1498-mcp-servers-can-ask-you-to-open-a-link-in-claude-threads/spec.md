@@ -98,4 +98,8 @@ Rejected:
 
 - AC: AC-03, AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpUrlElicitation.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpUrlElicitation.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpElicitation.ts | Test: node node_modules/vite-plus/bin/vp test run packages/shared/src/mcpElicitationUrl.test.ts apps/server/src/provider/ClaudeMcpUrlElicitation.test.ts
 
+### T-08 Review round 3 fixes
+
+- AC: AC-03, AC-06 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpUrlElicitation.ts | Test: node node_modules/vite-plus/bin/vp test run packages/shared/src/mcpElicitationUrl.test.ts
+
 Verify and close 1498.
