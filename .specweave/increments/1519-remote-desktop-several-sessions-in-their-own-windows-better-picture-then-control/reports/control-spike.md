@@ -46,10 +46,12 @@ What follows for the rules (AC-13):
 - `loginwindow` in front, or its shield windows on screen, means locked or switching user: no input at all. The session already shows the "locked" placard then.
 - `IsSecureEventInputEnabled()` is the system's own flag for a focused password field in any app: no typing while it is on. The probe saw it false only because M5 was locked; a focused password field turning it on is documented behaviour, not measured here.
 - The browser rule (D-04) uses the front app's bundle identifier against a fixed list.
-- Every check runs in the helper right before each post, not in a cached state sent ahead, so a prompt that appears between two events still stops the second one.
+- Every check runs in the helper right before each key or button post, not in a cached state sent ahead, so a prompt that appears between two events still stops the second one. Pointer moves reuse a reading at most 100 ms old.
+- One full check (secure input, front app, window list) costs 0.26 ms p50 on M5, small next to the 33 ms the viewer batches input over.
 
 ## Not measured here
 
 - Secure input turning on (needs a focused password field on an unlocked screen; M5 was locked).
+- Which process owns the Touch ID sheet window (`coreautha` is assumed from its process name; the sheet was never shown on an unlocked screen).
 - Whether `loginwindow` owns on-screen windows on an unlocked Mac. If it does at layer 2000 or above, the "locked" rule would block control; the helper reports the reason, so a false block would be visible, not silent.
 - Posting real clicks and keys on another person's screen: done only in the live proof after release, with the owner's approval at m1.
