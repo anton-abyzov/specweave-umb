@@ -1,0 +1,12 @@
+{
+  "id": "1517-phone-opens-every-machine-and-remote-connections-recover-after-sleep",
+  "uuid": "fcdaa8ad-402e-442b-bbf5-1b65b7a95219",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T07:52:34.422Z",
+  "updated": "2026-11-28T07:52:34.422Z",
+  "lastActivity": "2026-11-28T07:52:34.422Z",
+  "title": "Phone opens every machine and remote connections recover after sleep",
+  "project": "specweave-umb"
+}
