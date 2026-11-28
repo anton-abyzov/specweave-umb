@@ -17,6 +17,12 @@ Connection troubles while away (`reports/evidence.md` (b) and (c)):
 4. After every wake of M5 nothing was reachable for 6 to 20 minutes. Waking is handled only as an update check (`DesktopApp.ts:737`); a window in the background keeps its retry wait, which grows to 300 s, or 600 s for a machine the relay calls offline, once 30 minutes pass since the last session (`supervisor.ts:210`).
 5. The tunnel watchdog marks a connector connected at its first "Registered tunnel connection" and never again checks it (`ManagedEndpointRuntime.ts:316`). A cloudflared that keeps running with no edge connections is never restarted. No outage this week is proven to be this; it is the remaining undetected tunnel failure from 1352.
 
+iPhone feedback, November 27, 11:54 to 11:58 PM (screenshots `reports/iphone-2026-11-27/`): "it's really unusable from iPhone Duo ... it was only shown to M1. Why is it so? Is it because we have some kind of a main coordinator ... I closed the laptop on M5, it seems like it was stuck ... I should be able to choose on which machine I want to run Coordinator and which model ... when the model is running out of credits ... I'm not able to change it for the coordinator."
+
+6. The phone runs 0.1.8 (46), built November 17. It still says "One coordinates; the others run workers" and "If m1 goes quiet / Take over automatically". Main replaced that on November 18 (#612): each machine runs its own coordinator, and none is main. Only m1 showed as Online because M5 was asleep with its lid closed from 9:55 PM to 1:08 AM (`pmset`). m4 and linux-mini showed as Offline to the phone, and the relay keeps no per-machine history that says why.
+7. On main the phone still cannot change the coordinator's model: settings say "Change the model in SpecWithCode on your computer." (`ProjectSettingsSheet.swift:131`). The coordinator composer shows no model chip, and the usage-limit card ("no remaining permitted usage ... Select an eligible profile") has no action.
+8. When the coordinator's machine sleeps, the banner says "X is offline. Showing saved messages. Y's orchestrator is available." It does not say the machine may be asleep, and it does not carry the draft over.
+
 Other causes found, not code: M5 asleep in the bag (confirmed, `pmset`), m3 offline most nights (likely asleep), win down November 26 to 27 (unknown), fleet restarts on November 28 (confirmed).
 
 ## Scope
@@ -35,6 +41,10 @@ Out: skipping device codes between the owner's machines (D-01 kept codes); keepi
 - [ ] AC-06: A machine this device had a session with in the last 7 days is retried at least every 2 minutes while unreachable; older or never-seen machines keep today's ceilings.
 - [ ] AC-07: When cloudflared reports every edge connection lost for 2 minutes after it had registered one, the server restarts the connector and asks the relay to check the tunnel.
 - [ ] AC-08: The iPhone switcher lists every machine a linked project names, including ones not reached yet, with their state (waiting for approval, offline, connecting), and the home screen says when a machine the phone is allowed on has a device waiting for approval.
+- [ ] AC-10: On the iPhone, the coordinator model in project settings opens a model picker and saves `coordinatorModelSelection`; the "change it on your computer" footer is gone.
+- [ ] AC-11: The iPhone coordinator composer shows the model chip, so the next message can switch the model.
+- [ ] AC-12: The usage-limit card offers "Change model" and shows the reset time in the phone's local time.
+- [ ] AC-13: When the coordinator's machine is not answering, the banner says it may be asleep or closed, gives the last-seen time when known, and offers "Continue on Y's coordinator" with the draft carried over; no screen says "orchestrator".
 - [ ] AC-09: The fixes ship in an app release and an iPhone TestFlight build, with a screenshot of the phone's machine menu opening linux-mini.
 
 ## Approach
@@ -81,6 +91,9 @@ Rejected: sharing approvals between machines (D-01); letting phone pairings mint
 
 ### T-06 iPhone switcher lists machines not reached yet; waiting devices on the home screen
 - AC: AC-08 | Files: [repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCSync/ShellSummaries.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Chat/OrchestratorSwitcher.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Tests/SWCSyncTests/ShellSummariesTests.swift] | Test: `cd repositories/anton-abyzov/specwithcode/apps/ios/SWCKit && swift test --filter ShellSummariesTests`
+
+### T-08 iPhone: pick the coordinator model, change it at a limit, continue when its machine sleeps
+- AC: AC-10, AC-11, AC-12, AC-13 | Files: [repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Settings/ProjectSettingsSheet.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCFeatures/Chat/ChatView.swift, repositories/anton-abyzov/specwithcode/apps/ios/SWCKit/Sources/SWCSync/LiveEngine+Settings.swift] | Test: `cd repositories/anton-abyzov/specwithcode/apps/ios/SWCKit && swift test`
 
 ### T-07 Release, TestFlight and the phone screenshot
 - AC: AC-09 | Files: [.specweave/increments/1517-phone-opens-every-machine-and-remote-connections-recover-after-sleep/reports/report.md] | Test: `test -s .specweave/increments/1517-phone-opens-every-machine-and-remote-connections-recover-after-sleep/reports/report.md`

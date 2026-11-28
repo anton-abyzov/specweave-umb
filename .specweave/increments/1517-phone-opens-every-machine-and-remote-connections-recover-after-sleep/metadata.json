@@ -5,8 +5,11 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-28T07:52:34.422Z",
-  "updated": "2026-11-28T07:52:34.422Z",
-  "lastActivity": "2026-11-28T07:52:34.422Z",
+  "updated": "2026-11-28T08:44:00.533Z",
+  "lastActivity": "2026-11-28T08:44:00.533Z",
   "title": "Phone opens every machine and remote connections recover after sleep",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
 }
