@@ -1,0 +1,13 @@
+{
+  "id": "1519-remote-desktop-several-sessions-in-their-own-windows-better-picture-then-control",
+  "uuid": "f997615a-41eb-41db-a4ef-6667c5826b56",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T08:41:09.724Z",
+  "updated": "2026-11-28T08:41:09.724Z",
+  "lastActivity": "2026-11-28T08:41:09.724Z",
+  "title": "Remote desktop: several sessions in their own windows, better picture, then control",
+  "project": "specweave-umb",
+  "externalLinks": {}
+}
