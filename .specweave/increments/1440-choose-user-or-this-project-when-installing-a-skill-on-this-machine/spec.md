@@ -2,75 +2,63 @@
 
 ## Problem
 
-On M5 (November 20, 2026) the owner opened the registry skill `rea` on the skill page and installed it on this machine. It landed in the project (`vskill.lock` entry `scope: "project"`, files under `.agents/skills/rea` with a `.claude/skills/rea` link) and the page offered no way to install it for the user instead.
+On M5 (November 20, 2026) the owner installed the registry skill `rea` on this machine. It landed in the project (`vskill.lock` entry `scope: "project"`) and nothing offered to install it for the user instead. On November 28, 2026 the owner hit the same wall in Settings > Skills for `firstproject`: the search showed `obsidian-brain` 1.0.12 from `anton-abyzov/vskill` with one Install button and nothing to choose where it goes. The owner asked for the choice at install time, a remembered default (for the user, for all projects, or for one project), and for the personal assistant to default to the user.
 
-The choice exists, but only for other machines. `SkillMachineInstall` (`apps/web/src/components/skills/SkillMachineInstall.tsx`) has "User, all projects" and "This project" radios, and `SkillAvailability.tsx:192` renders it only when `machineId` is set, which is never for this machine. "Install on several…" (`ProjectSkillFleetPush.tsx`) lists other machines only. The this-machine install in `SkillSearch.tsx` (`install()` at line 140) sends no scope: it follows whichever view is open, so it goes to the user folder only from Settings > Skills with no project picked (the `folder="~"`, `userLevel` view in `ProjectSkillsSettings.tsx:137`). Nothing on screen says that.
+The this-machine installs (`SkillSearch.tsx` `install()` and `SkillUpdateRepos.tsx` `install()`) send no scope. The server follows the open view: `SkillUpdate.ts` `runInstall` installs with `--global` from the home folder only when the request carries `userLevel`, which only the machine view (no project) sends. Nothing on screen says which one it will be.
 
-The server already supports both scopes for this machine: `SkillUpdate.ts:646` installs with `--global` from the home folder when `userLevel` is true.
+The Install button "kept spinning". The server trace for that click (November 28, 2026, 08:22:11 UTC, M5) shows the run did not hang: the `projects.skillsUpdate` call returned Success after 10.1 s (about 2.7 s of source checks, 2.3 s of `vskill install`, about 5 s of agent rescans). The client then rescanned the agents and searched again at 08:22:21. The lock entry was written at 08:22:16 into `firstproject/vskill.lock` with `scope: "project"`. The screenshot shows the pre-install state, so it was taken inside those 10 s. The real defects: 10 s with a spinner and no words, every Install button disabled meanwhile, and `install()` has no `finally`, so a thrown command would leave the buttons disabled for good.
 
-Agents are a second gap. The "Install on several…" popover hard-codes Codex, Claude Code and Cursor (`ProjectSkillFleetPush.tsx:272`), but vskill 1.2.18 on M5 refuses Cursor: `Unknown agent(s): cursor. Available: claude-code, codex, copilot-cli`. `filterAgents` (`repositories/anton-abyzov/vskill/src/utils/agent-filter.ts:18`) checks a named `--agent` against detected agents only, and M5 has no `cursor` binary on PATH. SpecWithCode also runs Grok, OpenCode, Antigravity, Pi, Gemini CLI, Muse Code and Devin; none can be picked, Muse has no vskill entry at all, Devin is marked remote-only, and there is no way to add an agent vskill does not know.
-
-Research, comparison and the per-provider folder table: [install-ux-research.md](reports/install-ux-research.md). Mockup: [install-mockup.html](reports/install-mockup.html).
+Research and the per-provider folder table: [install-ux-research.md](reports/install-ux-research.md). Mockup: [install-mockup.html](reports/install-mockup.html).
 
 ## Scope
 
-In: one install panel used for this machine and other machines, with "Who gets it" (Me, in every project / This project), machine rows with this machine first, agent chips and a one-line preview; every agent SpecWithCode runs; custom agents with a name and user and project skills folders; vskill changes to accept a named agent that is not detected and to read custom agents; tests and headless screenshots on synthetic data.
+This slice (November 28, 2026): the scope choice for every this-machine install, the remembered default with its three levels, Percy's default, progress and receipt wording, and the spinner. Mac, Windows and Linux: the run is the same `vskill install <link> -y [--global]` argv the server already spawns through the Windows-aware process runner; vskill already has `--global`, so vskill needs no change or release for this slice.
 
-Out: moving or re-scoping an existing copy (no "promote to user"); automatic removal of copies; display-only work owned by 1361; a "local" third scope; installing vskill on another machine (1399).
+Later slice (not in this increment's closure): agent chips for every agent SpecWithCode runs, custom agents, and vskill accepting a named agent that is not detected (the former AC-05 to AC-08, kept below under "Later slice" for the follow-up increment). Also later: "Also add on" for a project-scope copy (the target machine already supports `scope: "project"`; the web rollout sends User only).
+
+Out: moving or re-scoping an existing copy; automatic removal of the copy at the other scope; a third "local" scope; installing vskill on another machine (1399).
 
 ## Acceptance Criteria
 
-- [ ] AC-01: The skill page's install panel shows "Who gets it" as two choices, "Me, in every project" and "This project", each with the folder it writes under it, before any Install button. With no project open only the first is offered. The same panel serves this machine and other machines; "Install on several…" opens it.
-- [ ] AC-02: Machine rows list this machine first, checked by default, then fleet machines. Each row states its current state for the chosen scope ("Already in this project, 1.0.1", "Not installed", "Offline", "Project not added there").
-- [ ] AC-03: The skills search panel's Install buttons for this machine show the scope they will use and let the person switch it. The default follows D-01.
-- [ ] AC-04: Choosing "Me, in every project" installs with `vskill install ... --global` from the home folder; "This project" installs in the project folder. A server test asserts the vskill arguments and working folder for both, and the agent ids passed with `--agent`.
-- [ ] AC-05: The agent chips list the agents found on the checked machines first, then "Show all agents" with every provider SpecWithCode runs (Claude Code, Codex, GitHub Copilot, Cursor, Gemini CLI, Grok, OpenCode, Antigravity, Pi, Devin, Muse Code), each labelled "not detected" where vskill did not find it. Picking a not-detected agent installs into its registry folder and says so in the receipt; the hard-coded three-agent list is gone.
-- [ ] AC-06: vskill accepts an explicitly named `--agent` from its full registry and custom agents, installs with a warning "<agent> not detected, installed anyway", and still refuses an unknown id with the list of valid ids. Devin installs to its local folder when the `devin` CLI is detected.
-- [ ] AC-07: "Add a custom agent…" takes a name, a user skills folder and a project skills folder, saves it with vskill on the chosen machine, and offers "Also add on" for other machines. Folders are refused when they contain `..`, a project folder is absolute, a user folder is outside the home folder, or either points at a protected path or another agent's folder.
-- [ ] AC-08: A custom agent installs, updates and removes like a built-in one: its id is in the vskill lock entry, Settings > Skills shows its copies with their scope, and `vskill remove` cleans its folder.
-- [ ] AC-09: The preview line and the receipt state skill, version, scope in words, machines, agents and folders, matching what vskill wrote. When the skill already exists at the other scope on a machine, that row says so; nothing is removed.
+- [ ] AC-01: Every this-machine install (the search's "Available in a connected repo" rows and the connected repo list) shows "Install for" with two choices, "You, in every project" and "This project", each naming where it writes (the home folder, or the project folder). With no project open (the machine view) only the first applies and is stated. The choice is visible before Install is pressed.
+- [ ] AC-02: The request carries the chosen scope explicitly (`install.scope`). The server installs with `vskill install <link> -y --global` from the home folder for "user" and without `--global` from the project folder for "project", whatever view is open. A server test asserts argv and working folder for both, and the lock path read back. An older server that does not report the `skillInstallScope` capability gets no chooser; the panel says the install follows the view there.
+- [ ] AC-03: A remembered default with three levels, resolved in this order: the project's own setting ("Follow machine default", "You, in every project", "This project"); then the personal assistant (Percy's project) installs for you; then the machine's default; then the built-in default (D-06). The chooser starts on the resolved value and says where that value comes from.
+- [ ] AC-04: The default can be set from the chooser ("Make this the default for this project" or "for every project on <machine>") and from Settings > Skills in the machine view (the machine default). Both write the machine's settings; a project's choice goes in that project's settings overrides. Changing it needs the settings-write permission and is refused by the server without it.
+- [ ] AC-05: While an install runs, the row says "Installing <skill> for <scope words> on <machine>…" and the other rows say a run is in progress. The receipt states skill, version and the scope read back from the lock ("for you, in every project" or "for this project"). A failed or thrown run always re-enables the buttons.
+- [ ] AC-06: After a "You, in every project" install the existing "Also add on" step is offered for other machines (1399). After a "This project" install the receipt says that adding it on other machines works for skills installed for you in every project.
 
 ## Approach
 
-1. vskill first, since the app relies on it: `filterAgents` takes the full registry for named ids; a custom agent store (`~/.vskill/agents.json`, `{ id, displayName, userSkillsDir, projectSkillsDir }`) merged into `AGENTS_REGISTRY` at load; `vskill agents add|list|remove [--json]`; folder guards; lock entries keep the custom id. Release vskill before the app work that calls it.
-2. Server: one install request for this machine and the fleet push with `scope` and `agents[]`; read the agent list from `vskill agents list --json` per machine instead of a hard-coded list; `vskill agents add` behind the existing skill-change permission.
-3. Web: one `SkillInstallPanel` replaces the this-machine button, `SkillMachineInstall` scope radios and the fleet popover's agent checkboxes; logic in a tested `.logic.ts`; the search panel gets a scope toggle.
-4. Muse Code: find which folder Muse reads (T-01); if it reads none, show it as "does not load skill files" rather than offer a folder.
+1. Contracts: `SkillInstallScope = "user" | "project"`; `install.scope` on `ProjectSkillsUpdateInput`; `skillInstallScope` in `ServerSettings` (machine default) and in `ProjectSettingsOverrides`; capability `skillInstallScope`; `scope` on each install outcome, taken from the lock that was read back.
+2. Server: `runInstall` uses `install.scope` when present, else the view as before. Report the capability.
+3. Web: one tested `skillInstallScope.logic.ts` resolves the default and words; a `SkillInstallScopeChoice` control in `SkillUpdateCenter` drives both install callers; machine default control in the machine view; progress, receipt and `finally`.
 
-Risks: vskill version skew across machines (an older vskill refuses custom ids; the panel must say "update vskill on <machine>"); `SkillSearch.tsx` and `SkillUpdate*` overlap 1360's Files, so check `project_checkout_queue` and 1360 before claiming T-05 and T-06.
+Where the setting lives, and why: in each machine's server settings, with a per-project override in that machine's `projectSettingsOverrides`. Skills are per machine (decision 1399: one vskill lock per machine, Skills page shows one machine), every install runs on the machine that owns the folders, and the server already resolves per-project overrides the same way for other settings, so the default sits next to the lock it affects and works from any window viewing that machine. Percy's default is a rule, not a stored value, so it follows Percy to any machine and a project setting still wins.
 
 ## Decisions
 
 ### Asked
 - none
 ### Defaulted (change any before sw-do)
-- D-01: The scope default follows the open view (user view: Me; project view: This project), and the last choice is remembered per machine (reversible).
-- D-02: No automatic removal of the copy at the other scope; the row's menu offers Remove (reversible).
-- D-03: Pattern: Claude Code's install-time scope question in two choices, worded by who gets the skill, plus VS Code's visible per-machine rows (research report).
-- D-04: Custom agents are per machine, rolled out with the existing explicit "Also add on" step, as 1399 does for skills (reversible).
+- D-01 (replaced November 28, 2026): the owner asked for a remembered default, which replaces "follow the open view" and the research report's rejection of a default setting. One source of truth: the explicit default; no silent "last choice" memory.
+- D-02: No automatic removal of the copy at the other scope (reversible).
+- D-03: Pattern: Claude Code's install-time scope question in two choices, worded by who gets the skill (research report).
+- D-06 (owner decision, defaulted): the built-in default for a project is "This project", which matches vskill's own default and keeps a project's skills in its repository for collaborators; Percy and the machine view install for you. The owner can flip the machine default to "You, in every project" in one click.
+- D-07: The default lives in the machine's server settings with a per-project override (see Approach).
 ### Open
-- D-05 (user): where custom agents are stored. Recommended: in vskill (`~/.vskill/agents.json` plus `vskill agents add`), with the app only as a form over it, so CLI installs and the app agree and the 1399 rule "install with vskill, one lock per machine" holds. Alternative: app-only, which works sooner but leaves CLI installs unaware of custom agents.
-- D-06 (user): whether "Me, in every project" should be the default for a skill installed from the registry, even in a project view. Recommended: keep D-01 (follow the view, remember the last choice), since every choice is now visible before Install.
+- D-05 (user, later slice): where custom agents are stored. Recommended: in vskill (`~/.vskill/agents.json` plus `vskill agents add`).
 
 ## Tasks
 
-### T-01 Muse Code and Devin skill folders
-- AC: AC-05 | Files: .specweave/increments/1440-choose-user-or-this-project-when-installing-a-skill-on-this-machine/reports/ | Test: test -s .specweave/increments/1440-choose-user-or-this-project-when-installing-a-skill-on-this-machine/reports/agent-folders.md
+### T-01 Contracts and server: explicit install scope, settings keys, capability
+- AC: AC-02, AC-03, AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/contracts/src/projectSkillRepos.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/settings.ts, repositories/anton-abyzov/specwithcode/packages/contracts/src/environment.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/SkillUpdate.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/SkillUpdate.test.ts | Test: node node_modules/vite-plus/bin/vp test run apps/server/src/project/SkillUpdate.test.ts (from repositories/anton-abyzov/specwithcode)
 
-### T-02 vskill: named agents from the full registry
-- AC: AC-06 | Files: repositories/anton-abyzov/vskill/src/utils/agent-filter.ts, repositories/anton-abyzov/vskill/src/commands/add.ts, repositories/anton-abyzov/vskill/src/agents/agents-registry.ts, repositories/anton-abyzov/vskill/src/utils/agent-filter.test.ts | Test: npx vitest run src/utils/agent-filter.test.ts (from repositories/anton-abyzov/vskill)
+### T-02 Web: scope logic, chooser, default, progress and receipt
+- AC: AC-01, AC-03, AC-04, AC-05, AC-06 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/skillInstallScope.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/skillInstallScope.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillInstallScopeChoice.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillUpdateCenter.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillSearch.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillSearch.test.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillUpdateRepos.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillUpdateOutcome.tsx | Test: node node_modules/vite-plus/bin/vp test run apps/web/src/components/skills/skillInstallScope.logic.test.ts apps/web/src/components/skills/SkillSearch.test.tsx (from repositories/anton-abyzov/specwithcode/apps/web)
 
-### T-03 vskill: custom agents
-- AC: AC-07, AC-08 | Files: repositories/anton-abyzov/vskill/src/agents/custom-agents.ts, repositories/anton-abyzov/vskill/src/commands/agents.ts, repositories/anton-abyzov/vskill/src/index.ts, repositories/anton-abyzov/vskill/src/agents/custom-agents.test.ts | Test: npx vitest run src/agents/custom-agents.test.ts (from repositories/anton-abyzov/vskill)
+### T-03 Headless screenshot of the chooser on synthetic data
+- AC: AC-01, AC-05 | Files: .specweave/increments/1440-choose-user-or-this-project-when-installing-a-skill-on-this-machine/reports/ | Test: test -s .specweave/increments/1440-choose-user-or-this-project-when-installing-a-skill-on-this-machine/reports/screenshots.md
 
-### T-04 Server: scope and agents for every install, agent list from vskill
-- AC: AC-04, AC-05, AC-07 | Files: repositories/anton-abyzov/specwithcode/apps/server/src/project/SkillUpdate.ts, repositories/anton-abyzov/specwithcode/apps/server/src/project/SkillUpdate.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/machineTools/vskillTool.ts | Test: npx vitest run src/project/SkillUpdate.test.ts (from apps/server)
+## Later slice (follow-up increment)
 
-### T-05 Web: one install panel
-- AC: AC-01, AC-02, AC-05, AC-07, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillInstallPanel.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillInstallPanel.logic.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillInstallPanel.logic.test.ts, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillMachineInstall.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillAvailability.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/settings/ProjectSkillFleetPush.tsx | Test: npx vitest run src/components/skills/SkillInstallPanel.logic.test.ts (from apps/web)
-
-### T-06 Web: scope toggle in the skills search panel
-- AC: AC-03, AC-09 | Files: repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillSearch.tsx, repositories/anton-abyzov/specwithcode/apps/web/src/components/skills/SkillSearch.test.tsx | Test: npx vitest run src/components/skills/SkillSearch.test.tsx (from apps/web)
-
-### T-07 Headless screenshots on synthetic data
-- AC: AC-01, AC-02, AC-05, AC-07 | Files: .specweave/increments/1440-choose-user-or-this-project-when-installing-a-skill-on-this-machine/reports/ | Test: test -s .specweave/increments/1440-choose-user-or-this-project-when-installing-a-skill-on-this-machine/reports/screenshots.md
+Kept from the November 20 plan, not part of this increment's closure: agent chips listing every agent SpecWithCode runs with "not detected" labels; vskill accepting an explicitly named `--agent` from its full registry with a warning; custom agents with user and project folders stored by vskill and rolled out with "Also add on"; custom agents in lock entries, Settings > Skills and `vskill remove`; Muse Code and Devin skill folders; "Also add on" for project-scope copies.
