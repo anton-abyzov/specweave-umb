@@ -57,12 +57,12 @@ All rows use `confirm_delete`, with no `timeout` in the MCP config.
 |---|---|---|---|
 | `dl-stdio-legacy-none`, `dl-http-legacy-none`, `-6m`, `-11m` | legacy held call, the server SDK's default timeout | none / 6 / 11 min | The **server** gives up at **60 s**. It sends `notifications/cancelled` ("SdkError: Request timed out"), the SDK aborts `onElicitation` at 59.99 s, and the tool fails with "Request timed out". A later answer never arrives. |
 | `dl2-http-legacy-ka-6m`, `-11m`; `dl2-stdio-legacy-11m` | legacy held call, server waits 20 min, SSE keepalive every 15 s (SDK default) | 6 / 11 min | **Works** at 6 and at 11 minutes over HTTP, and at 11 minutes over stdio. |
-| `dl2-http-legacy-ka-none` | same | none | still waiting at 13.5 min: no abort, a `tool_progress` heartbeat every 30 s |
+| `dl2-http-legacy-ka-none` | same | none | no abort through 16 minutes, when the probe's 18-minute cutoff ended the run; only a `tool_progress` heartbeat every 30 s |
 | `dl2-http-legacy-noka-6m` | legacy held call, 20-min server wait, **no** keepalive | 6 min | Claude Code drops the call's SSE stream and the standalone GET stream together, about **356 s** after the call opened, and reconnects GET. The answer at 360 s still reaches the server, but the result is lost. About 95 s later the model gets: `MCP server "probe" transport dropped mid-call; response for tool "confirm_delete" was lost`. |
 | `dl2-http-legacy-noka-none` | same | none | the same stream drop at about 356 s. The SDK aborts `onElicitation` at **450 s** and the server gets `cancel`. |
 | `dl-http-modern-6m` | modern `input_required` over HTTP | 6 min | **Works.** The retry carries the answer and a 360 s-old `requestState`. |
 | `dl-http-modern-11m` | same | 11 min | The client still sends it. The probe's 10-minute `requestState` has expired, so the server refuses: "requestState expired or invalid (age 660049 ms)". This is the GitHub-style deadline. |
-| `dl-http-modern-none`, `dl-stdio-modern-none` | modern | none | still waiting at 16 min. No abort ever comes from the client, and only the heartbeat runs. |
+| `dl-http-modern-none`, `dl-stdio-modern-none` | modern | none | no abort through 17.5 minutes, when the probe's cutoff ended the run. The client never gives up on its own, and only the heartbeat runs. |
 
 The real deadlines, shortest first:
 
