@@ -15,9 +15,9 @@ In: merge each settled wake notice into the fold of the run it started, on deskt
 
 ## Acceptance Criteria
 
-- [ ] AC-01: In a settled turn, a wake notice directly above the collapsed "Worked for …" fold of the run it started shows as one row on desktop and mobile: the fold, led by the notice's own text on one line (for example `Delegated task "X" finished · Worked for 20s`). On desktop the merged row keeps the notice's "Open subagent" link when the notice reports a subagent or delegated task; on mobile the duration stays visible when the notice text is long. A failed or cancelled notice, a notice whose run is still working, a notice with no fold under it, and a notice whose fold is open keep their own row, as today. Measured with 1500's scripts, visible single rows on desktop in the 40-thread sample drop by at least 30%. The owner approves a before/after screenshot before this merges (D-01).
-- [ ] AC-02: The `task_status` description says that a task this thread delegated wakes it when it completes, so calling it in a loop while the child works is not needed (end the turn, or use `delegate_task` `mode=wait`), and that a single mid-turn read or reading the result after the wake is the expected use; a test pins the sentence (a named constant). This proves the text, not model behaviour.
-- [ ] AC-03: New tool rows from GitHub Copilot over ACP and Claude native subagent transcripts show the real tool name: an ACP update without its own title keeps the title the agent sent first, the `computer_*` tools have names, and a Claude subagent tool call whose result lands in a later root turn keeps its name, type and input. A regression test covers each source. Rows already stored keep their old title (proof limit).
+- [x] AC-01: In a settled turn, a wake notice directly above the collapsed "Worked for …" fold of the run it started shows as one row on desktop and mobile: the fold, led by the notice's own text on one line (for example `Delegated task "X" finished · Worked for 20s`). On desktop the merged row keeps the notice's "Open subagent" link when the notice reports a subagent or delegated task; on mobile the duration stays visible when the notice text is long. A failed or cancelled notice, a notice whose run is still working, a notice with no fold under it, and a notice whose fold is open keep their own row, as today. Measured with 1500's scripts, visible single rows on desktop in the 40-thread sample drop by at least 30%. The owner approves a before/after screenshot before this merges (D-01).
+- [x] AC-02: The `task_status` description says that a task this thread delegated wakes it when it completes, so calling it in a loop while the child works is not needed (end the turn, or use `delegate_task` `mode=wait`), and that a single mid-turn read or reading the result after the wake is the expected use; a test pins the sentence (a named constant). This proves the text, not model behaviour.
+- [x] AC-03: New tool rows from GitHub Copilot over ACP and Claude native subagent transcripts show the real tool name: an ACP update without its own title keeps the title the agent sent first, the `computer_*` tools have names, and a Claude subagent tool call whose result lands in a later root turn keeps its name, type and input. A regression test covers each source. Rows already stored keep their old title (proof limit).
 
 ## Approach
 
@@ -27,10 +27,18 @@ In: merge each settled wake notice into the fold of the run it started, on deskt
 - Two app pull requests: #982 (names and the description) merges when green; #978 (wake-notice merge) waits for the owner's screenshot approval.
 - Review: Muse Wonder Full 1.0 at Extra High on this plan and on each pull request, as in 1500.
 
+## Proof limits
+
+- Mobile reaches people only with a mobile build; the release request covers desktop and web.
+- Tool rows already stored keep their old "Tool" title (AC-03).
+- A Claude subagent tool call is carried over only into a later completed root turn (closing review on #982 F-03).
+- The approved screenshot predates the split that keeps the outcome word visible.
+- Follow-up C-01 (closing review): a multi-task delegated notice whose task name holds a quote pair puts task names in the non-truncating tail, which can push the mobile duration off the row. Fixed after the close review in follow-up PR #1005 (merge `946325374`): the label splits only before a short outcome.
+
 ## Decisions
 
 ### Asked
-- D-01 Fold wake notices? Owner, through the coordinator (November 27, 2026): go ahead with 1501, and send a before/after screenshot for approval before the fold merges. The adjacent-notice fold first planned here saves no row (0 of 785 notices are adjacent), so this plan merges each notice into its run's fold instead; the screenshot shows that design.
+- D-01 Fold wake notices? Owner, through the coordinator (November 27, 2026): go ahead with 1501, and send a before/after screenshot for approval before the fold merges. The adjacent-notice fold first planned here saves no row (0 of 785 notices are adjacent), so this plan merges each notice into its run's fold instead; the screenshot shows that design. The before/after screenshot went to the coordinator for the owner on November 27, 2026. The owner then wrote in this thread "complete the job! do aas recommended", which was taken as the approval; it also covers the reviewers' recommended fix that keeps the outcome word visible when a title is long, made after the screenshot.
 - D-02 Approval-required Claude threads keep pre-approving studio-code calls through the `mcp__studio-code__*` wildcard (`apps/server/src/orchestration-v2/Adapters/ClaudeAdapterV2.ts:1376`); the coordinator said to leave it unchanged (November 27, 2026).
 ### Defaulted (change any before sw-do)
 - D-03 Failed and cancelled notices keep their own row, because they report something that needs attention.

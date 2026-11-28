@@ -1,15 +1,18 @@
 {
   "id": "1501-quieter-threads-fold-wake-notices-stop-task-status-polling-name-every-tool-row",
   "uuid": "274de4dd-bf28-4c7e-9c10-d2bd9f46250a",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T06:27:21.447Z",
-  "updated": "2026-11-27T07:37:19.345Z",
-  "lastActivity": "2026-11-27T07:37:19.345Z",
+  "updated": "2026-11-28T11:14:01.308Z",
+  "lastActivity": "2026-11-28T11:14:01.308Z",
   "title": "Quieter threads: fold wake notices, stop task_status polling, name every tool row",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-28T11:14:01.307Z",
+  "approvedAt": "2026-11-28T11:14:01.308Z"
 }
