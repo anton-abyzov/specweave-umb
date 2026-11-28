@@ -1,0 +1,12 @@
+{
+  "id": "1513-open-model-track-with-your-own-key-or-a-local-model",
+  "uuid": "aebada8e-6f24-4836-bdd4-cc1d41a0178d",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T02:02:42.400Z",
+  "updated": "2026-11-28T02:02:42.400Z",
+  "lastActivity": "2026-11-28T02:02:42.400Z",
+  "title": "SpecWithCode open-model track: your own key or a local model",
+  "project": "specweave-umb"
+}
