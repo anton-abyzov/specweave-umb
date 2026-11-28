@@ -1,0 +1,15 @@
+{
+  "id": "1515-form-artifact",
+  "uuid": "7b49efbd-fa36-41a3-a4c5-c0609d1353c2",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T07:13:25.199Z",
+  "updated": "2026-11-28T07:28:51.520Z",
+  "lastActivity": "2026-11-28T07:28:51.520Z",
+  "title": "Forms artifact: build and fill forms in the app, answers land in a Sheet, Google Forms import and export later",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
