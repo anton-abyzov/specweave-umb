@@ -28,7 +28,7 @@ Every finding was checked against the code and fixed before the next round. Reco
 The machine-level proofs need M5 unlocked. They are not done.
 
 - **Not done:** the two-window screenshot (m1 plus a machine that shows "off").
-  - Why: `CGSSessionScreenIsLocked` read 1 at every check from 06:45 to 08:45 local time.
+  - Why: `CGSSessionScreenIsLocked` read 1 at every check from 06:45 to 08:35 EST.
   - Why: window capture returns nothing while the screen is locked.
 - **Not done:** the before and after measurements over Connect from M5 to m1 (AC-07, `reports/picture-measurements.md`).
   - Measurements to take: frames per second, KB per frame, and capture-to-confirm time.
