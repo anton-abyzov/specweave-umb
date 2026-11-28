@@ -101,6 +101,7 @@ Risks: the measurement depends on m1 installing the release; until then M5 can o
 ## Review
 
 - Reviewer: gemini (gemini-4-neon) on Copilot Enterprise, effort high; fallback GPT-6.2 Sol. Never Grok (memory `decision_adversarial_reviewer_model`).
+- Ran instead (November 28, 2026): meta (muse-wonder-full-1.0), effort high, in narrow slices. Both Copilot accounts were at their monthly limit (Neon), GPT-6.2 Sol answered "Selected model is at capacity" three times, and GPT-6.1 Sol and GPT-6.2 Astra failed on whole-PR and sliced runs ("Bad Request", "max_output_tokens"). Muse is cross-family for Claude-written code.
 - Depth: deep for PR 2 (security); standard for PR 1.
 - Required: yes.
 
