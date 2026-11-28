@@ -1,15 +1,18 @@
 {
   "id": "1506-ultracode-from-a-track-row-reaches-named-model-launches-and-fallback-hops",
   "uuid": "6df53916-e903-4ee5-bc4e-1803e647ced5",
-  "status": "active",
+  "status": "completed",
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-27T15:57:38.023Z",
-  "updated": "2026-11-28T06:24:22.348Z",
-  "lastActivity": "2026-11-28T06:24:22.348Z",
+  "updated": "2026-11-28T06:54:32.829Z",
+  "lastActivity": "2026-11-28T06:54:32.829Z",
   "title": "Ultracode from a track row reaches named-model launches and fallback hops",
   "project": "specweave-umb",
   "repositories": [
     "repositories/anton-abyzov/specwithcode"
-  ]
+  ],
+  "externalLinks": {},
+  "readyForReviewAt": "2026-11-28T06:54:32.828Z",
+  "approvedAt": "2026-11-28T06:54:32.829Z"
 }
