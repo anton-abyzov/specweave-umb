@@ -5,8 +5,8 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-28T07:13:25.199Z",
-  "updated": "2026-11-28T07:28:51.520Z",
-  "lastActivity": "2026-11-28T07:28:51.520Z",
+  "updated": "2026-11-28T07:43:57.790Z",
+  "lastActivity": "2026-11-28T07:43:57.790Z",
   "title": "Forms artifact: build and fill forms in the app, answers land in a Sheet, Google Forms import and export later",
   "project": "specweave-umb",
   "repositories": [
