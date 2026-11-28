@@ -1,0 +1,12 @@
+{
+  "id": "1516-cinematic-motion-deck-shader-transitions-filmic-post-and-a-rebuilt-demo",
+  "uuid": "e7b396e0-9c18-4881-a5ed-2a120e25e523",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T07:25:37.565Z",
+  "updated": "2026-11-28T07:25:37.565Z",
+  "lastActivity": "2026-11-28T07:25:37.565Z",
+  "title": "Cinematic motion deck: shader transitions, filmic post and a rebuilt demo",
+  "project": "specweave-umb"
+}
