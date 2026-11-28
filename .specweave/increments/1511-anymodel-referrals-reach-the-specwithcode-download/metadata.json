@@ -1,0 +1,16 @@
+{
+  "id": "1511-anymodel-referrals-reach-the-specwithcode-download",
+  "uuid": "0fb347c8-eb0b-442b-b166-b3324361d7ce",
+  "status": "active",
+  "type": "feature",
+  "priority": "P1",
+  "created": "2026-11-28T02:02:36.566Z",
+  "updated": "2026-11-28T07:36:35.075Z",
+  "lastActivity": "2026-11-28T07:36:35.075Z",
+  "title": "Referrals from anymodel.dev are counted through to the SpecWithCode download",
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specweave",
+    "repositories/anton-abyzov/specwithcode"
+  ]
+}
