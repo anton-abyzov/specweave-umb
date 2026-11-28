@@ -59,7 +59,7 @@ Out:
   - View: Reload, Actual Size, Zoom In, Zoom Out, Enter Full Screen;
   - Window: Minimize, Zoom, Close.
 
-  Show App in Finder and Uninstall call the installer's `reveal` and `uninstall`. Command-Q quits the shim, which closes only that page; SpecWithCode keeps running.
+  Show App in Finder calls the installer's `reveal`. Uninstall asks the page's window to show its Uninstall confirm. When the page does not answer within a second, or has no window or crashed, a native confirm opens as a sheet on its window, then calls `uninstall` (owner feedback, November 27, 2026; specwithcode PR #1000). Command-Q quits the shim, which closes only that page; SpecWithCode keeps running.
 - [ ] AC-05: **One lifetime.** Closing the page window quits its shim, so no Dock icon is left with no window. Uninstall closes the window and quits the shim. A click on the shim's Dock icon, or a second launch, focuses its window, or reopens it if it is gone.
 - [ ] AC-06: **Reopen after restart.** When SpecWithCode quits, the install ids of open shim windows are written to `artifact-apps-reopen.json` (0600). At the next start, after the main window exists, each id that is still recorded and whose launcher is still owned is opened again by launching its bundle. The file is then removed.
 - [ ] AC-07: **Existing launchers are upgraded.** At start on macOS with shims available, each recorded install is rebuilt as a shim through the same staging, ownership check, sign and swap path. This covers a script launcher, and a shim whose recorded host path is no longer the running app. A launcher that is not owned (changed by hand or missing) is left alone and logged. A failed upgrade keeps the old launcher working.
@@ -109,6 +109,7 @@ Risks:
 - D-02: Closing the page window quits its shim (single-window app), rather than leaving a windowless Dock icon. Reversible.
 - D-03: A cold launch by a page shows SpecWithCode normally (no accessory mode). Reversible.
 - D-04: Signing or hash-read failure fails a shim install with the generic install error, instead of writing an unchecked bundle.
+- D-05: Owner feedback after release (November 27, 2026). The same page installed twice (a page with the same title in another thread) now asks first: Open <Name> (default), Install another copy, or Cancel. Uninstall is out of the page header: it sits in the window's More menu and the macOS app menu, both behind one confirm with Cancel as the default. Show in folder was removed from the header (PR #995). Reversible.
 ### Open
 - none
 
