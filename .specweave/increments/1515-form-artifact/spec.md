@@ -79,7 +79,17 @@ Rejected:
 
 Risks: a person renaming a question splits its answers into a new column (same as Google Forms' linked sheet before a relink); noted in the editor's help text. When the responses Sheet is missing, the window makes it with the expected revision `NEW_FILE_REVISION` ("new-file"), which both Sheet writers refuse as a conflict once the file exists, so a Sheet another window made meanwhile, with its answers, is never replaced; a machine on an older version refuses the marker, and then the Sheet is made by a plain write once. Two questions with the same title get numbered columns (" (2)"), and deleting or moving one of them can move which column its answers go to; the editor warns on a shared title.
 
-Review round 1 (Claude Opus 5.5 on m4, after Gemini 4 Neon failed and GPT-6.2 Sol was at capacity): no blockers; five should-fix findings fixed in `35e009f48` (create-only Sheet, unique headers with "Submitted at" reserved, a new "Responses" tab instead of writing into another tab, one autosave at a time, 5,000-character answers kept whole). Nits left for later: the fill-in view resets when the form changes on disk mid-answer; a submit whose reply is lost can be sent twice; `responsesSheetPath` turns a backslash into a slash on Linux too.
+Review round 1 (Claude Opus 5.5 on m4, after Gemini 4 Neon failed and GPT-6.2 Sol was at capacity): no blockers; five should-fix findings fixed in `35e009f48` (create-only Sheet, unique headers with "Submitted at" reserved, a new "Responses" tab instead of writing into another tab, one autosave at a time, 5,000-character answers kept whole). Review round 2 (GPT-6.2 Sol on m4, cross-family): verdict fix, 2 blockers. Fixed in `8ba4ccb69`:
+- A create-only Sheet is published by hard link, or by an exclusive copy where links are unsupported, so it never replaces a file. Submissions never make the Sheet with a plain write.
+- New forms and responses Sheets are made through `openInside`.
+- The "Responses" tab is matched without case, and existing header styles are kept.
+- Fill in uses the saved form, and an edit waiting for its timer is saved when the view closes.
+- UNC roots resolve, and the count reads the "Submitted at" column.
+
+Left for later:
+- Thread artifact links pass the thread's worktree as the folder for every office artifact, so a form or Sheet written to the project root opens read-only from a worktree thread. This is shared routing.
+- The fill-in view resets when the form changes on disk mid-answer.
+- A submit whose reply is lost can be sent twice.
 
 ## Decisions
 
