@@ -94,4 +94,8 @@ Rejected:
 
 - AC: AC-02, AC-03, AC-04, AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpUrlElicitation.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpUrlElicitation.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpElicitation.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/ClaudeFormResponses.ts, repositories/anton-abyzov/specwithcode/apps/server/src/orchestration-v2/Orchestrator.claudeForms.test.ts | Test: node node_modules/vite-plus/bin/vp test run packages/shared/src/mcpElicitationUrl.test.ts apps/server/src/provider/ClaudeMcpUrlElicitation.test.ts apps/server/src/orchestration-v2/Orchestrator.claudeForms.test.ts
 
+### T-07 Review round 2 fixes
+
+- AC: AC-03, AC-05 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpUrlElicitation.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpUrlElicitation.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpElicitation.ts | Test: node node_modules/vite-plus/bin/vp test run packages/shared/src/mcpElicitationUrl.test.ts apps/server/src/provider/ClaudeMcpUrlElicitation.test.ts
+
 Verify and close 1498.
