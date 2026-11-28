@@ -77,7 +77,9 @@ Rejected:
 - Storing answers inside the form file: they would grow the file, collide with edits to the form and need their own viewer.
 - A server RPC for appends in phase 1: the guarded file write already gives compare-and-set and filesystem scope checks. Phase 3 (answers arriving while no window is open) needs a server-side append and adds it then.
 
-Risks: a person renaming a question splits its answers into a new column (same as Google Forms' linked sheet before a relink); noted in the editor's help text. When the responses Sheet is missing and two windows submit at once, both may try to create it header-only; the second create fails, its loop reads the first one's Sheet and appends by revision, so no answer is lost, but the create is not locked.
+Risks: a person renaming a question splits its answers into a new column (same as Google Forms' linked sheet before a relink); noted in the editor's help text. When the responses Sheet is missing, the window makes it with the expected revision `NEW_FILE_REVISION` ("new-file"), which both Sheet writers refuse as a conflict once the file exists, so a Sheet another window made meanwhile, with its answers, is never replaced; a machine on an older version refuses the marker, and then the Sheet is made by a plain write once. Two questions with the same title get numbered columns (" (2)"), and deleting or moving one of them can move which column its answers go to; the editor warns on a shared title.
+
+Review round 1 (Claude Opus 5.5 on m4, after Gemini 4 Neon failed and GPT-6.2 Sol was at capacity): no blockers; five should-fix findings fixed in `35e009f48` (create-only Sheet, unique headers with "Submitted at" reserved, a new "Responses" tab instead of writing into another tab, one autosave at a time, 5,000-character answers kept whole). Nits left for later: the fill-in view resets when the form changes on disk mid-answer; a submit whose reply is lost can be sent twice; `responsesSheetPath` turns a backslash into a slash on Linux too.
 
 ## Decisions
 
