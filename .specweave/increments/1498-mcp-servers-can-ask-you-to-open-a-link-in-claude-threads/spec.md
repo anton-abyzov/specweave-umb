@@ -68,6 +68,10 @@ Rejected:
 
 - none
 
+## Review
+
+- Reviewer: GPT-6.2 Sol (Codex) on m4, four rounds, last verdict ship at `cb9ec6724`, its two remaining should-fixes fixed in `696b653fb` (T-09). Gemini 4 Neon was out of its monthly quota and Sol on M5 was at capacity, so the review ran on m4's Codex. Findings and responses: `reports/review.md`.
+
 ## Tasks
 
 ### T-01 URL validation and lookalike check
@@ -101,5 +105,9 @@ Rejected:
 ### T-08 Review round 3 fixes
 
 - AC: AC-03, AC-06 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.test.ts, repositories/anton-abyzov/specwithcode/apps/server/src/provider/ClaudeMcpUrlElicitation.ts | Test: node node_modules/vite-plus/bin/vp test run packages/shared/src/mcpElicitationUrl.test.ts
+
+### T-09 Review round 4 fixes
+
+- AC: AC-03 | Files: repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.ts, repositories/anton-abyzov/specwithcode/packages/shared/src/mcpElicitationUrl.test.ts | Test: node node_modules/vite-plus/bin/vp test run packages/shared/src/mcpElicitationUrl.test.ts
 
 Verify and close 1498.
