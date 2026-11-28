@@ -5,8 +5,12 @@
   "type": "feature",
   "priority": "P1",
   "created": "2026-11-28T07:25:37.565Z",
-  "updated": "2026-11-28T07:25:37.565Z",
-  "lastActivity": "2026-11-28T07:25:37.565Z",
+  "updated": "2026-11-28T11:59:42.554Z",
+  "lastActivity": "2026-11-28T11:59:42.554Z",
   "title": "Cinematic motion deck: shader transitions, filmic post and a rebuilt demo",
-  "project": "specweave-umb"
+  "project": "specweave-umb",
+  "repositories": [
+    "repositories/anton-abyzov/specwithcode"
+  ],
+  "externalLinks": {}
 }
