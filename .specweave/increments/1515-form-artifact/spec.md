@@ -91,6 +91,19 @@ Left for later:
 - The fill-in view resets when the form changes on disk mid-answer.
 - A submit whose reply is lost can be sent twice.
 
+Review rounds 3 to 8 (GPT-6.2 Sol): fixes in `fbc154899`, `31b1711e2`, `fb79367c8`, `633714a96` and `e70468287`:
+- A new Sheet is staged through the checked folder and renamed in only while its name is free, under the Sheet writer lock. `form_write`'s create takes the same lock.
+- One native path drives the routing, the lock, the staging copy and the destination, never through a link.
+- An edit let go with "Load the saved form" is never saved on close.
+- Header styles are checked by their one-cell key and the 200-range budget.
+- The leftmost "Submitted at" column is used, and the folder of the responses Sheet follows the host's path rules.
+
+Round 8 verdict: ship at `e70468287` (`reports/reviews/sol-round8.md`).
+
+Accepted limits:
+- A program outside the app can still write between the free-name check and the rename. Every compare-and-set save in the app has this window.
+- `openInside` can leave an empty file behind when a folder is swapped during its open. Node has no `openat`.
+
 ## Decisions
 
 ### Asked
